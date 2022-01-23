@@ -1,0 +1,2 @@
+### Prépa Stat
+Prépa Stat est un site web aidant les étudiants de CPGE dans leur orientation. Nous proposons des statistiques sur les écoles, un simulateur d'admissibilité et nous reprenons dans un seul endroit les plus grands classements des écoles d'ingénieur.

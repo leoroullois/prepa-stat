@@ -1,0 +1,10 @@
+@import "../scss/extends";
+@import "../scss/mixins";
+@import "../scss/variables";
+#simulator {
+    flex-grow:1;
+    padding-top: 30px;
+}
+h1 {
+    text-align: center;
+}

@@ -1,0 +1,10 @@
+@import "../scss/extends";
+@import "../scss/mixins";
+@import "../scss/variables";
+#no-page {
+    min-height: 100vh;
+    padding-top: 30px;
+}
+h1 {
+    text-align: center;
+}

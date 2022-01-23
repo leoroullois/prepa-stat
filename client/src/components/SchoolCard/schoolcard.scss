@@ -1,0 +1,189 @@
+@import "../scss/extends";
+@import "../scss/mixins";
+@import "../scss/variables";
+
+.school-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+	position: fixed;
+	inset: 0;
+	margin: 7% 10%;
+	padding: 40px;
+	border-radius: 15px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+	.down-icon {
+		color: $main-red;
+	}
+	.up-icon {
+		color: $main-green;
+	}
+	.equal-icon {
+		color: $main-gray;
+	}
+	.card-content {
+		display: flex;
+		flex-wrap: wrap;
+		height: 80%;
+        column-gap:80px;
+	}
+	#card-header {
+		display: flex;
+		margin-top: 20px;
+		justify-content: flex-end;
+		column-gap: 20px;
+	}
+	.card-leaderboard {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-end;
+		font-size: 1.5rem;
+		font-weight: bold;
+		.card-leaderboard-title {
+            color: $main-pink;
+			margin-right: 30px;
+		}
+		.card-leaderboard-content {
+			font-size: 3rem;
+			line-height: 2.5rem;
+			span {
+				color: $main-gray;
+				font-size: 1rem;
+			}
+		}
+	}
+	.card-band {
+		display: flex;
+		align-items: center;
+		position: absolute;
+		top: -0.5 * $nav-height;
+		left: -30px;
+		padding: 10px 30px;
+		width: 50%;
+		height: $nav-height;
+		background-color: $dark-blue;
+		border-radius: 6px;
+		font-size: 1.5rem;
+		font-weight: bold;
+		h2 {
+			font-size: 1.8rem;
+			color: $main-white;
+		}
+		.card-band-link-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			right: -15px;
+			bottom: -15px;
+			height: 40px;
+			width: 40px;
+			cursor: pointer;
+			border-radius: 6px;
+			background-color: #fff;
+			box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+		}
+		.card-band-link {
+			color: $main-black;
+			font-size: 1.5rem;
+		}
+	}
+	.integres {
+		flex-grow: 1;
+        margin:0;
+		font-size: 1.1rem;
+        h3 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top:15;
+        }
+	}
+    .integres-item {
+        display: grid;
+        grid-template-rows: 50px;
+        grid-template-columns: 80% 20%;
+        align-items: center;
+        padding: 0 5px;
+        height: 50px;
+        width: 100%;
+        &:hover {
+            background-color: rgba(black,.05);
+        }
+    }
+    .integres-item p {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 1.2rem;
+        span {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    }
+    .card-icon {
+        align-self:center;
+        justify-self:right;
+    }
+	.other-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+		flex-grow: 2;
+        h3 {
+            font-size:1.5rem;
+            text-align:center;
+            margin-top:15;
+        }
+	}
+    .card-subnav-container {
+        width: 100%;
+        #sub-nav {
+            padding: 0;
+        }
+    }
+    .bar {
+        height: 2px;
+        width: 100%;
+        border-radius: 10px;
+    }
+    .other-content {
+        display: flex;
+        justify-content: center;
+        width: 300px;
+        p {
+            width: 100%;
+        }
+        div {
+            display: none;
+        }
+        .active {
+            display: flex;
+        }
+    }
+    .favorite-icon-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right:-20px;
+        top:-20px;
+        height: 60px;
+        width: 60px;
+        border-radius: 6px;
+        background-color: #292929;
+        .favorite-icon {
+            font-size: 2rem;
+            color: $main-yellow;
+        }
+    }
+}
+#card-blur {
+    display: none;
+	-webkit-backdrop-filter: blur(1px);
+	background-color: rgba(black, 0.2);
+	backdrop-filter: blur(1px);
+	position: fixed;
+	inset: 0;
+}

@@ -1,0 +1,257 @@
+.school-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: fixed;
+  inset: 0;
+  margin: 7% 10%;
+  padding: 40px;
+  border-radius: 15px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+          box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.school-card .down-icon {
+  color: #f12c2c;
+}
+.school-card .up-icon {
+  color: #20e97a;
+}
+.school-card .equal-icon {
+  color: #5E6268;
+}
+.school-card .card-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 80%;
+  -webkit-column-gap: 80px;
+     -moz-column-gap: 80px;
+          column-gap: 80px;
+}
+.school-card #card-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+}
+.school-card .card-leaderboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.school-card .card-leaderboard .card-leaderboard-title {
+  color: #bb24a7;
+  margin-right: 30px;
+}
+.school-card .card-leaderboard .card-leaderboard-content {
+  font-size: 3rem;
+  line-height: 2.5rem;
+}
+.school-card .card-leaderboard .card-leaderboard-content span {
+  color: #5E6268;
+  font-size: 1rem;
+}
+.school-card .card-band {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  padding: 10px 30px;
+  width: 50%;
+  height: 60px;
+  background-color: #3568FF;
+  border-radius: 6px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.school-card .card-band h2 {
+  font-size: 1.8rem;
+  color: #f1f1f1;
+}
+.school-card .card-band .card-band-link-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  right: -15px;
+  bottom: -15px;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: #fff;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+          box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+.school-card .card-band .card-band-link {
+  color: #1b1b1b;
+  font-size: 1.5rem;
+}
+.school-card .integres {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 0;
+  font-size: 1.1rem;
+}
+.school-card .integres h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 15;
+}
+.school-card .integres-item {
+  display: grid;
+  grid-template-rows: 50px;
+  grid-template-columns: 80% 20%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 5px;
+  height: 50px;
+  width: 100%;
+}
+.school-card .integres-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.school-card .integres-item p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  font-size: 1.2rem;
+}
+.school-card .integres-item p span {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.school-card .card-icon {
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: right;
+}
+.school-card .other-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+}
+.school-card .other-container h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 15;
+}
+.school-card .card-subnav-container {
+  width: 100%;
+}
+.school-card .card-subnav-container #sub-nav {
+  padding: 0;
+}
+.school-card .bar {
+  height: 2px;
+  width: 100%;
+  border-radius: 10px;
+}
+.school-card .other-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 300px;
+}
+.school-card .other-content p {
+  width: 100%;
+}
+.school-card .other-content div {
+  display: none;
+}
+.school-card .other-content .active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.school-card .favorite-icon-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 6px;
+  background-color: #292929;
+}
+.school-card .favorite-icon-container .favorite-icon {
+  font-size: 2rem;
+  color: #f1c40f;
+}
+
+#card-blur {
+  display: none;
+  -webkit-backdrop-filter: blur(1px);
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(1px);
+  position: fixed;
+  inset: 0;
+}/*# sourceMappingURL=schoolcard.css.map */

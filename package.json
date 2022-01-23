@@ -1,0 +1,49 @@
+{
+  "name": "prepa-stat",
+  "version": "1.0.0",
+  "description": "Site web aidant les élèves de CPGE dans leur orientation",
+  "main": "server.js",
+  "scripts": {
+    "watch": "nodemon server.ts",
+    "start": "cd client && npm run start",
+    "build": "tsc --project ./",
+    "client-build": "cd client && npm run buil",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leoroullois/prepa-stat.git"
+  },
+  "keywords": [
+    "SCEI",
+    "CPGE",
+    "MP",
+    "PC",
+    "PT",
+    "PSI",
+    "MPSI",
+    "PTSI",
+    "PCSI"
+  ],
+  "author": "Leyo & LighTender",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leoroullois/prepa-stat/issues"
+  },
+  "homepage": "https://github.com/leoroullois/prepa-stat#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "mongodb": "^4.3.1",
+    "mongoose": "^6.1.7"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.10",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
+  }
+}

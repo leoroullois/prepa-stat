@@ -1,0 +1,108 @@
+@import "../scss/extends";
+@import "../scss/mixins";
+@import "../scss/variables";
+#login {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	margin: 0 auto;
+	padding: 30px 0;
+	width: 100%;
+	max-width: $form-width;
+	h1 {
+		text-align: left;
+		margin-bottom: 0px;
+	}
+	h2 {
+		opacity: 0.65;
+		margin-top: 10px;
+	}
+}
+
+#login-form {
+	display: flex;
+	flex-direction: column;
+	input {
+		padding: 10px 30px;
+		margin: 10px 0 20px 0;
+	}
+	input[type="email"],
+	input[type="password"] {
+		background-color: white;
+		border: 1px solid rgba(black, 0.3);
+		border-radius: 6px;
+		font-size: 0.9rem;
+	}
+	label {
+		font-weight: bold;
+		font-size: 1.1rem;
+	}
+}
+#login-remember-forgot-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+#login-remember-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 1.5rem;
+	font-weight: bold;
+	input {
+        background-color: inherit;
+		margin: auto;
+		height: 1rem;
+		width: 1rem;
+		margin-right: 0.5rem;
+	}
+}
+#login-forgot {
+	font-weight: bold;
+	color: $main-black;
+	text-decoration: none;
+}
+#login-submit {
+	background-color: $dark-blue;
+	color: $main-white;
+	font-weight: bold;
+	border: none;
+	border-radius: 6px;
+	padding: 15px 0;
+	font-size: 1.2rem;
+	transition: background-color 0.1s ease-in;
+	margin-top: 20px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+	&:hover {
+		background-color: $darkest-blue;
+	}
+}
+#login-with-google {
+	background-color: $main-white;
+	border: 1px solid $main-gray;
+	font-weight: bold;
+	border-radius: 6px;
+	padding: 15px 0;
+	font-size: 1.2rem;
+	transition: background-color 0.1s ease-in;
+	margin-top: 20px;
+	&:hover {
+		background-color: rgb(230, 230, 230);
+	}
+}
+
+#no-account {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-weight: bold;
+	p {
+		opacity: 0.7;
+		margin-right: 10px;
+	}
+	a {
+		color: inherit;
+		opacity: 1;
+	}
+}

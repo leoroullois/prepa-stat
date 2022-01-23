@@ -1,0 +1,38 @@
+@import "../scss/extends";
+@import "../scss/mixins";
+@import "../scss/variables";
+
+#sub-nav {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap:wrap;
+	margin: 30px auto;
+	height: auto;
+	width: 100%;
+	.subnav-link {
+		text-decoration: none;
+		color: inherit;
+		min-width: 70px;
+		text-align: center;
+		margin: 0 10px;
+		line-height: 40px;
+	}
+	.active {
+		border-bottom: 1px solid $main-blue;
+	}
+}
+@media screen and #{$mobileL} {
+	#sub-nav .active {
+		border: 1px solid $main-blue;
+	}
+}
+@media screen and #{$mobileM} {
+	#sub-nav .active {
+		border: 1px solid $main-blue;
+	}
+}
+@media screen and #{$mobileS} {
+	#sub-nav .active {
+		border: 1px solid $main-blue;
+	}
+}

@@ -1,0 +1,33 @@
+import { combineReducers, createStore, compose } from "redux";
+// import { layoutReducer } from "./components/Layout/reducer";
+import { leaderboardReducer } from "./components/Leaderboard/reducer";
+import { statsReducer } from "./components/Stats/reducer";
+import { subNavReducer } from "./components/SubNav/reducer";
+import { navBarReducer } from "./components/NavBar/reducer";
+import { loginReducer } from "./components/Login/reducer";
+import { registerReducer } from "./components/Register/reducer";
+import {layoutReducer} from "./components/Layout/reducer";
+import { resNavBarReducer } from './components/ResponsiveNavBar/reducer';
+declare global {
+	interface Window {
+		__REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+	}
+}
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const rootReducer = combineReducers({
+	layout:layoutReducer,
+	leaderboard: leaderboardReducer,
+	stats: statsReducer,
+	subNav: subNavReducer,
+	navBar: navBarReducer,
+	login: loginReducer,
+	register: registerReducer,
+	resNavBar:resNavBarReducer,
+});
+export const store = createStore(rootReducer, composeEnhancers());
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>;
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch;

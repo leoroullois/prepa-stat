@@ -11,8 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leoroullois/prepa-stat.git"
+    "type": "git"
   },
   "keywords": [
     "SCEI",
@@ -27,10 +26,6 @@
   ],
   "author": "Leyo & LighTender",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/leoroullois/prepa-stat/issues"
-  },
-  "homepage": "https://github.com/leoroullois/prepa-stat#readme",
   "dependencies": {
     "body-parser": "^1.19.1",
     "cors": "^2.8.5",

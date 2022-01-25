@@ -5,17 +5,17 @@ import "./layout.css";
 // Redux
 import { connect } from "react-redux";
 import { RootState, AppDispatch } from "../../store";
-import { dropdownStatAction } from "../NavBar/action";
+import { dropdownStatAction } from "../../components/NavBar/action";
 import { resizeAction } from "./action";
-import { closeAction } from "../ResponsiveNavBar/action";
+import { closeAction } from "../../components/ResponsiveNavBar/action";
 
 /** Dark Mode */
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./theme";
 import { GlobalStyles } from "./global";
-import { Footer } from "../Footer/Footer";
-import { NavBar } from "../NavBar/NavBar";
-import { ResponsiveNavBar } from "../ResponsiveNavBar/ResponsiveNavBar";
+import { Footer } from "../../components/Footer/Footer";
+import { NavBar } from "../../components/NavBar/NavBar";
+import { ResponsiveNavBar } from "../../components/ResponsiveNavBar/ResponsiveNavBar";
 // ? REACT
 export interface ILayoutProps {
 	reset: (pValue: boolean) => void;

@@ -1,5 +1,5 @@
 import React from "react";
-import { MathFunction } from "../../Graphs/MathFunction";
+import { MathFunction } from "../../../components/Graphs/MathFunction";
 export class General extends React.Component {
     render() {
         return (

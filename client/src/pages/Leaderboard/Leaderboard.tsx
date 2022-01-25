@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { RootState, AppDispatch } from "../../store";
 import { leaderboardAction } from "./action";
 
-import { SubNav } from "../SubNav/SubNav";
+import { SubNav } from "../../components/SubNav/SubNav";
 
 // ? REACT
 export interface IProps {

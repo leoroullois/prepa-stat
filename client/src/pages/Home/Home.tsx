@@ -1,6 +1,6 @@
 import React from "react";
 import "./home.css";
-import { SchoolCard } from "../SchoolCard/SchoolCard";
+import { SchoolCard } from "../../components/SchoolCard/SchoolCard";
 export interface IHomeProps {}
 export interface IHomeState {
 	msg: string;
@@ -55,6 +55,7 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
 				<button onClick={this.handleAPI}>
 					Appel API test
 				</button>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum est voluptates, voluptate quibusdam animi fugiat ut asperiores nihil itaque quidem fugit reprehenderit, modi facilis error cupiditate iste et corporis voluptas?</p>
 				<p>{this.state.msg}</p>
 			</div>
 		);

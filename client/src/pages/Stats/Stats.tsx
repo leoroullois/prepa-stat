@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { statsAction } from "./action";
 import { RootState, AppDispatch } from "../../store";
 /**Components */
-import { SubNav } from "../SubNav/SubNav";
+import { SubNav } from "../../components/SubNav/SubNav";
 import {General} from "./Sector/General";
 import { X } from "./Sector/X";
 import { Ens } from "./Sector/Ens";

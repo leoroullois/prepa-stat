@@ -1,12 +1,12 @@
 import { combineReducers, createStore, compose } from "redux";
 // import { layoutReducer } from "./components/Layout/reducer";
-import { leaderboardReducer } from "./components/Leaderboard/reducer";
-import { statsReducer } from "./components/Stats/reducer";
+import { leaderboardReducer } from "./pages/Leaderboard/reducer";
+import { statsReducer } from "./pages/Stats/reducer";
 import { subNavReducer } from "./components/SubNav/reducer";
 import { navBarReducer } from "./components/NavBar/reducer";
-import { loginReducer } from "./components/Login/reducer";
+import { loginReducer } from "./pages/Login/reducer";
 import { registerReducer } from "./components/Register/reducer";
-import {layoutReducer} from "./components/Layout/reducer";
+import {layoutReducer} from "./pages/Layout/reducer";
 import { resNavBarReducer } from './components/ResponsiveNavBar/reducer';
 declare global {
 	interface Window {

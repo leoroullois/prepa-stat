@@ -74,7 +74,7 @@ class Presentational extends React.Component<
 				id='card-blur'
 				className={this.props.data.nom.replace(" ", "-").toLowerCase()}
 			>
-				<div className='school-card' style={style}>
+				<section className='school-card' style={style}>
 					<div className='favorite-icon-container'>
 						<FaStar className='favorite-icon' />
 					</div>
@@ -177,7 +177,7 @@ class Presentational extends React.Component<
 							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 			</div>
 		);
 	}

@@ -32,7 +32,7 @@ class Presentational extends React.Component<ILoginProps, ILoginState> {
 	}
 	render() {
 		return (
-			<div id='login'>
+			<main id='login'>
 				<h1>Se connecter</h1>
 				<h2>Content de vous revoir !</h2>
 				<form action='' id='login-form'>
@@ -83,7 +83,7 @@ class Presentational extends React.Component<ILoginProps, ILoginState> {
 					<p>Pas de compte ?</p>
 					<Link to='/s-enregistrer'>S'enregistrer</Link>
 				</div>
-			</div>
+			</main>
 		);
 	}
 }

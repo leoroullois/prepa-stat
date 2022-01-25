@@ -23,10 +23,7 @@ export interface ISideNavProps {
 	style: { marginLeft: string };
 	layout?: any;
 }
-class Presentational extends React.Component<
-	ISideNavProps,
-	ISideNavState
-> {
+class Presentational extends React.Component<ISideNavProps, ISideNavState> {
 	constructor(props: ISideNavProps) {
 		super(props);
 		this.closeNav = this.closeNav.bind(this);

@@ -34,7 +34,7 @@ class Presentational extends React.Component<IRegisterProps, IRegisterState> {
 	}
 	render() {
 		return (
-			<div id='register'>
+			<main id='register'>
 				<h1>S'enregistrer</h1>
 				<h2>Bienvenue sur PrépaStat !</h2>
 				<form action='' id='register-form'>
@@ -85,7 +85,7 @@ class Presentational extends React.Component<IRegisterProps, IRegisterState> {
 					<p>Vous avez déjà un compte ?</p>
 					<Link to='/se-connecter'>Se connecter</Link>
 				</div>
-			</div>
+			</main>
 		);
 	}
 }

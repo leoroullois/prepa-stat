@@ -29,7 +29,7 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
 	}
 	render() {
 		return (
-			<div id='home'>
+			<main id='home'>
 				<h1>Accueil</h1>
 				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
@@ -57,7 +57,7 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
 				</button>
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum est voluptates, voluptate quibusdam animi fugiat ut asperiores nihil itaque quidem fugit reprehenderit, modi facilis error cupiditate iste et corporis voluptas?</p>
 				<p>{this.state.msg}</p>
-			</div>
+			</main>
 		);
 	}
 }

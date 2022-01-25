@@ -20,7 +20,7 @@ class App extends React.Component {
 				<BrowserRouter>
 					<Routes>
 						<Route path='/' element={<Layout />}>
-							<Route index element={<Home />} />
+							<Route index element={<Home />}/>
 							{/* MP */}
 							<Route
 								path='statistiques/mp/generale'

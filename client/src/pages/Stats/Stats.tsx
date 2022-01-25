@@ -7,7 +7,7 @@ import { statsAction } from "./action";
 import { RootState, AppDispatch } from "../../store";
 /**Components */
 import { SubNav } from "../../components/SubNav/SubNav";
-import {General} from "./Sector/General";
+import { General } from "./Sector/General";
 import { X } from "./Sector/X";
 import { Ens } from "./Sector/Ens";
 import { Centrale } from "./Sector/Centrale";
@@ -27,37 +27,54 @@ export interface IState {}
 export class Presentational extends React.Component<IProps, IState> {
 	drawChart() {}
 	render() {
-		const arr:any[] = [<General />,<X/>,<Ens/>,<Centrale/>,<Mines/>,<Ccinp/>,<E3a/>];
+		const arr: any[] = [
+			<General />,
+			<X />,
+			<Ens />,
+			<Centrale />,
+			<Mines />,
+			<Ccinp />,
+			<E3a />,
+		];
 		interface Elements {
-			generale:typeof arr[0] ;
-			x:typeof arr[1],
-			ens: typeof arr[2],
-			centrale: typeof arr[3],
-			mines:typeof arr[4],
-			ccinp: typeof arr[5],
-			e3a: typeof arr[6]
+			generale: typeof arr[0];
+			x: typeof arr[1];
+			ens: typeof arr[2];
+			centrale: typeof arr[3];
+			mines: typeof arr[4];
+			ccinp: typeof arr[5];
+			e3a: typeof arr[6];
 		}
-		const elements:Elements = {
+		const elements: Elements = {
 			generale: <General />,
-			x:<X/>,
-			ens:<Ens/>,
-			centrale:<Centrale/>,
-			mines:<Mines/>,
-			ccinp:<Ccinp/>,
-			e3a:<E3a/>
-		}
+			x: <X />,
+			ens: <Ens />,
+			centrale: <Centrale />,
+			mines: <Mines />,
+			ccinp: <Ccinp />,
+			e3a: <E3a />,
+		};
 		return (
-			<div id='stats'>
-				<h1>
-					Statistiques : filière {this.props.filiere}.
-				</h1>
-				<SubNav
-					links={["Générale", "X", "ENS", "Centrale", "Mines", "CCINP", "E3A"]}
-					path={"statistiques/" + this.props.filiere.toLowerCase()} changeUrl={true}
-				/>
+			<main id='stats'>
+				<header>
+					<h1>Statistiques : filière {this.props.filiere}.</h1>
+					<SubNav
+						links={[
+							"Générale",
+							"X",
+							"ENS",
+							"Centrale",
+							"Mines",
+							"CCINP",
+							"E3A",
+						]}
+						path={"statistiques/" + this.props.filiere.toLowerCase()}
+						changeUrl={true}
+					/>
+				</header>
 				<div className='bar'></div>
 				{elements[this.props.subNav.active as keyof Elements]}
-			</div>
+			</main>
 		);
 	}
 }
@@ -67,7 +84,7 @@ const mapStateToProps = (state: RootState) => {
 		stats: state.stats,
 		leaderboard: state.leaderboard,
 		subNav: state.subNav,
-		navBar:state.navBar,
+		navBar: state.navBar,
 	};
 };
 const mapDispatchToProps = (dispatch: AppDispatch) => {

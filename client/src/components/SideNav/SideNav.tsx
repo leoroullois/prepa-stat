@@ -1,6 +1,6 @@
 import React from "react";
 /**CSS */
-import "./responsivenavbar.css";
+import "./sidenav.css";
 /**Redux */
 import { connect } from "react-redux";
 import { RootState, AppDispatch } from "../../store";
@@ -14,20 +14,20 @@ import { MdLeaderboard, MdScience } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { VscRunAll } from "react-icons/vsc";
 import { GiMaterialsScience } from "react-icons/gi";
-export interface IResponsiveNavBarState {
+export interface ISideNavState {
 	opened: boolean;
 }
-export interface IResponsiveNavBarProps {
+export interface ISideNavProps {
 	resetSubNav: (pNewSection: string, pClasses: string[], pPage: string) => void;
 	close: () => void;
 	style: { marginLeft: string };
 	layout?: any;
 }
 class Presentational extends React.Component<
-	IResponsiveNavBarProps,
-	IResponsiveNavBarState
+	ISideNavProps,
+	ISideNavState
 > {
-	constructor(props: IResponsiveNavBarProps) {
+	constructor(props: ISideNavProps) {
 		super(props);
 		this.closeNav = this.closeNav.bind(this);
 	}
@@ -59,7 +59,7 @@ class Presentational extends React.Component<
 	}
 	render() {
 		return (
-			<nav id='nav-responsive' style={this.props.style}>
+			<nav id='side-nav' style={this.props.style}>
 				<h2>
 					<div className='close-icon'>
 						<IoClose id='close-icon' />
@@ -157,7 +157,7 @@ const mapDispatchToProps = (dispatch: AppDispatch) => {
 		close: () => dispatch(closeAction()),
 	};
 };
-export const ResponsiveNavBar = connect(
+export const SideNav = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(Presentational);

@@ -3,11 +3,12 @@ import bodyParser from "body-parser";
 
 import mongoose from "mongoose";
 import { Schools } from "../../models/Schools";
+import { Users } from "../../models/Users";
 
 export const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }));
 
-router.get("/", (req, res) => {
-	console.log(`${req.method} /api/schools${req.path} - ${req.ip}`);
-	res.json({ test: "Hello World" });
+router.get("/hello", (req, res) => {
+	console.log(`${req.method} /api/users${req.path} - ${req.ip}`);
+    res.json();
 });

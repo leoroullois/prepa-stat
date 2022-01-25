@@ -1,7 +1,7 @@
-@import "../scss/extends";
-@import "../scss/mixins";
-@import "../scss/variables";
-#nav-responsive {
+@import "../../scss/extends";
+@import "../../scss/mixins";
+@import "../../scss/variables";
+#side-nav {
     display: flex;
     flex-direction: column;
     background-color: $main-white;

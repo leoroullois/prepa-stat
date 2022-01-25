@@ -18,7 +18,7 @@ import {
 	dropdownStatAction,
 	toggleAction,
 } from "./action";
-import { openAction } from "../ResponsiveNavBar/action";
+import { openAction } from "../SideNav/action";
 import { chooseAction } from "../SubNav/action";
 export interface IProps {
 	toggleDarkMode: (pValue: boolean) => void;

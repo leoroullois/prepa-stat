@@ -4,8 +4,10 @@ import bodyParser from "body-parser";
 import { connectDb } from "./config/db";
 import path from "path";
 import dotenv from "dotenv";
-import { router as schools } from "./routes/api/schools";
 dotenv.config({ path: "./config/.env" });
+
+import { router as schools } from "./routes/api/schools";
+import {router as users} from "./routes/api/users";
 
 const app = express();
 connectDb();
@@ -19,7 +21,7 @@ app.get("/api/hello", (_req: any, res: any) => {
 });
 
 app.use("/api/schools", schools);
-
+app.use("/api/users",users);
 app.get("/*", (req: any, res: any) => {
 	res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });

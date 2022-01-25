@@ -5,9 +5,9 @@ import { statsReducer } from "./pages/Stats/reducer";
 import { subNavReducer } from "./components/SubNav/reducer";
 import { navBarReducer } from "./components/NavBar/reducer";
 import { loginReducer } from "./pages/Login/reducer";
-import { registerReducer } from "./components/Register/reducer";
+import { registerReducer } from "./pages/Register/reducer";
 import {layoutReducer} from "./pages/Layout/reducer";
-import { resNavBarReducer } from './components/ResponsiveNavBar/reducer';
+import { sideNavReducer } from './components/SideNav/reducer';
 declare global {
 	interface Window {
 		__REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
@@ -24,7 +24,7 @@ const rootReducer = combineReducers({
 	navBar: navBarReducer,
 	login: loginReducer,
 	register: registerReducer,
-	resNavBar:resNavBarReducer,
+	resNavBar:sideNavReducer,
 });
 export const store = createStore(rootReducer, composeEnhancers());
 // Infer the `RootState` and `AppDispatch` types from the store itself

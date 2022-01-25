@@ -1,9 +1,0 @@
-#home {
-  height: 100vh;
-}
-
-@media (min-width:768px) and (max-width:1024px) {
-  #home {
-    background-color: #fff;
-  }
-}/*# sourceMappingURL=home.css.map */

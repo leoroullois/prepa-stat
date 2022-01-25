@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { RootState, AppDispatch } from "../../store";
 import { dropdownStatAction } from "../../components/NavBar/action";
 import { resizeAction } from "./action";
-import { closeAction } from "../../components/ResponsiveNavBar/action";
+import { closeAction } from "../../components/SideNav/action";
 
 /** Dark Mode */
 import { ThemeProvider } from "styled-components";
@@ -15,7 +15,7 @@ import { lightTheme, darkTheme } from "./theme";
 import { GlobalStyles } from "./global";
 import { Footer } from "../../components/Footer/Footer";
 import { NavBar } from "../../components/NavBar/NavBar";
-import { ResponsiveNavBar } from "../../components/ResponsiveNavBar/ResponsiveNavBar";
+import { SideNav } from "../../components/SideNav/SideNav";
 // ? REACT
 export interface ILayoutProps {
 	reset: (pValue: boolean) => void;
@@ -75,7 +75,7 @@ class Presentational extends React.Component<ILayoutProps, ILayoutState> {
 				<GlobalStyles />
 				<div id='layout' onClick={this.handleClick}>
 					<NavBar />
-					<ResponsiveNavBar style={style} />
+					<SideNav style={style} />
 					<Outlet />
 					<Footer />
 				</div>

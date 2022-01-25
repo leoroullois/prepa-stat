@@ -4,7 +4,7 @@ import { Home } from "../Home/Home";
 import { Stats } from "../Stats/Stats";
 import { Leaderboard } from "../Leaderboard/Leaderboard";
 import { Simulator } from "../Simulator/Simulator";
-import { Register } from "../../components/Register/Register";
+import { Register } from "../Register/Register";
 import { Login } from "../Login/Login";
 /**React-route */
 import { BrowserRouter, Routes, Route } from "react-router-dom";

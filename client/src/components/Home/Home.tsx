@@ -2,11 +2,17 @@ import React from "react";
 import "./home.css";
 import { SchoolCard } from "../SchoolCard/SchoolCard";
 export interface IHomeProps {}
-export interface IHomeState {}
-export class Home extends React.Component {
+export interface IHomeState {
+	msg: string;
+}
+export class Home extends React.Component<IHomeProps, IHomeState> {
 	constructor(props: IHomeProps) {
 		super(props);
+		this.state = {
+			msg: "",
+		};
 		this.handleClick = this.handleClick.bind(this);
+		this.handleAPI=this.handleAPI.bind(this);
 	}
 	handleClick(e: React.MouseEvent) {
 		e.preventDefault();
@@ -15,6 +21,11 @@ export class Home extends React.Component {
 			".ecole-polytechnique"
 		) as HTMLDivElement;
 		ecole.style.display = "flex";
+	}
+	async handleAPI() {
+		const data = await fetch("/api/hello");
+		const json = await data.json();
+		this.setState({msg:json.text})
 	}
 	render() {
 		return (
@@ -41,6 +52,10 @@ export class Home extends React.Component {
 					}}
 					maxPlace={196}
 				/>
+				<button onClick={this.handleAPI}>
+					Appel API test
+				</button>
+				<p>{this.state.msg}</p>
 			</div>
 		);
 	}

@@ -1,11 +1,16 @@
+import mongoDB, { MongoClient } from "mongodb";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+import { callbackify } from "util";
+dotenv.config();
 
-export const connectDb = async () => {
-	const URI = process.env.MONGO_URI || "" as string;
+export const connectDb = async (callback: () => Promise<void>) => {
 	try {
-		await mongoose.connect(URI);
-		console.log("⚡️[MongoDB]: MongoDB is connected.");
-	} catch (err) {
-		return console.log("Failed to connect to MongoDB.", err);
+		await mongoose.connect(process.env.MONGO_URI || "");
+		console.log("MongoDB is connected.");
+		await callback();
+	} catch (e) {
+		console.error("Failed to connect to mongoDB\n", e);
+		process.exit(1);
 	}
 };

@@ -72,7 +72,7 @@ def scrap(annee,filiere):
     tableau = ["ecole\t","inscrits_nb\t","inscrits_filles\t","inscrits_cinq_demi\t","admissibles_nb\t","admissibles_filles\t","admissibles_cinq_demi\t","classes_nb\t","classes_filles\t","classes_cinq_demi\t","integres_nb\t","integres_filles\t","integres_cinq_demi\t","integres_rg_médian\t","integres_rg_moyen\t","places\n"]
 
     # ? On ecrit tout les données dans le fichier
-    with codecs.open("../"+annee+"/"+annee+"_"+filiere+".tsv", 'w', encoding='utf-8') as f:
+    with codecs.open(annee+"/"+annee+"_"+filiere+".tsv", 'w', encoding='utf-8') as f:
         m = ""
         for i in range(len(tableau)):
             m += tableau[i]

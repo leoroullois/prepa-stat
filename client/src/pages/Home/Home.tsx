@@ -1,5 +1,5 @@
 import React from "react";
-import axios, { Axios, AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 import "./home.css";
 import { SchoolCard } from "../../components/SchoolCard/SchoolCard";
 export interface IHomeProps {}

@@ -6,16 +6,16 @@
   "scripts": {
     "watch": "nodemon server.ts",
     "start": "cd client && npm run start",
-    "backend-build":"tsc --project ./",
+    "backend-build": "tsc --project ./",
     "client-build": "cd client && npm run build",
     "build": "npm run backend-build && npm run client-build",
-    "install-client":"cd client && npm install",
-    "heroku-postbuild":"npm run install-client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "scrap": "cd lib && python3 scrap.py",
     "parse": "cd lib && ts-node parse.mts"
   },
   "engines": {
-    "node":"14.x"
+    "node": "14.x"
   },
   "repository": {
     "type": "git"
@@ -53,7 +53,7 @@
     "@types/d3": "^7.1.0",
     "@types/express": "^4.17.13",
     "@types/express-session": "^1.17.4",
-    "@types/node": "^17.0.10",
+    "@types/node": "^16.11.21",
     "@types/passport": "^1.0.7",
     "@types/passport-local": "^1.0.34",
     "nodemon": "^2.0.15",

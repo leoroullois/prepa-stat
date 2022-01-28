@@ -1,4 +1,5 @@
 import React from "react";
+import axios, { Axios, AxiosResponse } from "axios";
 import "./home.css";
 import { SchoolCard } from "../../components/SchoolCard/SchoolCard";
 export interface IHomeProps {}
@@ -12,7 +13,7 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
 			msg: "",
 		};
 		this.handleClick = this.handleClick.bind(this);
-		this.handleAPI=this.handleAPI.bind(this);
+		this.handleAPI = this.handleAPI.bind(this);
 	}
 	handleClick(e: React.MouseEvent) {
 		e.preventDefault();
@@ -25,7 +26,13 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
 	async handleAPI() {
 		const data = await fetch("/api/hello");
 		const json = await data.json();
-		this.setState({msg:json.text})
+		this.setState({ msg: json.text });
+	}
+	componentDidMount() {
+		axios.get("/api/schools").then((res:AxiosResponse) => {
+			const {data} = res;
+			this.setState({msg:data[0].ecole})
+		});
 	}
 	render() {
 		return (
@@ -52,10 +59,13 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
 					}}
 					maxPlace={196}
 				/>
-				<button onClick={this.handleAPI}>
-					Appel API test
-				</button>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum est voluptates, voluptate quibusdam animi fugiat ut asperiores nihil itaque quidem fugit reprehenderit, modi facilis error cupiditate iste et corporis voluptas?</p>
+				<button onClick={this.handleAPI}>Appel API test</button>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum est
+					voluptates, voluptate quibusdam animi fugiat ut asperiores nihil
+					itaque quidem fugit reprehenderit, modi facilis error cupiditate iste
+					et corporis voluptas?
+				</p>
 				<p>{this.state.msg}</p>
 			</main>
 		);

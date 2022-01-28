@@ -1,25 +1,44 @@
 import express, { Router, Request, Response } from "express";
 import bodyParser from "body-parser";
-import { Collection } from "mongodb";
-import { parseAllFiles } from "../../lib/parse";
-import path from "path";
+
+import { Schools } from "../../models/Schools";
+
 export const schools = (router: Router) => {
 	router.use(bodyParser.urlencoded({ extended: false }));
 	router.use(express.json());
 	router
 		.route("/")
 		.get((req: Request, res: Response) => {
-			const { year, cpge } = req.query;
-			if (year) {
-				res.json({ year });
+			const { annee, filiere } = req.query;
+			if (annee && filiere) {
+				Schools.find({ annee, filiere })
+					.then((schools) => res.json(schools))
+					.catch((err) => console.error(err));
+			} else if (annee) {
+				Schools.find({ annee })
+					.then((schools) => res.json(schools))
+					.catch((err) => console.error(err));
+			} else if (filiere) {
+				Schools.find({ filiere })
+					.then((schools) => res.json(schools))
+					.catch((err) => console.error(err));
+			} else {
+				Schools.find({})
+					.then((schools) => res.json(schools))
+					.catch((err) => console.error(err));
 			}
-			const parsedFiles = parseAllFiles(
-				["2021_mp", "2021_pc", "2021_psi", "2021_pt"],
-				path.join(__dirname, "../../lib/2021")
-			);
-			res.send(parsedFiles[1][0]);
 		})
-		.post((req: Request, res: Response) => {
-			res.send({ test: "hello world" });
+		.post((req, res) => {
+			const school = req.body;
+			Schools.exists(school)
+				.then((exist) => {
+					if (exist) {
+						return console.log("This school is already in the db");
+					}
+					Schools.create(school)
+						.then((mySchool) => res.json(mySchool))
+						.catch((err) => console.error(err));
+				})
+				.catch((err) => console.error(err));
 		});
 };

@@ -25,7 +25,7 @@ export const parseFile = (fileName: string, inputPath: string) => {
 		data.annee = year;
 		data.filiere = cpge;
 		for (const property in data) {
-			data[property] = data[property].replace("*", "");
+			data[property] = data[property].replace(/\*/g, "");
 			if (!data[property]) {
 				delete data[property];
 			}

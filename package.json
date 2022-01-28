@@ -4,8 +4,9 @@
   "description": "Site web aidant les élèves de CPGE dans leur orientation",
   "main": "server.js",
   "scripts": {
-    "watch": "nodemon server.ts",
-    "start": "cd client && npm run start",
+    "start":"cd build && node server.js",
+    "start:backend": "nodemon server.ts",
+    "start:client": "cd client && npm run start",
     "backend-build": "tsc --project ./",
     "client-build": "cd client && npm run build",
     "build": "npm run backend-build && npm run client-build",

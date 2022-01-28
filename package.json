@@ -10,7 +10,8 @@
     "client-build": "cd client && npm run build",
     "build": "npm run backend-build && npm run client-build",
     "install-client": "cd client && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "heroku-client":"cd build && mkdir client && cd .. && cp -R client/build/ build/client",
+    "heroku-postbuild": "npm run install-client && npm run build && npm run heroku-client",
     "scrap": "cd lib && python3 scrap.py",
     "parse": "cd lib && ts-node parse.mts"
   },

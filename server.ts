@@ -27,7 +27,7 @@ const postToDb = (year: number, cpge: string) => {
 	const inputPath = join(__dirname, `lib/${year}`);
 	const parsedFile = parseFile(fileName, inputPath);
 	for (const school of parsedFile) {
-		fetch(`http://localhost:5000/api/schools`, {
+		fetch(`${process.env.PUBLIC_URL}:${PORT}/api/schools`, {
 			method: "post",
 			body: JSON.stringify(school),
 			headers: { "Content-Type": "application/json" },
@@ -78,5 +78,5 @@ connectDb(async () => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-	console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+	console.log(`⚡️[server]: Server is running at ${process.env.PUBLIC_URL}:${PORT}`);
 });

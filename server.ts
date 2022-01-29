@@ -70,7 +70,7 @@ connectDb(async () => {
 	 * React
 	 */
 	app.get("/*", (req: Request, res: Response) => {
-		res.sendFile(join(__dirname, "./client/build/index.html"));
+		res.sendFile(join(__dirname, "./build/index.html"));
 	});
 
 	// postToDb(2021, "pt");

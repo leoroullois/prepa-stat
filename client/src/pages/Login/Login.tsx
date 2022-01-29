@@ -35,7 +35,7 @@ class Presentational extends React.Component<ILoginProps, ILoginState> {
 			<main id='login'>
 				<h1>Se connecter</h1>
 				<h2>Content de vous revoir !</h2>
-				<form action='' id='login-form'>
+				<form action='/se-connecter' method='post' id='login-form'>
 					<label htmlFor='login-email' id='login-email-label'>
 						Email
 					</label>

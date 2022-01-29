@@ -37,7 +37,7 @@ class Presentational extends React.Component<IRegisterProps, IRegisterState> {
 			<main id='register'>
 				<h1>S'enregistrer</h1>
 				<h2>Bienvenue sur PrépaStat !</h2>
-				<form action='' id='register-form'>
+				<form action='/s-enregistrer' method="post" id='register-form'>
 					<label htmlFor='register-username' id='username'>
 						Nom d'utilisateur
 					</label>

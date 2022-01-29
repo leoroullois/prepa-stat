@@ -12,8 +12,8 @@ dotenv.config({ path: "./config/.env" });
 import { connectDb } from "./config/db";
 import { users } from "./routes/api/users";
 import { schools } from "./routes/api/schools";
-import { login } from "./routes/auth/login";
-import { register } from "./routes/auth/register";
+import { authRoutes } from "./routes/auth";
+import { auth } from "./controllers/auth";
 import { parseFile } from "./lib/parse";
 const fetch = require("node-fetch");
 
@@ -55,28 +55,29 @@ connectDb(async () => {
 	const schoolsRouter = express.Router();
 	app.use("/api/schools", schoolsRouter);
 	schools(schoolsRouter);
-	/**	
+	/**
 	 * Auth API endpoint
 	 */
-	const loginRouter = express.Router();
-	app.use("/auth/login",loginRouter);
-	login(loginRouter);
-
-	const registerRouter = express.Router();
-	app.use("/auth/register",registerRouter);
-	register(registerRouter);
+	const authRouter = express.Router();
+	app.use("/", authRouter);
+	authRoutes(authRouter);
+	auth();
 
 	/**
 	 * React
 	 */
 	app.get("/*", (req: Request, res: Response) => {
-		res.sendFile(join(__dirname, "./build/index.html"));
+		res.sendFile(join(__dirname, "./build/build/index.html"));
 	});
-
+	app.get("/api/hello", (req: Request, res: Response) => {
+		res.send("Hello world");
+	});
 	// postToDb(2021, "pt");
 });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-	console.log(`⚡️[server]: Server is running at ${process.env.PUBLIC_URL}:${PORT}`);
+	console.log(
+		`⚡️[server]: Server is running at ${process.env.PUBLIC_URL}:${PORT}`
+	);
 });

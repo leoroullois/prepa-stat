@@ -20,7 +20,7 @@ const fetch = require("node-fetch");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.use(express.static("client/build"));
+app.use(express.static("build/build"));
 
 const postToDb = (year: number, cpge: string) => {
 	const fileName = `${year}_${cpge}`;

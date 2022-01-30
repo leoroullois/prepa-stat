@@ -4,7 +4,6 @@ import { IUsers, Users } from "../models/Users";
 import { Strategy as LocalStrategy } from "passport-local";
 import bcrypt from "bcrypt";
 import { ObjectId } from "mongodb";
-import { response } from "express";
 declare global {
 	namespace Express {
 		interface User {
@@ -32,7 +31,7 @@ export const auth = () => {
 			Users.findOne({ email })
 				.then((user: IUsers | null) => {
 					if (!user) {
-						response.json();
+						return done(null,false);
 					} else {
 						if (!bcrypt.compareSync(password, user.password)) {
 							return done(null, false);

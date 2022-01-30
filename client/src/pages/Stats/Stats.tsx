@@ -3,8 +3,8 @@ import React from "react";
 import "./stats.css";
 /**Redux */
 import { connect } from "react-redux";
-import { statsAction } from "./action";
-import { RootState, AppDispatch } from "../../store";
+import { printStat } from "./action";
+import { RootState } from "../../store";
 /**Components */
 import { SubNav } from "../../components/SubNav/SubNav";
 import { General } from "./Sector/General";
@@ -87,12 +87,11 @@ const mapStateToProps = (state: RootState) => {
 		navBar: state.navBar,
 	};
 };
-const mapDispatchToProps = (dispatch: AppDispatch) => {
-	return {
-		printStat: () => dispatch(statsAction()),
-	};
-};
+const dispatchToProps = {
+	printStat
+}
+
 export const Stats = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	dispatchToProps
 )(Presentational);

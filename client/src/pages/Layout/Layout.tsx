@@ -4,10 +4,8 @@ import { Outlet } from "react-router-dom";
 import "./layout.css";
 // Redux
 import { connect } from "react-redux";
-import { RootState, AppDispatch } from "../../store";
-import { dropdownStatAction } from "../../components/NavBar/action";
-import { resizeAction } from "./action";
-import { closeAction } from "../../components/SideNav/action";
+import { RootState } from "../../store";
+import { reset, resize, close } from "./action";
 
 /** Dark Mode */
 import { ThemeProvider } from "styled-components";
@@ -95,15 +93,9 @@ const mapStateToProps = (state: RootState) => {
 		resNavBar: state.resNavBar,
 	};
 };
-const mapDispatchToProps = (dispatch: AppDispatch): ILayoutProps => {
-	return {
-		reset: (pValue: boolean) => dispatch(dropdownStatAction(pValue)),
-		resize: (pWidth: number, pHeight: number) =>
-			dispatch(resizeAction(pWidth, pHeight)),
-		close: () => dispatch(closeAction()),
-	};
+const dispatchToProps = {
+	reset,
+	resize,
+	close,
 };
-export const Layout = connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(Presentational);
+export const Layout = connect(mapStateToProps, dispatchToProps)(Presentational);

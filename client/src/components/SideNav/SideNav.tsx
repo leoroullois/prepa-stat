@@ -3,9 +3,8 @@ import React from "react";
 import "./sidenav.css";
 /**Redux */
 import { connect } from "react-redux";
-import { RootState, AppDispatch } from "../../store";
-import { chooseAction } from "../SubNav/action";
-import { closeAction } from "./action";
+import { RootState } from "../../store";
+import { resetSubNav, close } from "./action";
 /**react-icons */
 import { IoClose } from "react-icons/io5";
 import { AiFillApi, AiFillCalculator, AiFillHome } from "react-icons/ai";
@@ -147,14 +146,11 @@ const mapStateToProps = (state: RootState) => {
 		layout: state.layout,
 	};
 };
-const mapDispatchToProps = (dispatch: AppDispatch) => {
-	return {
-		resetSubNav: (pNewSection: string, pClasses: string[], pPage: string) =>
-			dispatch(chooseAction(pNewSection, pClasses, pPage)),
-		close: () => dispatch(closeAction()),
-	};
+const dispatchToProps = {
+	resetSubNav,
+	close,
 };
 export const SideNav = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	dispatchToProps
 )(Presentational);

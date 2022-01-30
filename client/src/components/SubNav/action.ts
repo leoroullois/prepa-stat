@@ -22,11 +22,22 @@ export const chooseAction = (
 			page: pPage,
 		};
 	} else {
-        return {
-            type: CHOOSE_SUB_SECTION,
-            newSection: pNewSection,
-            classes: pClasses,
-            page: pPage,
-        };
-    }
+		return {
+			type: CHOOSE_SUB_SECTION,
+			newSection: pNewSection,
+			classes: pClasses,
+			page: pPage,
+		};
+	}
 };
+// chooseSubSection: (
+// 	pNewSection: string,
+// 	pClasses: string[],
+// 	pPage: string
+// ) => dispatch(chooseAction(pNewSection, pClasses, pPage)),
+
+export const chooseSubSection =
+	(pNewSection: string, pClasses: string[], pPage: string) =>
+	(dispatch: any) => {
+		dispatch(chooseAction(pNewSection, pClasses, pPage));
+	};

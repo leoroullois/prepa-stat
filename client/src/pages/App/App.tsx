@@ -4,8 +4,8 @@ import { Home } from "../Home/Home";
 import { Stats } from "../Stats/Stats";
 import { Leaderboard } from "../Leaderboard/Leaderboard";
 import { Simulator } from "../Simulator/Simulator";
-import { Register } from "../Register/Register";
-import { Login } from "../Login/Login";
+import { Register } from "../auth/Register";
+import { Login } from "../auth/Login";
 /**React-route */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NoPage } from "../NoPage/NoPage";
@@ -19,8 +19,8 @@ class App extends React.Component {
 			<Provider store={store}>
 				<BrowserRouter>
 					<Routes>
-						<Route path='/' element={<Layout />}>
-							<Route index element={<Home />}/>
+						<Route path='/' element={<Layout/>}>
+							<Route index element={<Home/>}/>
 							{/* MP */}
 							<Route
 								path='statistiques/mp/generale'

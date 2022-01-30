@@ -1,7 +1,5 @@
-import mongoDB, { MongoClient } from "mongodb";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { callbackify } from "util";
 dotenv.config();
 
 export const connectDb = async (callback: () => Promise<void>) => {

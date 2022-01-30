@@ -3,19 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "@types/axios": "^0.14.0",
     "@types/jest": "^27.4.0",
     "@types/node": "^16.11.21",
     "@types/react": "^17.0.38",
-    "@types/react-redux": "^7.1.22",
-    "@types/react-router-dom": "^5.3.3",
-    "@types/styled-components": "^5.1.21",
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
     "@types/react-dom": "^17.0.11",
+    "@types/react-redux": "^7.1.22",
+    "@types/styled-components": "^5.1.21",
     "axios": "^0.25.0",
+    "classnames": "^2.3.1",
     "d3": "^7.3.0",
+    "jwt-decode": "^3.1.2",
     "nth-check": ">=2.0.1",
     "postcss": ">=8.2.13",
     "react": "^17.0.2",
@@ -24,6 +25,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.3",
     "typescript": "^4.5.5",
     "web-vitals": "^2.1.4"
@@ -52,5 +54,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3"
   }
 }

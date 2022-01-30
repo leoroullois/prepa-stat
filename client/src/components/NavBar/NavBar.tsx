@@ -11,8 +11,8 @@ import { IoMenu } from "react-icons/io5";
 /**CSS */
 import "./navbar.css";
 /** Redux */
-import { connect } from "react-redux";
-import { RootState, AppDispatch } from "../../store";
+import { connect, MapDispatchToProps } from "react-redux";
+import { RootState } from "../../store";
 import {
 	dropdownLeaderboardAction,
 	dropdownStatAction,
@@ -93,6 +93,7 @@ class Presentational extends React.Component<IProps, IState> {
 				<Link className='nav-logo' to='/' id='nav-logo'>
 					PrépaStat
 				</Link>
+				<p>{localStorage.getItem("connected")}</p>
 				{this.props.layout.width >= 1024 && (
 					<Link className='link basic-link' to='/'>
 						Accueil
@@ -147,7 +148,7 @@ class Presentational extends React.Component<IProps, IState> {
 	}
 }
 // ? REDUX
-const mapStateToProps = (state: RootState) => {
+const mapStateToProps= (state: RootState) => {
 	return {
 		stats: state.stats,
 		leaderboard: state.leaderboard,
@@ -156,7 +157,9 @@ const mapStateToProps = (state: RootState) => {
 		layout: state.layout,
 	};
 };
-const mapDispatchToProps = (dispatch: AppDispatch): IProps => {
+const mapDispatchToProps: MapDispatchToProps<IProps, {}> = (
+	dispatch
+): IProps => {
 	return {
 		resetSubNav: (pNewSection: string, pClasses: string[], pPage: string) =>
 			dispatch(chooseAction(pNewSection, pClasses, pPage)),

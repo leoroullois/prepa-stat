@@ -7,3 +7,7 @@ export const statsAction = ():statsType => {
         type: DISPLAY_STAT
     }
 }
+// printStat: () => dispatch(statsAction()),
+export const printStat = () => (dispatch:any) => {
+    dispatch(statsAction())
+}

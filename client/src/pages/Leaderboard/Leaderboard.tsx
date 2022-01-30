@@ -3,8 +3,8 @@ import React from "react";
 import "./leaderboard.css";
 // Redux
 import { connect } from "react-redux";
-import { RootState, AppDispatch } from "../../store";
-import { leaderboardAction } from "./action";
+import { RootState } from "../../store";
+import { printStat } from "./action";
 
 import { SubNav } from "../../components/SubNav/SubNav";
 
@@ -44,12 +44,10 @@ const mapStateToProps = (state: RootState) => {
 		navBar:state.navBar,
 	};
 };
-const mapDispatchToProps = (dispatch: AppDispatch) => {
-	return {
-		printStat: () => dispatch(leaderboardAction()),
-	};
-};
+const dispatchToProps = {
+	printStat
+}
 export const Leaderboard = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	dispatchToProps
 )(Presentational);

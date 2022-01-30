@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "./subnav.css";
 // Redux
 import { connect } from "react-redux";
-import { RootState, AppDispatch } from "../../store";
-import { chooseAction } from "./action";
+import { RootState } from "../../store";
+import { chooseSubSection } from "./action";
 export interface IProps {
 	chooseSubSection: (
 		pNewSection: string,
@@ -136,16 +136,7 @@ const mapStateToProps = (state: RootState) => {
 		navBar: state.navBar,
 	};
 };
-const mapDispatchToProps = (dispatch: AppDispatch) => {
-	return {
-		chooseSubSection: (
-			pNewSection: string,
-			pClasses: string[],
-			pPage: string
-		) => dispatch(chooseAction(pNewSection, pClasses, pPage)),
-	};
+const dispatchToProps = {
+	chooseSubSection,
 };
-export const SubNav = connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(Presentational);
+export const SubNav = connect(mapStateToProps, dispatchToProps)(Presentational);

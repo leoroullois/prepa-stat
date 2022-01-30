@@ -126,7 +126,7 @@
 
 .dropdown-content {
   position: absolute;
-  top: calc(0.7 * 60px);
+  top: 42px;
   right: 0;
   min-width: 180px;
 }

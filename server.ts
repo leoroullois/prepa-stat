@@ -18,6 +18,7 @@ import { parseFile } from "./lib/parse";
 const fetch = require("node-fetch");
 
 const app = express();
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.static("build/build"));
@@ -32,6 +33,7 @@ app.use(
 app.use(passport.initialize());
 passportConfig(passport);
 app.use(passport.session());
+
 const postToDb = (year: number, cpge: string) => {
 	const fileName = `${year}_${cpge}`;
 	const inputPath = join(__dirname, `lib/${year}`);
@@ -54,6 +56,7 @@ connectDb(async () => {
 	 */
 	console.log("⚡️[MongoDB]: Successfully connected to the collection users.");
 	const usersRouter = express.Router();
+	usersRouter.use(bodyParser.urlencoded({ extended: false }));
 	app.use("/api/users", usersRouter);
 	users(usersRouter);
 	/**

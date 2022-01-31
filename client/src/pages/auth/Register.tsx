@@ -43,10 +43,14 @@ const Presentational = (props: any) => {
 		console.log("User :",User);
 		props.registerUser(User, navigate);
 	};
+	const handleClick = () => {
+		console.log("ofhrogh");
+		navigate("/")
+	}
 	return (
 		<main id='register'>
 
-			<h1>S'enregistrer</h1>
+			<h1 onClick={handleClick}>S'enregistrer</h1>
 			<h2>Bienvenue sur PrépaStat !</h2>
 			<form
 				action='/s-enregistrer'

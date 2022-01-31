@@ -5,26 +5,32 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./type";
 
 // Register User
 export const registerUser =
-	(userData: any, navigate: any) => (dispatch: any) => {
-		console.log("userDATA:",userData);
-		axios
-			.post("/s-enregistrer", userData)
-			// axios({
-			// 	method: "post",
-			// 	url: "/s-enregistrer",
-			// 	data: userData,
-			// })
-			.then((res) => {
-				console.log("Successfully logged in.");
-				navigate("/se-connecter");
-			}) // re-direct to login on successful register
-			.catch((err) => {
-				console.log("Error when registered.");
-				return dispatch({
-					type: GET_ERRORS,
-					payload: err.response.data,
-				});
+	(userData: any, navigate: any) => async (dispatch: any) => {
+		console.log("userDATA:", userData);
+		try {
+			const req = await axios.post("/s-enregistrer", userData);
+			console.log("Successfully logged in.", req.data);
+			dispatch(setCurrentUser(userData));
+			navigate("/");
+		} catch (err: any) {
+			console.log("Error when registered.", err);
+			return dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data,
 			});
+		}
+
+		// .then((res) => {
+		// 	console.log("Successfully logged in.");
+		// 	navigate("/");
+		// }) // re-direct to login on successful register
+		// .catch((err) => {
+		// 	console.log("Error when registered.");
+		// 	return dispatch({
+		// 		type: GET_ERRORS,
+		// 		payload: err.response.data,
+		// 	});
+		// });
 	};
 // Login - get user token
 export const loginUser = (userData: any) => (dispatch: any) => {

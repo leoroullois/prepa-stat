@@ -12,7 +12,6 @@ import bodyParser from "body-parser";
 dotenv.config({ path: "../config" });
 
 export const authRoutes = (router: Router) => {
-	router.use(bodyParser.urlencoded({ extended: true }));
 	const ensureAuthentification = (req: Request, res: Response, next: any) => {
 		if (req.isAuthenticated()) {
 			console.log("Already authenticated");
@@ -23,15 +22,16 @@ export const authRoutes = (router: Router) => {
 	};
 
 	router.post("/se-connecter", (req, res, next) => {
-		console.log(`${req.method} /api/users${req.path} - ${req.ip}`);
+		console.log(`${req.method} ${req.path} - ${req.ip}`);
 		console.log("BODY : ", req.body);
-		// form validation
+		//form validation
+		console.log("VALIDATION :", validateLoginInput(req.body));
 		const { errors, isValid } = validateLoginInput(req.body);
 		// Check validation
 		if (!isValid) {
 			return res.status(400).json(errors);
 		}
-		const { email, password } = req.body;
+		const { email, password, remember } = req.body;
 		// Find user by email
 		Users.findOne({ email }).then((user) => {
 			if (!user) {
@@ -50,7 +50,7 @@ export const authRoutes = (router: Router) => {
 						payload,
 						process.env.SESSION_SECRET || "secret",
 						{
-							expiresIn: 31556926, // one year in seconds
+							expiresIn: remember ? 31556926 : 0, // one year in seconds
 						},
 						(err, token) => {
 							res.json({
@@ -68,7 +68,7 @@ export const authRoutes = (router: Router) => {
 		});
 	});
 	router.post("/s-enregistrer", (req: Request, res: Response, next: any) => {
-		console.log(`${req.method} /api/users${req.path} - ${req.ip}`);
+		console.log(`${req.method} ${req.path} - ${req.ip}`);
 		console.log("BODY :", req.body);
 		// Form validation
 		const { errors, isValid } = validateRegisterInput(req.body);
@@ -90,12 +90,13 @@ export const authRoutes = (router: Router) => {
 						if (err) throw err;
 						Users.create({
 							_id: new ObjectId(),
-							name:req.body.name,
+							name: req.body.name,
 							email: req.body.email,
 							password: hash,
 						})
 							.then((user) => {
 								res.json(user);
+								// return res.redirect("/se-connecter");
 							})
 							.catch((err) => console.error(err));
 					});

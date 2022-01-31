@@ -11,11 +11,13 @@ export interface ILoginState {
 	remember: boolean;
 	errors: any;
 }
-// interface ILoginProps {
-// 	login?: any;
-// }
-const Presentational = (props: any) => {
-	let navigate = useNavigate();
+interface ILoginProps {
+	loginUser?:any
+	auth: any;
+	errors: any;
+}
+const Presentational = (props: ILoginProps) => {
+	// let navigate = useNavigate();
 	const [state, setState]: [ILoginState, any] = useState({
 		email: "",
 		password: "",
@@ -28,10 +30,10 @@ const Presentational = (props: any) => {
 	const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
 		e.preventDefault();
 		const User = {
-			email: props.login.email,
-			password: props.login.password,
+			email: state.email,
+			password: state.password,
 		};
-		navigate("/simulateur");
+		props.loginUser(User);
 		console.log(User);
 	};
 
@@ -54,7 +56,7 @@ const Presentational = (props: any) => {
 					id='login-email'
 					placeholder='Entrez votre email'
 					required
-					value={props.login.email}
+					value={state.email}
 					onChange={handleChange}
 				/>
 				<label htmlFor='login-password' id='login-password-label'>
@@ -66,7 +68,7 @@ const Presentational = (props: any) => {
 					id='login-password'
 					placeholder='Entrez votre mot de passe'
 					required
-					value={props.login.password}
+					value={state.password}
 					onChange={handleChange}
 				/>
 				<div id='login-remember-forgot-container'>
@@ -180,12 +182,10 @@ const Presentational = (props: any) => {
 // 	}
 // }
 // ? REDUX
-const mapStateToProps = (state: RootState) => {
+const mapStateToProps = (state: RootState): ILoginProps => {
 	return {
-		stats: state.stats,
-		leaderboard: state.leaderboard,
-		subNav: state.subNav,
-		navBar: state.navBar,
+		auth: state.auth,
+		errors: state.errors,
 	};
 };
 const dispatchToProps = {

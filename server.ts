@@ -1,10 +1,8 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import session from "express-session";
 import passport from "passport";
 import { passportConfig } from "./config/passport";
-import { join } from "path";
 
 import dotenv from "dotenv";
 dotenv.config({ path: "./config/.env" });
@@ -14,7 +12,8 @@ import { users } from "./routes/api/users";
 import { schools } from "./routes/api/schools";
 import { authRoutes } from "./routes/users";
 import { auth } from "./controllers/auth";
-import { parseFile } from "./lib/parse";
+
+import { react } from "./middlewares/react";
 const fetch = require("node-fetch");
 
 const app = express();
@@ -22,34 +21,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.static("build/build"));
-app.use(
-	session({
-		secret: process.env.SESSION_SECRET || "",
-		resave: true,
-		saveUninitialized: true,
-		cookie: { secure: false },
-	})
-);
+
 app.use(passport.initialize());
 passportConfig(passport);
-app.use(passport.session());
 
-const postToDb = (year: number, cpge: string) => {
-	const fileName = `${year}_${cpge}`;
-	const inputPath = join(__dirname, `lib/${year}`);
-	const parsedFile = parseFile(fileName, inputPath);
-	for (const school of parsedFile) {
-		fetch(`${process.env.PUBLIC_URL}:${PORT}/api/schools`, {
-			method: "post",
-			body: JSON.stringify(school),
-			headers: { "Content-Type": "application/json" },
-		})
-			.then((res: any) =>
-				res.json({ status: "Successfully posted to the db." })
-			)
-			.then((data: any) => console.log(data));
-	}
-};
 connectDb(async () => {
 	/**
 	 * Users API endpoint
@@ -79,15 +54,7 @@ connectDb(async () => {
 	/**
 	 * React
 	 */
-	app.get("/profile", (req, res) => {
-		res.json({ message: "logged in" });
-	});
-	app.get("/*", (req: Request, res: Response) => {
-		res.sendFile(join(__dirname, "./build/build/index.html"));
-	});
-	app.get("/api/hello", (req: Request, res: Response) => {
-		res.send("Hello world");
-	});
+	app.get("/*", react);
 	// postToDb(2021, "pt");
 });
 

@@ -26,20 +26,4 @@ export const auth = () => {
 			done(null, user);
 		});
 	});
-	passport.use(
-		new LocalStrategy((email, password, done) => {
-			Users.findOne({ email })
-				.then((user: IUsers | null) => {
-					if (!user) {
-						return done(null,false);
-					} else {
-						if (!bcrypt.compareSync(password, user.password)) {
-							return done(null, false);
-						}
-						return done(null, user);
-					}
-				})
-				.catch((err) => done(err));
-		})
-	);
 };

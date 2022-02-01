@@ -3,7 +3,7 @@ export interface IUsers extends Document {
 	_id: mongoose.Types.ObjectId;
 	email: string;
 	password: string;
-	name:string;
+	name: string;
 }
 
 const UsersSchema = new mongoose.Schema({
@@ -21,7 +21,23 @@ const UsersSchema = new mongoose.Schema({
 	},
 	password: {
 		type: String,
-		required: true,
+		required: false,
+	},
+	created_on: {
+		type: Date,
+		required: false,
+	},
+	last_login: {
+		type: Date,
+		required: false,
+	},
+	login_count: {
+		type: Number,
+		required: false,
+	},
+	provider: {
+		type: String,
+		required: false,
 	},
 });
 

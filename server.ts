@@ -3,7 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import passport from "passport";
 import { passportConfig } from "./config/passport";
-
+import session from "express-session";
 import dotenv from "dotenv";
 dotenv.config({ path: "./config/.env" });
 
@@ -14,6 +14,7 @@ import { authRoutes } from "./routes/users";
 import { auth } from "./controllers/auth";
 
 import { react } from "./middlewares/react";
+import { googleAuth } from "./routes/google";
 const fetch = require("node-fetch");
 
 const app = express();
@@ -22,7 +23,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.static("build/build"));
 
+app.use(
+	session({
+		secret: "Our little secret.",
+		resave: false,
+		saveUninitialized: false,
+	})
+);
+
 app.use(passport.initialize());
+app.use(passport.session());
 passportConfig(passport);
 
 connectDb(async () => {
@@ -50,7 +60,7 @@ connectDb(async () => {
 	app.use("/", authRouter);
 	authRoutes(authRouter);
 	auth();
-
+	googleAuth(app);
 	/**
 	 * React
 	 */
@@ -60,7 +70,5 @@ connectDb(async () => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-	console.log(
-		`⚡️[server]: Server is running at ${process.env.PUBLIC_URL}:${PORT}`
-	);
+	console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
 });

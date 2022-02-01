@@ -4,6 +4,10 @@ export interface IUsers extends Document {
 	email: string;
 	password: string;
 	name: string;
+	created_on?:string;
+	last_login?:string;
+	login_count?:number;
+	provider?:string;
 }
 
 const UsersSchema = new mongoose.Schema({

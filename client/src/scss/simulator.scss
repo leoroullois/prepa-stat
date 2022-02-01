@@ -1,0 +1,11 @@
+@import "./imports/extends";
+@import "./imports/mixins";
+@import "./imports/variables";
+
+#simulator {
+    flex-grow:1;
+    padding-top: 30px;
+}
+h1 {
+    text-align: center;
+}

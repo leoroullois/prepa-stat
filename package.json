@@ -9,7 +9,7 @@
     "start:client": "cd client && npm run start",
     "build:backend": "tsc --project ./",
     "build:client": "cd client && npm run build",
-    "build": "npm run build:backend && npm run build:client",
+    "build": "npm run build:backend && npm run build:client && cd build/build && cp index.html 200.html",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
     "scrap": "cd lib && python3 scrap.py",

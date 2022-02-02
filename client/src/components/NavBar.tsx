@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 /**Components */
 import { Dropdown } from "./Dropdown";
 /**react-icon */
-import { IoMenu } from "react-icons/io5";
+import { IoMenu, IoPersonCircleSharp } from "react-icons/io5";
 /**CSS */
 import "../css/navbar.css";
 /** Redux */
@@ -20,6 +20,7 @@ import {
 } from "../store/actions/navBarAction";
 import { openAction } from "../store/actions/sideNavAction";
 import { chooseAction } from "../store/actions/subNavAction";
+import { AuthBtn } from "./AuthBtn";
 export interface IProps {
 	toggleDarkMode: (pValue: boolean) => void;
 	toggleStats: (pValue: boolean) => void;
@@ -31,13 +32,14 @@ export interface IProps {
 	stats?: any;
 	subNav?: any;
 	navBar?: any;
+	auth?: any;
 }
 export interface IState {
 	darkMode: boolean;
 	leaderboard: boolean;
 	stats: boolean;
 }
-
+// TODO : remplacer le bouton se connecter par un bouton se déconnecter + profile
 class Presentational extends React.Component<IProps, IState> {
 	constructor(props: IProps) {
 		super(props);
@@ -78,7 +80,7 @@ class Presentational extends React.Component<IProps, IState> {
 		this.props.toggleDarkMode(this.props.navBar.darkMode);
 	}
 	/**
-	 * A function that will set the default value for the subnav of the destination page
+	 * Set default value for the subnav of the destination page
 	 * @param pPage string of the destination page like "classements"
 	 */
 	handleClick(pPage: string) {
@@ -128,9 +130,10 @@ class Presentational extends React.Component<IProps, IState> {
 					</div>
 				)}
 				{this.props.layout.width > 530 && (
-					<Link className='link btn-link' to='/se-connecter'>
-						Se connecter
-					</Link>
+					<AuthBtn/>
+				)}
+				{this.props.auth.isAuthenticated && (
+					<IoPersonCircleSharp className='dashboard-icon' />
 				)}
 				{!this.props.navBar.darkMode ? (
 					<MdDarkMode
@@ -148,13 +151,14 @@ class Presentational extends React.Component<IProps, IState> {
 	}
 }
 // ? REDUX
-const mapStateToProps= (state: RootState) => {
+const mapStateToProps = (state: RootState) => {
 	return {
 		stats: state.stats,
 		leaderboard: state.leaderboard,
 		subNav: state.subNav,
 		navBar: state.navBar,
 		layout: state.layout,
+		auth: state.auth,
 	};
 };
 const mapDispatchToProps: MapDispatchToProps<IProps, {}> = (

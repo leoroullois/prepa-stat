@@ -50,7 +50,7 @@ const App: FC<any> = () => {
 						<Route path='/se-connecter' element={<Login />}></Route>
 						<Route path='/s-enregistrer' element={<Register />}></Route>
 						<Route
-							path='dashboard'
+							path='/dashboard'
 							element={<PrivateRoute component={<Dashboard />} />}
 						/>
 						{/* MP */}

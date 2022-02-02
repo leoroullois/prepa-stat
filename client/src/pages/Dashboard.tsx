@@ -1,8 +1,9 @@
-import { MouseEventHandler, FC, useState, useEffect } from "react";
+import {  FC, useState, useEffect } from "react";
 import { logoutUser } from "../store/thunks/logout";
 import { connect } from "react-redux";
 import { RootState } from "../store/store";
 import jwt_decode from "jwt-decode";
+import "../css/dashboard.css"
 interface IProps {
 	auth: IAuth;
 	logoutUser: any;
@@ -24,15 +25,13 @@ export const Presentational: FC<IProps> = ({ auth, logoutUser }) => {
 		}
 	}, [state]);
 
-	const handleClick: MouseEventHandler = (e) => {
-		e.preventDefault();
-		console.log("Se déconnecter");
-		logoutUser();
-	};
+
 	return (
-		<main>
+		<main id="dashboard">
 			<h1>Bienvenue {state.name}. Vous êtes connectés !</h1>
-			<button onClick={handleClick}>Se déconnecter</button>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis tenetur nostrum accusantium quisquam quidem, quos inventore cumque culpa velit ab assumenda beatae neque voluptatibus et quia? Accusamus quos veritatis nostrum.
+			</p>
 		</main>
 	);
 };

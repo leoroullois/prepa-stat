@@ -1,4 +1,4 @@
-#home {
+#landing {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,7 +15,7 @@
           flex-grow: 1;
   padding: 0 60px;
 }
-#home button {
+#landing button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,7 +28,7 @@
   width: 200px;
   height: 50px;
 }
-#home button:hover {
+#landing button:hover {
   background-color: #f1f1f1;
 }
 
@@ -49,4 +49,4 @@
   -ms-flex-item-align: end;
       align-self: flex-end;
   margin-bottom: 55px;
-}/*# sourceMappingURL=home.css.map */
+}/*# sourceMappingURL=landing.css.map */

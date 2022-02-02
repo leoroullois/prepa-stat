@@ -22,6 +22,40 @@
   opacity: 0.65;
   margin-top: 10px;
 }
+#login .connect-with {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  z-index: 0;
+  background-color: #f1f1f1;
+  border: 1px solid #5E6268;
+  text-decoration: none;
+  color: #1b1b1b;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 15px 0;
+  font-size: 1.2rem;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  margin-top: 20px;
+  cursor: pointer;
+}
+#login .connect-with img {
+  position: absolute;
+  left: 30px;
+  height: 35px;
+  width: 35px;
+}
+#login .connect-with:hover {
+  background-color: white;
+}
 
 #login-form {
   display: -webkit-box;
@@ -33,8 +67,15 @@
           flex-direction: column;
 }
 #login-form input {
+  outline: none;
   padding: 10px 30px;
   margin: 10px 0 20px 0;
+  -webkit-transition: outline 0.2s ease-out;
+  transition: outline 0.2s ease-out;
+}
+#login-form input:focus {
+  outline: 1px solid #74b9ff;
+  background-color: gold;
 }
 #login-form input[type=email],
 #login-form input[type=password] {
@@ -103,39 +144,6 @@
 }
 #login-submit:hover {
   background-color: #255af8;
-}
-
-.connect-with {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
-  background-color: #f1f1f1;
-  border: 1px solid #5E6268;
-  text-decoration: none;
-  color: #1b1b1b;
-  font-weight: bold;
-  border-radius: 6px;
-  padding: 15px 0;
-  font-size: 1.2rem;
-  -webkit-transition: background-color 0.1s ease-in;
-  transition: background-color 0.1s ease-in;
-  margin-top: 20px;
-}
-.connect-with img {
-  position: absolute;
-  left: 30px;
-  height: 35px;
-  width: 35px;
-}
-.connect-with:hover {
-  background-color: #e6e6e6;
 }
 
 #no-account {

@@ -2,7 +2,6 @@ import React, {
 	FormEventHandler,
 	useState,
 	useEffect,
-	MouseEventHandler,
 } from "react";
 import "../css/login.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,6 +11,7 @@ import { RootState } from "../store/store";
 import { loginUser } from "../store/thunks/login";
 import google from "../assets/google.svg";
 import github from "../assets/github.svg";
+import { AuthProviderBtn } from "../components/AuthProviderBtn";
 const Presentational: React.FC<any> = ({ loginUser, auth }) => {
 	const navigate = useNavigate();
 	const [state, setState]: [ILoginState, any] = useState({
@@ -31,15 +31,6 @@ const Presentational: React.FC<any> = ({ loginUser, auth }) => {
 			navigate("/dashboard");
 		}
 	}, [auth.isAuthenticated, navigate]);
-	const handleClick: MouseEventHandler = (e) => {
-		e.preventDefault();
-		const link = e.target as HTMLAnchorElement;
-		if (link) {
-			const provider = link.className.split(" ")[1];
-			console.log(provider);
-			window.location.href = `http://localhost:5000/auth/${provider}`;
-		}
-	};
 	return (
 		<main id='login'>
 			<h1>Se connecter</h1>
@@ -91,22 +82,8 @@ const Presentational: React.FC<any> = ({ loginUser, auth }) => {
 				<button type='submit' id='login-submit'>
 					Connexion
 				</button>
-				<Link
-					className='connect-with google'
-					to='/auth/google'
-					onClick={handleClick}
-				>
-					<img src={google} alt='Google logo' />
-					Connexion avec Google
-				</Link>
-				<Link
-					className='connect-with github'
-					to='/auth/github'
-					onClick={handleClick}
-				>
-					<img src={github} alt='Github logo' />
-					Connexion avec Github
-				</Link>
+				<AuthProviderBtn svg={google} provider="Google" />
+				<AuthProviderBtn svg={github} provider="Github" />
 			</form>
 			<div id='no-account'>
 				<p>Pas de compte ?</p>

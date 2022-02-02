@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 import bcrypt from "bcrypt";
 import { IUsers, Users } from "../models/Users";
 import { Error } from "mongoose";
-import { validateRegisterInput } from "../validators/register";
+import { validateRegisterInput } from "../validators/register.validator";
 import { Request, Response } from "express";
 
 export const register = (req: Request, res: Response, next: any) => {

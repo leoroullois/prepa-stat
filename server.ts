@@ -2,24 +2,26 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import passport from "passport";
-import { passportConfig } from "./config/passport";
 import session from "express-session";
 import dotenv from "dotenv";
-dotenv.config({ path: "./config/.env" });
+const fetch = require("node-fetch");
 
+dotenv.config({ path: "./config/.env" });
+import { passportConfig } from "./config/passport";
 import { connectDb } from "./config/db";
+
 import { users } from "./routes/api/users";
 import { schools } from "./routes/api/schools";
-import { authRoutes } from "./routes/users";
-import { auth } from "./controllers/auth";
 
-import { react } from "./middlewares/react";
-import { googleAuth } from "./routes/google";
-const fetch = require("node-fetch");
+import { auth } from "./controllers/auth.controller";
+import { react } from "./middlewares/react.middleware";
+import { jwtAuth } from "./routes/jwt.auth";
+import { googleAuth } from "./routes/google.auth";
+import { githubAuth } from "./routes/github.auth";
 
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.static("build/build"));
 
@@ -37,7 +39,7 @@ passportConfig(passport);
 
 connectDb(async () => {
 	/**
-	 * Users API endpoint
+	 * ! Users API endpoint
 	 */
 	console.log("⚡️[MongoDB]: Successfully connected to the collection users.");
 	const usersRouter = express.Router();
@@ -45,7 +47,7 @@ connectDb(async () => {
 	app.use("/api/users", usersRouter);
 	users(usersRouter);
 	/**
-	 * Schools API endpoint
+	 * ! Schools API endpoint
 	 */
 	console.log(
 		"⚡️[MongoDB]: Successfully connected to the collection schools."
@@ -54,15 +56,20 @@ connectDb(async () => {
 	app.use("/api/schools", schoolsRouter);
 	schools(schoolsRouter);
 	/**
-	 * Auth API endpoint
+	 * ! Auth API endpoint
 	 */
 	const authRouter = express.Router();
 	app.use("/", authRouter);
-	authRoutes(authRouter);
-	auth();
+	//  ? Auth routes : /se-connecter, /s-enregistrer, 
+	jwtAuth(authRouter);
+	// ? Login with google
 	googleAuth(app);
+	// ? Login with github
+	githubAuth(app);
+	// ? Authentification controller
+	auth();
 	/**
-	 * React
+	 * ! React
 	 */
 	app.get("/*", react);
 	// postToDb(2021, "pt");

@@ -1,19 +1,29 @@
 import mongoose, { Document } from "mongoose";
 export interface IUsers extends Document {
 	_id: mongoose.Types.ObjectId;
+	googleId?: string;
+	githubId: string;
 	email: string;
 	password: string;
 	name: string;
-	created_on?:string;
-	last_login?:string;
-	login_count?:number;
-	provider?:string;
+	created_on?: string;
+	last_login?: string;
+	login_count?: number;
+	provider?: string;
 }
 
 const UsersSchema = new mongoose.Schema({
 	_id: {
 		type: mongoose.Types.ObjectId,
 		require: true,
+	},
+	githubId: {
+		type: String,
+		required: false,
+	},
+	googleId: {
+		type: String,
+		required: false,
 	},
 	name: {
 		type: String,

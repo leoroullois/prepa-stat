@@ -32,10 +32,15 @@ interface ILoginProps {
 }
 
 /**Auth */
+interface IUrls {
+	PUBLIC_URL:string;
+	SERVER_URL:string;
+}
 interface IAuth {
 	isAuthenticated: boolean;
 	user: any;
 	loading: boolean;
+	urls:IUrls;
 }
 /**Errors */
 interface IErrors {

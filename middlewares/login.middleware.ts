@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { validateLoginInput } from "./../validators/login";
+import { validateLoginInput } from "../validators/login.validator";
 import { Request, Response } from "express";
 import { Users } from "../models/Users";
 import bcrypt from "bcrypt";

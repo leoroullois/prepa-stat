@@ -33,6 +33,11 @@
     "PCSI"
   ],
   "homepage": "https://prepa-stat.herokuapp.com",
+  "root": "./build/build",
+  "clean_urls": false,
+  "routes": {
+    "/**": "200.html"
+  },
   "author": "Leyo & LighTender",
   "license": "ISC",
   "dependencies": {

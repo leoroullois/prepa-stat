@@ -1,0 +1,7 @@
+{
+    "root": "./build/build",
+  "clean_urls": false,
+  "routes": {
+    "/**": "200.html"
+  }
+}

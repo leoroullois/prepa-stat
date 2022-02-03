@@ -2,17 +2,16 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import passport from "passport";
-import session from "express-session";
 import dotenv from "dotenv";
 const fetch = require("node-fetch");
 
 dotenv.config({ path: "./config/.env" });
 import { passportConfig } from "./config/passport";
 import { connectDb } from "./config/db";
-
+import session from "express-session";
 import { users } from "./routes/api/users";
 import { schools } from "./routes/api/schools";
-
+import path from "path";
 import { auth } from "./controllers/auth.controller";
 import { react } from "./middlewares/react.middleware";
 import { jwtAuth } from "./routes/jwt.auth";
@@ -23,8 +22,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-app.use(express.static("build/build"));
-
 app.use(
 	session({
 		secret: "Our little secret.",
@@ -32,6 +29,12 @@ app.use(
 		saveUninitialized: false,
 	})
 );
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "../client/build")));
+} else {
+	app.use(express.static("client/build"));
+}
+app.use(express.static("build/build"));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -60,7 +63,7 @@ connectDb(async () => {
 	 */
 	const authRouter = express.Router();
 	app.use("/", authRouter);
-	//  ? Auth routes : /se-connecter, /s-enregistrer, 
+	//  ? Auth routes : /se-connecter, /s-enregistrer,
 	jwtAuth(authRouter);
 	// ? Login with google
 	googleAuth(app);

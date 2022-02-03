@@ -32,6 +32,7 @@
     "PTSI",
     "PCSI"
   ],
+  "homepage": "https://prepa-stat.herokuapp.com",
   "author": "Leyo & LighTender",
   "license": "ISC",
   "dependencies": {

@@ -1,0 +1,26 @@
+.overview-article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 300px;
+}
+.overview-article .icon {
+  font-size: 6rem;
+}
+.overview-article h4 {
+  font-size: 1.3rem;
+  margin: 15px 0 0 0;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+.overview-article p {
+  text-align: justify;
+  line-height: 1.6rem;
+}/*# sourceMappingURL=overviewarticle.css.map */

@@ -1,7 +1,6 @@
 import { combineReducers, createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 // import { layoutReducer } from "./components/Layout/reducer";
-import { leaderboardReducer } from "./reducers/leaderboardReducer";
 import { statsReducer } from "./reducers/statsReducer";
 import { subNavReducer } from "./reducers/subNavReducer";
 import { navBarReducer } from "./reducers/navBarReducer";
@@ -22,11 +21,10 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
 	layout: layoutReducer,
-	leaderboard: leaderboardReducer,
 	stats: statsReducer,
 	subNav: subNavReducer,
 	navBar: navBarReducer,
-	resNavBar: sideNavReducer,
+	sideNav: sideNavReducer,
 	auth: authReducer,
 	errors: errorReducer,
 });

@@ -5,20 +5,17 @@ import { RootState } from "../store/store";
 import jwt_decode from "jwt-decode";
 import "../css/dashboard.css";
 
-
-
 interface IProps {
 	auth: IAuth;
 	logoutUser: any;
 }
-
-
 
 export const Presentational: FC<IProps> = ({ auth, logoutUser }) => {
 	const [state, setState] = useState({
 		name: auth.user.name,
 	});
 	useEffect(() => {
+		document.title = "Dashboard - PrépaStat";
 		if (!state.name) {
 			const token = localStorage.jwtToken;
 			const decoded: any = jwt_decode(token);
@@ -30,8 +27,6 @@ export const Presentational: FC<IProps> = ({ auth, logoutUser }) => {
 			}
 		}
 	}, [state]);
-
-	
 
 	return (
 		<main id='dashboard'>

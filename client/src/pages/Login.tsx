@@ -37,6 +37,7 @@ const Presentational: React.FC<any> = ({ loginUser, auth }) => {
 		loginUser(state);
 	};
 	useEffect(() => {
+		document.title = "Se connecter - PrépaStat";
 		if (auth.isAuthenticated) {
 			navigate("/dashboard");
 		}

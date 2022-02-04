@@ -8,6 +8,6 @@ export const lightTheme: ThemeType = {
 };
 
 export const darkTheme: ThemeType = {
-	body: "#1b1b1b",
+	body: "#060a15",
 	text: "#f1f1f1",
 };

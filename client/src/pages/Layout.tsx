@@ -20,7 +20,7 @@ export interface ILayoutProps {
 	resize: (pWidth: number, pHeight: number) => void;
 	close: () => void;
 	navBar: any;
-	resNavBar: any;
+	sideNav: any;
 }
 export interface ILayoutState {
 	width: number;
@@ -30,7 +30,7 @@ export interface ILayoutState {
 }
 const Presentational: FC<ILayoutProps> = ({
 	resize,
-	resNavBar,
+	sideNav,
 	close,
 	reset,
 	navBar,
@@ -51,7 +51,7 @@ const Presentational: FC<ILayoutProps> = ({
 			target.id !== "hamburger-icon" &&
 			target.id !== "" &&
 			target.id !== "nav-responsive" &&
-			resNavBar.opened
+			sideNav.opened
 		) {
 			close();
 		}
@@ -60,7 +60,7 @@ const Presentational: FC<ILayoutProps> = ({
 		}
 	};
 	const theme = navBar.darkMode ? darkTheme : lightTheme;
-	const style = resNavBar.opened
+	const style = sideNav.opened
 		? { marginLeft: "0px" }
 		: { marginLeft: "-301px" };
 	return (
@@ -80,11 +80,10 @@ const Presentational: FC<ILayoutProps> = ({
 const mapStateToProps = (state: RootState) => {
 	return {
 		stats: state.stats,
-		leaderboard: state.leaderboard,
 		subNav: state.subNav,
 		navBar: state.navBar,
 		layout: state.layout,
-		resNavBar: state.resNavBar,
+		sideNav: state.sideNav,
 	};
 };
 const dispatchToProps = {

@@ -21,7 +21,6 @@ export const GlobalStyles = createGlobalStyle`
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 100%;
     margin: 0;
     padding: 0;
     transition: all 0.25s linear;
@@ -29,11 +28,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   #root {
     display: flex;
-    height: 100%;
     width: 100%;
     max-width: 100%;
-  }
-  html {
-    height: 100%;
   }
 `;

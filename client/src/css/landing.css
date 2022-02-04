@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 #landing {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,44 +10,499 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100%;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  padding: 0 60px;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
 }
-#landing button {
+#landing .bar-section {
+  background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+  background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+  height: 2px;
+  width: 100%;
+}
+#landing .landing-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 1100px;
+}
+#landing .landing-main_left {
+  font-size: 1.8rem;
+  width: 50%;
+}
+#landing .landing-main_left h1 {
+  text-align: left;
+  font-size: 2rem;
+}
+#landing .landing-main_left h2 {
+  font-size: 1.5rem;
+}
+#landing .landing-main_left p {
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  text-align: justify;
+}
+#landing .landing-main_left .bar {
+  background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+  background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+  height: 5px;
+  width: 150px;
+}
+#landing .landing-main_right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  padding-left: 60px;
+}
+#landing .btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+#landing .btn-container .btn1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  width: 45%;
+  border: none;
+  border-radius: 60px;
+  font-size: 19.3548387097px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  color: #f1f1f1;
+  background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+  background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+  cursor: pointer;
+}
+#landing .btn-container .btn2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+  width: 45%;
+  background: transparent;
+  border: 1px solid #F02D51;
+  border-radius: 60px;
+  color: inherit;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 19.3548387097px;
+  cursor: pointer;
+}
+#landing .btn-container .btn2:hover {
+  border: none;
+  color: #f1f1f1;
+  background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+  background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+}
+#landing #overview {
+  background-color: #111826;
+  width: 100%;
+  padding-bottom: 60px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.192);
+}
+#landing #overview .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+#landing #overview h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 200px;
-  height: 50px;
+  font-size: 2rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: 60px;
 }
-#landing button:hover {
-  background-color: #f1f1f1;
+#landing #overview h3 .bar {
+  margin: 0px 30px 0px 0px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+  background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+  height: 5px;
+  width: 100px;
 }
-
-.container {
+#landing #overview .article-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: auto;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 30px;
+  padding: 0 60px;
+}
+#landing #classements .classements-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#landing #classements .classements-content .classements-main-content {
+  text-align: justify;
+}
+#landing #classements .classements-content img {
+  height: 400px;
 }
 
-.classement {
-  font-size: 3rem;
+@media screen and (min-width:768px) and (max-width:1024px) {
+  #landing .landing-main {
+    height: 650px;
+  }
+  #landing .landing-main_left {
+    width: 300px;
+  }
+  #landing .btn-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 150px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  #landing .btn-container .btn1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    width: 100%;
+    border: none;
+    border-radius: 60px;
+    font-size: 19.3548387097px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    color: #f1f1f1;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+    background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+    cursor: pointer;
+  }
+  #landing .btn-container .btn2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #F02D51;
+    border-radius: 60px;
+    color: inherit;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 19.3548387097px;
+    cursor: pointer;
+  }
+  #landing .btn-container .btn2:hover {
+    border: none;
+    color: #f1f1f1;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+    background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+  }
 }
-
-.total {
-  height: 100%;
-  font-size: 1rem;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  margin-bottom: 55px;
+@media screen and (min-width:425px) and (max-width:768px) {
+  #landing .landing-main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #landing .landing-main_left {
+    width: 90%;
+  }
+  #landing .landing-main_right {
+    padding-left: 0;
+  }
+  #landing .landing-main_right img {
+    height: 400px;
+  }
+}
+@media screen and (min-width:375px) and (max-width:425px) {
+  #landing .landing-main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #landing .landing-main_left {
+    width: 90%;
+  }
+  #landing .btn-container {
+    height: 200px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  #landing .btn-container .btn1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    width: 100%;
+    border: none;
+    border-radius: 60px;
+    font-size: 19.3548387097px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    color: #f1f1f1;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+    background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+    cursor: pointer;
+  }
+  #landing .btn-container .btn2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #F02D51;
+    border-radius: 60px;
+    color: inherit;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 19.3548387097px;
+    cursor: pointer;
+  }
+  #landing .btn-container .btn2:hover {
+    border: none;
+    color: #f1f1f1;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+    background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+  }
+  #landing .landing-main_right {
+    padding-left: 0;
+  }
+  #landing .landing-main_right img {
+    height: 400px;
+  }
+}
+@media screen and (min-width:320px) and (max-width:375px) {
+  #landing .landing-main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #landing .landing-main_left {
+    width: 90%;
+  }
+  #landing .btn-container {
+    height: 200px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  #landing .btn-container .btn1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    width: 100%;
+    border: none;
+    border-radius: 60px;
+    font-size: 19.3548387097px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    color: #f1f1f1;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+    background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+    cursor: pointer;
+  }
+  #landing .btn-container .btn2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #F02D51;
+    border-radius: 60px;
+    color: inherit;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 19.3548387097px;
+    cursor: pointer;
+  }
+  #landing .btn-container .btn2:hover {
+    border: none;
+    color: #f1f1f1;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+    background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+  }
+  #landing .landing-main_right {
+    padding-left: 0;
+  }
+  #landing .landing-main_right img {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 320px) {
+  #landing .landing-main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #landing .landing-main_left {
+    width: 90%;
+  }
+  #landing .btn-container {
+    height: 200px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  #landing .btn-container .btn1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    width: 100%;
+    border: none;
+    border-radius: 60px;
+    font-size: 19.3548387097px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    color: #f1f1f1;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+    background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+    cursor: pointer;
+  }
+  #landing .btn-container .btn2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #F02D51;
+    border-radius: 60px;
+    color: inherit;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 19.3548387097px;
+    cursor: pointer;
+  }
+  #landing .btn-container .btn2:hover {
+    border: none;
+    color: #f1f1f1;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F2721A), to(#F02D51));
+    background: linear-gradient(90deg, #F2721A 1.05%, #F02D51 100%);
+  }
+  #landing .landing-main_right {
+    padding-left: 0;
+  }
+  #landing .landing-main_right img {
+    height: 200px;
+  }
 }/*# sourceMappingURL=landing.css.map */

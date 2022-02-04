@@ -1,0 +1,22 @@
+@import "./imports/extends";
+@import "./imports/mixins";
+@import "./imports/variables";
+
+.overview-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    .icon {
+        font-size: 6rem;
+    }
+    h4 {
+        font-size: 1.3rem;
+        margin:15px 0 0 0;
+        align-self:flex-start;
+    }
+    p {
+        text-align: justify;
+        line-height: 1.6rem;
+    }
+}

@@ -62,7 +62,6 @@ class Presentational extends React.Component<IProps, IState> {
 const mapStateToProps = (state: RootState) => {
 	return {
 		stats: state.stats,
-		leaderboard: state.leaderboard,
 		subNav: state.subNav,
 		navBar: state.navBar,
 	};

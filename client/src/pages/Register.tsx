@@ -22,6 +22,7 @@ const Presentational: FC<IProps> = ({ registerUser, auth, errors }) => {
 		password2: "",
 	});
 	useEffect(() => {
+		document.title = "S'enregistrer - PrépaStat";
 		if (auth.isAuthenticated) {
 			navigate("/");
 		}

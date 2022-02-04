@@ -132,7 +132,6 @@ const mapStateToProps = (state: RootState) => {
 	return {
 		stats: state.stats,
 		subNav: state.subNav,
-		leaderboard: state.leaderboard,
 		navBar: state.navBar,
 	};
 };

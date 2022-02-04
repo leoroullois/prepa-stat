@@ -3,7 +3,7 @@ import React, {
 	useState,
 	useEffect,
 } from "react";
-import "../css/login.css";
+import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 // Redux
 import { connect } from "react-redux";
@@ -11,7 +11,17 @@ import { RootState } from "../store/store";
 import { loginUser } from "../store/thunks/login";
 import google from "../assets/google.svg";
 import github from "../assets/github.svg";
+import "../css/login.css";
 import { AuthProviderBtn } from "../components/AuthProviderBtn";
+
+export const axiosApiCall = (url: any, method: any, body = {}) =>
+	axios({
+		method,
+		url: `${process.env.REACT_APP_SERVER_URL}${url}`,
+		data: body,
+	});
+
+
 const Presentational: React.FC<any> = ({ loginUser, auth }) => {
 	const navigate = useNavigate();
 	const [state, setState]: [ILoginState, any] = useState({
@@ -31,8 +41,11 @@ const Presentational: React.FC<any> = ({ loginUser, auth }) => {
 			navigate("/dashboard");
 		}
 	}, [auth.isAuthenticated, navigate]);
+
 	return (
 		<main id='login'>
+			{process.env.REACT_APP_GOOGLE_CLIENT_ID}
+
 			<h1>Se connecter</h1>
 			<h2>Content de vous revoir !</h2>
 			<form
@@ -82,8 +95,8 @@ const Presentational: React.FC<any> = ({ loginUser, auth }) => {
 				<button type='submit' id='login-submit'>
 					Connexion
 				</button>
-				<AuthProviderBtn svg={google} provider="Google" />
-				<AuthProviderBtn svg={github} provider="Github" />
+				<AuthProviderBtn svg={google} provider='Google' />
+				<AuthProviderBtn svg={github} provider='Github' />
 			</form>
 			<div id='no-account'>
 				<p>Pas de compte ?</p>

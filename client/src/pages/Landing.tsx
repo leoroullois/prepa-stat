@@ -33,10 +33,7 @@ export class Landing extends React.Component<ILandingProps, ILandingState> {
 			<main id='landing'>
 				<h1>Accueil</h1>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-					nulla esse quod ipsam, ex eos sapiente voluptate fugit quibusdam
-					facilis, nesciunt ad odio? Asperiores pariatur nihil beatae
-					accusantium recusandae optio.
+					Construisons ensemble votre avenir
 				</p>
 				<button onClick={this.handleClick}>Fiche école polytechnique</button>
 				<SchoolCard

@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import passport from "passport";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+import { AES } from "crypto-js";
+
 dotenv.config({ path: "../config" });
 export const logInfo = (req: Request, res: Response, next: any) => {
 	console.log(`${req.method} ${req.path} - ${req.ip}`);
@@ -26,12 +28,23 @@ export const authCbSuccess = (req: any, res: any) => {
 		payload,
 		`${process.env.SESSION_SECRET}`,
 		{
-			expiresIn: 31556926, // one year in seconds
+			expiresIn: 0,
 		},
 		(err, token) => {
-			console.log("Bearer ", token);
+			console.log("Token jwt ", token);
+			console.log("Email :", req.user.email);
+			const encToken = AES.encrypt(
+				JSON.stringify(`${token}`),
+				`${process.env.SESSION_SECRET}`
+			).toString();
+			const encEmail = AES.encrypt(
+				JSON.stringify(req.user.email),
+				`${process.env.SESSION_SECRET}`
+			).toString();
 			res.redirect(
-				`${process.env.PUBLIC_URL}/redirect?email=${req.email}&token=${token}`
+				`${process.env.PUBLIC_URL}/redirect?email=${encodeURIComponent(
+					encEmail
+				)}&token=${encodeURIComponent(encToken)}`
 			);
 		}
 	);

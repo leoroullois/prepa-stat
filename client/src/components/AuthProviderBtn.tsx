@@ -14,7 +14,6 @@ export const Presentational: FC<IProps> = ({ provider, svg, auth }) => {
 	const {SERVER_URL} = auth.urls;
 	const handleClick: MouseEventHandler = (e) => {
 		e.preventDefault();
-		console.log("efef");
 		window.location.href = `${SERVER_URL}/auth/${provider?.toLowerCase()}`;
 	};
 	return (

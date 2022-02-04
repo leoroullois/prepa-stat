@@ -17,9 +17,11 @@ declare global {
 }
 
 export const auth = () => {
+	// Saves user's ID to a session
 	passport.serializeUser((user, done) => {
 		done(null, user._id);
 	});
+	// Retrieve user's ID from a session
 	passport.deserializeUser((id: string, done) => {
 		Users.findOne({ _id: new ObjectId(id) }, (err: any, user: any) => {
 			if (err) {
@@ -70,6 +72,36 @@ export const auth = () => {
 			}
 		)
 	);
+	// passport.use(
+	// 	new GoogleTokenStrategy(
+	// 	  {
+	// 		clientID: process.env.GOOGLE_CLIENT_ID,
+	// 		clientSecret: process.env.GOOGLE_CLIENT_SECRET
+	// 	  },
+	// 	  //  Passport verify callback
+	// 	  async (accessToken, refreshToken, profile, done) => {
+	// 		try {
+	// 		  const existingGoogleUser = await User.findOne({
+	// 			where: { googleId: profile.id }
+	// 		  });
+	// 		  if (!existingGoogleUser) {
+	// 			const existingEmailUser = await User.findOne({
+	// 			  where: { email: getProfile(profile).email }
+	// 			});
+	// 			// Create user if he is not registered already
+	// 			if (!existingEmailUser) {
+	// 			  const newUser = await User.create(getProfile(profile));
+	// 			  return done(null, newUser);
+	// 			}
+	// 			return done(null, existingEmailUser);
+	// 		  }
+	// 		  return done(null, existingGoogleUser);
+	// 		} catch (e) {
+	// 		  throw new Error(e);
+	// 		}
+	// 	  }
+	// 	)
+	//   );
 	passport.use(
 		new GitHubStrategy(
 			{

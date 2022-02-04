@@ -23,7 +23,7 @@ export const authCbSuccess = (req: any, res: any) => {
 		payload,
 		`${process.env.SESSION_SECRET}`,
 		{
-			expiresIn: 31556926, // one year in seconds
+			expiresIn: 0, // one year in seconds
 		},
 		(err, token) => {
 			res.redirect(

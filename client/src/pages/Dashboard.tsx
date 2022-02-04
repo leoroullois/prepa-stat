@@ -1,13 +1,19 @@
-import {  FC, useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react";
 import { logoutUser } from "../store/thunks/logout";
 import { connect } from "react-redux";
 import { RootState } from "../store/store";
 import jwt_decode from "jwt-decode";
-import "../css/dashboard.css"
+import "../css/dashboard.css";
+
+
+
 interface IProps {
 	auth: IAuth;
 	logoutUser: any;
 }
+
+
+
 export const Presentational: FC<IProps> = ({ auth, logoutUser }) => {
 	const [state, setState] = useState({
 		name: auth.user.name,
@@ -25,12 +31,16 @@ export const Presentational: FC<IProps> = ({ auth, logoutUser }) => {
 		}
 	}, [state]);
 
+	
 
 	return (
-		<main id="dashboard">
+		<main id='dashboard'>
 			<h1>Bienvenue {state.name}. Vous êtes connectés !</h1>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis tenetur nostrum accusantium quisquam quidem, quos inventore cumque culpa velit ab assumenda beatae neque voluptatibus et quia? Accusamus quos veritatis nostrum.
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis tenetur
+				nostrum accusantium quisquam quidem, quos inventore cumque culpa velit
+				ab assumenda beatae neque voluptatibus et quia? Accusamus quos veritatis
+				nostrum.
 			</p>
 		</main>
 	);

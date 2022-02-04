@@ -17,14 +17,13 @@ import { react } from "./middlewares/react.middleware";
 import { jwtAuth } from "./routes/jwt.auth";
 import { googleAuth } from "./routes/google.auth";
 import { githubAuth } from "./routes/github.auth";
-
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(
 	session({
-		secret: "Our little secret.",
+		secret: `${process.env.SESSION_SECRET}`,
 		resave: false,
 		saveUninitialized: false,
 	})

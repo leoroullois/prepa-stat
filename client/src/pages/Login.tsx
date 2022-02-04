@@ -44,8 +44,6 @@ const Presentational: React.FC<any> = ({ loginUser, auth }) => {
 
 	return (
 		<main id='login'>
-			{process.env.REACT_APP_GOOGLE_CLIENT_ID}
-
 			<h1>Se connecter</h1>
 			<h2>Content de vous revoir !</h2>
 			<form

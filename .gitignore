@@ -13,7 +13,7 @@
 
 # production
 /client/build
-
+/client/.env
 # misc
 /client/.DS_Store
 /client/.env.local

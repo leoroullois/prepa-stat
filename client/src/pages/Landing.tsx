@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
+
 /**Icons */
 import { FcOpenedFolder, FcGraduationCap, FcManager } from "react-icons/fc";
 /**Components */
 import { OverviewArticle } from "../components/OverviewArticle";
 import { LandingSection } from "../components/LandingSection";
+import { LandingMain } from "../components/LandingMain";
 /**Images */
-import student from "../assets/student2-removebg-rogned.png";
 import leaderboard from "../assets/leaderboard.svg";
 import stats from "../assets/stats.svg";
 import simulator from "../assets/simulator.svg";
@@ -22,38 +22,33 @@ interface IProps {
 	navBar: any;
 }
 export const Presentational: FC<IProps> = ({ navBar }) => {
-	// TODO : ombre sur les svg & background avec petits points comme sur mon protfolio
+	// TODO : ombre sur les svg & background avec petits points comme sur mon
 	const lorem =
 		"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint voluptate suscipit in, possimus dicta nemo quisquam cumque. Culpaminus, cum sequi vero quisquam, assumenda accusantium recusandae expedita fuga itaque porro!";
+	const bgRect = (
+		<svg width='404' height='784' fill='none' viewBox='0 0 404 784'>
+			<defs>
+				<pattern
+					id='56409614-3d62-4985-9a10-7ca758a8f4f0'
+					x='0'
+					y='0'
+					width='20'
+					height='20'
+					patternUnits='userSpaceOnUse'
+				>
+					<rect x='0' y='0' width='4' height='4' fill='currentColor'></rect>
+				</pattern>
+			</defs>
+			<rect
+				width='404'
+				height='784'
+				fill='url(#56409614-3d62-4985-9a10-7ca758a8f4f0)'
+			></rect>
+		</svg>
+	);
 	return (
 		<main id='landing'>
-			<section className='landing-main'>
-				<div className='landing-main_left'>
-					<h1>PrépaStat</h1>
-					<h2>
-						Construisons ensemble votre avenir, intégrez l'école d'ingénieur de
-						vos rêves !
-					</h2>
-					<div className='bar'></div>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-						obcaecati quos iste soluta voluptas dolorum voluptate autem vel
-						nihil ipsa amet, voluptatem nesciunt nisi debitis, doloribus
-						assumenda. Consequatur, harum rerum?
-					</p>
-					<div className='btn-container'>
-						<Link to='#overview' className='btn btn1'>
-							En savoir plus
-						</Link>
-						<Link to='/s-enregistrer' className='btn btn2'>
-							S'enregistrer
-						</Link>
-					</div>
-				</div>
-				<div className='landing-main_right'>
-					<img src={student} alt='Happy student' />
-				</div>
-			</section>
+			<LandingMain />
 			<div className='bar-section'></div>
 			<section id='overview' style={navBar.darkMode ? {} : lightStyles}>
 				<div className='wrapper'>
@@ -80,27 +75,38 @@ export const Presentational: FC<IProps> = ({ navBar }) => {
 					</div>
 				</div>
 			</section>
-			<LandingSection
-				title="Comparez les écoles d'ingénieurs"
-				img={leaderboard}
-				text={lorem}
-				path='/classements'
-				name='Classements'
-			/>
-			<LandingSection
-				title='Simulez votre admissibilité'
-				img={simulator}
-				text={lorem}
-				path='/simulateur'
-				name='Simulateur'
-			/>
-			<LandingSection
-				title="Trouvez l'école qui vous correspond"
-				img={stats}
-				text={lorem}
-				path='/statistiques'
-				name='Statistiques'
-			/>
+			<div className='landing-sections'>
+				<LandingSection
+					title="Comparez les écoles d'ingénieurs"
+					img={leaderboard}
+					text={lorem}
+					path='/classements'
+					name='Classements'
+					direction='left'
+				/>
+				<LandingSection
+					title='Simulez votre admissibilité'
+					img={simulator}
+					text={lorem}
+					path='/simulateur'
+					name='Simulateur'
+					direction='right'
+				/>
+				<LandingSection
+					title="Trouvez l'école qui vous correspond"
+					img={stats}
+					text={lorem}
+					path='/statistiques'
+					name='Statistiques'
+					direction='left'
+				/>
+				<div id='bg-rect-1' className='bg-rect'>
+					{bgRect}
+				</div>
+				<div id='bg-rect-2' className='bg-rect'>
+					{bgRect}
+				</div>
+			</div>
 		</main>
 	);
 };

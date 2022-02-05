@@ -16,6 +16,7 @@
 		display: flex;
 		justify-content: center;
 		max-width: 1100px;
+		overflow:hidden;
 	}
 	.landing-main_left {
 		font-size: 1.8rem;
@@ -89,6 +90,23 @@
 		.section-content {
 			flex-direction: row-reverse;
 		}
+	}
+	.landing-sections {
+		position: relative;
+		width: 100%;
+	}
+	.bg-rect {
+		position: absolute;
+		opacity:.15;
+		z-index:-1;
+	}
+	#bg-rect-1 {
+		top:140px;
+		// left:60px;
+	}
+	#bg-rect-2 {
+		bottom:0;
+		right:0;
 	}
 }
 @media screen and #{$laptop} {

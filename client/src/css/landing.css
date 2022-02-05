@@ -30,6 +30,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   max-width: 1100px;
+  overflow: hidden;
 }
 #landing .landing-main_left {
   font-size: 1.8rem;
@@ -178,6 +179,22 @@
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+}
+#landing .landing-sections {
+  position: relative;
+  width: 100%;
+}
+#landing .bg-rect {
+  position: absolute;
+  opacity: 0.15;
+  z-index: -1;
+}
+#landing #bg-rect-1 {
+  top: 140px;
+}
+#landing #bg-rect-2 {
+  bottom: 0;
+  right: 0;
 }
 
 @media screen and (min-width:768px) and (max-width:1024px) {

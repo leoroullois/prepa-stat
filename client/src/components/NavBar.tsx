@@ -95,7 +95,6 @@ class Presentational extends React.Component<IProps, IState> {
 				<Link className='nav-logo' to='/' id='nav-logo'>
 					PrépaStat
 				</Link>
-				<p>{localStorage.getItem("connected")}</p>
 				{this.props.layout.width >= 1024 && (
 					<Link className='link basic-link' to='/'>
 						Accueil

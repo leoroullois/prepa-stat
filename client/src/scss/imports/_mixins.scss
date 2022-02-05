@@ -4,16 +4,16 @@
 	width: $width;
 }
 @mixin btn($height, $width, $leftColor, $rightColor) {
-    display:flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: $height;
 	width: $width;
 	border: none;
 	border-radius: $height;
 	font-size: calc($height/3.1);
 	text-transform: uppercase;
-    text-decoration:none;
+	text-decoration: none;
 	font-weight: 500;
 	color: $main-white;
 	background: linear-gradient(90deg, $leftColor 1.05%, $rightColor 100%);
@@ -21,9 +21,9 @@
 }
 
 @mixin btnBorder($height, $width, $leftColor, $rightColor) {
-    display:flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: $height;
 	width: $width;
 	background: transparent;
@@ -31,12 +31,31 @@
 	border-radius: $height;
 	color: inherit;
 	text-transform: uppercase;
-    text-decoration: none;
+	text-decoration: none;
 	font-size: calc($height/3.1);
 	cursor: pointer;
 	&:hover {
 		border: none;
-        color:$main-white;
+		color: $main-white;
 		background: linear-gradient(90deg, $leftColor 1.05%, $rightColor 100%);
+	}
+}
+@mixin mainBtn($height, $width, $bg, $hover, $color) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $bg;
+	color: $color;
+	font-weight: bold;
+	font-family: sans-serif;
+	width: $width;
+	height: $height;
+	border-radius: 6px;
+	border: none;
+	text-decoration: none;
+	transition: background-color 0.2s ease-in;
+	cursor: pointer;
+	&:hover {
+		background-color: $hover;
 	}
 }

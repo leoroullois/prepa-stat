@@ -173,16 +173,11 @@
   gap: 30px;
   padding: 0 60px;
 }
-#landing #classements .classements-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-#landing #classements .classements-content .classements-main-content {
-  text-align: justify;
-}
-#landing #classements .classements-content img {
-  height: 400px;
+#landing #simulateur .section-content {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 
 @media screen and (min-width:768px) and (max-width:1024px) {

@@ -1,33 +1,30 @@
-import { FC, MouseEventHandler, useEffect, useState } from "react";
-import axios, { AxiosResponse } from "axios";
+import { FC } from "react";
 import { Link } from "react-router-dom";
-import "../css/landing.css";
-import { SchoolCard } from "../components/SchoolCard";
-import student from "../assets/student2-removebg-rogned.png";
+/**Icons */
 import { FcOpenedFolder, FcGraduationCap, FcManager } from "react-icons/fc";
+/**Components */
 import { OverviewArticle } from "../components/OverviewArticle";
-
+import { LandingSection } from "../components/LandingSection";
+/**Images */
+import student from "../assets/student2-removebg-rogned.png";
 import leaderboard from "../assets/leaderboard.svg";
 import stats from "../assets/stats.svg";
-import simulator from "../assets/stats.svg";
-
-export const Landing: FC<{}> = () => {
-	const [ecole, setEcole] = useState("");
-	const handleClick: MouseEventHandler = (e) => {
-		e.preventDefault();
-		console.log(e);
-		const ecole = document.querySelector(
-			".ecole-polytechnique"
-		) as HTMLDivElement;
-		ecole.style.display = "flex";
-	};
-	useEffect(() => {
-		document.title = "Accueil - PrépaStat";
-		axios.get("/api/schools").then((res: AxiosResponse) => {
-			const { data } = res;
-			setEcole(data[0].ecole);
-		});
-	});
+import simulator from "../assets/simulator.svg";
+/**CSS */
+import "../css/landing.css";
+import { RootState } from "../store/store";
+import { connect } from "react-redux";
+const lightStyles = {
+	backgroundColor: "#FFF",
+	borderBottom: "2px solid rgba(0,0,0,0.192)",
+};
+interface IProps {
+	navBar: any;
+}
+export const Presentational: FC<IProps> = ({ navBar }) => {
+	// TODO : ombre sur les svg & background avec petits points comme sur mon protfolio
+	const lorem =
+		"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint voluptate suscipit in, possimus dicta nemo quisquam cumque. Culpaminus, cum sequi vero quisquam, assumenda accusantium recusandae expedita fuga itaque porro!";
 	return (
 		<main id='landing'>
 			<section className='landing-main'>
@@ -58,7 +55,7 @@ export const Landing: FC<{}> = () => {
 				</div>
 			</section>
 			<div className='bar-section'></div>
-			<section id='overview'>
+			<section id='overview' style={navBar.darkMode ? {} : lightStyles}>
 				<div className='wrapper'>
 					<h3>
 						<div className='bar'></div>
@@ -67,78 +64,50 @@ export const Landing: FC<{}> = () => {
 					<div className='article-container'>
 						<OverviewArticle
 							title="Facilité l'accès à l'information"
-							text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odit
-				optio iusto molestias aspernatur mollitia sint commodi corporis modi
-				voluptatum laboriosam recusandae ratione quis minus obcaecati expedita,
-				libero unde nemo.'
+							text={lorem}
 							Icon={FcOpenedFolder}
 						/>
 						<OverviewArticle
 							title='Accompagner les étudiants'
-							text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odit
-				optio iusto molestias aspernatur mollitia sint commodi corporis modi
-				voluptatum laboriosam recusandae ratione quis minus obcaecati expedita,
-				libero unde nemo.'
+							text={lorem}
 							Icon={FcManager}
 						/>
 						<OverviewArticle
 							title='Motiver les étudiants'
-							text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odit
-				optio iusto molestias aspernatur mollitia sint commodi corporis modi
-				voluptatum laboriosam recusandae ratione quis minus obcaecati expedita,
-				libero unde nemo.'
+							text={lorem}
 							Icon={FcGraduationCap}
 						/>
 					</div>
 				</div>
 			</section>
-			<section id='classements'>
-				<div className='wrapper'>
-					<h3>Comparez les écoles d'ingénieurs</h3>
-					<div className='classements-content'>
-						<img src={leaderboard} alt='Leaderboard' />
-						<div className='classements-main-content'>
-							<p>
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint
-								voluptate suscipit in, possimus dicta nemo quisquam cumque.
-								Culpa minus, cum, sequi vero quisquam, assumenda accusantium
-								recusandae expedita fuga itaque porro!
-							</p>
-							<Link to='/classement'>Classements</Link>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section id='simulateur'>
-				<h3>Simulateur</h3>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aspernatur
-				obcaecati repellendus itaque debitis? Corrupti inventore et provident
-				nihil! Explicabo a laboriosam odio culpa magni molestiae, exercitationem
-				cumque corporis ab.
-			</section>
-			<section id='statistics'>
-				<h3>Statistiques</h3>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-				excepturi, vitae adipisci tempore dolore sed. Inventore ducimus quod
-				accusantium, quaerat, ea suscipit illo molestias est dolor adipisci,
-				itaque vel qui?
-				<button onClick={handleClick}>Fiche école polytechnique</button>
-				<SchoolCard
-					data={{
-						nom: "Ecole polytechnique",
-						classement: 1,
-						nb_places: 105,
-						rg_median: 81,
-						rg_moyen: 82,
-						pourcent5_2: 10.5,
-						fille: 8.5,
-						url: "https://www.google.com",
-						annee: 2021,
-					}}
-					maxPlace={196}
-				/>
-				<p>{ecole}</p>
-			</section>
+			<LandingSection
+				title="Comparez les écoles d'ingénieurs"
+				img={leaderboard}
+				text={lorem}
+				path='/classements'
+				name='Classements'
+			/>
+			<LandingSection
+				title='Simulez votre admissibilité'
+				img={simulator}
+				text={lorem}
+				path='/simulateur'
+				name='Simulateur'
+			/>
+			<LandingSection
+				title="Trouvez l'école qui vous correspond"
+				img={stats}
+				text={lorem}
+				path='/statistiques'
+				name='Statistiques'
+			/>
 		</main>
 	);
 };
+const mapStateToProps = (state: RootState) => {
+	return {
+		navBar: state.navBar,
+	};
+};
+
+export const Landing: FC<{}> = connect(mapStateToProps)(Presentational);

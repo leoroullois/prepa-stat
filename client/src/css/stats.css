@@ -16,12 +16,10 @@
   padding-top: 30px;
   padding: 0 5%;
 }
-
-h1 {
+#stats h1 {
   text-align: center;
 }
-
-.bar {
+#stats .bar {
   margin: 0 auto;
   margin-bottom: 30px;
   width: 80%;

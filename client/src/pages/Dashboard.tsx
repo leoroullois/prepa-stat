@@ -1,10 +1,11 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, MouseEventHandler } from "react";
+import axios, { AxiosResponse } from "axios";
 import { logoutUser } from "../store/thunks/logout";
 import { connect } from "react-redux";
 import { RootState } from "../store/store";
 import jwt_decode from "jwt-decode";
 import "../css/dashboard.css";
-
+import { SchoolCard } from "../components/SchoolCard";
 interface IProps {
 	auth: IAuth;
 	logoutUser: any;
@@ -27,16 +28,44 @@ export const Presentational: FC<IProps> = ({ auth, logoutUser }) => {
 			}
 		}
 	}, [state]);
-
+	const [ecole, setEcole] = useState("");
+	const handleClick: MouseEventHandler = (e) => {
+		e.preventDefault();
+		console.log(e);
+		const ecole = document.querySelector(
+			".ecole-polytechnique"
+		) as HTMLDivElement;
+		ecole.style.display = "flex";
+	};
+	useEffect(() => {
+		document.title = "Accueil - PrépaStat";
+		axios.get("/api/schools").then((res: AxiosResponse) => {
+			const { data } = res;
+			setEcole(data[0].ecole);
+		});
+	});
 	return (
 		<main id='dashboard'>
 			<h1>Bienvenue {state.name}. Vous êtes connectés !</h1>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis tenetur
-				nostrum accusantium quisquam quidem, quos inventore cumque culpa velit
-				ab assumenda beatae neque voluptatibus et quia? Accusamus quos veritatis
-				nostrum.
-			</p>
+			<section id='test'>
+				<h3>Test</h3>
+				<button onClick={handleClick}>Fiche école polytechnique</button>
+				<SchoolCard
+					data={{
+						nom: "Ecole polytechnique",
+						classement: 1,
+						nb_places: 105,
+						rg_median: 81,
+						rg_moyen: 82,
+						pourcent5_2: 10.5,
+						fille: 8.5,
+						url: "https://www.google.com",
+						annee: 2021,
+					}}
+					maxPlace={196}
+				/>
+				<p>{ecole}</p>
+			</section>
 		</main>
 	);
 };

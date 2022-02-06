@@ -17,6 +17,7 @@ export const loginUser =
 			.then((res) => {
 				// Save to localStorage
 				// Set token to localStorage
+				console.log("res :",res)
 				const { token } = res.data;
 				localStorage.setItem("jwtToken", token);
 				// Set token to Auth header

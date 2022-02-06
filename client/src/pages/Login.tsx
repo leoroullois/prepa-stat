@@ -1,8 +1,4 @@
-import React, {
-	FormEventHandler,
-	useState,
-	useEffect,
-} from "react";
+import React, { FormEventHandler, useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 // Redux
@@ -20,7 +16,6 @@ export const axiosApiCall = (url: any, method: any, body = {}) =>
 		url: `${process.env.REACT_APP_SERVER_URL}${url}`,
 		data: body,
 	});
-
 
 const Presentational: React.FC<any> = ({ loginUser, auth }) => {
 	const navigate = useNavigate();

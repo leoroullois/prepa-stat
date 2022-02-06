@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 import { Users } from "../models/Users";
 import bcrypt from "bcrypt";
 
-export const login = (req: Request, res: Response, next: any) => {
+export const login = (req: Request, res: Response) => {
 	console.log(`${req.method} ${req.path} - ${req.ip}`);
 	console.log("BODY : ", req.body);
 	//form validation
@@ -47,6 +47,8 @@ export const login = (req: Request, res: Response, next: any) => {
 					.status(400)
 					.json({ passwordincorrect: "Password incorrect" });
 			}
+		}).catch(err => {
+			console.error(err);
 		});
 	});
 };

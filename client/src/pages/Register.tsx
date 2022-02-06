@@ -1,4 +1,4 @@
-import  { FormEventHandler, useState, useEffect,FC, ChangeEvent, } from "react";
+import { FormEventHandler, useState, useEffect, FC, ChangeEvent } from "react";
 /**React-router */
 import { Link, useNavigate } from "react-router-dom";
 /**CSS */
@@ -9,9 +9,9 @@ import { RootState } from "../store/store";
 import { registerUser } from "../store/thunks/register";
 import classnames from "classnames";
 interface IProps {
-	auth:IAuth;
-	errors:IErrors
-	registerUser:any;
+	auth: IAuth;
+	errors: IErrors;
+	registerUser: any;
 }
 const Presentational: FC<IProps> = ({ registerUser, auth, errors }) => {
 	let navigate = useNavigate();
@@ -134,7 +134,7 @@ const mapStateToProps = (state: RootState) => {
 const dispatchToProps = {
 	registerUser,
 };
-export const Register:FC<any> = connect(
+export const Register: FC<any> = connect(
 	mapStateToProps,
 	dispatchToProps
 )(Presentational);

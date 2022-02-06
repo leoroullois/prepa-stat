@@ -37,7 +37,7 @@ const Presentational: FC<ILayoutProps> = ({
 	reset,
 	navBar,
 }) => {
-	const dispatch= useDispatch();
+	const dispatch = useDispatch();
 	const updateDimensions = () => {
 		resize(window.innerWidth, window.innerHeight);
 	};
@@ -94,14 +94,12 @@ interface IRedux {
 	resize: (pWidth: number, pHeight: number) => void;
 	close: () => void;
 }
-const mapDispatchToProps = (): IRedux => {
-	return {
-		reset: (pValue: boolean) => (dispatch: AppDispatch) =>
-			dispatch(dropdownStatAction(pValue)),
-		resize: (pWidth: number, pHeight: number) => (dispatch: AppDispatch) =>
-			dispatch(resizeAction(pWidth, pHeight)),
-		close: () => (dispatch: AppDispatch) => dispatch(closeAction()),
-	};
+const mapDispatchToProps = {
+	reset: (pValue: boolean) => (dispatch: AppDispatch) =>
+		dispatch(dropdownStatAction(pValue)),
+	resize: (pWidth: number, pHeight: number) => (dispatch: AppDispatch) =>
+		dispatch(resizeAction(pWidth, pHeight)),
+	close: () => (dispatch: AppDispatch) => dispatch(closeAction()),
 };
 export const Layout: FC<any> = connect(
 	mapStateToProps,

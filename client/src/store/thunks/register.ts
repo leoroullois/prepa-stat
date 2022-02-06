@@ -13,9 +13,9 @@ export const registerUser =
 			headers: { "Content-Type": "application/json" },
 		})
 			.then((res) => {
-				console.log("Successfully logged in.", res.data);
+				console.log("Successfully registered in.", res.data);
 				navigate("/se-connecter");
-				dispatch(setCurrentUser(userData));
+				// dispatch(setCurrentUser(userData));
 			})
 			.catch((err) => {
 				console.log("Error when registered.", err);

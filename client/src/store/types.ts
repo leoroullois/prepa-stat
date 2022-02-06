@@ -8,10 +8,6 @@ export const TOGGLE_DROPDOWN_LEADERBOARD = "TOGGLE_DROPDOWN_LEADERBOARD";
 export const OPEN_SIDE_NAV = "sidenav/open";
 export const CLOSE_SIDE_NAV = "sidenav/close";
 
-/**SubNav */
-export const CHOOSE_SUB_SECTION = "CHOOSE_SUB_SECTION";
-export const RESET = "RESET";
-
 /**Stats */
 export const DISPLAY_STAT = "DISPLAY_STAT";
 

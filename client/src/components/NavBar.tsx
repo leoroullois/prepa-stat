@@ -14,17 +14,14 @@ import "../css/navbar.css";
 import { connect, MapDispatchToProps } from "react-redux";
 import { RootState } from "../store/store";
 import {
-	dropdownLeaderboardAction,
 	dropdownStatAction,
 	toggleAction,
 } from "../store/actions/navBarAction";
 import { openAction } from "../store/actions/sideNavAction";
-import { chooseAction } from "../store/actions/subNavAction";
 import { AuthBtn } from "./AuthBtn";
 export interface IProps {
 	toggleDarkMode: (pValue: boolean) => void;
 	toggleStats: (pValue: boolean) => void;
-	resetSubNav: (pNewSection: string, pClasses: string[], pPage: string) => void;
 	open: () => void;
 	layout: any;
 	navBar: any;
@@ -40,7 +37,6 @@ const Presentational: FC<IProps> = ({
 	navBar,
 	toggleStats,
 	toggleDarkMode,
-	resetSubNav,
 	auth,
 	layout,
 }) => {
@@ -72,13 +68,7 @@ const Presentational: FC<IProps> = ({
 	const handleDarkMode = () => {
 		toggleDarkMode(navBar.darkMode);
 	};
-	/**
-	 * Set default value for the subnav of the destination page
-	 * @param pPage string of the destination page like "classements"
-	 */
-	const handleClick = (pPage: string) => {
-		resetSubNav("", [], pPage);
-	};
+
 	return (
 		<nav id='nav'>
 			<div className='responsive-icon'>
@@ -93,11 +83,7 @@ const Presentational: FC<IProps> = ({
 				</Link>
 			)}
 			{layout.width >= 1024 && (
-				<Link
-					onClick={() => handleClick("classements")}
-					className='link basic-link'
-					to='/classements/l-etudiant'
-				>
+				<Link className='link basic-link' to='/classements/l-etudiant'>
 					Classements
 				</Link>
 			)}
@@ -112,12 +98,7 @@ const Presentational: FC<IProps> = ({
 						Statistiques
 						<FaCaretDown className='dropdown-icon' />
 					</div>
-					{navBar.stats && (
-						<Dropdown
-							onClick={() => handleClick("statistiques")}
-							disableStat={toggleStats}
-						/>
-					)}
+					{navBar.stats && <Dropdown disableStat={toggleStats} />}
 				</div>
 			)}
 			{layout.width > 530 && <AuthBtn />}
@@ -139,7 +120,6 @@ const Presentational: FC<IProps> = ({
 const mapStateToProps = (state: RootState) => {
 	return {
 		stats: state.stats,
-		subNav: state.subNav,
 		navBar: state.navBar,
 		layout: state.layout,
 		auth: state.auth,
@@ -148,20 +128,14 @@ const mapStateToProps = (state: RootState) => {
 interface IRedux {
 	toggleDarkMode: (pValue: boolean) => void;
 	toggleStats: (pValue: boolean) => void;
-	toggleLeaderboard: (pValue: boolean) => void;
-	resetSubNav: (pNewSection: string, pClasses: string[], pPage: string) => void;
 	open: () => void;
 }
 const mapDispatchToProps: MapDispatchToProps<IRedux, {}> = (
 	dispatch
 ): IRedux => {
 	return {
-		resetSubNav: (pNewSection: string, pClasses: string[], pPage: string) =>
-			dispatch(chooseAction(pNewSection, pClasses, pPage)),
 		toggleDarkMode: (pValue: boolean) => dispatch(toggleAction(pValue)),
 		toggleStats: (pValue: boolean) => dispatch(dropdownStatAction(pValue)),
-		toggleLeaderboard: (pValue: boolean) =>
-			dispatch(dropdownLeaderboardAction(pValue)),
 		open: () => dispatch(openAction()),
 	};
 };

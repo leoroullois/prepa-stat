@@ -3,9 +3,9 @@ import { Outlet } from "react-router-dom";
 // CSS
 import "../css/layout.css";
 // Redux
-import { connect } from "react-redux";
-import { RootState } from "../store/store";
-import { reset, resize, close } from "../store/actions/layoutAction";
+import { connect, useDispatch } from "react-redux";
+import { AppDispatch, RootState } from "../store/store";
+import { resizeAction } from "../store/actions/layoutAction";
 
 /** Dark Mode */
 import { ThemeProvider } from "styled-components";
@@ -14,6 +14,8 @@ import { GlobalStyles } from "./theme/global";
 import { Footer } from "../components/Footer";
 import { NavBar } from "../components/NavBar";
 import { SideNav } from "../components/SideNav";
+import { dropdownStatAction } from "../store/actions/navBarAction";
+import { closeAction } from "../store/actions/sideNavAction";
 // ? REACT
 export interface ILayoutProps {
 	reset: (pValue: boolean) => void;
@@ -35,6 +37,7 @@ const Presentational: FC<ILayoutProps> = ({
 	reset,
 	navBar,
 }) => {
+	const dispatch= useDispatch();
 	const updateDimensions = () => {
 		resize(window.innerWidth, window.innerHeight);
 	};
@@ -53,7 +56,8 @@ const Presentational: FC<ILayoutProps> = ({
 			target.id !== "nav-responsive" &&
 			sideNav.opened
 		) {
-			close();
+			console.log("first");
+			dispatch(close());
 		}
 		if (navBar.stats) {
 			reset(navBar.stats);
@@ -80,18 +84,26 @@ const Presentational: FC<ILayoutProps> = ({
 const mapStateToProps = (state: RootState) => {
 	return {
 		stats: state.stats,
-		subNav: state.subNav,
 		navBar: state.navBar,
 		layout: state.layout,
 		sideNav: state.sideNav,
 	};
 };
-const dispatchToProps = {
-	reset,
-	resize,
-	close,
+interface IRedux {
+	reset: (pValue: boolean) => void;
+	resize: (pWidth: number, pHeight: number) => void;
+	close: () => void;
+}
+const mapDispatchToProps = (): IRedux => {
+	return {
+		reset: (pValue: boolean) => (dispatch: AppDispatch) =>
+			dispatch(dropdownStatAction(pValue)),
+		resize: (pWidth: number, pHeight: number) => (dispatch: AppDispatch) =>
+			dispatch(resizeAction(pWidth, pHeight)),
+		close: () => (dispatch: AppDispatch) => dispatch(closeAction()),
+	};
 };
 export const Layout: FC<any> = connect(
 	mapStateToProps,
-	dispatchToProps
+	mapDispatchToProps
 )(Presentational);

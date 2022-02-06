@@ -6,7 +6,7 @@ import "../css/leaderboard.css";
 import { connect } from "react-redux";
 import { printStat } from "../store/actions/statsAction";
 /**Components */
-import { SchoolLeaderboard } from "../components/SchoolLeaderboard";
+import { LeaderboardSection } from "../components/LeaderboardSection";
 import { SubNav } from "../components/SubNav";
 import { NoPage } from "./NoPage";
 
@@ -44,7 +44,7 @@ const Presentational: FC<IProps> = () => {
 					changeUrl={true}
 				/>
 				<h1>Classement {match(classement)}.</h1>
-				<SchoolLeaderboard classement={match(classement)} />
+				<LeaderboardSection classement={match(classement)} />
 			</div>
 		);
 	}

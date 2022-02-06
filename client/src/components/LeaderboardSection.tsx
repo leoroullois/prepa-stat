@@ -2,7 +2,7 @@ import { FC } from "react";
 interface IProps {
     classement:string;
 }
-export const SchoolLeaderboard:FC<IProps> = ({classement}) => {
+export const LeaderboardSection:FC<IProps> = ({classement}) => {
     return (
         <section>
             <h2>{classement}</h2>

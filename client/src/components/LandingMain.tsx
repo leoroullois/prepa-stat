@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import student from "../assets/student2-removebg-rogned.png";
-import { useEffect } from "react";
 export const LandingMain = () => {
 
 	return (

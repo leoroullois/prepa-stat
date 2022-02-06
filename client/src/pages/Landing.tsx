@@ -96,7 +96,7 @@ export const Presentational: FC<IProps> = ({ navBar }) => {
 					title="Trouvez l'école qui vous correspond"
 					img={stats}
 					text={lorem}
-					path='/statistiques'
+					path='/statistiques/mp/generale'
 					name='Statistiques'
 					direction='left'
 				/>

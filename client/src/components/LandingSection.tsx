@@ -28,7 +28,7 @@ export const LandingSection: FC<IProps> = ({
 						<h3>{title}</h3>
 					</div>
 					<div className='section-content'>
-						<img className='section-img' src={img} alt='Leaderboard' />
+						<img className='section-img svg' src={img} alt='Leaderboard' />
 						<div className='section-main-content'>
 							<p className='section-text'>{text}</p>
 							<Link className='section-btn' to={path}>

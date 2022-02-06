@@ -47,7 +47,6 @@ const App: FC<any> = () => {
 				<Routes>
 					<Route path='/' element={<Layout />}>
 						<Route index element={<Home />} />
-						<Route path='/simulateur' element={<Simulator />}></Route>
 						<Route path='/se-connecter' element={<Login />}></Route>
 						<Route path='/s-enregistrer' element={<Register />}></Route>
 						<Route path='/redirect' element={<AuthRedirect />}></Route>
@@ -55,9 +54,10 @@ const App: FC<any> = () => {
 							path='/dashboard'
 							element={<PrivateRoute component={<Dashboard />} />}
 						/>
-						{/* MP */}
+						<Route path="/classements/:id" element={<Leaderboard classement="L'étudiant"/>} />
+						<Route path='/simulateur' element={<Simulator />}></Route>
 						<Route
-							path='statistiques/:filiere/:concours'
+							path='/statistiques/:filiere/:concours'
 							element={<Stats />}
 						/>
 

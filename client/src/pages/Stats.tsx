@@ -25,7 +25,7 @@ export interface IState {}
 const Presentational: FC<IProps> = ({ subNav }) => {
 	const filieres = ["mp", "pc", "pt", "psi"];
 	const allConcours = [
-		"general",
+		"generale",
 		"x",
 		"ens",
 		"centrale",

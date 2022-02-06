@@ -1,3 +1,24 @@
+/**Schools */
+interface ISchools {
+	ecole: string;
+	inscrits_nb: number;
+	inscrits_filles: number;
+	inscrits_cinq_demi: number;
+	admissibles_nb: number;
+	admissibles_filles: number;
+	admissibles_cinq_demi: number;
+	classes_nb: number;
+	casses_filles: number;
+	classes_cinq_demi: number;
+	integres_nb: number;
+	integres_filles: number;
+	integres_cinq_demi: number;
+	integres_rg_median: number;
+	integres_rg_moyen: number;
+	places: number;
+	annee: number;
+	filiere: string;
+}
 /**JWT Token */
 interface IDecodedUser {
 	exp?: number;

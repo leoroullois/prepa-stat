@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, useEffect } from "react";
 // react-icons
 import { MdOutlineDarkMode, MdDarkMode } from "react-icons/md";
 import { FaCaretDown } from "react-icons/fa";
@@ -24,131 +24,117 @@ import { AuthBtn } from "./AuthBtn";
 export interface IProps {
 	toggleDarkMode: (pValue: boolean) => void;
 	toggleStats: (pValue: boolean) => void;
-	toggleLeaderboard: (pValue: boolean) => void;
 	resetSubNav: (pNewSection: string, pClasses: string[], pPage: string) => void;
 	open: () => void;
-	leaderboard?: any;
-	layout?: any;
-	stats?: any;
-	subNav?: any;
-	navBar?: any;
-	auth?: any;
+	layout: any;
+	navBar: any;
+	auth: any;
 }
 export interface IState {
 	darkMode: boolean;
 	leaderboard: boolean;
 	stats: boolean;
 }
-// TODO : remplacer le bouton se connecter par un bouton se déconnecter + profile
-class Presentational extends React.Component<IProps, IState> {
-	constructor(props: IProps) {
-		super(props);
-		this.handleLeaderboard = this.handleLeaderboard.bind(this);
-		this.handleStat = this.handleStat.bind(this);
-		this.handleDarkMode = this.handleDarkMode.bind(this);
-		this.handleClick = this.handleClick.bind(this);
-		this.openNav = this.openNav.bind(this);
-	}
-	componentDidMount() {
+const Presentational: FC<IProps> = ({
+	open,
+	navBar,
+	toggleStats,
+	toggleDarkMode,
+	resetSubNav,
+	auth,
+	layout,
+}) => {
+	useEffect(() => {
 		const hamburger: HTMLElement | null =
 			document.querySelector("#hamburger-icon");
 		if (hamburger) {
-			hamburger.addEventListener("click", this.openNav);
+			hamburger.addEventListener("click", openNav);
 		}
-	}
-	componentWillUnmount() {
-		const hamburger: HTMLElement | null =
-			document.querySelector("#hamburger-icon");
-		if (hamburger) {
-			hamburger.removeEventListener("click", this.openNav);
-		}
-	}
+		return () => {
+			const hamburger: HTMLElement | null =
+				document.querySelector("#hamburger-icon");
+			if (hamburger) {
+				hamburger.removeEventListener("click", openNav);
+			}
+		};
+	});
 	/**
 	 * A function that will open the responsive navbar
 	 * @param e mouse event
 	 */
-	openNav(e: Event) {
-		this.props.open();
-	}
-	handleStat() {
-		this.props.toggleStats(this.props.navBar.stats);
-	}
-	handleLeaderboard() {
-		this.props.toggleLeaderboard(this.props.navBar.leaderboard);
-	}
-	handleDarkMode() {
-		this.props.toggleDarkMode(this.props.navBar.darkMode);
-	}
+	const openNav = (e: Event) => {
+		open();
+	};
+
+	const handleStat = () => {
+		toggleStats(navBar.stats);
+	};
+	const handleDarkMode = () => {
+		toggleDarkMode(navBar.darkMode);
+	};
 	/**
 	 * Set default value for the subnav of the destination page
 	 * @param pPage string of the destination page like "classements"
 	 */
-	handleClick(pPage: string) {
-		this.props.resetSubNav("", [], pPage);
-	}
-	render() {
-		return (
-			<nav id='nav'>
-				<div className='responsive-icon'>
-					<IoMenu id='hamburger-icon' />
-				</div>
-				<Link className='nav-logo' to='/' id='nav-logo'>
-					PrépaStat
+	const handleClick = (pPage: string) => {
+		resetSubNav("", [], pPage);
+	};
+	return (
+		<nav id='nav'>
+			<div className='responsive-icon'>
+				<IoMenu id='hamburger-icon' />
+			</div>
+			<Link className='nav-logo' to='/' id='nav-logo'>
+				PrépaStat
+			</Link>
+			{layout.width >= 1024 && (
+				<Link className='link basic-link' to='/'>
+					Accueil
 				</Link>
-				{this.props.layout.width >= 1024 && (
-					<Link className='link basic-link' to='/'>
-						Accueil
-					</Link>
-				)}
-				{this.props.layout.width >= 1024 && (
-					<Link
-						onClick={() => this.handleClick("classements")}
-						className='link basic-link'
-						to='/classements/letudiant'
-					>
-						Classements
-					</Link>
-				)}
-				{this.props.layout.width >= 1024 && (
-					<Link className='link basic-link' to='/simulateur'>
-						Simulateur
-					</Link>
-				)}
-				{this.props.layout.width >= 1024 && (
-					<div className='link dropdown-btn' onClick={this.handleStat}>
-						<div className='dropdown-btn-content'>
-							Statistiques
-							<FaCaretDown className='dropdown-icon' />
-						</div>
-						{this.props.navBar.stats && (
-							<Dropdown
-								onClick={() => this.handleClick("statistiques")}
-								disableStat={this.props.toggleStats}
-							/>
-						)}
+			)}
+			{layout.width >= 1024 && (
+				<Link
+					onClick={() => handleClick("classements")}
+					className='link basic-link'
+					to='/classements/l-etudiant'
+				>
+					Classements
+				</Link>
+			)}
+			{layout.width >= 1024 && (
+				<Link className='link basic-link' to='/simulateur'>
+					Simulateur
+				</Link>
+			)}
+			{layout.width >= 1024 && (
+				<div className='link dropdown-btn' onClick={handleStat}>
+					<div className='dropdown-btn-content'>
+						Statistiques
+						<FaCaretDown className='dropdown-icon' />
 					</div>
-				)}
-				{this.props.layout.width > 530 && (
-					<AuthBtn/>
-				)}
-				{this.props.auth.isAuthenticated && (
-					<IoPersonCircleSharp className='dashboard-icon' />
-				)}
-				{!this.props.navBar.darkMode ? (
-					<MdDarkMode
-						style={{ cursor: "pointer" }}
-						onClick={this.handleDarkMode}
-					/>
-				) : (
-					<MdOutlineDarkMode
-						style={{ cursor: "pointer" }}
-						onClick={this.handleDarkMode}
-					/>
-				)}
-			</nav>
-		);
-	}
-}
+					{navBar.stats && (
+						<Dropdown
+							onClick={() => handleClick("statistiques")}
+							disableStat={toggleStats}
+						/>
+					)}
+				</div>
+			)}
+			{layout.width > 530 && <AuthBtn />}
+			{auth.isAuthenticated && (
+				<IoPersonCircleSharp className='dashboard-icon' />
+			)}
+			{!navBar.darkMode ? (
+				<MdDarkMode style={{ cursor: "pointer" }} onClick={handleDarkMode} />
+			) : (
+				<MdOutlineDarkMode
+					style={{ cursor: "pointer" }}
+					onClick={handleDarkMode}
+				/>
+			)}
+		</nav>
+	);
+};
 // ? REDUX
 const mapStateToProps = (state: RootState) => {
 	return {
@@ -159,9 +145,16 @@ const mapStateToProps = (state: RootState) => {
 		auth: state.auth,
 	};
 };
-const mapDispatchToProps: MapDispatchToProps<IProps, {}> = (
+interface IRedux {
+	toggleDarkMode: (pValue: boolean) => void;
+	toggleStats: (pValue: boolean) => void;
+	toggleLeaderboard: (pValue: boolean) => void;
+	resetSubNav: (pNewSection: string, pClasses: string[], pPage: string) => void;
+	open: () => void;
+}
+const mapDispatchToProps: MapDispatchToProps<IRedux, {}> = (
 	dispatch
-): IProps => {
+): IRedux => {
 	return {
 		resetSubNav: (pNewSection: string, pClasses: string[], pPage: string) =>
 			dispatch(chooseAction(pNewSection, pClasses, pPage)),
@@ -172,7 +165,7 @@ const mapDispatchToProps: MapDispatchToProps<IProps, {}> = (
 		open: () => dispatch(openAction()),
 	};
 };
-export const NavBar = connect(
+export const NavBar: FC<any> = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(Presentational);

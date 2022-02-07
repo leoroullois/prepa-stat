@@ -22,6 +22,27 @@ const Presentational: FC<any> = () => {
 		"ccinp",
 		"e3a",
 	];
+	// const [schools, setSchools] = useState<ISchools[]>([]);
+	// const [properties, setProperties] = useState<string[]>([]);
+	// useEffect(() => {
+	// 	fetch("/api/schools?filiere=mp&annee=2021")
+	// 		.then((res) => res.json())
+	// 		.then((data) => {
+	// 			setSchools(data);
+	// 			setProperties(Object.keys(data[0]));
+	// 		});
+	// });
+	// const title = properties.map((elt, index) => {
+	// 	return <th key={index}>{elt}</th>;
+	// });
+	// const element = schools.map((elt: any, index) => {
+	// 	const output = [];
+	// 	for (const property in elt) {
+	// 		const row = <th>{elt[property]}</th>;
+	// 		output.push(row);
+	// 	}
+	// 	return <tr key={index}>{output}</tr>;
+	// });
 	type StatsParams = { filiere: string; concours: string };
 	let { filiere, concours } = useParams<StatsParams>();
 	filiere = filiere as string;

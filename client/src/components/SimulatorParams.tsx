@@ -1,0 +1,80 @@
+import { FC, FormEventHandler } from "react";
+import { IoArrowForward } from "react-icons/io5";
+
+export const SimulatorParams: FC<any> = () => {
+	const handleSubmit: FormEventHandler = (e) => {
+		e.preventDefault();
+		console.log(e);
+	};
+	return (
+		<form
+			action=''
+			onSubmit={handleSubmit}
+			className='simulator-content'
+			id='params'
+		>
+			<h2>✨ Renseignez vos informations</h2>
+			<fieldset>
+				<legend>Choisissez votre concours :</legend>
+				<div>
+					<input type='radio' name='concours' id='x-ens' />
+					<label htmlFor='x-ens'>X-ENS</label>
+				</div>
+				<div>
+					<input type='radio' name='concours' id='mines-pont' />
+					<label htmlFor='mines-pont'>Mines Pont</label>
+				</div>
+				<div>
+					<input type='radio' name='concours' id='centrale' />
+					<label htmlFor='centrale'>Centrale</label>
+				</div>
+				<div>
+					<input type='radio' name='concours' id='ccinp' />
+					<label htmlFor='ccinp'>CCINP</label>
+				</div>
+				<div>
+					<input type='radio' name='concours' id='e3a' />
+					<label htmlFor='e3a'>E3A</label>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Choisissez votre filière :</legend>
+				<div>
+					<input type='radio' name='filieres' id='mp' />
+					<label htmlFor='mp'>MP</label>
+				</div>
+				<div>
+					<input type='radio' name='filieres' id='pc' />
+					<label htmlFor='pc'>PC</label>
+				</div>
+				<div>
+					<input type='radio' name='filieres' id='psi' />
+					<label htmlFor='psi'>PSI</label>
+				</div>
+				<div>
+					<input type='radio' name='filieres' id='pt' />
+					<label htmlFor='pt'>PT</label>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Autre :</legend>
+				<div>
+					<input type='checkbox' name='options' id='cinq_demi' />
+					<label htmlFor='cinq_demi'>5/2</label>
+				</div>
+				<div>
+					<input type='checkbox' name='options' id='lv2' />
+					<label htmlFor='lv2'>LV2</label>
+				</div>
+			</fieldset>
+			<div className='btn-container'>
+				<button type='submit'>
+					<span>Saisir les notes</span>
+					<IoArrowForward className='icon' />
+				</button>
+			</div>
+		</form>
+	);
+};

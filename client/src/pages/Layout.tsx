@@ -89,11 +89,6 @@ const mapStateToProps = (state: RootState) => {
 		sideNav: state.sideNav,
 	};
 };
-interface IRedux {
-	reset: (pValue: boolean) => void;
-	resize: (pWidth: number, pHeight: number) => void;
-	close: () => void;
-}
 const mapDispatchToProps = {
 	reset: (pValue: boolean) => (dispatch: AppDispatch) =>
 		dispatch(dropdownStatAction(pValue)),

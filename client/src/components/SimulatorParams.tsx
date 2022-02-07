@@ -1,11 +1,33 @@
-import { FC, FormEventHandler } from "react";
+import { ChangeEventHandler, FC, FormEventHandler, useState } from "react";
 import { IoArrowForward } from "react-icons/io5";
-
-export const SimulatorParams: FC<any> = () => {
+import { connect } from "react-redux";
+import { setParams } from "../store/actions/simulatorAction";
+import { RootState } from "../store/store";
+interface IGradesProps {
+	simulator: ISimulState;
+}
+const Presentational: FC<IGradesProps> = () => {
+	const [simulInfo, setSimulInfo] = useState<ISimulInfo>({
+		concours: "",
+		filiere: "",
+		autre: {
+			cinq_demi: false,
+			lv2: false,
+		},
+	});
 	const handleSubmit: FormEventHandler = (e) => {
 		e.preventDefault();
+
 		console.log(e);
 	};
+	const handleChange:ChangeEventHandler = (e) => {
+		const elt:HTMLInputElement = e.target as HTMLInputElement;
+		if(elt.name==="concours") {
+			console.log(e.target.id);
+		} else if (elt.name==="filieres") {
+			console.log(e);
+		}
+	}
 	return (
 		<form
 			action=''
@@ -78,3 +100,17 @@ export const SimulatorParams: FC<any> = () => {
 		</form>
 	);
 };
+// ? REDUX
+const mapStateToProps = (state: RootState): IGradesProps => {
+	return {
+		simulator: state.simulator,
+	};
+};
+const dispatchToProps = {
+	setParams,
+};
+
+export const SimulatorParams: FC<{}> = connect(
+	mapStateToProps,
+	dispatchToProps
+)(Presentational);

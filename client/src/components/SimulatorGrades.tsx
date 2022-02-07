@@ -1,7 +1,15 @@
-import { FC, FormEventHandler } from "react";
+import { FC, FormEventHandler, useState } from "react";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
-
-export const SimulatorGrades: FC<any> = () => {
+import { connect } from "react-redux";
+import { setGrades, goBack } from "../store/actions/simulatorAction";
+import { RootState } from "../store/store";
+interface IGradesProps {
+	simulator: ISimulState;
+	setGrades: any;
+	goBack: any;
+}
+const Presentational: FC<IGradesProps> = ({ simulator, setGrades, goBack }) => {
+	const [marks, setMarks] = useState<IGrades[]>([]);
 	const handleSubmit: FormEventHandler = (e) => {
 		e.preventDefault();
 		console.log(e);
@@ -23,13 +31,19 @@ export const SimulatorGrades: FC<any> = () => {
 					</tr>
 				</thead>
 				<tbody>
-                <tr>
+					<tr>
 						<td>
 							<label htmlFor='math-a'>Mathématiques A :</label>
 						</td>
 						<td>5</td>
 						<td>
-							<input type='number' name='math-a' id='math-a' />
+							<input
+								type='number'
+								name='math-a'
+								id='math-a'
+								placeholder='10'
+								value=''
+							/>
 						</td>
 					</tr>
 					<tr>
@@ -38,7 +52,13 @@ export const SimulatorGrades: FC<any> = () => {
 						</td>
 						<td>5</td>
 						<td>
-							<input type='number' name='math-a' id='math-a' />
+							<input
+								type='number'
+								name='math-a'
+								id='math-a'
+								placeholder='10'
+								value=''
+							/>
 						</td>
 					</tr>
 					<tr>
@@ -47,7 +67,13 @@ export const SimulatorGrades: FC<any> = () => {
 						</td>
 						<td>5</td>
 						<td>
-							<input type='number' name='math-a' id='math-a' />
+							<input
+								type='number'
+								name='math-a'
+								id='math-a'
+								placeholder='10'
+								value=''
+							/>
 						</td>
 					</tr>
 				</tbody>
@@ -65,3 +91,18 @@ export const SimulatorGrades: FC<any> = () => {
 		</form>
 	);
 };
+// ? REDUX
+const mapStateToProps = (state: RootState) => {
+	return {
+		simulator: state.simulator,
+	};
+};
+const dispatchToProps = {
+	setGrades,
+	goBack,
+};
+
+export const SimulatorGrades: FC<{}> = connect(
+	mapStateToProps,
+	dispatchToProps
+)(Presentational);

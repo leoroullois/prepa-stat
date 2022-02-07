@@ -1,3 +1,30 @@
+/**Simulator */
+interface IAutre {
+	cinq_demi: boolean;
+	lv2: boolean;
+}
+interface ISimulInfo {
+	concours: string;
+	filiere: string;
+	autre: IAutre;
+}
+interface IGrades {
+	epreuve: string;
+	coef: number;
+	note: number;
+}
+interface ISimulState {
+	params: ISimulInfo;
+	grades: IGrades[];
+}
+interface ISetGrades {
+	type: string;
+	payload: IGrades[];
+}
+interface ISetParams {
+	type: string;
+	payload: ISimulInfo;
+}
 /**Schools */
 interface ISchools {
 	ecole: string;
@@ -54,14 +81,14 @@ interface ILoginProps {
 
 /**Auth */
 interface IUrls {
-	PUBLIC_URL:string;
-	SERVER_URL:string;
+	PUBLIC_URL: string;
+	SERVER_URL: string;
 }
 interface IAuth {
 	isAuthenticated: boolean;
 	user: any;
 	loading: boolean;
-	urls:IUrls;
+	urls: IUrls;
 }
 /**Errors */
 interface IErrors {

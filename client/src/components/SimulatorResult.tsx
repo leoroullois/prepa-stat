@@ -1,6 +1,10 @@
 import { FC } from "react";
-
-export const SimulatorResult: FC<any> = () => {
+import { connect } from "react-redux";
+import { RootState } from "../store/store";
+interface IResultProps {
+	simulator: ISimulState;
+}
+const Presentational: FC<any> = () => {
 	return (
 		<div className='simulator-content' id='result'>
 			<h2>🎊 Résultat</h2>
@@ -8,3 +12,14 @@ export const SimulatorResult: FC<any> = () => {
 		</div>
 	);
 };
+// ? REDUX
+const mapStateToProps = (state: RootState): IResultProps => {
+	return {
+		simulator: state.simulator,
+	};
+};
+
+export const SimulatorResult: FC<{}> = connect(
+	mapStateToProps,
+	null
+)(Presentational);

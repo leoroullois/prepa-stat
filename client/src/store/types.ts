@@ -23,7 +23,12 @@ export const REGISTER_WRITE_USERNAME = "login/write/username";
 export const REGISTER_WRITE_EMAIL = "register/write/email";
 export const REGISTER_WRITE_PASSWORD = "register/write/password";
 export const REGISTER_WRITE_PASSWORD2 = "register/write/password2";
-export const REGISTER_SUBMIT = "register/submit"
+export const REGISTER_SUBMIT = "register/submit";
 
 /**Layout */
 export const WINDOW_RESIZE = "layout/resize/window";
+
+/**Simulator */
+export const SET_PARAMS = "simulator/set/params";
+export const SET_GRADES = "simulator/set/grades";
+export const BACK_GRADES = "simulator/go/back";

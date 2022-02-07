@@ -9,6 +9,7 @@ export const Simulator: FC<{}> = () => {
 	useEffect(() => {
 		document.title = "Simulateur d'admissibilité - PrépaStat";
 	});
+
 	return (
 		<div id='simulator'>
 			<h1>Simulateur d'admissibilité</h1>

@@ -2,7 +2,6 @@ import { FC, useEffect } from "react";
 import { SimulatorGrades } from "../components/SimulatorGrades";
 import { SimulatorParams } from "../components/SimulatorParams";
 import { SimulatorResult } from "../components/SimulatorResult";
-import "../css/simulator.css";
 /**CSS */
 import "../css/simulator.css";
 export const Simulator: FC<{}> = () => {
@@ -11,13 +10,13 @@ export const Simulator: FC<{}> = () => {
 	});
 
 	return (
-		<div id='simulator'>
+		<section id='simulator'>
 			<h1>Simulateur d'admissibilité</h1>
 			<section className='simulator-container'>
 				<SimulatorParams />
 				<SimulatorGrades />
 				<SimulatorResult />
 			</section>
-		</div>
+		</section>
 	);
 };

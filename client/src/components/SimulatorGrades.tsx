@@ -13,13 +13,40 @@ const Presentational: FC<IGradesProps> = ({ simulator, setGrades, goBack }) => {
 	const handleSubmit: FormEventHandler = (e) => {
 		e.preventDefault();
 		console.log(e);
+		const params = document.querySelector("#params") as HTMLElement;
+		const grades = document.querySelector("#grades") as HTMLElement;
+		const result = document.querySelector("#result") as HTMLElement;
+		result.classList.add("active");
+		grades.classList.add("filled");
+		result.classList.remove("zero");
+		result.classList.remove("back");
+		setTimeout(() => {
+			grades.classList.remove("active");
+			grades.classList.add("zero");
+		}, 200);
+	};
+	const handleReset: FormEventHandler = (e) => {
+		e.preventDefault();
+		console.log(e);
+		const params = document.querySelector("#params") as HTMLElement;
+		const grades = document.querySelector("#grades") as HTMLElement;
+		const result = document.querySelector("#result") as HTMLElement;
+		params.classList.remove("filled");
+		params.classList.remove("active");
+		params.classList.add("active");
+		grades.classList.add("back");
+		setTimeout(() => {
+			grades.classList.remove("active");
+			grades.classList.add("zero");
+		}, 200);
 	};
 	return (
 		<form
 			action=''
 			onSubmit={handleSubmit}
+			onReset={handleReset}
 			id='grades'
-			className='simulator-content active'
+			className='simulator-content'
 		>
 			<h2>🧠 Rentrez vos notes</h2>
 			<table>

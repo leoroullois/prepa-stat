@@ -13,11 +13,21 @@
 }
 
 #simulator {
-  font-family: "Inter", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  width: 100%;
+  padding: 0;
+  font-family: "Inter", sans-serif;
 }
 #simulator h1 {
   text-align: center;
@@ -36,25 +46,14 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: 0 auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #f1f1f1;
+  padding: 0 auto;
   padding-top: 30px;
-  width: 100%;
   max-width: 1100px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 0;
-}
-#simulator .active::after {
-  content: "";
-  inset: 0;
-  z-index: 1;
-  background-color: #1b1b1b;
-}
-#simulator .active {
-  background-color: purple;
+  color: #f1f1f1;
 }
 #simulator .simulator-content {
   display: -webkit-box;
@@ -64,12 +63,21 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 60px;
   padding: 40px;
   background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F02D51), to(#F2721A));
   background: linear-gradient(90deg, #F02D51 1.05%, #F2721A 100%);
   border-radius: 20px;
-  width: 500px;
   max-width: 90%;
+  -webkit-animation: all 2s ease-in-out;
+          animation: all 2s ease-in-out;
+  overflow: hidden;
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
           box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
@@ -130,9 +138,6 @@
   font-size: 1.8rem;
 }
 #simulator #params {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -283,4 +288,45 @@
 }
 #simulator #grades .btn-container {
   margin-top: 30px;
+}
+#simulator .simulator-content {
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
+}
+#simulator .zero {
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+#simulator .active {
+  height: auto !important;
+  width: auto !important;
+  padding: 30px !important;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+#simulator .filled {
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  transition: -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+  transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  -webkit-transform: translateX(-100vw);
+          transform: translateX(-100vw);
+}
+#simulator .back {
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  transition: -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+  transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
 }/*# sourceMappingURL=simulator.css.map */

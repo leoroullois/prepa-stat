@@ -1,4 +1,10 @@
-import { ChangeEventHandler, FC, FormEventHandler, useState } from "react";
+import {
+	ChangeEventHandler,
+	FC,
+	FormEventHandler,
+	useEffect,
+	useState,
+} from "react";
 import { IoArrowForward } from "react-icons/io5";
 import { connect } from "react-redux";
 import { setParams } from "../store/actions/simulatorAction";
@@ -15,24 +21,36 @@ const Presentational: FC<IGradesProps> = () => {
 			lv2: false,
 		},
 	});
+
 	const handleSubmit: FormEventHandler = (e) => {
 		e.preventDefault();
-
 		console.log(e);
+		const params = document.querySelector("#params") as HTMLElement;
+		const grades = document.querySelector("#grades") as HTMLElement;
+		const result = document.querySelector("#result") as HTMLElement;
+		grades.classList.add("active");
+		params.classList.add("filled");
+		grades.classList.remove("zero");
+		grades.classList.remove("back");
+		setTimeout(() => {
+			params.classList.remove("active");
+			params.classList.add("zero");
+		}, 200);
 	};
-	const handleChange:ChangeEventHandler = (e) => {
-		const elt:HTMLInputElement = e.target as HTMLInputElement;
-		if(elt.name==="concours") {
+	const handleChange: ChangeEventHandler = (e) => {
+		const elt: HTMLInputElement = e.target as HTMLInputElement;
+		if (elt.name === "concours") {
 			console.log(e.target.id);
-		} else if (elt.name==="filieres") {
+		} else if (elt.name === "filieres") {
 			console.log(e);
 		}
-	}
+	};
+
 	return (
 		<form
 			action=''
 			onSubmit={handleSubmit}
-			className='simulator-content'
+			className='simulator-content active'
 			id='params'
 		>
 			<h2>✨ Renseignez vos informations</h2>

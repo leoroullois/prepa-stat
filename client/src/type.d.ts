@@ -1,21 +1,18 @@
 /**Simulator */
-interface IAutre {
-	cinq_demi: boolean;
-	lv2: boolean;
-}
-interface ISimulInfo {
+interface ICardBegin {
 	concours: string;
 	filiere: string;
-	autre: IAutre;
+	cinq_demi: boolean;
+	lv2: boolean;
 }
 interface IGrades {
 	epreuve: string;
 	coef: number;
 	note: number;
 }
-interface ISimulState {
-	params: ISimulInfo;
-	grades: IGrades[];
+interface ModifyFormDataType {
+	payload?: ICardBegin | IGrades;
+	prop: string | null;
 }
 interface ISetGrades {
 	type: string;

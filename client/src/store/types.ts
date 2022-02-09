@@ -27,8 +27,3 @@ export const REGISTER_SUBMIT = "register/submit";
 
 /**Layout */
 export const WINDOW_RESIZE = "layout/resize/window";
-
-/**Simulator */
-export const SET_PARAMS = "simulator/set/params";
-export const SET_GRADES = "simulator/set/grades";
-export const BACK_GRADES = "simulator/go/back";

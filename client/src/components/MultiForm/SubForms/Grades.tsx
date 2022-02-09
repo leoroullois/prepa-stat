@@ -1,48 +1,22 @@
 import { FC, FormEventHandler, useState } from "react";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
-import { connect } from "react-redux";
-import { setGrades, goBack } from "../../../store/actions/simulatorAction";
-import { RootState } from "../../../store/store";
-interface IGradesProps {
-	simulator: ISimulState;
-	setGrades: any;
-	goBack: any;
+interface IProps {
+	modifyIndex: (index: number, formData: ModifyFormDataType) => void;
 }
-const Presentational: FC<IGradesProps> = ({ simulator, setGrades, goBack }) => {
+export const Grades: FC<IProps> = ({ modifyIndex }) => {
 	const [marks, setMarks] = useState<IGrades[]>([]);
 	const handleSubmit: FormEventHandler = (e) => {
 		e.preventDefault();
 		console.log(e);
-		const params = document.querySelector("#params") as HTMLElement;
-		const grades = document.querySelector("#grades") as HTMLElement;
-		const result = document.querySelector("#result") as HTMLElement;
-		result.classList.add("active");
-		grades.classList.add("filled");
-		result.classList.remove("zero");
-		result.classList.remove("back");
-		setTimeout(() => {
-			grades.classList.remove("active");
-			grades.classList.add("zero");
-		}, 200);
+		modifyIndex(3, { prop: null });
 	};
 	const handleReset: FormEventHandler = (e) => {
 		e.preventDefault();
 		console.log(e);
-		const params = document.querySelector("#params") as HTMLElement;
-		const grades = document.querySelector("#grades") as HTMLElement;
-		const result = document.querySelector("#result") as HTMLElement;
-		params.classList.remove("filled");
-		params.classList.remove("active");
-		params.classList.add("active");
-		grades.classList.add("back");
-		setTimeout(() => {
-			grades.classList.remove("active");
-			grades.classList.add("zero");
-		}, 200);
+		modifyIndex(1, { prop: null });
 	};
 	return (
 		<form
-			action=''
 			onSubmit={handleSubmit}
 			onReset={handleReset}
 			id='grades'
@@ -118,18 +92,3 @@ const Presentational: FC<IGradesProps> = ({ simulator, setGrades, goBack }) => {
 		</form>
 	);
 };
-// ? REDUX
-const mapStateToProps = (state: RootState) => {
-	return {
-		simulator: state.simulator,
-	};
-};
-const dispatchToProps = {
-	setGrades,
-	goBack,
-};
-
-export const Grades: FC<{}> = connect(
-	mapStateToProps,
-	dispatchToProps
-)(Presentational);

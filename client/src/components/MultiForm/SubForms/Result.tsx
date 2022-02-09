@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { connect } from "react-redux";
-import { RootState } from "../store/store";
+import { RootState } from "../../../store/store";
 interface IResultProps {
 	simulator: ISimulState;
 }
@@ -19,7 +19,7 @@ const mapStateToProps = (state: RootState): IResultProps => {
 	};
 };
 
-export const SimulatorResult: FC<{}> = connect(
+export const Result: FC<{}> = connect(
 	mapStateToProps,
 	null
 )(Presentational);

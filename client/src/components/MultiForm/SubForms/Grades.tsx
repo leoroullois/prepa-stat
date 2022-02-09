@@ -1,8 +1,8 @@
 import { FC, FormEventHandler, useState } from "react";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
 import { connect } from "react-redux";
-import { setGrades, goBack } from "../store/actions/simulatorAction";
-import { RootState } from "../store/store";
+import { setGrades, goBack } from "../../../store/actions/simulatorAction";
+import { RootState } from "../../../store/store";
 interface IGradesProps {
 	simulator: ISimulState;
 	setGrades: any;
@@ -53,14 +53,14 @@ const Presentational: FC<IGradesProps> = ({ simulator, setGrades, goBack }) => {
 				<thead>
 					<tr>
 						<th>Epreuve</th>
-						<th>Coefficients</th>
+						<th>Coef.</th>
 						<th>Notes</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>
-							<label htmlFor='math-a'>Mathématiques A :</label>
+							<label htmlFor='math-a'>Maths A :</label>
 						</td>
 						<td>5</td>
 						<td>
@@ -75,7 +75,7 @@ const Presentational: FC<IGradesProps> = ({ simulator, setGrades, goBack }) => {
 					</tr>
 					<tr>
 						<td>
-							<label htmlFor='math-a'>Mathématiques B :</label>
+							<label htmlFor='math-a'>Maths B :</label>
 						</td>
 						<td>5</td>
 						<td>
@@ -129,7 +129,7 @@ const dispatchToProps = {
 	goBack,
 };
 
-export const SimulatorGrades: FC<{}> = connect(
+export const Grades: FC<{}> = connect(
 	mapStateToProps,
 	dispatchToProps
 )(Presentational);

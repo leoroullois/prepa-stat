@@ -258,6 +258,8 @@
   font-size: 1.05rem;
 }
 #simulator #grades table {
+  width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
 }
 #simulator #grades table,
@@ -288,45 +290,5 @@
 }
 #simulator #grades .btn-container {
   margin-top: 30px;
-}
-#simulator .simulator-content {
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  -webkit-transform: translateX(100vw);
-          transform: translateX(100vw);
-  -webkit-transition: -webkit-transform 0.8s ease-in-out;
-  transition: -webkit-transform 0.8s ease-in-out;
-  transition: transform 0.8s ease-in-out;
-  transition: transform 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
-}
-#simulator .zero {
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-}
-#simulator .active {
-  height: auto !important;
-  width: auto !important;
-  padding: 30px !important;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-}
-#simulator .filled {
-  -webkit-transition: -webkit-transform 0.2s ease-in;
-  transition: -webkit-transform 0.2s ease-in;
-  transition: transform 0.2s ease-in;
-  transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
-  -webkit-transform: translateX(-100vw);
-          transform: translateX(-100vw);
-}
-#simulator .back {
-  -webkit-transition: -webkit-transform 0.2s ease-in;
-  transition: -webkit-transform 0.2s ease-in;
-  transition: transform 0.2s ease-in;
-  transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
-  -webkit-transform: translateX(100vw);
-          transform: translateX(100vw);
+  width: 100%;
 }/*# sourceMappingURL=simulator.css.map */

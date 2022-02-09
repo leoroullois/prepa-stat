@@ -7,8 +7,8 @@ import {
 } from "react";
 import { IoArrowForward } from "react-icons/io5";
 import { connect } from "react-redux";
-import { setParams } from "../store/actions/simulatorAction";
-import { RootState } from "../store/store";
+import { setParams } from "../../../store/actions/simulatorAction";
+import { RootState } from "../../../store/store";
 interface IGradesProps {
 	simulator: ISimulState;
 }
@@ -128,7 +128,7 @@ const dispatchToProps = {
 	setParams,
 };
 
-export const SimulatorParams: FC<{}> = connect(
+export const Params: FC<{}> = connect(
 	mapStateToProps,
 	dispatchToProps
 )(Presentational);

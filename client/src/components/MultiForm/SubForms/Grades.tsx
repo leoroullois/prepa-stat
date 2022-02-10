@@ -1,27 +1,36 @@
-import { FC, FormEventHandler, useState } from "react";
+import {
+	FC,
+	FormEventHandler,
+	MouseEventHandler,
+	useEffect,
+	useState,
+} from "react";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
+import { connect } from "react-redux";
+import { RootState } from "../../../store/store";
 interface IProps {
 	modifyIndex: (index: number, formData: ModifyFormDataType) => void;
+	simul: IAllFormData;
 }
-export const Grades: FC<IProps> = ({ modifyIndex }) => {
+const Presentational: FC<IProps> = ({ modifyIndex, simul }) => {
 	const [marks, setMarks] = useState<IGrades[]>([]);
-	const handleSubmit: FormEventHandler = (e) => {
+	const [rows, setRows] = useState<any>([]);
+	const handleSubmit: MouseEventHandler = (e) => {
 		e.preventDefault();
 		console.log(e);
 		modifyIndex(3, { prop: null });
 	};
-	const handleReset: FormEventHandler = (e) => {
+	const handleBack: MouseEventHandler = (e) => {
 		e.preventDefault();
 		console.log(e);
 		modifyIndex(1, { prop: null });
 	};
+	const handlePrevent: FormEventHandler = (e) => {
+		e.preventDefault();
+	};
+	useEffect(() => {});
 	return (
-		<form
-			onSubmit={handleSubmit}
-			onReset={handleReset}
-			id='grades'
-			className='simulator-content'
-		>
+		<form onSubmit={handlePrevent} id='grades' className='simulator-content'>
 			<h2>🧠 Rentrez vos notes</h2>
 			<table>
 				<thead>
@@ -49,14 +58,14 @@ export const Grades: FC<IProps> = ({ modifyIndex }) => {
 					</tr>
 					<tr>
 						<td>
-							<label htmlFor='math-a'>Maths B :</label>
+							<label htmlFor='math-b'>Maths B :</label>
 						</td>
 						<td>5</td>
 						<td>
 							<input
 								type='number'
-								name='math-a'
-								id='math-a'
+								name='math-b'
+								id='math-b'
 								placeholder='10'
 								value=''
 							/>
@@ -64,14 +73,14 @@ export const Grades: FC<IProps> = ({ modifyIndex }) => {
 					</tr>
 					<tr>
 						<td>
-							<label htmlFor='math-a'>Physique A :</label>
+							<label htmlFor='phys-a'>Physique A :</label>
 						</td>
 						<td>5</td>
 						<td>
 							<input
 								type='number'
-								name='math-a'
-								id='math-a'
+								name='phys-a'
+								id='phys-a'
 								placeholder='10'
 								value=''
 							/>
@@ -80,11 +89,11 @@ export const Grades: FC<IProps> = ({ modifyIndex }) => {
 				</tbody>
 			</table>
 			<div className='btn-container'>
-				<button type='reset'>
+				<button type='button' onClick={handleBack}>
 					<IoArrowBack className='icon' />
 					<span>Retour</span>
 				</button>
-				<button type='submit'>
+				<button type='button' onClick={handleSubmit}>
 					<span>Résultat</span>
 					<IoArrowForward className='icon' />
 				</button>
@@ -92,3 +101,11 @@ export const Grades: FC<IProps> = ({ modifyIndex }) => {
 		</form>
 	);
 };
+
+// ? REDUX
+const mapStateToProps = (state: RootState) => {
+	return {
+		simul: state.simul,
+	};
+};
+export const Grades: FC<any> = connect(mapStateToProps)(Presentational);

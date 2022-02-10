@@ -22,6 +22,10 @@ interface ISetParams {
 	type: string;
 	payload: ISimulInfo;
 }
+interface IAllFormData {
+	params: ICardBegin;
+	grades: IGrades[];
+}
 /**Schools */
 interface ISchools {
 	ecole: string;

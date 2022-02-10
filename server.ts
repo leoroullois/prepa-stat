@@ -3,20 +3,23 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import passport from "passport";
 import dotenv from "dotenv";
+import session from "express-session";
+import path from "path";
 const fetch = require("node-fetch");
 
 dotenv.config({ path: "./config/.env" });
 import { passportConfig } from "./config/passport";
 import { connectDb } from "./config/db";
-import session from "express-session";
-import { users } from "./routes/api/users";
-import { schools } from "./routes/api/schools";
-import path from "path";
+import { postToDb } from "./config/postToDb";
 import { auth } from "./controllers/auth.controller";
 import { react } from "./middlewares/react.middleware";
 import { jwtAuth } from "./routes/jwt.auth";
 import { googleAuth } from "./routes/google.auth";
 import { githubAuth } from "./routes/github.auth";
+import { coefs } from "./routes/api/coefs";
+import { users } from "./routes/api/users";
+import { schools } from "./routes/api/schools";
+import { postCoefs } from "./config/coefs";
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -43,7 +46,6 @@ connectDb(async () => {
 	/**
 	 * ! Users API endpoint
 	 */
-	console.log("⚡️[MongoDB]: Successfully connected to the collection users.");
 	const usersRouter = express.Router();
 	usersRouter.use(bodyParser.urlencoded({ extended: false }));
 	app.use("/api/users", usersRouter);
@@ -51,12 +53,15 @@ connectDb(async () => {
 	/**
 	 * ! Schools API endpoint
 	 */
-	console.log(
-		"⚡️[MongoDB]: Successfully connected to the collection schools."
-	);
 	const schoolsRouter = express.Router();
 	app.use("/api/schools", schoolsRouter);
 	schools(schoolsRouter);
+	/**
+	 * ! Coefs API endpoint
+	 */
+	const coefsRouter = express.Router();
+	app.use("/api/coefs", coefsRouter);
+	coefs(coefsRouter);
 	/**
 	 * ! Auth API endpoint
 	 */
@@ -75,6 +80,7 @@ connectDb(async () => {
 	 */
 	app.get("/*", react);
 	// postToDb(2021, "pt");
+	// postCoefs();
 });
 
 const PORT = process.env.PORT || 80;

@@ -7,6 +7,7 @@ import { layoutReducer } from "./reducers/layoutReducer";
 import { sideNavReducer } from "./reducers/sideNavReducer";
 import { errorReducer } from "./reducers/errorReducer";
 import { authReducer } from "./reducers/authReducer";
+import { multiFormReducer } from "./reducers/multiFormReducer";
 
 declare global {
 	interface Window {
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
 	sideNav: sideNavReducer,
 	auth: authReducer,
 	errors: errorReducer,
+	simul: multiFormReducer,
 });
 
 export const store = createStore(

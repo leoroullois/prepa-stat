@@ -27,3 +27,6 @@ export const REGISTER_SUBMIT = "register/submit";
 
 /**Layout */
 export const WINDOW_RESIZE = "layout/resize/window";
+
+/**Multiform */
+export const SET_MULTIFORM_STATE = "set/multiform/state";

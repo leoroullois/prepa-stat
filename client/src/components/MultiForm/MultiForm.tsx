@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { CardBegin } from "./Infos/CardBegin";
 import { Grades } from "./SubForms/Grades";
 import { CardEnd } from "./Infos/CardEnd";
 import { Indicator } from "./Indicator/Indicator";
-interface IAllFormData {
-	params: ICardBegin;
-	grades: IGrades[];
-}
-export const MultiForm = () => {
+import { RootState } from "../../store/store";
+import { connect, useDispatch } from "react-redux";
+import { setMultiFormState } from "../../store/actions/multiFormAction";
+
+const Presentational: FC<any> = () => {
+	const dispatch = useDispatch();
 	const [formIndex, setFormIndex] = useState(1);
 	const [allFormData, setAllFormData] = useState<IAllFormData>({
 		params: {
@@ -31,6 +32,7 @@ export const MultiForm = () => {
 	const modifyIndex = (index: number, formData: ModifyFormDataType) => {
 		setFormIndex(index);
 		handleFormData(formData);
+		dispatch(formData);
 	};
 	return (
 		<section className='container-multiform'>
@@ -39,8 +41,21 @@ export const MultiForm = () => {
 			) : formIndex === 2 ? (
 				<Grades modifyIndex={modifyIndex} />
 			) : (
-				<CardEnd />
+				<CardEnd modifyIndex={modifyIndex} />
 			)}
 		</section>
 	);
 };
+// ? REDUX
+const mapStateToProps = (state: RootState) => {
+	return {
+		simul: state.simul,
+	};
+};
+const dispatchToProps = {
+	setMultiFormState,
+};
+export const MultiForm: FC<any> = connect(
+	mapStateToProps,
+	dispatchToProps
+)(Presentational);

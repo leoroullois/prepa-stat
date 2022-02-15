@@ -56,6 +56,7 @@
   padding: 0 auto;
   padding-top: 30px;
   width: 80%;
+  height: 100%;
   max-width: 1100px;
   position: relative;
   color: #f1f1f1;
@@ -75,7 +76,7 @@
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 60px;
-  margin-top: 120px;
+  margin-top: 60px;
   padding: 40px;
   background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F02D51), to(#F2721A));
   background: linear-gradient(90deg, #F02D51 1.05%, #F2721A 100%);

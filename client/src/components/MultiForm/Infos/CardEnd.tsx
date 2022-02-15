@@ -10,7 +10,7 @@ export const CardEnd: FC<IProps> = ({ modifyIndex }) => {
 	return (
 		<div className='simulator-content' id='result'>
 			<h2>🎊 Résultat</h2>
-			Félicitation vous êtes admissible !
+			<p>Félicitation vous êtes admissible !</p>
 			<button onClick={handleReset}>Recommencer</button>
 		</div>
 	);

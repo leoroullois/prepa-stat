@@ -80,7 +80,8 @@
   background: -webkit-gradient(linear, left top, right top, color-stop(1.05%, #F02D51), to(#F2721A));
   background: linear-gradient(90deg, #F02D51 1.05%, #F2721A 100%);
   border-radius: 20px;
-  max-width: 90%;
+  width: 500px;
+  max-width: 100%;
   -webkit-animation: all 2s ease-in-out;
           animation: all 2s ease-in-out;
   overflow: hidden;
@@ -297,4 +298,22 @@
 #simulator #grades .btn-container {
   margin-top: 30px;
   width: 100%;
+}
+#simulator #result {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+#simulator #result h2 {
+  font-size: 1.5rem;
+}
+#simulator #result p {
+  font-size: 1.2rem;
+}
+#simulator #result button {
+  -ms-flex-item-align: center;
+      align-self: center;
 }/*# sourceMappingURL=simulator.css.map */

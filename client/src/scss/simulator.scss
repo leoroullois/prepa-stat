@@ -42,7 +42,8 @@
 		padding: 40px;
 		background: $main-gradient;
 		border-radius: 20px;
-		max-width: 90%;
+		width: 500px;
+		max-width: 100%;
 		animation: all 2s ease-in-out;
 		overflow: hidden;
 		box-shadow: $main-shadow;
@@ -207,6 +208,19 @@
 		.btn-container {
 			margin-top: 30px;
 			width: 100%;
+		}
+	}
+	#result {
+		justify-content:center;
+		align-items: flex-start;
+		h2 {
+			font-size:1.5rem;
+		}
+		p {
+			font-size:1.2rem;
+		}
+		button {
+			align-self: center;
 		}
 	}
 }

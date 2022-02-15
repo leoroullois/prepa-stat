@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useParams } from "react-router-dom";
 /**CSS */
 import "../css/stats.css";
@@ -47,6 +47,9 @@ const Presentational: FC<any> = () => {
 	let { filiere, concours } = useParams<StatsParams>();
 	filiere = filiere as string;
 	concours = concours as string;
+	useEffect(() => {
+		
+	})
 	if (!filieres.includes(filiere) || !allConcours.includes(concours)) {
 		return <NoPage />;
 	} else {

@@ -34,15 +34,16 @@ const Presentational: FC<any> = () => {
 		handleFormData(formData);
 		dispatch(formData);
 	};
+
+	const elements = [
+		<CardBegin modifyIndex={modifyIndex} />,
+		<Grades modifyIndex={modifyIndex} />,
+		<CardEnd modifyIndex={modifyIndex} />,
+	];
 	return (
-		<section className='container-multiform'>
-			{formIndex === 1 ? (
-				<CardBegin modifyIndex={modifyIndex} />
-			) : formIndex === 2 ? (
-				<Grades modifyIndex={modifyIndex} />
-			) : (
-				<CardEnd modifyIndex={modifyIndex} />
-			)}
+		<section className='container-multiform simulator-container'>
+			<Indicator formIndex={formIndex} />
+			{elements.filter((_elt, i) => i + 1 === formIndex)}
 		</section>
 	);
 };

@@ -29,4 +29,5 @@ export const REGISTER_SUBMIT = "register/submit";
 export const WINDOW_RESIZE = "layout/resize/window";
 
 /**Multiform */
-export const SET_MULTIFORM_STATE = "set/multiform/state";
+export const SET_CARD_BEGIN_STATE = "set/card/begin/state";
+export const SET_GRADES_STATE = "set/grades/state";

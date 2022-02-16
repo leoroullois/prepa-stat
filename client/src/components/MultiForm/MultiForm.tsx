@@ -5,12 +5,16 @@ import { CardEnd } from "./Infos/CardEnd";
 import { Indicator } from "./Indicator/Indicator";
 import { RootState } from "../../store/store";
 import { connect, useDispatch } from "react-redux";
-import { setMultiFormState } from "../../store/actions/multiFormAction";
+import {
+	setCardBeginState,
+	setGradesState,
+} from "../../store/actions/multiFormAction";
 import { IAction } from "../../store/actions/multiFormAction";
 interface IProps {
-	setMultiFormState: (payload: ICardBegin | IGrades) => IAction;
+	setCardBeginState: (payload: ICardBegin) => IAction;
+	setGradesState: (payload: IGrades) => IAction;
 }
-const Presentational: FC<IProps> = ({ setMultiFormState }) => {
+const Presentational: FC<IProps> = ({ setCardBeginState, setGradesState }) => {
 	const dispatch = useDispatch();
 	const [formIndex, setFormIndex] = useState(1);
 	const [allFormData, setAllFormData] = useState<IAllFormData>({
@@ -31,7 +35,13 @@ const Presentational: FC<IProps> = ({ setMultiFormState }) => {
 				[prop]: data,
 			});
 			if (payload) {
-				dispatch(setMultiFormState(payload));
+				if (prop === "params") {
+					const data = payload as ICardBegin;
+					dispatch(setCardBeginState(data));
+				} else {
+					const data = payload as IGrades;
+					dispatch(setGradesState(data));
+				}
 			}
 		}
 	};
@@ -60,7 +70,8 @@ const mapStateToProps = (state: RootState) => {
 	};
 };
 const dispatchToProps = {
-	setMultiFormState,
+	setCardBeginState,
+	setGradesState,
 };
 export const MultiForm: FC<any> = connect(
 	mapStateToProps,

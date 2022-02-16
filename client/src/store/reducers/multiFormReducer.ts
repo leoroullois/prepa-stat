@@ -1,5 +1,5 @@
 import { IAction } from "./../actions/multiFormAction";
-import { SET_MULTIFORM_STATE } from "../types";
+import { SET_CARD_BEGIN_STATE, SET_GRADES_STATE } from "../types";
 const init = () => {
 	return {
 		params: {
@@ -17,9 +17,10 @@ export const multiFormReducer = (
 	{ type, payload }: IAction
 ) => {
 	switch (type) {
-		case SET_MULTIFORM_STATE:
-			return { ...state, ...payload };
-
+		case SET_CARD_BEGIN_STATE:
+			return { ...state, params: payload };
+		case SET_GRADES_STATE:
+			return { ...state, grades: payload };
 		default:
 			return state;
 	}

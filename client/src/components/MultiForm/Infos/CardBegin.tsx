@@ -1,6 +1,5 @@
 import { ChangeEventHandler, FC, FormEventHandler, useState } from "react";
 import { IoArrowForward } from "react-icons/io5";
-import { formatDiagnosticsWithColorAndContext } from "typescript";
 interface IProps {
 	modifyIndex: (index: number, formData: ModifyFormDataType) => void;
 }

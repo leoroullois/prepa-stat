@@ -1,4 +1,5 @@
 import {
+	ChangeEventHandler,
 	FC,
 	FormEventHandler,
 	MouseEventHandler,
@@ -28,7 +29,30 @@ const Presentational: FC<IProps> = ({ modifyIndex, simul }) => {
 	const handlePrevent: FormEventHandler = (e) => {
 		e.preventDefault();
 	};
-	useEffect(() => {});
+	const handleChange: ChangeEventHandler = (e) => {
+		e.preventDefault();
+		console.log(e);
+	};
+	useEffect(() => {
+		setRows([
+			<tr key={0}>
+				<td>
+					<label htmlFor='math-b'>Maths B :</label>
+				</td>
+				<td>5</td>
+				<td>
+					<input
+						type='number'
+						name='math-b'
+						id='math-b'
+						placeholder='10'
+						value=''
+						onChange={handleChange}
+					/>
+				</td>
+			</tr>,
+		]);
+	}, []);
 	return (
 		<form onSubmit={handlePrevent} id='grades' className='simulator-content'>
 			<h2>🧠 Rentrez vos notes</h2>
@@ -40,53 +64,7 @@ const Presentational: FC<IProps> = ({ modifyIndex, simul }) => {
 						<th>Notes</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td>
-							<label htmlFor='math-a'>Maths A :</label>
-						</td>
-						<td>5</td>
-						<td>
-							<input
-								type='number'
-								name='math-a'
-								id='math-a'
-								placeholder='10'
-								value=''
-							/>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label htmlFor='math-b'>Maths B :</label>
-						</td>
-						<td>5</td>
-						<td>
-							<input
-								type='number'
-								name='math-b'
-								id='math-b'
-								placeholder='10'
-								value=''
-							/>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label htmlFor='phys-a'>Physique A :</label>
-						</td>
-						<td>5</td>
-						<td>
-							<input
-								type='number'
-								name='phys-a'
-								id='phys-a'
-								placeholder='10'
-								value=''
-							/>
-						</td>
-					</tr>
-				</tbody>
+				<tbody>{rows}</tbody>
 			</table>
 			<div className='btn-container'>
 				<button type='button' onClick={handleBack}>

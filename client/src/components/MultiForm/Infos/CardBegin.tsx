@@ -1,7 +1,12 @@
 import { ChangeEventHandler, FC, FormEventHandler, useState } from "react";
 import { IoArrowForward } from "react-icons/io5";
+import { formatDiagnosticsWithColorAndContext } from "typescript";
 interface IProps {
 	modifyIndex: (index: number, formData: ModifyFormDataType) => void;
+}
+interface IErrors {
+	concours: boolean;
+	filiere: boolean;
 }
 export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 	const [formData, setFormData] = useState<ICardBegin>({
@@ -10,25 +15,63 @@ export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 		cinq_demi: false,
 		lv2: false,
 	});
+	const [errors, setErrors] = useState<IErrors>({
+		concours: false,
+		filiere: false,
+	});
+	/**
+	 * Determine if formData is empty
+	 * @param pFormData ICardBegin data
+	 * @returns true if an input is empty
+	 */
+	const isFormDataEmpty = (pFormData: ICardBegin) => {
+		return !pFormData.concours || !pFormData.filiere;
+	};
+
 	const handleSubmit: FormEventHandler = (e) => {
 		e.preventDefault();
-		modifyIndex(2, { payload: formData, prop: "params" });
+		if (isFormDataEmpty(formData)) {
+			console.log("formData:", formData);
+			if (formData.filiere === "") {
+				setErrors({
+					...errors,
+					filiere: true,
+				});
+			}
+			if (formData.concours === "") {
+				setErrors({
+					...errors,
+					concours: true,
+				});
+			}
+		} else {
+			setErrors({
+				concours: false,
+				filiere: false,
+			});
+			modifyIndex(2, { payload: formData, prop: "params" });
+		}
 	};
 	const handleRadio: ChangeEventHandler = (e) => {
-		console.log(e);
 		const elt = e.target as HTMLInputElement;
 		setFormData({
 			...formData,
-			[elt.name]: elt.value,
+			[elt.name]: elt.id,
 		});
 	};
 	const handleCheckbox: ChangeEventHandler = (e) => {
-		console.log(e);
 		const elt = e.target as HTMLInputElement;
-		setFormData({
-			...formData,
-			[elt.id]: elt.value,
-		});
+		if (elt.id === "cinq_demi") {
+			setFormData({
+				...formData,
+				cinq_demi: !formData.cinq_demi,
+			});
+		} else if (elt.id === "lv2") {
+			setFormData({
+				...formData,
+				lv2: !formData.lv2,
+			});
+		}
 	};
 	return (
 		<form
@@ -45,6 +88,7 @@ export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 						type='radio'
 						name='concours'
 						id='x-ens'
+						checked={formData.concours === "x-ens"}
 						onChange={handleRadio}
 					/>
 					<label htmlFor='x-ens'>X-ENS</label>
@@ -54,6 +98,7 @@ export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 						type='radio'
 						name='concours'
 						id='mines-pont'
+						checked={formData.concours === "mines-pont"}
 						onChange={handleRadio}
 					/>
 					<label htmlFor='mines-pont'>Mines Pont</label>
@@ -63,6 +108,7 @@ export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 						type='radio'
 						name='concours'
 						id='centrale'
+						checked={formData.concours === "centrale"}
 						onChange={handleRadio}
 					/>
 					<label htmlFor='centrale'>Centrale</label>
@@ -72,34 +118,67 @@ export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 						type='radio'
 						name='concours'
 						id='ccinp'
+						checked={formData.concours === "ccinp"}
 						onChange={handleRadio}
 					/>
 					<label htmlFor='ccinp'>CCINP</label>
 				</div>
 				<div>
-					<input type='radio' name='concours' id='e3a' onChange={handleRadio} />
+					<input
+						type='radio'
+						name='concours'
+						id='e3a'
+						checked={formData.concours === "e3a"}
+						onChange={handleRadio}
+					/>
 					<label htmlFor='e3a'>E3A</label>
 				</div>
+				{errors.concours && <span>Vous devez choisir un concours</span>}
 			</fieldset>
 
 			<fieldset>
 				<legend>Choisissez votre filière :</legend>
 				<div>
-					<input type='radio' name='filiere' id='mp' onChange={handleRadio} />
+					<input
+						type='radio'
+						name='filiere'
+						id='mp'
+						checked={formData.filiere === "mp"}
+						onChange={handleRadio}
+					/>
 					<label htmlFor='mp'>MP</label>
 				</div>
 				<div>
-					<input type='radio' name='filiere' id='pc' onChange={handleRadio} />
+					<input
+						type='radio'
+						name='filiere'
+						id='pc'
+						checked={formData.filiere === "pc"}
+						onChange={handleRadio}
+					/>
 					<label htmlFor='pc'>PC</label>
 				</div>
 				<div>
-					<input type='radio' name='filiere' id='psi' onChange={handleRadio} />
+					<input
+						type='radio'
+						name='filiere'
+						id='psi'
+						checked={formData.filiere === "psi"}
+						onChange={handleRadio}
+					/>
 					<label htmlFor='psi'>PSI</label>
 				</div>
 				<div>
-					<input type='radio' name='filiere' id='pt' onChange={handleRadio} />
+					<input
+						type='radio'
+						name='filiere'
+						id='pt'
+						checked={formData.filiere === "pt"}
+						onChange={handleRadio}
+					/>
 					<label htmlFor='pt'>PT</label>
 				</div>
+				{errors.filiere && <span>Vous devez choisir une filière</span>}
 			</fieldset>
 
 			<fieldset>
@@ -109,6 +188,7 @@ export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 						type='checkbox'
 						name='options'
 						id='cinq_demi'
+						checked={formData.cinq_demi}
 						onChange={handleCheckbox}
 					/>
 					<label htmlFor='cinq_demi'>5/2</label>
@@ -118,6 +198,7 @@ export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 						type='checkbox'
 						name='options'
 						id='lv2'
+						checked={formData.lv2}
 						onChange={handleCheckbox}
 					/>
 					<label htmlFor='lv2'>LV2</label>

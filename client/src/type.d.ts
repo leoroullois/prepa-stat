@@ -11,7 +11,7 @@ interface IGrades {
 	note: string;
 }
 interface ModifyFormDataType {
-	payload?: ICardBegin | IGrades;
+	payload?: ICardBegin | IGrades[];
 	prop: string | null;
 }
 interface ISetGrades {

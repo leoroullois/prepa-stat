@@ -12,7 +12,7 @@ import {
 import { IAction } from "../../store/actions/multiFormAction";
 interface IProps {
 	setCardBeginState: (payload: ICardBegin) => IAction;
-	setGradesState: (payload: IGrades) => IAction;
+	setGradesState: (payload: IGrades[]) => IAction;
 }
 const Presentational: FC<IProps> = ({ setCardBeginState, setGradesState }) => {
 	const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const Presentational: FC<IProps> = ({ setCardBeginState, setGradesState }) => {
 					const data = payload as ICardBegin;
 					dispatch(setCardBeginState(data));
 				} else {
-					const data = payload as IGrades;
+					const data = payload as IGrades[];
 					dispatch(setGradesState(data));
 				}
 			}

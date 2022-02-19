@@ -67,7 +67,7 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 			setError(true);
 		} else {
 			setError(false);
-			modifyIndex(3, { prop: null });
+			modifyIndex(3, { prop: "grades", payload:marks });
 		}
 	};
 	/**

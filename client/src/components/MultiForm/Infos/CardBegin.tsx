@@ -8,12 +8,18 @@ interface IErrors {
 	filiere: boolean;
 }
 export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
+	/**
+	 * * form data state
+	 */
 	const [formData, setFormData] = useState<ICardBegin>({
 		concours: "",
 		filiere: "",
 		cinq_demi: false,
 		lv2: false,
 	});
+	/**
+	 * * error state to handle empty form data
+	 */
 	const [errors, setErrors] = useState<IErrors>({
 		concours: false,
 		filiere: false,
@@ -26,11 +32,14 @@ export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 	const isFormDataEmpty = (pFormData: ICardBegin) => {
 		return !pFormData.concours || !pFormData.filiere;
 	};
-
+	/**
+	 * Set errors if formData is empty or dispatch state and go to grades
+	 * @param e submit event
+	 */
 	const handleSubmit: FormEventHandler = (e) => {
 		e.preventDefault();
 		if (isFormDataEmpty(formData)) {
-			console.log("formData:", formData);
+			// ? set errors to display message
 			if (formData.filiere === "") {
 				setErrors({
 					...errors,
@@ -51,6 +60,10 @@ export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 			modifyIndex(2, { payload: formData, prop: "params" });
 		}
 	};
+	/**
+	 * Change the selected radio button to the state
+	 * @param e radio change event
+	 */
 	const handleRadio: ChangeEventHandler = (e) => {
 		const elt = e.target as HTMLInputElement;
 		setFormData({
@@ -58,6 +71,10 @@ export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 			[elt.name]: elt.id,
 		});
 	};
+	/**
+	 * Change checked checkboxes to the state
+	 * @param e checkbox change event
+	 */
 	const handleCheckbox: ChangeEventHandler = (e) => {
 		const elt = e.target as HTMLInputElement;
 		if (elt.id === "cinq_demi") {

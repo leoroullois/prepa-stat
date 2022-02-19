@@ -8,7 +8,7 @@ interface ICardBegin {
 interface IGrades {
 	epreuve: string;
 	coef: number;
-	note: number;
+	note: string;
 }
 interface ModifyFormDataType {
 	payload?: ICardBegin | IGrades;

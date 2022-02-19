@@ -35,9 +35,9 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 	 * @param marks array of grades
 	 * @returns boolean
 	 */
-	const isMarksEmpty = (marks: IGrades[]) => {
-		return marks.every((elt) => {
-			return elt.note !== "" && 0 <= Number(elt.note) && Number(elt.note) <= 20;
+	const marksValidator = (pMarks: IGrades[]) => {
+		return pMarks.some((elt) => {
+			return elt.note === "" || Number(elt.note) < 0 || 20 < Number(elt.note);
 		});
 	};
 	/**
@@ -60,8 +60,9 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 	 */
 	const handleSubmit: MouseEventHandler = (e) => {
 		e.preventDefault();
-
-		if (isMarksEmpty(marks)) {
+		console.log("Marks when submit : ", marks);
+		console.log("Makrs validator : ", marksValidator(marks));
+		if (marksValidator(marks)) {
 			setError(true);
 		} else {
 			setError(false);
@@ -95,10 +96,9 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 			if (0 <= Number(elt.value) && Number(elt.value) <= 20) {
 				const parsedMarks = marks.map((elt) => parseName(elt.epreuve));
 				const i = parsedMarks.indexOf(elt.id);
-				console.log("index : ", i);
 				const newMarks = [...marks];
 				if (elt.value.length > 1) {
-					newMarks[i].note = elt.value.replace(/^0+/, "");
+					newMarks[i].note = parseInt(elt.value, 10).toString();
 				} else {
 					newMarks[i].note = elt.value;
 				}
@@ -169,7 +169,9 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 				</thead>
 				<tbody>{createRows(marks)}</tbody>
 			</table>
-			{error && <span>Vous devez renseigner toute les notes.</span>}
+			{error && (
+				<span className='error'>Vous devez renseigner toute les notes.</span>
+			)}
 			<div className='btn-container'>
 				<button type='button' onClick={handleBack}>
 					<IoArrowBack className='icon' />

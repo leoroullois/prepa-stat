@@ -28,6 +28,7 @@ interface ICoefs extends Document {
 }
 // * Component
 const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
+	// todo: NB À VIRGULE
 	const [marks, setMarks] = useState<IGrades[]>([]);
 	const [error, setError] = useState<boolean>(false);
 
@@ -67,7 +68,7 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 			setError(true);
 		} else {
 			setError(false);
-			modifyIndex(3, { prop: "grades", payload:marks });
+			modifyIndex(3, { prop: "grades", payload: marks });
 		}
 	};
 	/**
@@ -94,18 +95,36 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 		const elt = e.target as HTMLInputElement;
 		if (!isNaN(Number(elt.value))) {
 			console.log(elt.value);
-			if (0 <= Number(elt.value) && Number(elt.value) <= 20) {
+			if (elt.validity.valid) {
 				const parsedMarks = marks.map((elt) => parseName(elt.epreuve));
 				const i = parsedMarks.indexOf(elt.id);
 				const newMarks = [...marks];
-				if (elt.value.length > 1) {
-					newMarks[i].note = parseInt(elt.value, 10).toString();
-				} else {
+				const splitedNumber = elt.value.split(".");
+				let myNumber = parseInt(splitedNumber[0], 10).toString();
+				if (splitedNumber[0] === "20") {
+					newMarks[i].note = "20";
+					setMarks(newMarks);
+					console.log("Note maximale: 20.");
+				} else if (splitedNumber[1] && splitedNumber[1].length > 2) {
+					console.log("Précision maximale : 2 chiffres après la virgule.");
+				} else if (elt.value.length === 0) {
+					newMarks[i].note = "";
+					setMarks(newMarks);
+				} else if (elt.value[elt.value.length - 1] === ".") {
 					newMarks[i].note = elt.value;
+					setMarks(newMarks);
+				} else if (
+					0 <= parseInt(myNumber, 10) &&
+					parseInt(myNumber, 10) <= 20
+				) {
+					if (splitedNumber.length === 2) {
+						myNumber += "." + splitedNumber[1].toString();
+					}
+					newMarks[i].note = myNumber;
+					setMarks(newMarks);
+				} else {
+					console.log("Veuillez entrer une note entre 0 et 20.");
 				}
-				setMarks(newMarks);
-			} else {
-				console.log("Veuillez entrer une note entre 0 et 20.");
 			}
 		} else {
 			console.log("Veuillez entrer un chiffre.");
@@ -142,6 +161,7 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 							name={parseName(elt.epreuve)}
 							id={parseName(elt.epreuve)}
 							placeholder='10'
+							pattern='^[0-9]\d*\.?\d*$'
 							value={marks[index].note}
 							onChange={handleChange}
 						/>

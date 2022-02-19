@@ -247,20 +247,32 @@
   font-size: 1rem;
   border: 1px solid #f1f1f1;
 }
+#simulator #grades {
+  width: 600px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
 #simulator #grades h2 {
   margin-bottom: 15px;
 }
 #simulator #grades input {
+  text-align: center;
   border: none;
   margin: 0;
-  padding: 0 5px 0 20px;
   font-size: 1.3rem;
   outline: 0px solid rgba(27, 27, 27, 0.5);
   height: 50px;
-  width: 70px;
+  width: 100%;
+  border: none;
+  color: #1b1b1b;
+  background-color: #f1f1f1;
 }
 #simulator #grades input:focus {
-  outline: 1px solid #1b1b1b;
+  outline: 0px solid #1b1b1b;
+  border-left: 2px solid #1b1b1b;
+}
+#simulator #grades .error {
+  margin-top: 20px;
 }
 #simulator #grades label {
   font-size: 1.05rem;
@@ -270,7 +282,6 @@
   max-width: 100%;
   border-collapse: collapse;
 }
-#simulator #grades table,
 #simulator #grades th,
 #simulator #grades td {
   border: 1px solid #1b1b1b;

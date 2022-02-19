@@ -30,6 +30,7 @@ interface ICoefs extends Document {
 const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 	const [marks, setMarks] = useState<IGrades[]>([]);
 	const [error, setError] = useState<boolean>(false);
+
 	/**
 	 * True if all marks are between 0 and 20 and not empty
 	 * @param marks array of grades
@@ -149,6 +150,7 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 			);
 		});
 	};
+
 	useEffect(() => {
 		fetch(`/api/coefs/${simul.params.concours}/${simul.params.filiere}`)
 			.then((res) => res.json())
@@ -190,6 +192,7 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 const mapStateToProps = (state: RootState) => {
 	return {
 		simul: state.simul,
+		darkMode: state.navBar.darkMode,
 	};
 };
 export const Grades: FC<IProps> = connect(mapStateToProps)(Presentational);

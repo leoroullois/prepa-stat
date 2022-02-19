@@ -324,8 +324,13 @@
 }
 #simulator #result p {
   font-size: 1.2rem;
+  margin: 0;
 }
 #simulator #result button {
+  margin-top: 30px;
   -ms-flex-item-align: center;
       align-self: center;
+}
+#simulator #result ul {
+  padding-left: 15px;
 }/*# sourceMappingURL=simulator.css.map */

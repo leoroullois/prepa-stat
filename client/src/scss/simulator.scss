@@ -177,7 +177,7 @@
 			&:focus {
 				outline: 0px solid $main-black;
 				// border-right: 2px solid $main-black ;
-				border-left: 2px solid $main-black ;
+				border-left: 2px solid $main-black;
 			}
 		}
 		.error {
@@ -229,9 +229,15 @@
 		}
 		p {
 			font-size: 1.2rem;
+			margin: 0;
 		}
+
 		button {
+			margin-top:30px;
 			align-self: center;
+		}
+		ul {
+			padding-left: 15px;
 		}
 	}
 }

@@ -9,6 +9,7 @@ import {
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
 import { connect } from "react-redux";
 import { RootState } from "../../../store/store";
+
 // * Types declarations
 interface IProps {
 	modifyIndex: (index: number, formData: ModifyFormDataType) => void;
@@ -28,7 +29,7 @@ interface ICoefs extends Document {
 }
 // * Component
 const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
-	// todo: NB À VIRGULE
+	// TODO: gérer la LV2
 	const [marks, setMarks] = useState<IGrades[]>([]);
 	const [error, setError] = useState<boolean>(false);
 

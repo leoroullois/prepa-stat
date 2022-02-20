@@ -79,7 +79,7 @@ connectDb(async () => {
 	 * ! React
 	 */
 	app.get("/*", react);
-	// postToDb(2021, "pt");
+	postToDb(2021, "mp");
 	// postCoefs();
 });
 

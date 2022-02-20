@@ -9,7 +9,6 @@ interface IRedux {
 }
 const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 	// TODO: comparer la note totale à la barre d'admissibilité
-	// TODO: afficher la barre d'admissibilité et le nombre total de points
 
 	const { params, grades } = simul;
 	const handleReset: MouseEventHandler = (e) => {

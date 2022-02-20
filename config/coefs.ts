@@ -8,6 +8,7 @@ export const postCoefs = () => {
 		{
 			concours: "ccinp",
 			filiere: "mp",
+			barre:"",
 			epreuves: [
 				{
 					nom: "Mathématiques 1",

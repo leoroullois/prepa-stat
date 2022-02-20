@@ -79,7 +79,11 @@ connectDb(async () => {
 	 * ! React
 	 */
 	app.get("/*", react);
-	postToDb(2021, "mp");
+	// const filieres = ["mp", "pc", "psi", "pt"];
+	// for (let i = 2018; i <= 2021; i++) {
+	// 	filieres.forEach((filiere) => postToDb(i, filiere));
+	// }
+	postToDb(2019, "pt");
 	// postCoefs();
 });
 

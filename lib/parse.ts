@@ -10,22 +10,25 @@ const fetch = require("node-fetch");
  * @returns a parsed file
  */
 export const parseFile = (fileName: string, inputPath: string) => {
-	const input = readFileSync(join(inputPath, fileName + ".tsv"), "utf8")
+	const splitedName = fileName.split("_");
+	const year = splitedName[0];
+	const cpge = splitedName[1];
+	const input = readFileSync(
+		join(inputPath, "../", year, fileName + ".tsv"),
+		"utf8"
+	)
 		.toString()
 		.trim()
 		.split("")
 		.map((elt) => elt.replace(" ", "_"))
 		.join("");
-	const splitedName = fileName.split("_");
-	const year = splitedName[0];
-	const cpge = splitedName[1];
 
 	const file = d3.tsv.parse(input);
 	for (const data of file) {
 		data.annee = year;
 		data.filiere = cpge;
 		for (const property in data) {
-			data[property] = data[property].replace(/\*/g, "");
+			data[property] = data[property];
 			if (!data[property]) {
 				delete data[property];
 			}
@@ -98,8 +101,8 @@ const exportAllFiles = (
 const generateYear = (year: number) => {
 	// const filieres = ["bcpst", "mp", "pc", "psi", "pt", "tb", "tpc", "tsi"];
 	const filieres = ["mp", "pc", "psi", "pt"];
-	const inputPath = "/media/leyo/DATA/Dev/Web/prepa-stat/lib/" + year + "/";
-	const outputPath = "/media/leyo/DATA/Dev/Web/prepa-stat/lib/" + year + "/";
+	const inputPath = "/media/leyo/DATA1/Dev/Web/prepa-stat/lib/" + year + "/";
+	const outputPath = "/media/leyo/DATA1/Dev/Web/prepa-stat/lib/" + year + "/";
 	mkdir(outputPath, (e) => {
 		if (e) {
 			console.error(e);

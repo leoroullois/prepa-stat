@@ -1,6 +1,7 @@
 import mongoose, { Document } from "mongoose";
 
 export interface ISchools extends Document {
+	concours: string;
 	ecole: string;
 	inscrits_nb: number;
 	inscrits_filles: number;
@@ -21,8 +22,13 @@ export interface ISchools extends Document {
 	filiere: string;
 }
 const SchoolsSchema = new mongoose.Schema({
+	concours: {
+		type: String,
+		required: true,
+	},
 	ecole: {
 		type: String,
+		required: true,
 	},
 	inscrits_nb: {
 		type: Number,
@@ -71,9 +77,11 @@ const SchoolsSchema = new mongoose.Schema({
 	},
 	annee: {
 		type: Number,
+		require: true,
 	},
 	filiere: {
 		type: String,
+		require: true,
 	},
 });
 

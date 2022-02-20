@@ -198,106 +198,106 @@ fesic	Concours concours ISEN Ouest PT	822	16.2	16.7				0	0.0	0.0	0					0
 fesic	isep_paris	192	15.1	9.4				151	12.6	11.9	7	0.0	14.3	65	77	5	
 fesic	unilasalle_beauvais_sciences_de_la_terre_et_environnement	822	16.2	16.7				675	15.6	18.2	2	0.0	0.0	547	547	3	
 groupe_insa	isis_castres_informatique_pour_la_santé	564	21.5	18.8				298	19.5	22.1	0	0.0	0.0	0	0	1	
-groupe_insa_inter_filière	insa_hauts_de_france_génie_civil_et_bâtiment	2294	36.4	19.4				1186	38.2	18.7	8*	37.5	0.0	925	919	8*	
-groupe_insa_inter_filière	insa_hauts_de_france_génie_civil_et_bâtiment	2396	25.2	17.7				1278	25.0	20.6	5*	40.0	20.0	840	788	5*	
-groupe_insa_inter_filière	insa_hauts_de_france_informatique_et_cybersécurité	3132	23.5	19.5				1047	22.4	21.7	2*	0.0	0.0	750	811	3*	
-groupe_insa_inter_filière	insa_hauts_de_france_mécanique_et_energétique										28*	32.1	21.4	1663*	1640*	35*	
-groupe_insa_inter_filière	insa_hauts_de_france_génie_industriel										12*	41.7	41.7	1511*	1394*	10*	
-groupe_insa_inter_filière	insa_hauts_de_france_mécatronique										19*	0.0	10.5	1511	1428	16*	
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie mÃ©canique, gÃ©nie industriel et mÃ©catronique PSI-PT	3281*	21.0	17.7	*			1956*	21.3	19.4	59*					61*	
-groupe_insa_inter_filière	esitech_rouen_technologies_du_vivant										2*	100.0	0.0	747*	747*	3*	
-groupe_insa_inter_filière	insa_lyon_biosciences										5*	80.0	20.0	230*	211*	6*	
-groupe_insa_inter_filière	insa_toulouse_génie_biologique										2*	100.0	0.0	153*	153*	2*	
-groupe_insa_inter_filière	isis_castres_informatique_pour_la_santé										13*	46.2	15.4	1699	1667	2*	
-groupe_insa_inter_filière	Concours INSA DomaineÂBiotechnologies-santÃ© MP-PC-PSI-BCPST-TPC	4009*	47.3	19.8	*			2097*	49.7	21.5	22*					13*	
-groupe_insa_inter_filière	insa_lyon_génie_energétique_et_environnement										5*	40.0	20.0	266*	221*	5*	
-groupe_insa_inter_filière	insa_rouen_normandie_chimie_et_procédés										3*	33.3	0.0	1046*	1037*	4*	
-groupe_insa_inter_filière	insa_rouen_normandie_energétique_et_propulsion										4*	75.0	25.0	992*	885*	4*	
-groupe_insa_inter_filière	insa_rouen_normandie_maã®trise_des_risques_industriels										6*	33.3	16.7	1138*	1160*	6*	
-groupe_insa_inter_filière	insa_strasbourg_génie_climatique_et_energétique										10*	50.0	20.0	1299*	1176*	12*	
-groupe_insa_inter_filière	insa_toulouse_génie_des_procédés_et_environnement										5*	40.0	40.0	750*	689*	10*	
-groupe_insa_inter_filière	sup'enr_perpignan_energétique_et_energies_renouvelables										2*	50.0	0.0	1385	1385	2*	
-groupe_insa_inter_filière	Concours INSA DomaineÂEnergÃ©tique â€“ GÃ©nie Chimique â€“ Environnement MP-PC-PSI	4146*	37.5	19.3	*			1506*	37.5	21.6	35*					43*	
-groupe_insa_inter_filière	insa_euro_méditerranée_maroc_génie_electrique										0*	0.0	0.0	0*	0*	3*	
-groupe_insa_inter_filière	insa_lyon_génie_electrique										8*	25.0	0.0	312*	295*	8*	
-groupe_insa_inter_filière	insa_rennes_electronique_et_informatique_industrielle										2*	0.0	50.0	1014*	1014*	2*	
-groupe_insa_inter_filière	insa_rennes_système_et_réseaux_de_communication										3*	0.0	33.3	1793*	1583*	5*	
-groupe_insa_inter_filière	insa_strasbourg_génie_electrique										8*	25.0	25.0	1411*	1367*	10*	
-groupe_insa_inter_filière	insa_toulouse_automatique_et_electronique										2*	50.0	0.0	630	643	3*	
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie Ã©lectrique, Ã©lectronique, automatique MP-PC-PSI-PT	4812*	24.9	18.7	*			1964*	24.2	20.1	23*					31*	
-groupe_insa_inter_filière	insa_lyon_génie_civil_et_urbanisme										7*	28.6	0.0	140*	135*	7*	
-groupe_insa_inter_filière	insa_rennes_génie_civil_et_urbain										2*	50.0	50.0	387*	387*	2*	
-groupe_insa_inter_filière	insa_rouen_normandie_génie_civil_et_constructions_durables										2*	100.0	50.0	760*	760*	2*	
-groupe_insa_inter_filière	insa_strasbourg_génie_civil										3*	33.3	0.0	815*	721*	3*	
-groupe_insa_inter_filière	insa_strasbourg_topographie										2*	50.0	50.0	828*	732*	4*	
-groupe_insa_inter_filière	insa_toulouse_génie_civil										1*	0.0	0.0	243	243	1*	
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie civil, urbanisme, topographie MP-PC	2294*	36.4	19.4	*			1186*	38.2	18.7	17*					19*	
-groupe_insa_inter_filière	insa_lyon_génie_civil_et_urbanisme										9*	22.2	0.0	160*	156*	9*	
-groupe_insa_inter_filière	insa_rennes_génie_civil_et_urbain										2*	50.0	50.0	261*	261*	2*	
-groupe_insa_inter_filière	insa_rouen_normandie_génie_civil_et_constructions_durables										2*	0.0	0.0	388*	388*	2*	
-groupe_insa_inter_filière	insa_strasbourg_génie_civil										12*	33.3	8.3	509*	485*	12*	
-groupe_insa_inter_filière	insa_strasbourg_topographie										10*	10.0	30.0	1008*	954*	10*	
-groupe_insa_inter_filière	insa_toulouse_génie_civil										1*	0.0	0.0	290	290	2*	
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie civil, urbanisme, topographie PSI-PT	2396*	25.2	17.7	*			1278*	25.0	20.6	36*					37*	
-groupe_insa_inter_filière	insa_centre_val_de_loire_sécurité_et_technologies_informatiques										2*	0.0	0.0	724*	724*	1*	
-groupe_insa_inter_filière	insa_euro_méditerranée_maroc_systèmes_d'information_et_de_communication										0*	0.0	0.0	0*	0*	2*	
-groupe_insa_inter_filière	insa_lyon_télécommunications,_services_et_usages										4*	25.0	0.0	254*	251*	4*	
-groupe_insa_inter_filière	insa_rennes_informatique										1*	100.0	0.0	393*	393*	2*	
-groupe_insa_inter_filière	insa_rouen_normandie_architecture_des_systèmes_d'information										2*	0.0	50.0	541*	541*	2*	
-groupe_insa_inter_filière	insa_rouen_normandie_génie_mathématique										2*	50.0	0.0	145*	145*	2*	
-groupe_insa_inter_filière	insa_toulouse_informatique_et_réseaux										6*	0.0	16.7	341*	325*	6*	
-groupe_insa_inter_filière	insa_toulouse_mathématiques_appliquées										3*	33.3	0.0	392	396	3*	
-groupe_insa_inter_filière	Concours INSA Domaine Informatique, mathÃ©matique, modÃ©lisation PC-PSI-PT	3132*	23.5	19.5	*			1047*	22.4	21.7	20*					22*	
-groupe_insa_inter_filière	insa_centre_val_de_loire_génie_des_systèmes_industriels										8*	50.0	12.5	1793*	1689*	18*	
-groupe_insa_inter_filière	insa_euro_méditerranée_maroc_génie_mécanique_et_energétique										0*	0.0	0.0	0*	0*	4*	
-groupe_insa_inter_filière	insa_lyon_génie_industriel										8*	0.0	12.5	281*	231*	8*	
-groupe_insa_inter_filière	insa_lyon_génie_mécanique										28*	14.3	10.7	289*	284*	30*	
-groupe_insa_inter_filière	insa_rennes_génie_mécanique_et_automatique										4*	50.0	0.0	690*	714*	4*	
-groupe_insa_inter_filière	insa_rouen_normandie_mécanique										2*	0.0	0.0	857*	874*	3*	
-groupe_insa_inter_filière	insa_strasbourg_génie_mécanique										21*	28.6	14.3	1042*	991*	22*	
-groupe_insa_inter_filière	insa_strasbourg_mécatronique										4*	50.0	25.0	538*	525*	4*	
-groupe_insa_inter_filière	insa_strasbourg_plasturgie										3*	33.3	0.0	1684*	1687*	14*	
-groupe_insa_inter_filière	insa_toulouse_génie_mécanique										3*	33.3	33.3	523	529	4*	
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie mÃ©canique, gÃ©nie industriel et mÃ©catronique PSI-PT	3281*	21.0	17.7	*			1956*	21.3	19.4	81*					111*	
-groupe_insa_inter_filière	esitech_rouen_génie_physique										3*	100.0	0.0	1770*	1855*	4*	
-groupe_insa_inter_filière	insa_centre_val_de_loire_maã®trise_des_risques_industriels										4*	50.0	0.0	2007*	1947*	23*	
-groupe_insa_inter_filière	insa_lyon_science_et_génie_des_matériaux										10*	30.0	20.0	432*	351*	10*	
-groupe_insa_inter_filière	insa_rennes_science_et_génie_des_matériaux										3*	100.0	33.3	1491*	1390*	3*	
-groupe_insa_inter_filière	insa_toulouse_génie_physique										7*	42.9	14.3	700	635	6*	
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie physique et matÃ©riaux MP-PC-PSI	4540*	32.5	19.2	*			2206*	33.7	19.9	27*					46*	
-groupe_insa_inter_filière	esitech_rouen_génie_physique										0*	0.0	0.0	0*	0*	2*	
-groupe_insa_inter_filière	insa_centre_val_de_loire_maã®trise_des_risques_industriels										1*	100.0	0.0	584*	584*	7*	
-groupe_insa_inter_filière	insa_lyon_science_et_génie_des_matériaux										1*	0.0	0.0	44*	44*	1*	
-groupe_insa_inter_filière	insa_rennes_science_et_génie_des_matériaux										1*	0.0	0.0	175*	175*	1*	
-groupe_insa_inter_filière	insa_toulouse_génie_physique										1*	100.0	0.0	33	33	1*	
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie physique et matÃ©riaux TSI-PT-TPC	1609*	14.2	19.1	*			702*	13.2	21.5	4*					12*	
-cesi	cesi_angoulãªme										1*	0.0	0.0	81*	81*	8*	
-cesi	cesi_arras										4*	25.0	0.0	131*	130*	10*	
-cesi	cesi_bordeaux										2*	0.0	50.0	141*	141*	8*	
-cesi	cesi_lyon										5*	60.0	40.0	138*	120*	12*	
-cesi	cesi_rouen										1*	0.0	0.0	68*	68*	8*	
-cesi	cesi_nancy										0*	0.0	0.0	0*	0*	8*	
-cesi	cesi_nanterre										9*	55.6	22.2	139*	122*	20*	
-cesi	cesi_nice_sophia_antipolis										1*	0.0	0.0	23*	23*	5*	
-cesi	cesi_saint_nazaire										1*	100.0	100.0	156	156	10*	
-cesi	Concours CESI Ecole d'IngÃ©nieurs - IngÃ©nieur GÃ©nÃ©raliste	385*	30.6	15.8	*			162*	36.4	17.3	24*					89*	
-cesi	cesi_aix_en_provence										1*	0.0	0.0	31*	31*	2*	
-cesi	cesi_arras										1*	0.0	0.0	48*	48*	4*	
-cesi	cesi_bordeaux										1*	0.0	0.0	25*	25*	2*	
-cesi	cesi_la_rochelle										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_lille										0*	0.0	0.0	0*	0*	3*	
-cesi	cesi_lyon										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_rouen										2*	0.0	0.0	39*	39*	2*	
-cesi	cesi_nancy										1*	0.0	0.0	34*	34*	2*	
-cesi	cesi_nanterre										0*	0.0	0.0	0*	0*	7*	
-cesi	cesi_nice_sophia_antipolis										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_orléans										0*	0.0	0.0	0*	0*	3*	
-cesi	cesi_pau										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_reims										1*	0.0	0.0	33*	33*	2*	
-cesi	cesi_saint_nazaire										0*	0.0	0.0	0*	0*	5*	
-cesi	cesi_strasbourg										1*	0.0	0.0	4*	4*	6*	
-cesi	cesi_toulouse										0*	0.0	0.0	0	0	3*	
-cesi	Concours CESI Ecole d'IngÃ©nieurs - IngÃ©nieur en Informatique (interFilÃ¨re)	114*	11.4	7.9	*			53*	11.3	7.5	8*					49*	
+groupe_insa_inter_filière	insa_hauts_de_france_génie_civil_et_bâtiment	2294	36.4	19.4				1186	38.2	18.7	8	37.5	0.0	925	919	8	
+groupe_insa_inter_filière	insa_hauts_de_france_génie_civil_et_bâtiment	2396	25.2	17.7				1278	25.0	20.6	5	40.0	20.0	840	788	5	
+groupe_insa_inter_filière	insa_hauts_de_france_informatique_et_cybersécurité	3132	23.5	19.5				1047	22.4	21.7	2	0.0	0.0	750	811	3	
+groupe_insa_inter_filière	insa_hauts_de_france_mécanique_et_energétique										28	32.1	21.4	1663	1640	35	
+groupe_insa_inter_filière	insa_hauts_de_france_génie_industriel										12	41.7	41.7	1511	1394	10	
+groupe_insa_inter_filière	insa_hauts_de_france_mécatronique										19	0.0	10.5	1511	1428	16	
+groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie mÃ©canique, gÃ©nie industriel et mÃ©catronique PSI-PT	3281	21.0	17.7				1956	21.3	19.4	59					61	
+groupe_insa_inter_filière	esitech_rouen_technologies_du_vivant										2	100.0	0.0	747	747	3	
+groupe_insa_inter_filière	insa_lyon_biosciences										5	80.0	20.0	230	211	6	
+groupe_insa_inter_filière	insa_toulouse_génie_biologique										2	100.0	0.0	153	153	2	
+groupe_insa_inter_filière	isis_castres_informatique_pour_la_santé										13	46.2	15.4	1699	1667	2	
+groupe_insa_inter_filière	Concours INSA DomaineÂBiotechnologies-santÃ© MP-PC-PSI-BCPST-TPC	4009	47.3	19.8				2097	49.7	21.5	22					13	
+groupe_insa_inter_filière	insa_lyon_génie_energétique_et_environnement										5	40.0	20.0	266	221	5	
+groupe_insa_inter_filière	insa_rouen_normandie_chimie_et_procédés										3	33.3	0.0	1046	1037	4	
+groupe_insa_inter_filière	insa_rouen_normandie_energétique_et_propulsion										4	75.0	25.0	992	885	4	
+groupe_insa_inter_filière	insa_rouen_normandie_maã®trise_des_risques_industriels										6	33.3	16.7	1138	1160	6	
+groupe_insa_inter_filière	insa_strasbourg_génie_climatique_et_energétique										10	50.0	20.0	1299	1176	12	
+groupe_insa_inter_filière	insa_toulouse_génie_des_procédés_et_environnement										5	40.0	40.0	750	689	10	
+groupe_insa_inter_filière	sup'enr_perpignan_energétique_et_energies_renouvelables										2	50.0	0.0	1385	1385	2	
+groupe_insa_inter_filière	Concours INSA DomaineÂEnergÃ©tique â€“ GÃ©nie Chimique â€“ Environnement MP-PC-PSI	4146	37.5	19.3				1506	37.5	21.6	35					43	
+groupe_insa_inter_filière	insa_euro_méditerranée_maroc_génie_electrique										0	0.0	0.0	0	0	3	
+groupe_insa_inter_filière	insa_lyon_génie_electrique										8	25.0	0.0	312	295	8	
+groupe_insa_inter_filière	insa_rennes_electronique_et_informatique_industrielle										2	0.0	50.0	1014	1014	2	
+groupe_insa_inter_filière	insa_rennes_système_et_réseaux_de_communication										3	0.0	33.3	1793	1583	5	
+groupe_insa_inter_filière	insa_strasbourg_génie_electrique										8	25.0	25.0	1411	1367	10	
+groupe_insa_inter_filière	insa_toulouse_automatique_et_electronique										2	50.0	0.0	630	643	3	
+groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie Ã©lectrique, Ã©lectronique, automatique MP-PC-PSI-PT	4812	24.9	18.7				1964	24.2	20.1	23					31	
+groupe_insa_inter_filière	insa_lyon_génie_civil_et_urbanisme										7	28.6	0.0	140	135	7	
+groupe_insa_inter_filière	insa_rennes_génie_civil_et_urbain										2	50.0	50.0	387	387	2	
+groupe_insa_inter_filière	insa_rouen_normandie_génie_civil_et_constructions_durables										2	100.0	50.0	760	760	2	
+groupe_insa_inter_filière	insa_strasbourg_génie_civil										3	33.3	0.0	815	721	3	
+groupe_insa_inter_filière	insa_strasbourg_topographie										2	50.0	50.0	828	732	4	
+groupe_insa_inter_filière	insa_toulouse_génie_civil										1	0.0	0.0	243	243	1	
+groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie civil, urbanisme, topographie MP-PC	2294	36.4	19.4				1186	38.2	18.7	17					19	
+groupe_insa_inter_filière	insa_lyon_génie_civil_et_urbanisme										9	22.2	0.0	160	156	9	
+groupe_insa_inter_filière	insa_rennes_génie_civil_et_urbain										2	50.0	50.0	261	261	2	
+groupe_insa_inter_filière	insa_rouen_normandie_génie_civil_et_constructions_durables										2	0.0	0.0	388	388	2	
+groupe_insa_inter_filière	insa_strasbourg_génie_civil										12	33.3	8.3	509	485	12	
+groupe_insa_inter_filière	insa_strasbourg_topographie										10	10.0	30.0	1008	954	10	
+groupe_insa_inter_filière	insa_toulouse_génie_civil										1	0.0	0.0	290	290	2	
+groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie civil, urbanisme, topographie PSI-PT	2396	25.2	17.7				1278	25.0	20.6	36					37	
+groupe_insa_inter_filière	insa_centre_val_de_loire_sécurité_et_technologies_informatiques										2	0.0	0.0	724	724	1	
+groupe_insa_inter_filière	insa_euro_méditerranée_maroc_systèmes_d'information_et_de_communication										0	0.0	0.0	0	0	2	
+groupe_insa_inter_filière	insa_lyon_télécommunications,_services_et_usages										4	25.0	0.0	254	251	4	
+groupe_insa_inter_filière	insa_rennes_informatique										1	100.0	0.0	393	393	2	
+groupe_insa_inter_filière	insa_rouen_normandie_architecture_des_systèmes_d'information										2	0.0	50.0	541	541	2	
+groupe_insa_inter_filière	insa_rouen_normandie_génie_mathématique										2	50.0	0.0	145	145	2	
+groupe_insa_inter_filière	insa_toulouse_informatique_et_réseaux										6	0.0	16.7	341	325	6	
+groupe_insa_inter_filière	insa_toulouse_mathématiques_appliquées										3	33.3	0.0	392	396	3	
+groupe_insa_inter_filière	Concours INSA Domaine Informatique, mathÃ©matique, modÃ©lisation PC-PSI-PT	3132	23.5	19.5				1047	22.4	21.7	20					22	
+groupe_insa_inter_filière	insa_centre_val_de_loire_génie_des_systèmes_industriels										8	50.0	12.5	1793	1689	18	
+groupe_insa_inter_filière	insa_euro_méditerranée_maroc_génie_mécanique_et_energétique										0	0.0	0.0	0	0	4	
+groupe_insa_inter_filière	insa_lyon_génie_industriel										8	0.0	12.5	281	231	8	
+groupe_insa_inter_filière	insa_lyon_génie_mécanique										28	14.3	10.7	289	284	30	
+groupe_insa_inter_filière	insa_rennes_génie_mécanique_et_automatique										4	50.0	0.0	690	714	4	
+groupe_insa_inter_filière	insa_rouen_normandie_mécanique										2	0.0	0.0	857	874	3	
+groupe_insa_inter_filière	insa_strasbourg_génie_mécanique										21	28.6	14.3	1042	991	22	
+groupe_insa_inter_filière	insa_strasbourg_mécatronique										4	50.0	25.0	538	525	4	
+groupe_insa_inter_filière	insa_strasbourg_plasturgie										3	33.3	0.0	1684	1687	14	
+groupe_insa_inter_filière	insa_toulouse_génie_mécanique										3	33.3	33.3	523	529	4	
+groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie mÃ©canique, gÃ©nie industriel et mÃ©catronique PSI-PT	3281	21.0	17.7				1956	21.3	19.4	81					111	
+groupe_insa_inter_filière	esitech_rouen_génie_physique										3	100.0	0.0	1770	1855	4	
+groupe_insa_inter_filière	insa_centre_val_de_loire_maã®trise_des_risques_industriels										4	50.0	0.0	2007	1947	23	
+groupe_insa_inter_filière	insa_lyon_science_et_génie_des_matériaux										10	30.0	20.0	432	351	10	
+groupe_insa_inter_filière	insa_rennes_science_et_génie_des_matériaux										3	100.0	33.3	1491	1390	3	
+groupe_insa_inter_filière	insa_toulouse_génie_physique										7	42.9	14.3	700	635	6	
+groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie physique et matÃ©riaux MP-PC-PSI	4540	32.5	19.2				2206	33.7	19.9	27					46	
+groupe_insa_inter_filière	esitech_rouen_génie_physique										0	0.0	0.0	0	0	2	
+groupe_insa_inter_filière	insa_centre_val_de_loire_maã®trise_des_risques_industriels										1	100.0	0.0	584	584	7	
+groupe_insa_inter_filière	insa_lyon_science_et_génie_des_matériaux										1	0.0	0.0	44	44	1	
+groupe_insa_inter_filière	insa_rennes_science_et_génie_des_matériaux										1	0.0	0.0	175	175	1	
+groupe_insa_inter_filière	insa_toulouse_génie_physique										1	100.0	0.0	33	33	1	
+groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie physique et matÃ©riaux TSI-PT-TPC	1609	14.2	19.1				702	13.2	21.5	4					12	
+cesi	cesi_angoulãªme										1	0.0	0.0	81	81	8	
+cesi	cesi_arras										4	25.0	0.0	131	130	10	
+cesi	cesi_bordeaux										2	0.0	50.0	141	141	8	
+cesi	cesi_lyon										5	60.0	40.0	138	120	12	
+cesi	cesi_rouen										1	0.0	0.0	68	68	8	
+cesi	cesi_nancy										0	0.0	0.0	0	0	8	
+cesi	cesi_nanterre										9	55.6	22.2	139	122	20	
+cesi	cesi_nice_sophia_antipolis										1	0.0	0.0	23	23	5	
+cesi	cesi_saint_nazaire										1	100.0	100.0	156	156	10	
+cesi	Concours CESI Ecole d'IngÃ©nieurs - IngÃ©nieur GÃ©nÃ©raliste	385	30.6	15.8				162	36.4	17.3	24					89	
+cesi	cesi_aix_en_provence										1	0.0	0.0	31	31	2	
+cesi	cesi_arras										1	0.0	0.0	48	48	4	
+cesi	cesi_bordeaux										1	0.0	0.0	25	25	2	
+cesi	cesi_la_rochelle										0	0.0	0.0	0	0	2	
+cesi	cesi_lille										0	0.0	0.0	0	0	3	
+cesi	cesi_lyon										0	0.0	0.0	0	0	2	
+cesi	cesi_rouen										2	0.0	0.0	39	39	2	
+cesi	cesi_nancy										1	0.0	0.0	34	34	2	
+cesi	cesi_nanterre										0	0.0	0.0	0	0	7	
+cesi	cesi_nice_sophia_antipolis										0	0.0	0.0	0	0	2	
+cesi	cesi_orléans										0	0.0	0.0	0	0	3	
+cesi	cesi_pau										0	0.0	0.0	0	0	2	
+cesi	cesi_reims										1	0.0	0.0	33	33	2	
+cesi	cesi_saint_nazaire										0	0.0	0.0	0	0	5	
+cesi	cesi_strasbourg										1	0.0	0.0	4	4	6	
+cesi	cesi_toulouse										0	0.0	0.0	0	0	3	
+cesi	Concours CESI Ecole d'IngÃ©nieurs - IngÃ©nieur en Informatique (interFilÃ¨re)	114	11.4	7.9				53	11.3	7.5	8					49	
 epita	epita										4	0.0	0.0	89	84	5	
 epita	ipsa_paris										8	12.5	12.5	86	84	6	
 epita	ipsa_toulouse										3	0.0	33.3	45	35	2	

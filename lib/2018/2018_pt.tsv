@@ -202,28 +202,28 @@ epita	ipsa_paris										5	20.0	0.0	34	38	4
 epita	ipsa_toulouse										3	33.3	0.0	51	51	2	
 epita	esme_sudria_paris										6	0.0	33.3	46	45	10	
 epita	Concours EPITA / IPSA / ESME PT	157	13.4	21.0	107	16.8	20.6	78	17.9	19.2	19					20	
-cesi	cesi_angoulãªme										0*	0.0	0.0	0*	0*	8*	
-cesi	cesi_arras										2*	0.0	0.0	28*	28*	10*	
-cesi	cesi_bordeaux										2*	0.0	50.0	25*	25*	8*	
-cesi	cesi_lyon										1*	0.0	0.0	26*	26*	12*	
-cesi	cesi_mont_saint_aignan										0*	0.0	0.0	0*	0*	8*	
-cesi	cesi_nancy										0*	0.0	0.0	0*	0*	8*	
-cesi	cesi_nanterre										3*	33.3	66.7	24*	28*	20*	
-cesi	cesi_saint_nazaire										1*	100.0	0.0	43	43	15*	
-cesi	Concours CESI IngÃ©nieur GÃ©nÃ©raliste	180*	23.3	16.7	96*	27.1	16.7	49*	26.5	22.4	9*					89*	
-cesi	cesi_aix_en_provence										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_arras										0*	0.0	0.0	0*	0*	4*	
-cesi	cesi_bordeaux										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_la_rochelle										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_lyon										1*	0.0	0.0	3*	3*	2*	
-cesi	cesi_mont_saint_aignan										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_nancy										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_nanterre										0*	0.0	0.0	0*	0*	7*	
-cesi	cesi_nice_sophia_antipolis										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_orléans										0*	0.0	0.0	0*	0*	3*	
-cesi	cesi_pau										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_reims										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_saint_nazaire										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_strasbourg										0*	0.0	0.0	0*	0*	2*	
-cesi	cesi_toulouse										0*	0.0	0.0	0	0	3*	
-cesi	Concours CESI IngÃ©nieur en Informatique	44*	11.4	11.4	30*	13.3	6.7	17*	11.8	0.0	1*					39*	
+cesi	cesi_angoulãªme										0	0.0	0.0	0	0	8	
+cesi	cesi_arras										2	0.0	0.0	28	28	10	
+cesi	cesi_bordeaux										2	0.0	50.0	25	25	8	
+cesi	cesi_lyon										1	0.0	0.0	26	26	12	
+cesi	cesi_mont_saint_aignan										0	0.0	0.0	0	0	8	
+cesi	cesi_nancy										0	0.0	0.0	0	0	8	
+cesi	cesi_nanterre										3	33.3	66.7	24	28	20	
+cesi	cesi_saint_nazaire										1	100.0	0.0	43	43	15	
+cesi	Concours CESI IngÃ©nieur GÃ©nÃ©raliste	180	23.3	16.7	96	27.1	16.7	49	26.5	22.4	9					89	
+cesi	cesi_aix_en_provence										0	0.0	0.0	0	0	2	
+cesi	cesi_arras										0	0.0	0.0	0	0	4	
+cesi	cesi_bordeaux										0	0.0	0.0	0	0	2	
+cesi	cesi_la_rochelle										0	0.0	0.0	0	0	2	
+cesi	cesi_lyon										1	0.0	0.0	3	3	2	
+cesi	cesi_mont_saint_aignan										0	0.0	0.0	0	0	2	
+cesi	cesi_nancy										0	0.0	0.0	0	0	2	
+cesi	cesi_nanterre										0	0.0	0.0	0	0	7	
+cesi	cesi_nice_sophia_antipolis										0	0.0	0.0	0	0	2	
+cesi	cesi_orléans										0	0.0	0.0	0	0	3	
+cesi	cesi_pau										0	0.0	0.0	0	0	2	
+cesi	cesi_reims										0	0.0	0.0	0	0	2	
+cesi	cesi_saint_nazaire										0	0.0	0.0	0	0	2	
+cesi	cesi_strasbourg										0	0.0	0.0	0	0	2	
+cesi	cesi_toulouse										0	0.0	0.0	0	0	3	
+cesi	Concours CESI IngÃ©nieur en Informatique	44	11.4	11.4	30	13.3	6.7	17	11.8	0.0	1					39	

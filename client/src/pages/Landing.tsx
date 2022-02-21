@@ -1,5 +1,5 @@
 import { FC } from "react";
-
+import { Fade } from "react-awesome-reveal";
 /**Icons */
 import { FcOpenedFolder, FcGraduationCap, FcManager } from "react-icons/fc";
 /**Components */
@@ -51,29 +51,34 @@ export const Presentational: FC<IProps> = ({ navBar }) => {
 			<LandingMain />
 			<div className='bar-section'></div>
 			<section id='overview' style={navBar.darkMode ? {} : lightStyles}>
-				<div className='wrapper'>
-					<h3>
-						<div className='bar'></div>
-						<span>Nos objectifs</span>
-					</h3>
-					<div className='article-container'>
-						<OverviewArticle
-							title="Facilité l'accès à l'information"
-							text={lorem}
-							Icon={FcOpenedFolder}
-						/>
-						<OverviewArticle
-							title='Accompagner les étudiants'
-							text={lorem}
-							Icon={FcManager}
-						/>
-						<OverviewArticle
-							title='Motiver les étudiants'
-							text={lorem}
-							Icon={FcGraduationCap}
-						/>
+				<Fade triggerOnce delay={200}>
+					<div className='wrapper'>
+						<h3>
+							<div className='bar'></div>
+							<span>Nos objectifs</span>
+						</h3>
+						<div className='article-container'>
+							<OverviewArticle
+								title="Facilité l'accès à l'information"
+								text={lorem}
+								Icon={FcOpenedFolder}
+								delay={300}
+							/>
+							<OverviewArticle
+								title='Accompagner les étudiants'
+								text={lorem}
+								Icon={FcManager}
+								delay={400}
+							/>
+							<OverviewArticle
+								title='Motiver les étudiants'
+								text={lorem}
+								Icon={FcGraduationCap}
+								delay={500}
+							/>
+						</div>
 					</div>
-				</div>
+				</Fade>
 			</section>
 			<div className='landing-sections'>
 				<LandingSection

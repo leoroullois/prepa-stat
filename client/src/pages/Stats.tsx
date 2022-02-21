@@ -54,7 +54,7 @@ const Presentational: FC<any> = () => {
 					/>
 				</header>
 				<div className='bar'></div>
-				<StatsSection concours={concours} />
+				<StatsSection concours={concours} filiere={filiere} />
 			</main>
 		);
 	}

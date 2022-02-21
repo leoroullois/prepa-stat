@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 /**CSS */
 import "../css/stats.css";
@@ -13,7 +13,7 @@ import { StatsSection } from "../components/StatsSection";
 export interface IState {}
 const Presentational: FC<any> = () => {
 	const filieres = ["mp", "pc", "pt", "psi"];
-	const allConcours = [
+	const categories = [
 		"generale",
 		"x",
 		"ens",
@@ -22,35 +22,17 @@ const Presentational: FC<any> = () => {
 		"ccinp",
 		"e3a",
 	];
-	// const [schools, setSchools] = useState<ISchools[]>([]);
-	// const [properties, setProperties] = useState<string[]>([]);
-	// useEffect(() => {
-	// 	fetch("/api/schools?filiere=mp&annee=2021")
-	// 		.then((res) => res.json())
-	// 		.then((data) => {
-	// 			setSchools(data);
-	// 			setProperties(Object.keys(data[0]));
-	// 		});
-	// });
-	// const title = properties.map((elt, index) => {
-	// 	return <th key={index}>{elt}</th>;
-	// });
-	// const element = schools.map((elt: any, index) => {
-	// 	const output = [];
-	// 	for (const property in elt) {
-	// 		const row = <th>{elt[property]}</th>;
-	// 		output.push(row);
-	// 	}
-	// 	return <tr key={index}>{output}</tr>;
-	// });
 	type StatsParams = { filiere: string; concours: string };
 	let { filiere, concours } = useParams<StatsParams>();
 	filiere = filiere as string;
 	concours = concours as string;
 	useEffect(() => {
-		
-	})
-	if (!filieres.includes(filiere) || !allConcours.includes(concours)) {
+		document.title = `Statistiques ${
+			concours && concours.toUpperCase()
+		} - PrépaStat`;
+	});
+
+	if (!filieres.includes(filiere) || !categories.includes(concours)) {
 		return <NoPage />;
 	} else {
 		return (

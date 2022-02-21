@@ -52,8 +52,8 @@ export const SubNav: FC<IProps> = ({ changeUrl, links, path }) => {
 	useEffect(() => {
 		try {
 			const param = Object.values(params)[Object.values(params).length - 1];
-		document.getElementsByClassName(`${param}`)[0].classList.add("active");
-		} catch(err) {
+			document.getElementsByClassName(`${param}`)[0].classList.add("active");
+		} catch (err) {
 			console.log(err);
 		}
 	});

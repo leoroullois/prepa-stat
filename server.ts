@@ -83,8 +83,6 @@ connectDb(async () => {
 	// for (let i = 2018; i <= 2021; i++) {
 	// 	filieres.forEach((filiere) => postToDb(i, filiere));
 	// }
-	// postToDb(2019, "pt");
-	// postCoefs();
 });
 
 const PORT = process.env.PORT || 80;

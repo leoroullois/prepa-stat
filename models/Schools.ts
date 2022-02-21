@@ -10,7 +10,7 @@ export interface ISchools extends Document {
 	admissibles_filles: number;
 	admissibles_cinq_demi: number;
 	classes_nb: number;
-	casses_filles: number;
+	classes_filles: number;
 	classes_cinq_demi: number;
 	integres_nb: number;
 	integres_filles: number;
@@ -51,7 +51,7 @@ const SchoolsSchema = new mongoose.Schema({
 	classes_nb: {
 		type: Number,
 	},
-	casses_filles: {
+	classes_filles: {
 		type: Number,
 	},
 	classes_cinq_demi: {

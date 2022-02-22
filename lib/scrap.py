@@ -25,12 +25,11 @@ def find_second_chevron(text):
 
 def purge(text):
     return text.strip().replace(
-        '&amp;', '&').replace("-", "_").replace('\n', '').replace(" ", "_").replace("Ã©", "é").replace("Ã¢", "â").replace("Ã¨", "è").replace("ã´", "ô").replace("Ã´", "ô").replace("Ã©", "é").replace("___", "_").replace("__", "_").lower()
+        '&amp;', '&').replace("-", "_").replace('\n', '').replace("\t", "_").replace('\xa0', '').replace(" ", "_").replace("Ã©", "é").replace("Ã¢", "â").replace("Ã¨", "è").replace("ã´", "ô").replace("Ã´", "ô").replace("Ã©", "é").replace("___", "_").replace("__", "_").lower()
 
 
 def scrap(annee, filiere):
     urlpage = "https://www.scei-concours.fr/stat"+annee+"/"+filiere+".html"
-
     page = urllib.request.urlopen(urlpage)
 
     soup = BeautifulSoup(page, 'html.parser', exclude_encodings=["utf-8"])
@@ -56,7 +55,8 @@ def scrap(annee, filiere):
             for j in i.find_all('td'):
                 if n == 0:
                     if j.find('b') != None:
-                        tab.append(str(j.find('b').text).replace('\xa0', ''))
+                        data = purge(str(j.find('b').text))
+                        tab.append(data)
                     else:
                         tab.append(" ".join(re.split(
                             r"\s+", purge(str(j)[find_first_chevron(str(j))+1:find_second_chevron(str(j))]))))
@@ -101,12 +101,14 @@ def scrap(annee, filiere):
                 f.write(m)
 
 
-annees = ["2018", "2019", "2020", "2021"]
+annees = ["2017", "2018", "2019", "2020", "2021"]
 filieres = ["mp", "pc", "psi", "pt"]
-for annee in annees:
-    for filiere in filieres:
-        scrap(annee, filiere)
+# for annee in annees:
+#     for filiere in filieres:
+#         scrap(annee, filiere)
 
+for filiere in filieres:
+    scrap("2017", filiere)
 # 'BANQUE CENTRALE-SUPELEC'
 # 'CONCOURS ECOLE POLYTECHNIQUE'
 # 'CONCOURS COMMUN MINES-PONTS'

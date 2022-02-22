@@ -25,7 +25,7 @@ def find_second_chevron(text):
 
 def purge(text):
     return text.strip().replace(
-        '&amp;', '&').replace("-", "_").replace('\n', '').replace(" ", "_").replace("Ã©", "é").replace("Ã¢", "â").replace("Ã¨", "è").replace("___", "_").replace("__", "_").lower()
+        '&amp;', '&').replace("-", "_").replace('\n', '').replace(" ", "_").replace("Ã©", "é").replace("Ã¢", "â").replace("Ã¨", "è").replace("ã´", "ô").replace("Ã´", "ô").replace("Ã©", "é").replace("___", "_").replace("__", "_").lower()
 
 
 def scrap(annee, filiere):
@@ -93,8 +93,12 @@ def scrap(annee, filiere):
             for i in value:
                 m = key+"\t"
                 for j in range(len(i)):
-                    m += str(i[j])+"\t"
-                f.write(m + '\n')
+                    if(j == len(i)-1):
+                        m += str(i[j])+"\n"
+                    else:
+                        m += str(i[j])+"\t"
+
+                f.write(m)
 
 
 annees = ["2018", "2019", "2020", "2021"]

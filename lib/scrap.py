@@ -61,8 +61,8 @@ def scrap(annee, filiere):
                         tab.append(" ".join(re.split(
                             r"\s+", purge(str(j)[find_first_chevron(str(j))+1:find_second_chevron(str(j))]))))
                 else:
-                    tab.append(j.text.replace("%", "").replace(
-                        ",", ".").replace("*", ""))
+                    tab.append(purge(j.text.replace("%", "").replace(
+                        ",", ".").replace("*", "")))
                 n = 1
             if p > 0:
                 dict[current_concour].append(tab)
@@ -94,9 +94,9 @@ def scrap(annee, filiere):
                 m = key+"\t"
                 for j in range(len(i)):
                     if(j == len(i)-1):
-                        m += str(i[j])+"\n"
+                        m += purge(str(i[j]))+"\n"
                     else:
-                        m += str(i[j])+"\t"
+                        m += purge(str(i[j]))+"\t"
 
                 f.write(m)
 

@@ -15,29 +15,29 @@ banque_centrale_supelec	centrale_nantes	2681	32.3	23.6				1847	31.5	23.9	51	29.4
 banque_centrale_supelec	centrale_marseille	2991	35.2	22.8				1878	32.7	22.5	91	39.6	28.6	942	933	80
 banque_centrale_supelec	centrale_casablanca	433	29.3	30.3				162	23.5	37.0	0	0.0	0.0	0	0	2
 banque_centrale_supelec	centralesupélec_statut_étudiant_ci										5	40.0	20.0	3	3	5
-banque_centrale_supelec	centrale_lyon__ci										1	0.0	0.0	6	6	1
-banque_centrale_supelec	centrale_lille__ci										1	100.0	0.0	8	8	1
-banque_centrale_supelec	centrale_nantes__ci										1	0.0	0.0	7	7	5
+banque_centrale_supelec	centrale_lyon_ci										1	0.0	0.0	6	6	1
+banque_centrale_supelec	centrale_lille_ci										1	100.0	0.0	8	8	1
+banque_centrale_supelec	centrale_nantes_ci										1	0.0	0.0	7	7	5
 banque_centrale_supelec	institut_d'optique_graduate_school_(supoptique)_ci										0	0.0	0.0	17	17	2
 banque_centrale_supelec	centrale_marseille_ci										2	50.0	0.0	11	11	2
-banque_centrale_supelec	Concours Cycle International Centrale-Supelec PC	28	50.0	7.1				23	47.8	8.7	10					16
+banque_centrale_supelec	concours_cycle_international_centrale_supelec_pc	28	50.0	7.1				23	47.8	8.7	10					16
 banque_centrale_supelec	centrale_casablanca_ci							0	0.0	0.0	0	0.0	0.0	0	0	0
 banque_centrale_supelec	arts_et_métiers										22	27.3	45.5	484	496	20
 banque_centrale_supelec	arts_et_métiers_voie_de_l'apprentissage										0	0.0	0.0	0	0	2
-banque_centrale_supelec	Concours ARTS ET MÃ‰TIERS ParisTech PC	1639	32.3	25.5				912	31.9	29.1	22					22
+banque_centrale_supelec	concours_arts_et_mã‰tiers_paristech_pc	1639	32.3	25.5				912	31.9	29.1	22					22
 banque_centrale_supelec	ensea_cergy	1639	32.3	25.5				1307	33.3	26.4	29	24.1	27.6	953	919	30
 banque_centrale_supelec	université_de_technologie_de_troyes_(utt)	681	35.1	22.8				349	35.5	20.6	10	20.0	50.0	291	295	20
 banque_centrale_supelec	epf_campus_troyes										5	20.0	40.0	499	488	8
 banque_centrale_supelec	epf_campus_montpellier										9	55.6	11.1	418	371	5
 banque_centrale_supelec	epf_campus_sceaux										11	54.5	45.5	312	329	6
-banque_centrale_supelec	Concours EPF Sceaux-Troyes-Montpellier PC	651	45.9	22.1				543	47.7	22.5	25					19
+banque_centrale_supelec	concours_epf_sceaux_troyes_montpellier_pc	651	45.9	22.1				543	47.7	22.5	25					19
 banque_centrale_supelec	estp_paris_travaux_publics_(tp)_campus_de_cachan										37	21.6	18.9	774	716	60
 banque_centrale_supelec	estp_paris_bâtiment_(b)_campus_de_cachan										56	39.3	26.8	717	704	57
 banque_centrale_supelec	estp_paris_génie_mécanique_et_electrique(gme)										18	38.9	16.7	867	781	30
 banque_centrale_supelec	estp_paris_topographie_(t)										2	50.0	0.0	619	619	8
 banque_centrale_supelec	estp_paris_bâtiment_(b)_campus_de_troyes										2	50.0	50.0	838	838	12
 banque_centrale_supelec	estp_paris_travaux_publics_(tp)_campus_de_dijon										1	100.0	0.0	752	752	8
-banque_centrale_supelec	Concours ESTP PC	1236	32.8	26.2				959	33.3	25.7	116					175
+banque_centrale_supelec	concours_estp_pc	1236	32.8	26.2				959	33.3	25.7	116					175
 banque_centrale_supelec	ecole_navale_brest	497	21.7	28.4				91	18.7	45.1	17	17.6	47.1	37	36	17
 concours_commun_mines_ponts	ensae_paris										6	33.3	50.0	568	574	8
 concours_commun_mines_ponts	ensta_paris										39	35.9	12.8	529	522	35
@@ -52,7 +52,7 @@ concours_commun_mines_ponts	ponts_paristech										41	36.6	12.2	300	294	40
 concours_commun_mines_ponts	telecom_paris_cursus_paris										20	25.0	10.0	447	419	20
 concours_commun_mines_ponts	telecom_paris_cursus_sophia										10	50.0	40.0	556	556	8
 concours_commun_mines_ponts	chimie_paristech										68	48.5	10.3	756	737	65
-concours_commun_mines_ponts	Concours CCMP PC	3497	33.4	21.9				1351	29.2	23.4	404					387
+concours_commun_mines_ponts	concours_ccmp_pc	3497	33.4	21.9				1351	29.2	23.4	404					387
 concours_mines_télécom	telecom_st_etienne_statut_apprenti	3680	35.1	22.4				2760	36.2	22.8	2	50.0	50.0	1582	1582	2
 concours_mines_télécom	imt_mines_albi										49	42.9	28.6	1362	1272	50
 concours_mines_télécom	imt_mines_alès										50	44.0	12.0	1294	1257	47
@@ -64,17 +64,17 @@ concours_mines_télécom	télécom_physique_strasbourg_informatique_et_réseaux	
 concours_mines_télécom	télécom_physique_strasbourg_ti_santé										7	57.1	0.0	1724	1648	8
 concours_mines_télécom	telecom_sudparis										31	32.3	32.3	891	859	30
 concours_mines_télécom	telecom_sudparis_cursus_sophia_antipolis										0	0.0	0.0	0	0	3
-concours_mines_télécom	Concours Mines-TÃ©lÃ©com PC	3680	35.1	22.4				2024	35.1	23.1	245					241
+concours_mines_télécom	concours_mines_télécom_pc	3680	35.1	22.4				2024	35.1	23.1	245					241
 concours_mines_télécom	ensta_bretagne_(filière_sous_statut_ieta_direction_générale_de_l'armement)	3680	35.1	22.4				1778	34.5	25.3	8	25.0	75.0	639	630	8
 concours_mines_télécom	ensg_géomatique_marne_la_vallée_civil										5	40.0	40.0	2413	2336	6
 concours_mines_télécom	ensg_nancy										8	50.0	0.0	1364	1369	10
 concours_mines_télécom	enssat_lannion										14	35.7	14.3	2302	2278	14
 concours_mines_télécom	telecom_nancy										7	42.9	14.3	1697	1518	5
 concours_mines_télécom	telecom_st_etienne_statut_étudiant										16	37.5	12.5	1947	1900	11
-concours_mines_télécom	Concours Mines-TÃ©lÃ©com SpÃ©cifique PC	3680	35.1	22.4				2760	36.2	22.8	50					46
+concours_mines_télécom	concours_mines_télécom_spécifique_pc	3680	35.1	22.4				2760	36.2	22.8	50					46
 concours_commun_tpe	entpe_lyon_civil										22	50.0	22.7	1045	1029	21
 concours_commun_tpe	entpe_lyon_fonctionnaire										29	31.0	48.3	915	904	29
-concours_commun_tpe	Concours TPE - Candidats franÃ§ais et de l'Union europÃ©enne - filiÃ¨re PC	2104	35.9	24.6				1265	35.6	25.4	51					50
+concours_commun_tpe	concours_tpe_candidats_franã§ais_et_de_l'union_européenne_filière_pc	2104	35.9	24.6				1265	35.6	25.4	51					50
 concours_commun_tpe	entpe_lyon_etranger	2104	35.9	24.6				29	37.9	13.8	0	0.0	0.0	0	0	1
 concours_commun_tpe	eivp_paris_civil	2104	35.9	24.6				1437	36.2	25.2	26	46.2	26.9	1262	1221	20
 concours_commun_tpe	eivp_paris_fonctionnaire	2104	35.9	24.6				1405	36.2	25.4	4	50.0	50.0	873	874	4
@@ -114,7 +114,7 @@ ccinp_:_ecoles_recrutant_sur_le_concours_physique	toulouse_inp_enseeiht_mécaniq
 ccinp_:_ecoles_recrutant_sur_le_concours_physique	toulouse_inp_enseeiht_sciences_du_numérique										11	9.1	45.5	804	766	10
 ccinp_:_ecoles_recrutant_sur_le_concours_physique	toulouse_inp_ensiacet_génie_des_procédés										15	20.0	40.0	2025	1992	16
 ccinp_:_ecoles_recrutant_sur_le_concours_physique	toulouse_inp_ensiacet_génie_industriel										11	45.5	18.2	1828	1861	9
-ccinp_:_ecoles_recrutant_sur_le_concours_physique	Concours CCINP PC-Physique	4730	36.7	21.2				3699	36.4	22.0	614					599
+ccinp_:_ecoles_recrutant_sur_le_concours_physique	concours_ccinp_pc_physique	4730	36.7	21.2				3699	36.4	22.0	614					599
 ccinp_:_ecoles_recrutant_sur_le_concours_chimie	bordeaux_inp_enscbp_chimie_génie_physique										38	55.3	15.8	2166	2079	42
 ccinp_:_ecoles_recrutant_sur_le_concours_chimie	cpe_lyon_chimie_â€“_génie_des_procédés										39	61.5	25.6	2666	2524	40
 ccinp_:_ecoles_recrutant_sur_le_concours_chimie	ecpm_esbs_strasbourg_chembiotech										6	66.7	16.7	826	842	5
@@ -130,13 +130,13 @@ ccinp_:_ecoles_recrutant_sur_le_concours_chimie	sigma_clermont_ferrand_spéciali
 ccinp_:_ecoles_recrutant_sur_le_concours_chimie	toulouse_inp_ensiacet_chimie										29	51.7	20.7	1383	1375	29
 ccinp_:_ecoles_recrutant_sur_le_concours_chimie	toulouse_inp_ensiacet_génie_chimique										34	61.8	23.5	1823	1800	32
 ccinp_:_ecoles_recrutant_sur_le_concours_chimie	toulouse_inp_ensiacet_matériaux										28	32.1	32.1	2100	2025	30
-ccinp_:_ecoles_recrutant_sur_le_concours_chimie	Concours CCINP PC-Chimie	4531	38.0	21.0				3460	37.6	22.1	516					530
+ccinp_:_ecoles_recrutant_sur_le_concours_chimie	concours_ccinp_pc_chimie	4531	38.0	21.0				3460	37.6	22.1	516					530
 banque_epreuves_ccinp_inter_filière	ensil_ensci_limoges_céramique_industrielle										12	50.0	25.0	1994	1905	45
 banque_epreuves_ccinp_inter_filière	ensil_ensci_limoges_ee										11	36.4	54.5	1707	1644	28
 banque_epreuves_ccinp_inter_filière	ensil_ensci_limoges_elt										4	25.0	0.0	1726	1611	28
 banque_epreuves_ccinp_inter_filière	ensil_ensci_limoges_matériaux										14	42.9	42.9	1658	1499	22
 banque_epreuves_ccinp_inter_filière	ensil_ensci_limoges_mécatronique										1	0.0	0.0	1180	1134	22
-banque_epreuves_ccinp_inter_filière	Concours ENSIL-ENSCI Inter Fil.	971	46.3	18.6				768	47.5	20.2	42					145
+banque_epreuves_ccinp_inter_filière	concours_ensil_ensci_inter_fil.	971	46.3	18.6				768	47.5	20.2	42					145
 banque_epreuves_ccinp_inter_filière	grenoble_inp_génie_industriel	1154	36.9	20.1				450	33.1	23.1	3	0.0	66.7	1520	1440	76
 banque_epreuves_ccinp_inter_filière	lorraine_inp_eeigm	497	51.5	19.1				265	54.0	18.9	3	0.0	0.0	456	438	10
 banque_epreuves_ccinp_inter_filière	lorraine_inp_ensgsi	687	43.7	18.9				483	44.3	21.3	6	50.0	33.3	1210	1101	38
@@ -148,7 +148,7 @@ banque_epreuves_ccinp	ensisa_mulhouse_automatique_et_systèmes_embarqués							
 banque_epreuves_ccinp	ensisa_mulhouse_informatique_et_réseaux										4	0.0	50.0	444	447	4
 banque_epreuves_ccinp	ensisa_mulhouse_mécanique										4	25.0	50.0	360	335	5
 banque_epreuves_ccinp	ensisa_mulhouse_textile_et_fibres										9	66.7	22.2	547	534	9
-banque_epreuves_ccinp	Concours ENSISA PC	790	43.7	18.6				693	44.3	19.5	21					22
+banque_epreuves_ccinp	concours_ensisa_pc	790	43.7	18.6				693	44.3	19.5	21					22
 banque_epreuves_ccinp	eost_strasbourg	580	48.1	17.8				486	48.8	18.3	12	50.0	41.7	280	269	13
 banque_epreuves_ccinp	escom_chimie_compiègne	1343	52.0	17.1				607	51.4	18.5	4	50.0	75.0	526	506	20
 banque_epreuves_ccinp	esm_saint_cyr	565	19.6	24.6				75	8.0	53.3	13	0.0	53.8	23	21	13
@@ -186,9 +186,9 @@ concours_polytech_inter_filière	polytech_clermont_ferrand_génie_civil									
 concours_polytech_inter_filière	polytech_clermont_ferrand_génie_electrique										1	0.0	0.0	4380	4479	5
 concours_polytech_inter_filière	polytech_clermont_ferrand_génie_mathématique_et_modélisation										3	0.0	66.7	3523	3220	14
 concours_polytech_inter_filière	polytech_clermont_ferrand_génie_physique										3	0.0	66.7	4718	4489	8
-concours_polytech_inter_filière	polytech_grenoble__géotechnique_et_génie_civil										1	0.0	0.0	2850	2655	6
-concours_polytech_inter_filière	polytech_grenoble__matériaux										2	50.0	0.0	3914	3594	6
-concours_polytech_inter_filière	polytech_grenoble__prévention_des_risques										1	100.0	100.0	4540	4324	6
+concours_polytech_inter_filière	polytech_grenoble_géotechnique_et_génie_civil										1	0.0	0.0	2850	2655	6
+concours_polytech_inter_filière	polytech_grenoble_matériaux										2	50.0	0.0	3914	3594	6
+concours_polytech_inter_filière	polytech_grenoble_prévention_des_risques										1	100.0	100.0	4540	4324	6
 concours_polytech_inter_filière	polytech_grenoble_informatique										1	0.0	100.0	2728	2592	8
 concours_polytech_inter_filière	polytech_grenoble_informatique_et_électronique_des_systèmes_embarqués										0	0.0	0.0	2276	2073	5
 concours_polytech_inter_filière	polytech_grenoble_technologies_de_l'information_pour_la_santé										1	100.0	0.0	4084	3724	6
@@ -253,7 +253,7 @@ concours_polytech_inter_filière	polytech_tours_génie_de_l'aménagement_et_de_l
 concours_polytech_inter_filière	polytech_tours_informatique										1	0.0	100.0	3425	3203	7
 concours_polytech_inter_filière	polytech_tours_mécanique,_conception_de_systèmes										2	50.0	100.0	4123	3969	7
 concours_polytech_inter_filière	sup_galilée_villetaneuse										2	50.0	50.0	4532	4265	24
-concours_polytech_inter_filière	Concours POLYTECH MP - PC - PSI	2353	43.1	18.9				1799	45.2	19.2	178					739
+concours_polytech_inter_filière	concours_polytech_mp_pc_psi	2353	43.1	18.9				1799	45.2	19.2	178					739
 puissance_alpha	efrei_paris	974	42.2	18.2				898	42.9	17.9	13	7.7	7.7	870	810	20
 puissance_alpha	elisa_aérospace_saint_quentin_(80)	974	42.2	18.2				441	46.3	20.4	3	66.7	66.7	304	307	10
 puissance_alpha	esaip_angers_/_aix_en_provence	974	42.2	18.2				891	43.0	18.0	5	40.0	60.0	774	738	15
@@ -265,16 +265,16 @@ puissance_alpha	hei	974	42.2	18.2				919	42.8	17.8	24	58.3	25.0	741	748	25
 puissance_alpha	isen_lille	974	42.2	18.2				762	44.1	19.0	1	0.0	100.0	428	428	5
 puissance_alpha	isen_yncréa_méditerrannée_nã®mes										1	100.0	0.0	797	797	10
 puissance_alpha	isen_yncréa_méditerrannée_toulon										4	0.0	0.0	715	723	10
-puissance_alpha	Concours ISEN MÃ©diterrannÃ©e PC	974	42.2	18.2				859	43.8	18.4	5					20
+puissance_alpha	concours_isen_méditerrannée_pc	974	42.2	18.2				859	43.8	18.4	5					20
 puissance_alpha	isen_yncréa_ouest_brest										2	100.0	0.0	766	766	5
 puissance_alpha	isen_yncréa_ouest_nantes										0	0.0	0.0	0	0	5
-puissance_alpha	Concours ISEN Ouest PC	974	42.2	18.2				859	43.8	18.4	2					10
+puissance_alpha	concours_isen_ouest_pc	974	42.2	18.2				859	43.8	18.4	2					10
 puissance_alpha	isep_paris	974	42.2	18.2				835	44.3	18.4	8	25.0	12.5	614	600	15
 puissance_alpha	3il_ingénieurs	974	42.2	18.2				672	43.5	19.9	0	0.0	0.0	0	0	5
 avenir_prépas	ece_lyon										10	30.0	10.0	760	691	8
 avenir_prépas	ece_paris_(statut_apprentissage)										3	0.0	33.3	830	830	3
 avenir_prépas	ece_paris										26	19.2	15.4	853	813	35
-avenir_prépas	Concours ECE Paris - Lyon PC	1117	39.9	19.0				984	41.7	19.1	39					46
+avenir_prépas	concours_ece_paris_lyon_pc	1117	39.9	19.0				984	41.7	19.1	39					46
 avenir_prépas	eigsi_casablanca	1117	39.9	19.0				931	42.2	19.3	0	0.0	0.0	0	0	2
 avenir_prépas	eigsi_la_rochelle	1117	39.9	19.0				931	42.2	19.3	8	37.5	0.0	562	589	10
 avenir_prépas	esigelec_rouen	1117	39.9	19.0				980	41.7	19.2	3	33.3	0.0	859	873	20
@@ -284,7 +284,7 @@ avenir_prépas	estaca_laval_aéronautique_et_spatial										3	100.0	33.3	143	1
 avenir_prépas	estaca_laval_automobile										0	0.0	0.0	0	0	2
 avenir_prépas	estaca_paris_saclay_aéronautique_et_spatial										3	33.3	0.0	136	126	2
 avenir_prépas	estaca_paris_saclay_automobile_ou_transports_guidés										1	0.0	0.0	224	224	2
-avenir_prépas	Concours ESTACA Paris-Saclay/Laval PC	1117	39.9	19.0				231	41.1	19.9	7					7
+avenir_prépas	concours_estaca_paris_saclay/laval_pc	1117	39.9	19.0				231	41.1	19.9	7					7
 fesic	ecam_lyon	668	42.7	19.6				503	44.5	21.7	6	33.3	50.0	254	260	5
 fesic	ecam_rennes	668	42.7	19.6				587	44.3	20.1	6	16.7	33.3	525	515	12
 fesic	ecam_strasbourg_europe	668	42.7	19.6				541	44.5	21.1	8	37.5	0.0	442	428	10
@@ -295,10 +295,10 @@ autres_écoles_e3a	eidd_paris	532	47.7	17.9				392	51.0	18.9	14	64.3	50.0	281	23
 autres_écoles_e3a	eil_côte_d'opale_calais_(informatique)										1	0.0	0.0	134	134	3
 autres_écoles_e3a	eil_côte_d'opale_dunkerque_(génie_energétique_et_environnement)										0	0.0	0.0	127	127	10
 autres_écoles_e3a	eil_côte_d'opale_longuenesse_(génie_industriel)										2	0.0	0.0	132	132	5
-autres_écoles_e3a	Concours EIL CÃ´te d'Opale Longuenesse - Calais - Dunkerque PC	210	44.8	14.3				145	42.8	13.1	3					18
+autres_écoles_e3a	concours_eil_côte_d'opale_longuenesse_calais_dunkerque_pc	210	44.8	14.3				145	42.8	13.1	3					18
 autres_écoles_e3a	ensait_roubaix										33	69.7	9.1	297	271	35
 autres_écoles_e3a	ensait_roubaix_formation_en_alternance										3	66.7	0.0	280	270	2
-autres_écoles_e3a	Concours ENSAIT Roubaix PC	594	55.6	18.7				441	56.9	17.9	36					37
+autres_écoles_e3a	concours_ensait_roubaix_pc	594	55.6	18.7				441	56.9	17.9	36					37
 autres_écoles_e3a	esb_nantes	271	46.5	20.7				160	52.5	23.8	1	0.0	100.0	155	155	15
 autres_écoles_e3a	estia_bidart	339	39.2	19.8				269	40.9	20.4	11	27.3	18.2	204	185	16
 autres_écoles_e3a	imt_lille_douai_en_partenariat_ispa	495	45.1	19.0				405	46.2	19.3	11	45.5	9.1	357	320	10
@@ -311,12 +311,12 @@ groupe_insa_inter_filière	insa_hauts_de_france_informatique_et_cybersécurité	
 groupe_insa_inter_filière	insa_hauts_de_france_mécanique_et_energétique										28	32.1	21.4	1663	1640	35
 groupe_insa_inter_filière	insa_hauts_de_france_génie_industriel										12	41.7	41.7	1511	1394	10
 groupe_insa_inter_filière	insa_hauts_de_france_mécatronique										19	0.0	10.5	1511	1428	16
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie mÃ©canique, gÃ©nie industriel et mÃ©catronique PSI-PT	3281	21.0	17.7				1956	21.3	19.4	59					61
+groupe_insa_inter_filière	concours_insa_domaine_génie_mécanique,_génie_industriel_et_mécatronique_psi_pt	3281	21.0	17.7				1956	21.3	19.4	59					61
 groupe_insa_inter_filière	esitech_rouen_technologies_du_vivant										2	100.0	0.0	747	747	3
 groupe_insa_inter_filière	insa_lyon_biosciences										5	80.0	20.0	230	211	6
 groupe_insa_inter_filière	insa_toulouse_génie_biologique										2	100.0	0.0	153	153	2
 groupe_insa_inter_filière	isis_castres_informatique_pour_la_santé										13	46.2	15.4	1699	1667	2
-groupe_insa_inter_filière	Concours INSA DomaineÂBiotechnologies-santÃ© MP-PC-PSI-BCPST-TPC	4009	47.3	19.8				2097	49.7	21.5	22					13
+groupe_insa_inter_filière	concours_insa_domaineâbiotechnologies_santé_mp_pc_psi_bcpst_tpc	4009	47.3	19.8				2097	49.7	21.5	22					13
 groupe_insa_inter_filière	insa_lyon_génie_energétique_et_environnement										5	40.0	20.0	266	221	5
 groupe_insa_inter_filière	insa_rouen_normandie_chimie_et_procédés										3	33.3	0.0	1046	1037	4
 groupe_insa_inter_filière	insa_rouen_normandie_energétique_et_propulsion										4	75.0	25.0	992	885	4
@@ -324,28 +324,28 @@ groupe_insa_inter_filière	insa_rouen_normandie_maã®trise_des_risques_industri
 groupe_insa_inter_filière	insa_strasbourg_génie_climatique_et_energétique										10	50.0	20.0	1299	1176	12
 groupe_insa_inter_filière	insa_toulouse_génie_des_procédés_et_environnement										5	40.0	40.0	750	689	10
 groupe_insa_inter_filière	sup'enr_perpignan_energétique_et_energies_renouvelables										2	50.0	0.0	1385	1385	2
-groupe_insa_inter_filière	Concours INSA DomaineÂEnergÃ©tique â€“ GÃ©nie Chimique â€“ Environnement MP-PC-PSI	4146	37.5	19.3				1506	37.5	21.6	35					43
+groupe_insa_inter_filière	concours_insa_domaineâenergétique_â€“_génie_chimique_â€“_environnement_mp_pc_psi	4146	37.5	19.3				1506	37.5	21.6	35					43
 groupe_insa_inter_filière	insa_euro_méditerranée_maroc_génie_electrique										0	0.0	0.0	0	0	3
 groupe_insa_inter_filière	insa_lyon_génie_electrique										8	25.0	0.0	312	295	8
 groupe_insa_inter_filière	insa_rennes_electronique_et_informatique_industrielle										2	0.0	50.0	1014	1014	2
 groupe_insa_inter_filière	insa_rennes_système_et_réseaux_de_communication										3	0.0	33.3	1793	1583	5
 groupe_insa_inter_filière	insa_strasbourg_génie_electrique										8	25.0	25.0	1411	1367	10
 groupe_insa_inter_filière	insa_toulouse_automatique_et_electronique										2	50.0	0.0	630	643	3
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie Ã©lectrique, Ã©lectronique, automatique MP-PC-PSI-PT	4812	24.9	18.7				1964	24.2	20.1	23					31
+groupe_insa_inter_filière	concours_insa_domaine_génie_électrique,_électronique,_automatique_mp_pc_psi_pt	4812	24.9	18.7				1964	24.2	20.1	23					31
 groupe_insa_inter_filière	insa_lyon_génie_civil_et_urbanisme										7	28.6	0.0	140	135	7
 groupe_insa_inter_filière	insa_rennes_génie_civil_et_urbain										2	50.0	50.0	387	387	2
 groupe_insa_inter_filière	insa_rouen_normandie_génie_civil_et_constructions_durables										2	100.0	50.0	760	760	2
 groupe_insa_inter_filière	insa_strasbourg_génie_civil										3	33.3	0.0	815	721	3
 groupe_insa_inter_filière	insa_strasbourg_topographie										2	50.0	50.0	828	732	4
 groupe_insa_inter_filière	insa_toulouse_génie_civil										1	0.0	0.0	243	243	1
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie civil, urbanisme, topographie MP-PC	2294	36.4	19.4				1186	38.2	18.7	17					19
+groupe_insa_inter_filière	concours_insa_domaine_génie_civil,_urbanisme,_topographie_mp_pc	2294	36.4	19.4				1186	38.2	18.7	17					19
 groupe_insa_inter_filière	insa_lyon_génie_civil_et_urbanisme										9	22.2	0.0	160	156	9
 groupe_insa_inter_filière	insa_rennes_génie_civil_et_urbain										2	50.0	50.0	261	261	2
 groupe_insa_inter_filière	insa_rouen_normandie_génie_civil_et_constructions_durables										2	0.0	0.0	388	388	2
 groupe_insa_inter_filière	insa_strasbourg_génie_civil										12	33.3	8.3	509	485	12
 groupe_insa_inter_filière	insa_strasbourg_topographie										10	10.0	30.0	1008	954	10
 groupe_insa_inter_filière	insa_toulouse_génie_civil										1	0.0	0.0	290	290	2
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie civil, urbanisme, topographie PSI-PT	2396	25.2	17.7				1278	25.0	20.6	36					37
+groupe_insa_inter_filière	concours_insa_domaine_génie_civil,_urbanisme,_topographie_psi_pt	2396	25.2	17.7				1278	25.0	20.6	36					37
 groupe_insa_inter_filière	insa_centre_val_de_loire_sécurité_et_technologies_informatiques										2	0.0	0.0	724	724	1
 groupe_insa_inter_filière	insa_euro_méditerranée_maroc_systèmes_d'information_et_de_communication										0	0.0	0.0	0	0	2
 groupe_insa_inter_filière	insa_lyon_télécommunications,_services_et_usages										4	25.0	0.0	254	251	4
@@ -354,7 +354,7 @@ groupe_insa_inter_filière	insa_rouen_normandie_architecture_des_systèmes_d'inf
 groupe_insa_inter_filière	insa_rouen_normandie_génie_mathématique										2	50.0	0.0	145	145	2
 groupe_insa_inter_filière	insa_toulouse_informatique_et_réseaux										6	0.0	16.7	341	325	6
 groupe_insa_inter_filière	insa_toulouse_mathématiques_appliquées										3	33.3	0.0	392	396	3
-groupe_insa_inter_filière	Concours INSA Domaine Informatique, mathÃ©matique, modÃ©lisation PC-PSI-PT	3132	23.5	19.5				1047	22.4	21.7	20					22
+groupe_insa_inter_filière	concours_insa_domaine_informatique,_mathématique,_modélisation_pc_psi_pt	3132	23.5	19.5				1047	22.4	21.7	20					22
 groupe_insa_inter_filière	insa_centre_val_de_loire_génie_des_systèmes_industriels										8	50.0	12.5	1793	1689	18
 groupe_insa_inter_filière	insa_euro_méditerranée_maroc_génie_mécanique_et_energétique										0	0.0	0.0	0	0	4
 groupe_insa_inter_filière	insa_lyon_génie_industriel										8	0.0	12.5	281	231	8
@@ -365,19 +365,19 @@ groupe_insa_inter_filière	insa_strasbourg_génie_mécanique										21	28.6	14
 groupe_insa_inter_filière	insa_strasbourg_mécatronique										4	50.0	25.0	538	525	4
 groupe_insa_inter_filière	insa_strasbourg_plasturgie										3	33.3	0.0	1684	1687	14
 groupe_insa_inter_filière	insa_toulouse_génie_mécanique										3	33.3	33.3	523	529	4
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie mÃ©canique, gÃ©nie industriel et mÃ©catronique PSI-PT	3281	21.0	17.7				1956	21.3	19.4	81					111
+groupe_insa_inter_filière	concours_insa_domaine_génie_mécanique,_génie_industriel_et_mécatronique_psi_pt	3281	21.0	17.7				1956	21.3	19.4	81					111
 groupe_insa_inter_filière	esitech_rouen_génie_physique										3	100.0	0.0	1770	1855	4
 groupe_insa_inter_filière	insa_centre_val_de_loire_maã®trise_des_risques_industriels										4	50.0	0.0	2007	1947	23
 groupe_insa_inter_filière	insa_lyon_science_et_génie_des_matériaux										10	30.0	20.0	432	351	10
 groupe_insa_inter_filière	insa_rennes_science_et_génie_des_matériaux										3	100.0	33.3	1491	1390	3
 groupe_insa_inter_filière	insa_toulouse_génie_physique										7	42.9	14.3	700	635	6
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie physique et matÃ©riaux MP-PC-PSI	4540	32.5	19.2				2206	33.7	19.9	27					46
+groupe_insa_inter_filière	concours_insa_domaine_génie_physique_et_matériaux_mp_pc_psi	4540	32.5	19.2				2206	33.7	19.9	27					46
 groupe_insa_inter_filière	esitech_rouen_génie_physique										0	0.0	0.0	0	0	2
 groupe_insa_inter_filière	insa_centre_val_de_loire_maã®trise_des_risques_industriels										1	100.0	0.0	584	584	7
 groupe_insa_inter_filière	insa_lyon_science_et_génie_des_matériaux										1	0.0	0.0	44	44	1
 groupe_insa_inter_filière	insa_rennes_science_et_génie_des_matériaux										1	0.0	0.0	175	175	1
 groupe_insa_inter_filière	insa_toulouse_génie_physique										1	100.0	0.0	33	33	1
-groupe_insa_inter_filière	Concours INSA Domaine GÃ©nie physique et matÃ©riaux TSI-PT-TPC	1609	14.2	19.1				702	13.2	21.5	4					12
+groupe_insa_inter_filière	concours_insa_domaine_génie_physique_et_matériaux_tsi_pt_tpc	1609	14.2	19.1				702	13.2	21.5	4					12
 cesi	cesi_angoulãªme										1	0.0	0.0	81	81	8
 cesi	cesi_arras										4	25.0	0.0	131	130	10
 cesi	cesi_bordeaux										2	0.0	50.0	141	141	8
@@ -387,7 +387,7 @@ cesi	cesi_nancy										0	0.0	0.0	0	0	8
 cesi	cesi_nanterre										9	55.6	22.2	139	122	20
 cesi	cesi_nice_sophia_antipolis										1	0.0	0.0	23	23	5
 cesi	cesi_saint_nazaire										1	100.0	100.0	156	156	10
-cesi	Concours CESI Ecole d'IngÃ©nieurs - IngÃ©nieur GÃ©nÃ©raliste	385	30.6	15.8				162	36.4	17.3	24					89
+cesi	concours_cesi_ecole_d'ingénieurs_ingénieur_généraliste	385	30.6	15.8				162	36.4	17.3	24					89
 cesi	cesi_aix_en_provence										1	0.0	0.0	31	31	2
 cesi	cesi_arras										1	0.0	0.0	48	48	4
 cesi	cesi_bordeaux										1	0.0	0.0	25	25	2
@@ -404,9 +404,9 @@ cesi	cesi_reims										1	0.0	0.0	33	33	2
 cesi	cesi_saint_nazaire										0	0.0	0.0	0	0	5
 cesi	cesi_strasbourg										1	0.0	0.0	4	4	6
 cesi	cesi_toulouse										0	0.0	0.0	0	0	3
-cesi	Concours CESI Ecole d'IngÃ©nieurs - IngÃ©nieur en Informatique (interFilÃ¨re)	114	11.4	7.9				53	11.3	7.5	8					49
+cesi	concours_cesi_ecole_d'ingénieurs_ingénieur_en_informatique_(interfilère)	114	11.4	7.9				53	11.3	7.5	8					49
 epita	epita										6	0.0	33.3	134	113	10
 epita	ipsa_paris										8	25.0	37.5	56	53	7
 epita	ipsa_toulouse										4	50.0	50.0	6	6	4
 epita	esme_sudria_paris										6	33.3	50.0	159	148	8
-epita	Concours EPITA / IPSA / ESME PC	371	36.9	20.5				200	38.0	21.0	24					29
+epita	concours_epita_/_ipsa_/_esme_pc	371	36.9	20.5				200	38.0	21.0	24					29

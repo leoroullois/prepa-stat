@@ -21,13 +21,13 @@ banque_centrale_supelec	centrale_casablanca	481	20.4	34.1	61	13.1	27.9	58	13.8	2
 banque_centrale_supelec	ecole_navale_brest	517	18.0	30.8	194	13.4	43.3	78	15.4	46.2	31	6.5	51.6	31	32	31
 banque_centrale_supelec	ensea_cergy	1301	24.1	26.5	958	23.5	24.4	532	24.1	21.6	39	23.1	38.5	426	416	60
 banque_centrale_supelec	université_de_technologie_de_troyes_(utt)	523	23.5	24.5	167	22.2	13.2	110	20.0	11.8	0	0.0	0.0	0	0	20
-banque_centrale_supelec	centralesupélec_campus_gif__ci										25	20.0	24.0	24	23	20
-banque_centrale_supelec	centrale_lyon__ci										7	28.6	14.3	43	43	8
-banque_centrale_supelec	centrale_lille__ci										3	0.0	66.7	54	53	3
-banque_centrale_supelec	centrale_nantes__ci										2	50.0	50.0	50	50	5
+banque_centrale_supelec	centralesupélec_campus_gif_ci										25	20.0	24.0	24	23	20
+banque_centrale_supelec	centrale_lyon_ci										7	28.6	14.3	43	43	8
+banque_centrale_supelec	centrale_lille_ci										3	0.0	66.7	54	53	3
+banque_centrale_supelec	centrale_nantes_ci										2	50.0	50.0	50	50	5
 banque_centrale_supelec	institut_d'optique_graduate_school_(supoptique)_ci										5	0.0	40.0	99	99	3
 banque_centrale_supelec	centrale_marseille_ci										2	0.0	50.0	65	65	2
-banque_centrale_supelec	Concours Cycle International CentraleSupÃ©lec	815	31.9	10.7	252	23.0	11.9	218	21.6	13.3	44					41
+banque_centrale_supelec	concours_cycle_international_centralesupélec	815	31.9	10.7	252	23.0	11.9	218	21.6	13.3	44					41
 banque_centrale_supelec	centrale_casablanca_ci	815	31.9	10.7	252	23.0	11.9	216	21.8	13.4	12	8.3	8.3	159	166	55
 concours_commun_mines_ponts	ensae_paristech										55	20.0	43.6	976	943	55
 concours_commun_mines_ponts	ensta_paristech										58	29.3	24.1	800	772	60
@@ -40,7 +40,7 @@ concours_commun_mines_ponts	mines_paristech										48	27.1	12.5	147	141	48
 concours_commun_mines_ponts	ponts_paristech										75	20.0	22.7	482	443	76
 concours_commun_mines_ponts	telecom_paristech_cursus_paris										61	16.4	18.0	663	620	65
 concours_commun_mines_ponts	telecom_paristech_cursus_sophia										12	8.3	8.3	875	839	18
-concours_commun_mines_ponts	Concours Commun Mines Ponts MP	5713	22.8	21.3	1907	18.7	20.8	1814	18.7	20.6	568					585
+concours_commun_mines_ponts	concours_commun_mines_ponts_mp	5713	22.8	21.3	1907	18.7	20.8	1814	18.7	20.6	568					585
 concours_communs_polytechniques	bordeaux_inp_ensc_cognitique										10	70.0	30.0	2428	2335	8
 concours_communs_polytechniques	bordeaux_inp_enseirb_matmeca_electronique										30	36.7	16.7	2464	2452	35
 concours_communs_polytechniques	bordeaux_inp_enseirb_matmeca_informatique										53	18.9	20.8	2012	1921	52
@@ -84,7 +84,7 @@ concours_communs_polytechniques	toulouse_inp_enseeiht_mécanique_des_fluides_ene
 concours_communs_polytechniques	toulouse_inp_enseeiht_sciences_du_numérique										84	19.0	19.0	1231	1232	85
 concours_communs_polytechniques	toulouse_inp_ensiacet_génie_des_procédés										9	44.4	11.1	2944	2866	11
 concours_communs_polytechniques	toulouse_inp_ensiacet_génie_industriel										15	13.3	33.3	2712	2592	17
-concours_communs_polytechniques	Concours Commun Polytechnique MP	7483	26.4	20.3	4960	24.3	21.7	4102	24.5	22.4	1163					1160
+concours_communs_polytechniques	concours_commun_polytechnique_mp	7483	26.4	20.3	4960	24.3	21.7	4102	24.5	22.4	1163					1160
 banque_epreuves_c.c.p_inter_filière	lorraine_inp_eeigm	403	37.0	23.3	196	38.8	21.9	12	25.0	25.0	1	0.0	100.0	25	21	10
 banque_epreuves_c.c.p_inter_filière	ensil_ensci_limoges_céramique_industrielle	422	35.8	21.1	285	36.8	17.9	32	43.8	12.5	3	33.3	33.3	103	100	45
 banque_epreuves_c.c.p_inter_filière	lorraine_inp_ensgsi	714	39.6	19.5	371	41.5	18.1	86	48.8	26.7	15	66.7	13.3	58	62	35
@@ -99,12 +99,12 @@ banque_epreuves_c.c.p	ensisa_mulhouse_informatique_et_réseaux										4	25.0	0
 banque_epreuves_c.c.p	ensisa_mulhouse_mécanique										5	0.0	40.0	56	55	5
 banque_epreuves_c.c.p	ensisa_mulhouse_automatique_et_systèmes_embarqués										5	40.0	60.0	40	36	3
 banque_epreuves_c.c.p	ensisa_mulhouse_textile_et_fibres										1	100.0	0.0	49	49	2
-banque_epreuves_c.c.p	Concours ENSISA Mulhouse MP	1123	33.3	21.3	741	32.1	19.3	154	35.1	23.4	15					15
+banque_epreuves_c.c.p	concours_ensisa_mulhouse_mp	1123	33.3	21.3	741	32.1	19.3	154	35.1	23.4	15					15
 banque_epreuves_c.c.p	lorraine_inp_enstib	445	31.9	21.8	268	30.6	14.9	31	35.5	12.9	6	16.7	0.0	16	16	6
 banque_epreuves_c.c.p	eost_strasbourg	542	39.9	22.7	352	43.2	20.5	82	42.7	34.1	12	50.0	25.0	29	26	11
 concours_commun_tpe	entpe_lyon_civil										20	30.0	20.0	252	226	20
 concours_commun_tpe	entpe_lyon_fonctionnaire										30	26.7	53.3	239	216	30
-concours_commun_tpe	Concours TPE Civil-Fct. MP  	2401	29.0	24.6	1496	27.5	26.1	436	38.5	25.7	50					50
+concours_commun_tpe	concours_tpe_civil_fct._mp	2401	29.0	24.6	1496	27.5	26.1	436	38.5	25.7	50					50
 concours_commun_tpe	entpe_lyon_etranger	2401	29.0	24.6	136	38.2	25.7	33	54.5	42.4	1	0.0	100.0	9	9	1
 concours_commun_tpe	eivp_paris_civil	2401	29.0	24.6	1632	28.4	26.1	481	39.7	26.8	23	47.8	26.1	292	257	23
 concours_commun_tpe	eivp_paris_fonctionnaire	2401	29.0	24.6	1496	27.5	26.1	443	38.4	25.7	4	25.0	0.0	221	242	4
@@ -119,24 +119,24 @@ concours_mines_télécom	télécom_physique_strasbourg_réseaux_et_télécoms			
 concours_mines_télécom	télécom_physique_strasbourg_ti_santé										8	87.5	0.0	1491	1467	8
 concours_mines_télécom	telecom_sudparis_cursus_evry										92	17.4	37.0	1003	944	84
 concours_mines_télécom	telecom_sudparis_cursus_sophia_antipolis										3	66.7	0.0	904	949	4
-concours_mines_télécom	Concours Mines-TÃ©lÃ©com	5106	25.1	22.5	2814	22.9	23.7	2597	23.1	23.6	463					452
+concours_mines_télécom	concours_mines_télécom	5106	25.1	22.5	2814	22.9	23.7	2597	23.1	23.6	463					452
 concours_mines_télécom	ensta_bretagne_(filière_sous_statut_ieta_direction_générale_de_l'armement)	5106	25.1	22.5	2377	21.3	25.8	2209	21.4	25.5	13	23.1	61.5	814	803	13
 concours_mines_télécom	ensg_géomatique_marne_la_vallée_civil										13	23.1	15.4	2241	2160	9
 concours_mines_télécom	enssat_lannion										28	17.9	10.7	2421	2352	25
 concours_mines_télécom	telecom_nancy										60	23.3	13.3	1763	1623	50
 concours_mines_télécom	telecom_st_etienne_statut_étudiant										30	26.7	26.7	2193	1978	21
 concours_mines_télécom	telecom_st_etienne_statut_apprenti										3	0.0	66.7	1125	1523	2
-concours_mines_télécom	Concours Mines-TÃ©lÃ©com SpÃ©cifique MP	5106	25.1	22.5	3834	24.6	22.9	3169	24.3	23.2	134					107
+concours_mines_télécom	concours_mines_télécom_spécifique_mp	5106	25.1	22.5	3834	24.6	22.9	3169	24.3	23.2	134					107
 concours_ensam	arts_et_métiers_ingénieurs_militaires	294	21.1	31.3	15	33.3	60.0	11	27.3	72.7	0	0.0	0.0	0	0	0
 concours_ensam	arts_et_métiers_voie_de_l'apprentissage										0	0.0	0.0	0	0	1
 concours_ensam	arts_et_métiers										44	31.8	38.6	96	91	38
-concours_ensam	Concours ARTS ET MÃ‰TIERS	1787	26.3	24.9	250	27.2	42.8	200	29.0	40.5	44					39
+concours_ensam	concours_arts_et_mã‰tiers	1787	26.3	24.9	250	27.2	42.8	200	29.0	40.5	44					39
 concours_estp	estp_paris_bâtiment_(b)_â€“_campus_de_troyes										14	28.6	50.0	707	663	6
 concours_estp	estp_paris_bâtiment_(b)_campus_de_cachan										68	33.8	23.5	532	477	62
 concours_estp	estp_paris_topographie_(t)										11	27.3	18.2	740	712	10
 concours_estp	estp_paris_génie_mécanique_et_electrique(gme)										27	22.2	29.6	693	625	24
 concours_estp	estp_paris_travaux_publics_(tp)										62	24.2	27.4	481	480	63
-concours_estp	Concours ESTP	1047	27.2	28.4	881	28.1	27.9	748	28.1	28.7	182					165
+concours_estp	concours_estp	1047	27.2	28.4	881	28.1	27.9	748	28.1	28.7	182					165
 concours_polytech_inter_filière	ensibs_lorient										4	25.0	75.0	4195	3857	12
 concours_polytech_inter_filière	ensim_le_mans										3	0.0	0.0	3129	3137	6
 concours_polytech_inter_filière	esbs_strasbourg										0	0.0	0.0	630	501	3
@@ -166,9 +166,9 @@ concours_polytech_inter_filière	polytech_clermont_ferrand_génie_civil									
 concours_polytech_inter_filière	polytech_clermont_ferrand_génie_electrique										1	0.0	100.0	4899	4908	5
 concours_polytech_inter_filière	polytech_clermont_ferrand_génie_mathématique_et_modélisation										10	10.0	30.0	4331	3958	14
 concours_polytech_inter_filière	polytech_clermont_ferrand_génie_physique										0	0.0	0.0	4786	4491	8
-concours_polytech_inter_filière	polytech_grenoble__géotechnique_et_génie_civil										1	100.0	0.0	3783	3774	6
-concours_polytech_inter_filière	polytech_grenoble__matériaux										1	0.0	0.0	3928	3710	8
-concours_polytech_inter_filière	polytech_grenoble__prévention_des_risques										0	0.0	0.0	4729	4335	6
+concours_polytech_inter_filière	polytech_grenoble_géotechnique_et_génie_civil										1	100.0	0.0	3783	3774	6
+concours_polytech_inter_filière	polytech_grenoble_matériaux										1	0.0	0.0	3928	3710	8
+concours_polytech_inter_filière	polytech_grenoble_prévention_des_risques										0	0.0	0.0	4729	4335	6
 concours_polytech_inter_filière	polytech_grenoble_informatique_et_électronique_des_systèmes_embarqués										1	0.0	0.0	2514	2563	5
 concours_polytech_inter_filière	polytech_grenoble_réseaux_informatiques										7	0.0	42.9	4295	3990	8
 concours_polytech_inter_filière	polytech_grenoble_technologies_de_l'information_pour_la_santé										3	100.0	0.0	4503	4102	5
@@ -233,7 +233,7 @@ concours_polytech_inter_filière	polytech_tours_génie_de_l'aménagement_et_de_l
 concours_polytech_inter_filière	polytech_tours_informatique										8	12.5	12.5	4272	3659	7
 concours_polytech_inter_filière	polytech_tours_mécanique,_conception_de_systèmes										3	0.0	33.3	3852	3870	5
 concours_polytech_inter_filière	sup_galilée_villetaneuse										16	37.5	18.8	4166	3933	18
-concours_polytech_inter_filière	Concours POLYTECH	2784	28.7	22.6	1854	28.7	20.8	1555	28.7	22.5	257					694
+concours_polytech_inter_filière	concours_polytech	2784	28.7	22.6	1854	28.7	20.8	1555	28.7	22.5	257					694
 autres_écoles_e3a	ece_paris	803	30.0	20.4	687	28.8	19.9	284	31.3	19.7	47	19.1	12.8	185	168	35
 autres_écoles_e3a	efrei_paris	689	29.2	17.9	609	27.9	16.7	164	30.5	15.2	35	25.7	17.1	116	109	40
 autres_écoles_e3a	eidd_paris	479	36.1	22.1	357	34.2	20.7	196	38.3	19.4	11	27.3	54.5	180	170	25
@@ -241,12 +241,12 @@ autres_écoles_e3a	eigsi_casablanca	66	28.8	19.7	49	28.6	16.3	14	28.6	21.4	0	0.0
 autres_écoles_e3a	eigsi_la_rochelle	274	32.5	17.2	223	33.6	15.2	75	36.0	20.0	5	20.0	20.0	55	56	10
 autres_écoles_e3a	eil_côte_d'opale_calais_(informatique)										2	50.0	0.0	103	103	15
 autres_écoles_e3a	eil_côte_d'opale_longuenesse_(génie_industriel)										8	37.5	50.0	110	104	15
-autres_écoles_e3a	Concours EIL CÃ´te d'Opale Longuenesse - Calais	356	36.8	22.2	232	34.1	17.7	117	36.8	19.7	10					30
+autres_écoles_e3a	concours_eil_côte_d'opale_longuenesse_calais	356	36.8	22.2	232	34.1	17.7	117	36.8	19.7	10					30
 autres_écoles_e3a	elisa_aérospace_saint_quentin_(80)	355	27.6	21.7	258	27.5	20.2	99	25.3	26.3	5	0.0	0.0	82	85	12
 autres_écoles_e3a	eme	159	45.9	15.1	126	46.8	13.5	63	41.3	17.5	2	0.0	0.0	62	62	20
 autres_écoles_e3a	ensait_roubaix										8	62.5	25.0	43	42	10
 autres_écoles_e3a	ensait_roubaix_formation_en_alternance										0	0.0	0.0	0	0	1
-autres_écoles_e3a	Concours ENSAIT Roubaix	393	42.5	25.4	287	38.7	23.0	51	49.0	29.4	8					11
+autres_écoles_e3a	concours_ensait_roubaix	393	42.5	25.4	287	38.7	23.0	51	49.0	29.4	8					11
 autres_écoles_e3a	ensil_limoges_ee	466	38.2	21.2	293	37.2	16.7	42	52.4	9.5	6	66.7	0.0	13	17	8
 autres_écoles_e3a	ensil_limoges_elt	513	30.0	21.2	306	25.8	15.4	47	14.9	14.9	7	14.3	28.6	37	30	10
 autres_écoles_e3a	ensil_limoges_matériaux	428	35.0	22.4	249	33.7	18.5	38	44.7	23.7	5	20.0	40.0	12	17	4
@@ -254,7 +254,7 @@ autres_écoles_e3a	ensil_limoges_mécatronique	502	29.5	22.9	306	25.2	19.0	63	20
 autres_écoles_e3a	epf_campus_troyes										4	0.0	0.0	177	161	3
 autres_écoles_e3a	epf_campus_montpellier										5	60.0	40.0	173	141	4
 autres_écoles_e3a	epf_campus_sceaux										4	50.0	0.0	102	100	3
-autres_écoles_e3a	Concours EPF Sceaux-Troyes-Montpellier	398	40.5	13.3	331	39.9	12.7	223	45.3	12.6	13					10
+autres_écoles_e3a	concours_epf_sceaux_troyes_montpellier	398	40.5	13.3	331	39.9	12.7	223	45.3	12.6	13					10
 autres_écoles_e3a	esb_nantes	110	30.0	26.4	77	28.6	26.0	11	36.4	9.1	2	50.0	0.0	6	6	8
 autres_écoles_e3a	esiea_paris_laval	494	28.1	18.2	421	25.9	18.1	164	29.3	20.7	9	11.1	22.2	145	135	35
 autres_écoles_e3a	esiee_amiens	383	28.7	18.3	311	28.0	17.4	64	26.6	23.4	2	0.0	50.0	62	62	10
@@ -266,14 +266,14 @@ autres_écoles_e3a	estaca_laval_aéronautique_et_spatial										1	0.0	100.0	97
 autres_écoles_e3a	estaca_laval_automobile										4	0.0	0.0	159	158	2
 autres_écoles_e3a	estaca_paris_saclay_aéronautique_et_spatial										3	0.0	33.3	63	64	3
 autres_écoles_e3a	estaca_paris_saclay_automobile_ou_transports_guidés										6	0.0	0.0	141	129	6
-autres_écoles_e3a	Concours ESTACA Paris-Saclay/Laval	566	26.9	20.7	244	29.1	21.7	244	29.1	21.7	14					12
+autres_écoles_e3a	concours_estaca_paris_saclay/laval	566	26.9	20.7	244	29.1	21.7	244	29.1	21.7	14					12
 autres_écoles_e3a	estia_bidart	282	35.8	18.1	224	34.4	16.1	68	30.9	20.6	11	18.2	36.4	37	37	20
 autres_écoles_e3a	imt_lille_douai_en_partenariat_ispa	307	34.2	23.1	245	35.1	20.4	28	35.7	32.1	7	57.1	14.3	18	16	10
 autres_écoles_e3a	toulouse_inp_enit	562	30.8	24.6	199	29.6	17.1	158	30.4	15.8	3	33.3	0.0	108	112	2
 autres_écoles_e3a	insa_centre_val_de_loire_gsi										5	60.0	20.0	60	59	6
 autres_écoles_e3a	insa_centre_val_de_loire_mri										7	14.3	71.4	76	63	10
 autres_écoles_e3a	insa_centre_val_de_loire_sti										8	0.0	25.0	21	27	6
-autres_écoles_e3a	Concours INSA Centre Val de Loire	577	32.2	22.7	340	30.3	18.8	83	30.1	24.1	20					22
+autres_écoles_e3a	concours_insa_centre_val_de_loire	577	32.2	22.7	340	30.3	18.8	83	30.1	24.1	20					22
 autres_écoles_e3a	ismans_groupe_cesi_le_mans	129	33.3	19.4	123	32.5	19.5	27	48.1	25.9	6	33.3	33.3	13	15	10
 autres_écoles_e3a	itech_lyon	140	44.3	25.0	105	38.1	22.9	2	50.0	50.0	0	0.0	0.0	0	0	5
 autres_écoles_e3a	paoli_tech	114	36.8	21.1	68	30.9	16.2	37	35.1	13.5	0	0.0	0.0	0	0	4
@@ -290,14 +290,14 @@ fesic	isen_ouest_(brest)	715	30.8	17.8	613	29.4	17.5	121	26.4	18.2	0	0.0	0.0	0	0
 fesic	isen_lille	715	30.8	17.8	613	29.4	17.5	123	26.0	17.9	7	28.6	0.0	48	61	25
 fesic	isen_méditerrannée_campus_nã®mes										0	0.0	0.0	0	0	10
 fesic	isen_méditerrannée_campus_toulon										8	12.5	37.5	78	76	15
-fesic	Concours concours ISEN MÃ©diterrannÃ©e MP	715	30.8	17.8	613	29.4	17.5	123	26.0	17.9	8					25
+fesic	concours_concours_isen_méditerrannée_mp	715	30.8	17.8	613	29.4	17.5	123	26.0	17.9	8					25
 fesic	isep_paris	715	30.8	17.8	635	29.8	17.2	161	27.3	17.4	17	17.6	35.3	138	115	30
 fesic	unilasalle_beauvais	715	30.8	17.8	635	29.8	17.2	56	26.8	19.6	0	0.0	0.0	0	0	4
 epita	epita										26	7.7	7.7	70	95	22
 epita	ipsa_paris										9	11.1	11.1	139	141	9
 epita	ipsa_toulouse										8	37.5	50.0	112	114	7
 epita	esme_sudria_paris										4	75.0	0.0	130	134	15
-epita	Concours EPITA / IPSA / ESME MP	338	25.1	17.5	255	23.5	14.1	210	25.2	13.3	47					53
+epita	concours_epita_/_ipsa_/_esme_mp	338	25.1	17.5	255	23.5	14.1	210	25.2	13.3	47					53
 cesi	cesi_angoulãªme										0	0.0	0.0	0	0	8
 cesi	cesi_arras										2	0.0	0.0	28	28	10
 cesi	cesi_bordeaux										2	0.0	50.0	25	25	8
@@ -306,7 +306,7 @@ cesi	cesi_mont_saint_aignan										0	0.0	0.0	0	0	8
 cesi	cesi_nancy										0	0.0	0.0	0	0	8
 cesi	cesi_nanterre										3	33.3	66.7	24	28	20
 cesi	cesi_saint_nazaire										1	100.0	0.0	43	43	15
-cesi	Concours CESI IngÃ©nieur GÃ©nÃ©raliste	180	23.3	16.7	96	27.1	16.7	49	26.5	22.4	9					89
+cesi	concours_cesi_ingénieur_généraliste	180	23.3	16.7	96	27.1	16.7	49	26.5	22.4	9					89
 cesi	cesi_aix_en_provence										0	0.0	0.0	0	0	2
 cesi	cesi_arras										0	0.0	0.0	0	0	4
 cesi	cesi_bordeaux										0	0.0	0.0	0	0	2
@@ -322,4 +322,4 @@ cesi	cesi_reims										0	0.0	0.0	0	0	2
 cesi	cesi_saint_nazaire										0	0.0	0.0	0	0	2
 cesi	cesi_strasbourg										0	0.0	0.0	0	0	2
 cesi	cesi_toulouse										0	0.0	0.0	0	0	3
-cesi	Concours CESI IngÃ©nieur en Informatique	44	11.4	11.4	30	13.3	6.7	17	11.8	0.0	1					39
+cesi	concours_cesi_ingénieur_en_informatique	44	11.4	11.4	30	13.3	6.7	17	11.8	0.0	1					39

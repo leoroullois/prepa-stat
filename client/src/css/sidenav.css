@@ -24,6 +24,7 @@
   width: 300px;
   max-width: 100%;
   position: fixed;
+  z-index: 999;
   left: 0;
   top: 0;
   bottom: 0;
@@ -114,4 +115,15 @@
 }
 #side-nav .log-in-link {
   font-size: 1.5rem;
+}
+#side-nav #side-nav-auth-btn {
+  height: 60px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1b1b1b;
+  background-color: #f1f1f1 !important;
+  border: none;
+}
+#side-nav #side-nav-auth-btn:hover {
+  background-color: rgba(27, 27, 27, 0.05) !important;
 }/*# sourceMappingURL=sidenav.css.map */

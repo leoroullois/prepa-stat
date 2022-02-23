@@ -13,6 +13,7 @@ import { MdLeaderboard, MdScience } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { VscRunAll } from "react-icons/vsc";
 import { GiMaterialsScience } from "react-icons/gi";
+import { AuthBtn } from "./AuthBtn";
 interface IProps {
 	close: () => void;
 	style: { marginLeft: string };
@@ -86,17 +87,11 @@ const Presentational: FC<IProps> = ({ close, layout, style }) => {
 					PT
 				</Link>
 			</div>
-			{layout.width <= 530 && <div className='bar'></div>}
-			{layout.width <= 530 && (
-				<Link
-					className='responsive-link log-in-link'
-					to='/se-connecter'
-					onClick={closeNav}
-				>
-					Se connecter
-				</Link>
+			{layout.width <= 768 && <div className='bar'></div>}
+			{layout.width <= 768 && (
+				<AuthBtn/>
 			)}
-			{layout.width <= 530 && <div className='bar'></div>}
+			{layout.width <= 768 && <div className='bar'></div>}
 		</nav>
 	);
 };

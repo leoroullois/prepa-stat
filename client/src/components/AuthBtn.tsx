@@ -26,6 +26,7 @@ const Presentational: FC<IProps> = ({ auth, logoutUser }) => {
 	return (
 		<button
 			className='link btn-link'
+			id="side-nav-auth-btn"
 			style={{
 				backgroundColor: isAuthenticated ? darkRed : darkBlue,
 			}}

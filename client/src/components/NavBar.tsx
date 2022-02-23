@@ -77,22 +77,22 @@ const Presentational: FC<IProps> = ({
 			<Link className='nav-logo' to='/' id='nav-logo'>
 				PrépaStat
 			</Link>
-			{layout.width >= 1024 && (
+			{layout.width >= 1100 && (
 				<Link className='link basic-link' to='/'>
 					Accueil
 				</Link>
 			)}
-			{layout.width >= 1024 && (
+			{layout.width >= 1100 && (
 				<Link className='link basic-link' to='/classements/l-etudiant'>
 					Classements
 				</Link>
 			)}
-			{layout.width >= 1024 && (
+			{layout.width >= 1100 && (
 				<Link className='link basic-link' to='/simulateur'>
 					Simulateur
 				</Link>
 			)}
-			{layout.width >= 1024 && (
+			{layout.width >= 1100 && (
 				<div className='link dropdown-btn' onClick={handleStat}>
 					<div className='dropdown-btn-content'>
 						Statistiques
@@ -101,7 +101,7 @@ const Presentational: FC<IProps> = ({
 					{navBar.stats && <Dropdown disableStat={toggleStats} />}
 				</div>
 			)}
-			{layout.width > 530 && <AuthBtn />}
+			{layout.width > 768 && <AuthBtn />}
 			{auth.isAuthenticated && (
 				<IoPersonCircleSharp className='dashboard-icon' />
 			)}

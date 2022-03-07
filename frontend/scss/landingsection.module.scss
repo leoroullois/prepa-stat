@@ -1,0 +1,67 @@
+@import "./imports/extends";
+@import "./imports/mixins";
+@import "./imports/variables";
+
+.landingSection {
+    width: 100%;
+    margin-top: $nav-height;
+    padding-bottom: $nav-height;
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 $nav-height;
+    }
+    .svg {
+		filter: drop-shadow(0 0 7px #7b7b7b74);
+	}
+    .section-title {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        .bar {
+            margin-right: $nav-height;
+            @include bar(5px, 80px, $light-orange, $main-orange);
+        }
+    }
+    .section-content {
+        display: flex;
+        column-gap:$nav-height;
+        flex-wrap:wrap-reverse;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: space-around;
+    }
+    .section-main-content {
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        justify-content: space-evenly;
+        width: 450px;
+        align-items: center;
+    }
+    .section-img {
+        width: 450px;
+        max-width: 300px;
+    }
+    .section-btn {
+        @include mainBtn(
+            $nav-height,
+            220px,
+            $light-orange,
+            $light-orange-hover,
+            $main-white
+        );
+        align-self:flex-start;
+        font-size: 1.4rem;
+    }
+    .section-text {
+        text-align: justify;
+        line-height: 1.8rem;
+        font-size:1.1rem;
+    }
+}

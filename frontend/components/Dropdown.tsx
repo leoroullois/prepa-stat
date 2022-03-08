@@ -4,22 +4,22 @@ import Link from "next/link";
 import { MdScience } from "react-icons/md";
 import { GiMaterialsScience } from "react-icons/gi";
 import { AiFillCalculator, AiFillApi } from "react-icons/ai";
-/**D3 */
-import { connect } from "react-redux";
-import { RootState } from "../store/store";
+
+import scss from "../scss/navbar.module.scss";
+
 interface IProps {
 	disableStat: (pValue: boolean) => void;
 }
-const Presentational: FC<IProps> = ({ disableStat }) => {
+const Dropdown: FC<IProps> = ({ disableStat }) => {
 	const handleClick = () => {
 		disableStat(false);
 	};
 	return (
-		<div className='dropdown-content' onClick={handleClick}>
+		<div className={scss.dropdownContent} onClick={handleClick}>
 			<ul>
 				<li>
 					<Link href='/statistiques/mp/generale'>
-						<a className='dropdown-link'>
+						<a className={scss.dropdownLink}>
 							<AiFillCalculator />
 							MP
 						</a>
@@ -27,7 +27,7 @@ const Presentational: FC<IProps> = ({ disableStat }) => {
 				</li>
 				<li>
 					<Link href='/statistiques/pc/generale'>
-						<a className='dropdown-link'>
+						<a className={scss.dropdownLink}>
 							<MdScience />
 							PC
 						</a>
@@ -35,7 +35,7 @@ const Presentational: FC<IProps> = ({ disableStat }) => {
 				</li>
 				<li>
 					<Link href='/statistiques/psi/generale'>
-						<a className='dropdown-link'>
+						<a className={scss.dropdownLink}>
 							<GiMaterialsScience />
 							PSI
 						</a>
@@ -43,7 +43,7 @@ const Presentational: FC<IProps> = ({ disableStat }) => {
 				</li>
 				<li>
 					<Link href='/statistiques/pt/generale'>
-						<a className='dropdown-link'>
+						<a className={scss.dropdownLink}>
 							<AiFillApi />
 							PT
 						</a>
@@ -53,13 +53,4 @@ const Presentational: FC<IProps> = ({ disableStat }) => {
 		</div>
 	);
 };
-
-// ? REDUX
-const mapStateToProps = (state: RootState) => {
-	return {
-		stats: state.stats,
-		navBar: state.navBar,
-	};
-};
-
-export const Dropdown = connect(mapStateToProps, null)(Presentational);
+export default Dropdown;

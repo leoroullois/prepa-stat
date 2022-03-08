@@ -1,13 +1,17 @@
-import { scaleSequentialSqrt } from "d3";
 import { FC } from "react";
+import { useSelector } from "react-redux";
+import { selectNavBar, selectSideNav } from "../store/selectors";
+import { darkTheme, lightTheme } from "../styles/theme/theme";
 import { Footer } from "./Footer";
-import { NavBar } from "./NavBar";
-import { SideNav } from "./SideNav";
+import NavBar from "./NavBar";
+import SideNav from "./SideNav";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "../styles/theme/global";
+
 interface IProps {
 	children: JSX.Element;
-	className?: string;
 }
-const Layout: FC<IProps> = ({ children, className }) => {
+const Layout: FC<IProps> = ({ children }) => {
 	// const dispatch = useDispatch();
 	// const updateDimensions = () => {
 	// 	resize(window.innerWidth, window.innerHeight);
@@ -35,19 +39,23 @@ const Layout: FC<IProps> = ({ children, className }) => {
 	// 	}
 	// };
 	// const theme = navBar.darkMode ? darkTheme : lightTheme;
-	// const style = sideNav.opened
-	// ? { marginLeft: "0px" }
-	// : { marginLeft: "-301px" };
-	const style = {
-		marginleft: "0px",
-	};
+	const { darkMode } = useSelector(selectNavBar);
+	const theme = darkMode ? darkTheme : lightTheme;
+	const sideNav = useSelector(selectSideNav);
+	const style = sideNav.opened
+		? { marginLeft: "0px" }
+		: { marginLeft: "-301px" };
+	// const style = {
+	// 	marginLeft: "0px",
+	// };
 	return (
-		<div className={className ? className : ""}>
+		<ThemeProvider theme={theme}>
+			<GlobalStyles />
 			<NavBar />
 			<SideNav style={style} />
 			{children}
 			<Footer />
-		</div>
+		</ThemeProvider>
 	);
 };
 

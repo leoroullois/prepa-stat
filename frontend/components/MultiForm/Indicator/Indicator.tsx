@@ -9,7 +9,7 @@ import scss from "../../../scss/indicator.module.scss";
 interface IProps {
 	formIndex: number;
 }
-export const Indicator: FC<IProps> = ({ formIndex }) => {
+const Indicator: FC<IProps> = ({ formIndex }) => {
 	return (
 		<div className={scss.containerIndicator}>
 			<div className='container-lines'>
@@ -42,3 +42,5 @@ export const Indicator: FC<IProps> = ({ formIndex }) => {
 		</div>
 	);
 };
+
+export default Indicator;

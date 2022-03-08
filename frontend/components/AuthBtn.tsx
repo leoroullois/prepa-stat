@@ -1,15 +1,14 @@
 import { FC, MouseEventHandler } from "react";
-import { logoutUser } from "../store/thunks/logout";
-import { connect } from "react-redux";
-import { RootState } from "../store/store";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import { selectAuth } from "../store/selectors";
+import { logout } from "../store/slices/auth";
+import scss from "../scss/navbar.module.scss";
 
-interface IProps {
-	auth: IAuth;
-	logoutUser: any;
-}
+const AuthBtn: FC = () => {
+	const auth = useSelector(selectAuth);
+	const dispatch = useDispatch();
 
-const Presentational: FC<IProps> = ({ auth, logoutUser }) => {
 	const router = useRouter();
 	const darkRed = "rgb(160, 22, 22)";
 	const darkBlue = "#255af8";
@@ -18,14 +17,14 @@ const Presentational: FC<IProps> = ({ auth, logoutUser }) => {
 		e.preventDefault();
 		if (isAuthenticated) {
 			console.log("Déconnexion");
-			logoutUser();
+			dispatch(logout());
 		} else {
 			router.push("/se-connecter");
 		}
 	};
 	return (
 		<button
-			className='link btn-link'
+			className={scss.btnLink + " " + scss.link}
 			id='side-nav-auth-btn'
 			style={{
 				backgroundColor: isAuthenticated ? darkRed : darkBlue,
@@ -37,16 +36,4 @@ const Presentational: FC<IProps> = ({ auth, logoutUser }) => {
 	);
 };
 
-// ? REDUX
-const mapStateToProps = (state: RootState) => {
-	return {
-		auth: state.auth,
-	};
-};
-const dispatchToProps = {
-	logoutUser,
-};
-export const AuthBtn: FC<any> = connect(
-	mapStateToProps,
-	dispatchToProps
-)(Presentational);
+export default AuthBtn;

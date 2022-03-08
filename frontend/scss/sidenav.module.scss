@@ -18,7 +18,7 @@
 	margin-left: -301px;
 	transition: margin-left 0.2s ease-in;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-	.close-icon {
+	.closeIcon {
 		font-size: 2rem;
 		cursor: pointer;
 	}
@@ -34,12 +34,12 @@
 		align-items: center;
 		margin: 0;
 		padding: 15px;
-		.close-icon {
+		.closeIcon {
 			display: flex;
 			margin-right: 20px;
 		}
 	}
-	.responsive-link {
+	.responsiveLink {
 		display: flex;
 		align-items: center;
 		min-height: $nav-height;
@@ -51,12 +51,12 @@
 			background-color: rgba($main-black, 0.05);
 		}
 	}
-	.responsive-icon {
+	.responsiveIcon {
 		font-size: 1.5rem;
 		margin-right: 20px;
 		font-size: 1.5rem;
 	}
-	.responsive-link-stats-container {
+	.responsiveLinkStatsContainer {
 		display: flex;
 		flex-direction: column;
 		h3 {
@@ -64,7 +64,7 @@
 			padding: 0px 20px;
 			margin-bottom: 10px;
 		}
-		.responsive-link-stats {
+		.responsiveLinkStats {
 			padding: 10px 20px;
 			display: flex;
 			align-items: center;
@@ -78,7 +78,7 @@
 			}
 		}
 	}
-	.log-in-link {
+	.logInLink {
 		font-size: 1.5rem;
 	}
 	#side-nav-auth-btn {

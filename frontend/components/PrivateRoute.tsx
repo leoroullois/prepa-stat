@@ -1,13 +1,14 @@
 import { useRouter } from "next/router";
 import { FC, ReactComponentElement, useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
+import { selectAuth } from "../store/selectors";
 import { RootState } from "../store/store";
 interface IProps {
 	component: ReactComponentElement<any, any>;
-	auth: any;
 }
-const Presentational: FC<IProps> = ({ component, auth }) => {
+const PrivateRoute: FC<IProps> = ({ component }) => {
 	const router = useRouter();
+	const auth = useSelector(selectAuth);
 	useEffect(() => {
 		if (!auth.isAuthenticated) {
 			router.push("/");
@@ -15,9 +16,4 @@ const Presentational: FC<IProps> = ({ component, auth }) => {
 	});
 	return auth.isAuthenticated ? component : <div>Loading...</div>;
 };
-const mapStateToProps = (state: RootState) => {
-	return {
-		auth: state.auth,
-	};
-};
-export const PrivateRoute: FC<any> = connect(mapStateToProps)(Presentational);
+export default PrivateRoute;

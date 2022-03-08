@@ -7,7 +7,7 @@ interface IErrors {
 	concours: boolean;
 	filiere: boolean;
 }
-export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
+const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 	/**
 	 * * form data state
 	 */
@@ -229,3 +229,4 @@ export const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 		</form>
 	);
 };
+export default CardBegin;

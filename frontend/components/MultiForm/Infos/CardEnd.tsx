@@ -1,13 +1,13 @@
 import { FC, MouseEventHandler, useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
+import { selectSimul } from "../../../store/selectors";
 import { RootState } from "../../../store/store";
 interface IProps {
 	modifyIndex: (index: number, formData: ModifyFormDataType) => void;
 }
-interface IRedux {
-	simul: IAllFormData;
-}
-const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
+const CardEnd: FC<IProps> = ({ modifyIndex }) => {
+	const simul = useSelector(selectSimul);
+
 	// TODO: comparer la note totale à la barre d'admissibilité
 
 	const { params, grades } = simul;
@@ -85,10 +85,4 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 	}
 };
 
-// * REDUX
-const mapStateToProps = (state: RootState) => {
-	return {
-		simul: state.simul,
-	};
-};
-export const CardEnd: FC<IProps> = connect(mapStateToProps)(Presentational);
+export default CardEnd;

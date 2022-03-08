@@ -14,18 +14,18 @@
 	background-color: $main-white;
 	color: $main-black;
 	box-shadow: $main-shadow;
-	.responsive-icon {
+	.responsiveIcon {
 		font-size: 2rem;
 		margin-right: 20px;
 	}
-	.hamburger-active {
+	.hamburgerActive {
 		color: red;
 	}
-	.responsive-icon {
+	.responsiveIcon {
 		display: none;
 		cursor: pointer;
 	}
-	.nav-logo {
+	.navLogo {
 		font-size: 1.5rem;
 		font-weight: bold;
 		margin-right: auto;
@@ -45,7 +45,7 @@
 		margin: 0 30px 0 15px;
 		border: none;
 	}
-	.basic-link {
+	.basicLink {
 		transition: color 0.1s ease-in;
 		&:hover {
 			color: $main-black;
@@ -67,7 +67,7 @@
 			opacity: 1;
 		}
 	}
-	.dropdown-btn {
+	.dropdownBtn {
 		display: flex;
 		align-items: center;
 		text-decoration: none;
@@ -81,13 +81,13 @@
 		border-radius: 5px;
 		line-height: 0;
 		cursor: pointer;
-		.dropdown-btn-content {
+		.dropdownBtnContent {
 			display: flex;
 			align-items: center;
 			height: 100%;
 			width: 100%;
 		}
-		.dropdown-icon {
+		.dropdownIcon {
 			margin-left: 10px;
 			font-size: 1.2rem;
 		}
@@ -95,7 +95,7 @@
 			background-color: rgba($main-black, 0.05);
 		}
 	}
-	.dropdown-content {
+	.dropdownContent {
 		position: absolute;
 		top: calc(0.7 * 60px);
 		right: 0;
@@ -120,7 +120,7 @@
 				border-radius: 6px;
 				background-color: rgba($dark-blue, 0.1);
 			}
-			li .dropdown-link {
+			li .dropdownLink {
 				display: flex;
 				width: 100%;
 				height: 100%;
@@ -131,18 +131,24 @@
 			}
 		}
 	}
-	.btn-link {
-		@include mainBtn(70%, 180px, $light-orange, $light-orange-hover, $main-white);
+	.btnLink {
+		@include mainBtn(
+			70%,
+			180px,
+			$light-orange,
+			$light-orange-hover,
+			$main-white
+		);
 		margin: 0 30px 0 15px;
 		display: flex;
 	}
-	.dashboard-icon {
+	.dashobardIcon {
 		font-size: 2.5rem;
 		color: $dark-blue;
 		cursor: pointer;
 		margin-right: 40px;
 	}
-	.dark-mode-icon {
+	.darkModeIcon {
 		margin-left: $nav-height;
 		cursor: pointer;
 	}
@@ -150,10 +156,10 @@
 
 @media screen and (max-width: 1024px) {
 	.nav {
-		.btn-link {
+		.btnLink {
 			font-size: 1rem;
 		}
-		.responsive-icon {
+		.responsiveIcon {
 			display: flex;
 			justify-content: center;
 			align-items: center;

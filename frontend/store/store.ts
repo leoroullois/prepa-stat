@@ -1,39 +1,28 @@
-import { combineReducers, createStore, compose, applyMiddleware } from "redux";
+// ! Config
+import { configureStore } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
-// import { layoutReducer } from "./components/Layout/reducer";
-import { statsReducer } from "./reducers/statsReducer";
-import { navBarReducer } from "./reducers/navBarReducer";
-import { layoutReducer } from "./reducers/layoutReducer";
-import { sideNavReducer } from "./reducers/sideNavReducer";
-import { errorReducer } from "./reducers/errorReducer";
-import { authReducer } from "./reducers/authReducer";
-import { multiFormReducer } from "./reducers/multiFormReducer";
-
-declare global {
-	interface Window {
-		__REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-	}
-}
-
+// ! Reducers
+import navBar from "./slices/navBar";
+import sideNav from "./slices/sideNav";
+import multiForm from "./slices/multiform";
+import auth from "./slices/auth";
 const middleware = [thunk];
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const makeStore = () =>
+	configureStore({
+		reducer: {
+			navBar,
+			sideNav,
+			simul: multiForm,
+			auth,
+		},
+		middleware,
+	});
 
-const rootReducer = combineReducers({
-	layout: layoutReducer,
-	stats: statsReducer,
-	navBar: navBarReducer,
-	sideNav: sideNavReducer,
-	auth: authReducer,
-	errors: errorReducer,
-	simul: multiFormReducer,
-});
-
-export const store = createStore(
-	rootReducer,
-	compose(applyMiddleware(...middleware), composeEnhancers())
-);
+const store = makeStore();
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
+
+export default store;

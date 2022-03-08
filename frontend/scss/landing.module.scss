@@ -8,6 +8,7 @@
 	align-items: center;
 	flex-grow: 1;
 	padding: 0;
+	min-height: calc(100vh - 150px - 60px);
 	font-family: "Roboto", sans-serif;
 	.bar-section {
 		@include bar(2px, 100%, $light-orange, $main-orange);

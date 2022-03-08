@@ -1,21 +1,14 @@
 import { FC, useState } from "react";
-import { CardBegin } from "./Infos/CardBegin";
-import { Grades } from "./SubForms/Grades";
-import { CardEnd } from "./Infos/CardEnd";
-import { Indicator } from "./Indicator/Indicator";
-import { RootState } from "../../store/store";
-import { connect, useDispatch } from "react-redux";
-import {
-	setCardBeginState,
-	setGradesState,
-} from "../../store/actions/multiFormAction";
-import { IAction } from "../../store/actions/multiFormAction";
-interface IProps {
-	setCardBeginState: (payload: ICardBegin) => IAction;
-	setGradesState: (payload: IGrades[]) => IAction;
-}
-const Presentational: FC<IProps> = ({ setCardBeginState, setGradesState }) => {
+import CardBegin from "./Infos/CardBegin";
+import Grades from "./SubForms/Grades";
+import CardEnd from "./Infos/CardEnd";
+import Indicator from "./Indicator/Indicator";
+import { useDispatch } from "react-redux";
+import { setCard, setGrades } from "../../store/slices/multiform";
+
+const MultiForm: FC<void> = () => {
 	const dispatch = useDispatch();
+
 	const [formIndex, setFormIndex] = useState(1);
 	const [allFormData, setAllFormData] = useState<IAllFormData>({
 		params: {
@@ -37,10 +30,10 @@ const Presentational: FC<IProps> = ({ setCardBeginState, setGradesState }) => {
 			if (payload) {
 				if (prop === "params") {
 					const data = payload as ICardBegin;
-					dispatch(setCardBeginState(data));
+					dispatch(setCard(data));
 				} else {
 					const data = payload as IGrades[];
-					dispatch(setGradesState(data));
+					dispatch(setGrades(data));
 				}
 			}
 		}
@@ -62,18 +55,4 @@ const Presentational: FC<IProps> = ({ setCardBeginState, setGradesState }) => {
 		</section>
 	);
 };
-
-// ? REDUX
-const mapStateToProps = (state: RootState) => {
-	return {
-		simul: state.simul,
-	};
-};
-const dispatchToProps = {
-	setCardBeginState,
-	setGradesState,
-};
-export const MultiForm: FC<any> = connect(
-	mapStateToProps,
-	dispatchToProps
-)(Presentational);
+export default MultiForm;

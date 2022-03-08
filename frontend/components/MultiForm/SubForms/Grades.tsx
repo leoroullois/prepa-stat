@@ -7,15 +7,13 @@ import {
 	useState,
 } from "react";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
+import { selectSimul } from "../../../store/selectors";
 import { RootState } from "../../../store/store";
 
 // * Types declarations
 interface IProps {
 	modifyIndex: (index: number, formData: ModifyFormDataType) => void;
-}
-interface IRedux {
-	simul: IAllFormData;
 }
 interface IEpreuves {
 	nom: string;
@@ -28,11 +26,12 @@ interface ICoefs extends Document {
 	epreuves: EpreuvesType;
 }
 // * Component
-const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
+const Grades: FC<IProps> = ({ modifyIndex }) => {
 	// TODO: gérer la LV2
 	const [marks, setMarks] = useState<IGrades[]>([]);
 	const [error, setError] = useState<boolean>(false);
 
+	const simul = useSelector(selectSimul);
 	/**
 	 * True if all marks are between 0 and 20 and not empty
 	 * @param marks array of grades
@@ -207,11 +206,4 @@ const Presentational: FC<IProps & IRedux> = ({ modifyIndex, simul }) => {
 	);
 };
 
-// * REDUX
-const mapStateToProps = (state: RootState) => {
-	return {
-		simul: state.simul,
-		darkMode: state.navBar.darkMode,
-	};
-};
-export const Grades: FC<IProps> = connect(mapStateToProps)(Presentational);
+export default Grades;

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import "../css/landingsection.css";
+import scss from "./landingsection.module.scss";
 import { Fade } from "react-awesome-reveal";
 
 interface IProps {
@@ -22,18 +22,24 @@ export const LandingSection: FC<IProps> = ({
 }) => {
 	return (
 		<Fade triggerOnce direction={direction}>
-			<section id={name.toLocaleLowerCase()} className='landing-section'>
-				<div className='wrapper'>
-					<div className='section-title'>
-						<div className='bar'></div>
+			<section id={name.toLocaleLowerCase()} className={scss.landingSection}>
+				<div className={scss.wrapper}>
+					<div className={scss.sectionTitle}>
+						<div className={scss.bar}></div>
 						<h3>{title}</h3>
 					</div>
-					<div className='section-content'>
-						<Image className='section-img svg' src={img} alt='Leaderboard' />
-						<div className='section-main-content'>
-							<p className='section-text'>{text}</p>
+					<div className={scss.sectionContent}>
+						<Image
+							className={scss.svg}
+							src={img}
+							width={450}
+							// height={400}
+							alt='Leaderboard'
+						/>
+						<div className={scss.sectionMainContent}>
+							<p className={scss.sectionText}>{text}</p>
 							<Link href={path}>
-								<a className='section-btn'>{name}</a>
+								<a className={scss.sectionBtn}>{name}</a>
 							</Link>
 						</div>
 					</div>

@@ -3,10 +3,10 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Landing } from "../components/Landing/Landing";
-import Layout from "../components/Layout";
-import scss from "../scss/landing.module.scss";
+import Landing from "../components/Landing/Landing";
+import scss from "../components/Landing/landing.module.scss";
 import { selectAuth } from "../store/selectors";
+
 const Home: NextPage = () => {
 	const auth = useSelector(selectAuth);
 	const router = useRouter();
@@ -34,8 +34,8 @@ const Home: NextPage = () => {
 				<title>Accueil - PrépaStat</title>
 				<meta name='description' content='PrépaStat' />
 				<link rel='icon' href='/favicon.ico' />
-				{auth.isAuthenticated ? <div>Loading...</div> : <Landing />}
 			</Head>
+			{auth.isAuthenticated ? <div>Loading...</div> : <Landing />}
 		</>
 	);
 };

@@ -7,22 +7,20 @@ import { OverviewArticle } from "./OverviewArticle";
 import { LandingSection } from "./LandingSection";
 import LandingMain from "./LandingMain";
 /**Images */
-import leaderboard from "../assets/leaderboard.svg";
-import stats from "../assets/stats.svg";
-import simulator from "../assets/simulator.svg";
+import leaderboard from "../../public/leaderboard.svg";
+import stats from "../../public/stats.svg";
+import simulator from "../../public/simulator.svg";
 /**CSS */
-import "../css/landing.css";
-import { RootState } from "../../store/store";
-import { connect } from "react-redux";
+import scss from "./landing.module.scss";
+import { useSelector } from "react-redux";
+import { selectNavBar } from "../../store/selectors";
+
 const lightStyles = {
 	backgroundColor: "#FFF",
 	borderBottom: "2px solid rgba(0,0,0,0.192)",
 };
-interface IProps {
-	navBar: any;
-}
-export const Presentational: FC<IProps> = ({ navBar }) => {
-	// TODO : ombre sur les svg & background avec petits points comme sur mon
+const Landing: FC = () => {
+	const navBar = useSelector(selectNavBar);
 	const lorem =
 		"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint voluptate suscipit in, possimus dicta nemo quisquam cumque. Culpaminus, cum sequi vero quisquam, assumenda accusantium recusandae expedita fuga itaque porro!";
 	const bgRect = (
@@ -47,17 +45,20 @@ export const Presentational: FC<IProps> = ({ navBar }) => {
 		</svg>
 	);
 	return (
-		<main id='landing'>
+		<main className={scss.landing}>
 			<LandingMain />
-			<div className='bar-section'></div>
-			<section id='overview' style={navBar.darkMode ? {} : lightStyles}>
+			<div className={scss.barSection}></div>
+			<section
+				className={scss.overview}
+				style={navBar.darkMode ? {} : lightStyles}
+			>
 				<Fade triggerOnce delay={200}>
-					<div className='wrapper'>
+					<div className={scss.wrapper}>
 						<h3>
-							<div className='bar'></div>
+							<div className={scss.bar}></div>
 							<span>Nos objectifs</span>
 						</h3>
-						<div className='article-container'>
+						<div className={scss.articleContainer}>
 							<OverviewArticle
 								title="Facilité l'accès à l'information"
 								text={lorem}
@@ -80,7 +81,7 @@ export const Presentational: FC<IProps> = ({ navBar }) => {
 					</div>
 				</Fade>
 			</section>
-			<div className='landing-sections'>
+			<div className={scss.landingSections}>
 				<LandingSection
 					title="Comparez les écoles d'ingénieurs"
 					img={leaderboard}
@@ -105,20 +106,13 @@ export const Presentational: FC<IProps> = ({ navBar }) => {
 					name='Statistiques'
 					direction='left'
 				/>
-				<div id='bg-rect-1' className='bg-rect'>
-					{bgRect}
-				</div>
-				<div id='bg-rect-2' className='bg-rect'>
+				<div className={scss.bgRect + " " + scss.bgRect1}>{bgRect}</div>
+				<div id='bg-rect-2' className={scss.bgRect + " " + scss.bgRect2}>
 					{bgRect}
 				</div>
 			</div>
 		</main>
 	);
 };
-const mapStateToProps = (state: RootState) => {
-	return {
-		navBar: state.navBar,
-	};
-};
 
-export const Landing: FC<{}> = connect(mapStateToProps)(Presentational);
+export default Landing;

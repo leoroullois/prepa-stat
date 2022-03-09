@@ -4,7 +4,7 @@ import {
 	IoRocketOutline,
 	IoTrophyOutline,
 } from "react-icons/io5";
-import scss from "../../../scss/indicator.module.scss";
+import scss from "./indicator.module.scss";
 
 interface IProps {
 	formIndex: number;
@@ -12,9 +12,9 @@ interface IProps {
 const Indicator: FC<IProps> = ({ formIndex }) => {
 	return (
 		<div className={scss.containerIndicator}>
-			<div className='container-lines'>
+			<div className={scss.containerLines}>
 				<div
-					className='line upper-line'
+					className={scss.line +" "+scss.upperLine}
 					style={{
 						width:
 							formIndex === 1
@@ -26,16 +26,16 @@ const Indicator: FC<IProps> = ({ formIndex }) => {
 								: "",
 					}}
 				></div>
-				<div className='line under-line'></div>
+				<div className={scss.line +" "+scss.underLine}></div>
 			</div>
-			<div className='container-img'>
-				<div className='bloc-img'>
+			<div className={scss.containerImg}>
+				<div className={scss.blocImg}>
 					<IoInformationCircleOutline />
 				</div>
-				<div className='bloc-img'>
+				<div className={scss.blocImg}>
 					<IoRocketOutline />
 				</div>
-				<div className='bloc-img'>
+				<div className={scss.blocImg}>
 					<IoTrophyOutline />
 				</div>
 			</div>

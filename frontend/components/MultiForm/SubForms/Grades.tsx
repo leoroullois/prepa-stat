@@ -7,10 +7,11 @@ import {
 	useState,
 } from "react";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectSimul } from "../../../store/selectors";
-import { RootState } from "../../../store/store";
 
+import scss from "./grades.module.scss";
+import style from "../multiform.module.scss";
 // * Types declarations
 interface IProps {
 	modifyIndex: (index: number, formData: ModifyFormDataType) => void;
@@ -177,7 +178,7 @@ const Grades: FC<IProps> = ({ modifyIndex }) => {
 			});
 	}, [simul.params]);
 	return (
-		<form onSubmit={handlePrevent} id='grades' className='simulator-content'>
+		<form onSubmit={handlePrevent} className={style.simulatorContent+" "+scss.grades}>
 			<h2>🧠 Rentrez vos notes</h2>
 			<table>
 				<thead>
@@ -190,16 +191,16 @@ const Grades: FC<IProps> = ({ modifyIndex }) => {
 				<tbody>{createRows(marks)}</tbody>
 			</table>
 			{error && (
-				<span className='error'>Vous devez renseigner toute les notes.</span>
+				<span className={scss.error}>Vous devez renseigner toute les notes.</span>
 			)}
-			<div className='btn-container'>
+			<div className={scss.btnContainer}>
 				<button type='button' onClick={handleBack}>
-					<IoArrowBack className='icon' />
+					<IoArrowBack className={scss.icon} />
 					<span>Retour</span>
 				</button>
 				<button type='button' onClick={handleSubmit}>
 					<span>Résultat</span>
-					<IoArrowForward className='icon' />
+					<IoArrowForward className={scss.icon} />
 				</button>
 			</div>
 		</form>

@@ -1,0 +1,23 @@
+@import "../../../scss/imports/extends";
+@import "../../../scss/imports/mixins";
+@import "../../../scss/imports/variables";
+
+.result {
+	justify-content: center;
+	align-items: flex-start;
+	h2 {
+		font-size: 1.5rem;
+	}
+	p {
+		font-size: 1.2rem;
+		margin: 0;
+	}
+
+	button {
+		margin-top: 30px;
+		align-self: center;
+	}
+	ul {
+		padding-left: 15px;
+	}
+}

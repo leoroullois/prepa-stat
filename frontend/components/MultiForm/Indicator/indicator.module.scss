@@ -1,6 +1,6 @@
-@import "./imports/extends";
-@import "./imports/mixins";
-@import "./imports/variables";
+@import "../../../scss/imports/extends";
+@import "../../../scss/imports/mixins";
+@import "../../../scss/imports/variables";
 
 .containerIndicator {
 	position: absolute;
@@ -17,18 +17,18 @@
 		height: 20px;
 		background: linear-gradient(to right, $light-orange, $main-orange);
 	}
-	.upper-line {
+	.upperLine {
 		z-index: 10;
 		transition: width 0.4s ease-in-out;
 	}
-	.under-line {
+	.underLine {
 		width: 100%;
 		height: 20px;
 		z-index: 5;
 		background: #fff;
 		box-shadow: $main-shadow;
 	}
-	.container-img {
+	.containerImg {
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
@@ -36,7 +36,7 @@
 		position: relative;
 		z-index: 11;
 	}
-	.bloc-img {
+	.blocImg {
 		width: 70px;
 		height: 70px;
 		background-color: $main-white;
@@ -46,11 +46,11 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.bloc-img:nth-child(1) {
+	.blocImg:nth-child(1) {
 		position: relative;
 		right: 5px;
 	}
-	.bloc-img:nth-child(3) {
+	.blocImg:nth-child(3) {
 		position: relative;
 		left: 5px;
 	}

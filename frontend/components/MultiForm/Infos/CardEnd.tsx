@@ -1,7 +1,8 @@
 import { FC, MouseEventHandler, useEffect } from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectSimul } from "../../../store/selectors";
-import { RootState } from "../../../store/store";
+import scss from "./cardend.module.scss";
+import style from "../multiform.module.scss";
 interface IProps {
 	modifyIndex: (index: number, formData: ModifyFormDataType) => void;
 }
@@ -55,7 +56,7 @@ const CardEnd: FC<IProps> = ({ modifyIndex }) => {
 	const avg = calcAverage(grades);
 	if (avg >= 10) {
 		return (
-			<main className='simulator-content' id='result'>
+			<main className={style.simulatorContent + " " + scss.result}>
 				<h2>🎊 Résultat</h2>
 				<ul>
 					<li>
@@ -69,7 +70,7 @@ const CardEnd: FC<IProps> = ({ modifyIndex }) => {
 		);
 	} else {
 		return (
-			<main className='simulator-content' id='result'>
+			<main className={style.simulatorContent + " " + scss.result}>
 				<h2>😭 Résultat</h2>
 				<ul>
 					<li>

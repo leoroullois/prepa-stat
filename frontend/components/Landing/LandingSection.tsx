@@ -33,7 +33,6 @@ export const LandingSection: FC<IProps> = ({
 							className={scss.svg}
 							src={img}
 							width={450}
-							// height={400}
 							alt='Leaderboard'
 						/>
 						<div className={scss.sectionMainContent}>

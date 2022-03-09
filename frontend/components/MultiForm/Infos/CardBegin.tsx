@@ -1,5 +1,7 @@
 import { ChangeEventHandler, FC, FormEventHandler, useState } from "react";
 import { IoArrowForward } from "react-icons/io5";
+import scss from "./cardbegin.module.scss";
+import style from "../multiform.module.scss";
 interface IProps {
 	modifyIndex: (index: number, formData: ModifyFormDataType) => void;
 }
@@ -92,8 +94,7 @@ const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 	return (
 		<form
 			action=''
-			className='simulator-content active'
-			id='params'
+			className={scss.params + " " + style.simulatorContent + " " + scss.active}
 			onSubmit={handleSubmit}
 		>
 			<h2>✨ Renseignez vos informations</h2>
@@ -220,7 +221,7 @@ const CardBegin: FC<IProps> = ({ modifyIndex }) => {
 					<label htmlFor='lv2'>LV2</label>
 				</div>
 			</fieldset>
-			<div className='btn-container'>
+			<div className={scss.btnContainer}>
 				<button type='submit'>
 					<span>Saisir les notes</span>
 					<IoArrowForward className='icon' />

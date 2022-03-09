@@ -5,8 +5,9 @@ import CardEnd from "./Infos/CardEnd";
 import Indicator from "./Indicator/Indicator";
 import { useDispatch } from "react-redux";
 import { setCard, setGrades } from "../../store/slices/multiform";
+import scss from "./multiform.module.scss";
 
-const MultiForm: FC<void> = () => {
+const MultiForm: FC = () => {
 	const dispatch = useDispatch();
 
 	const [formIndex, setFormIndex] = useState(1);
@@ -49,7 +50,9 @@ const MultiForm: FC<void> = () => {
 		<CardEnd modifyIndex={modifyIndex} key={3} />,
 	];
 	return (
-		<section className='container-multiform simulator-container'>
+		<section
+			className={scss.containerMultiForm + " " + scss.simulatorContainer}
+		>
 			<Indicator formIndex={formIndex} />
 			{elements.filter((_elt, i) => i + 1 === formIndex)}
 		</section>

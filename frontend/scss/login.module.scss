@@ -5,6 +5,7 @@
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
+	min-height: calc(100vh - 150px - 60px);
 	margin: 0 auto;
 	padding: 30px 0;
 	width: 100%;
@@ -17,34 +18,8 @@
 		opacity: 0.65;
 		margin-top: 10px;
 	}
-	.connect-with {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: relative;
-		z-index: 0;
-		background-color: $main-white;
-		border: 1px solid $main-gray;
-		text-decoration: none;
-		color: $main-black;
-		font-weight: bold;
-		border-radius: 6px;
-		padding: 15px 0;
-		font-size: 1.2rem;
-		transition: all 0.1s ease-out;
-		margin-top: 20px;
-		cursor: pointer;
-		img {
-			position: absolute;
-			left: 30px;
-			height: 35px;
-			width: 35px;
-		}
-		&:hover {
-			background-color: white;
-		}
-	}
-	#login-form {
+
+	.login-form {
 		display: flex;
 		flex-direction: column;
 		input {
@@ -69,12 +44,12 @@
 			font-size: 1.1rem;
 		}
 	}
-	#login-remember-forgot-container {
+	.login-remember-forgot-container {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
-	#login-remember-container {
+	.login-remember-container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -88,12 +63,15 @@
 			margin-right: 0.5rem;
 		}
 	}
-	#login-forgot {
+	.login-forgot {
 		font-weight: bold;
-		color: $main-black;
+		color: inherit;
 		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
-	#login-submit {
+	.login-submit {
 		background-color: $dark-blue;
 		color: $main-white;
 		font-weight: bold;
@@ -110,7 +88,7 @@
 		}
 	}
 
-	#no-account {
+	.no-account {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -124,5 +102,25 @@
 			color: inherit;
 			opacity: 1;
 		}
+	}
+}
+
+.provider {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 0 15%;
+	background-color: $main-white;
+	border: 1px solid $main-gray;
+	text-decoration: none;
+	color: $main-black;
+	font-weight: bold;
+	border-radius: 6px;
+	font-size: 1.2rem;
+	transition: all 0.1s ease-out;
+	margin-top: 20px;
+	cursor: pointer;
+	&:hover {
+		background-color: white;
 	}
 }

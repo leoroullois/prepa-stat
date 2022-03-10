@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import { useParams } from "react-router-dom";
 /**CSS */
 import "../css/stats.css";

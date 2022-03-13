@@ -11,16 +11,22 @@ interface IProps {
 const AuthProviderBtn: FC<IProps> = ({ provider, svg }) => {
 	const router = useRouter();
 
-	const handleClick: MouseEventHandler = (e) => {
+	const handleClick: MouseEventHandler = async (e) => {
 		e.preventDefault();
-		router.push(`/auth/${provider.toLowerCase()}`);
+		router.push(`/api/auth/${provider.toLowerCase()}`);
 	};
 	return (
 		<button
 			onClick={handleClick}
 			className={classnames(scss["provider"], provider.toLowerCase())}
 		>
-			<Image className={scss["provider--img"]} src={svg} alt={provider + " logo"} height={35} width={35} />
+			<Image
+				className={scss["provider--img"]}
+				src={svg}
+				alt={provider + " logo"}
+				height={35}
+				width={35}
+			/>
 			<p>Connexion avec {provider}</p>
 		</button>
 	);

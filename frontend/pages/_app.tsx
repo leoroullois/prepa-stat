@@ -8,12 +8,26 @@ import { selectAuth } from "../store/selectors";
 import store from "../store/store";
 import jwt_decode from "jwt-decode";
 import { logout, setCurrentUser } from "../store/slices/auth";
-
+import jwt from "jsonwebtoken";
 function MyApp({ Component, pageProps }: AppProps) {
 	const router = useRouter();
+	const { query } = useRouter();
 	useEffect(() => {
 		// ? Récupère le token dans le localStorage
-		const encoded = localStorage.getItem("jwtToken") ?? "";
+		let encoded = localStorage.getItem("jwtToken") ?? "";
+		if (query.token) {
+			const token = "Bearer " + query.token;
+
+			console.log("token", query.token);
+			const decoded: any = jwt.verify(
+				query.token as string,
+				process.env.NEXT_PUBLIC_JWT_KEY as string
+			);
+
+			if (decoded?._id && decoded?.name && decoded?.email) {
+				encoded = token;
+			}
+		}
 		if (encoded) {
 			// ? Décode le token pour l'avoir sous la forme IToken
 			const token = jwt_decode(encoded) as IToken;
@@ -43,7 +57,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			}
 		}
 		console.log("fin useEffect");
-	}, []);
+	}, [query.token]);
 
 	return (
 		<Provider store={store}>

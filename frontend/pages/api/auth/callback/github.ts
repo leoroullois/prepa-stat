@@ -2,7 +2,8 @@ import passport from "passport";
 import nc from "next-connect";
 import jwt from "jsonwebtoken";
 
-const handler = nc().get(passport.authenticate("google"), (req: any, res) => {
+const handler = nc().get(passport.authenticate("github"), (req: any, res) => {
+	console.log("req", req);
 	const payload = {
 		_id: req.user._id,
 		email: req.user.email,

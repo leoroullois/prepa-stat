@@ -1,11 +1,8 @@
 // pages/api/spotify.js
 import { ObjectId } from "mongodb";
-import nc from "next-connect";
 import passport from "passport";
-import { connectDB } from "../../../lib/db";
-// pages/api/spotify.js
-import { User } from "../../../models/User";
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+import { User } from "../models/User";
+const GitHubStrategy = require("passport-github").Strategy;
 // Saves user's ID to a session
 passport.serializeUser((user, done) => {
 	done(null, user);
@@ -20,27 +17,22 @@ passport.deserializeUser((id: string, done) => {
 	});
 });
 
+
 passport.use(
-	new GoogleStrategy(
+	new GitHubStrategy(
 		{
-			clientID: process.env.GOOGLE_CLIENT_ID,
-			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-			callbackURL: `${process.env.HOST}/api/auth/callback/google`,
+			clientID: process.env.GITHUB_CLIENT_ID,
+			clientSecret: process.env.GITHUB_CLIENT_SECRET,
+			callbackURL: `${process.env.HOST}/auth/github/callback`,
 		},
-		function (
-			accessToken: any,
-			refreshToken: any,
-			expires_in: any,
-			profile: any,
-			cb: any
-		) {
+		function (accessToken: any, refreshToken: any, profile: any, cb: any) {
 			console.log("Profile :", profile);
 			User.findOneAndUpdate(
-				{ googleId: profile.id },
+				{ githubId: profile.id },
 				{
 					$setOnInsert: {
 						id: new ObjectId(),
-						googleId: profile.id,
+						githubId: profile.id,
 						name: profile.displayName || "John Doe",
 						photo: profile.photos[0].value || "",
 						email: Array.isArray(profile.emails)
@@ -57,20 +49,13 @@ passport.use(
 					},
 				},
 				{ upsert: true, new: true },
-				(err: any, user: any) => {
+				(err, user: any) => {
 					if (err) {
 						throw err;
 					}
-					cb(err, user);
+					return cb(null, user);
 				}
 			);
 		}
 	)
 );
-const handler = nc().get(
-	passport.authenticate("google", {
-		scope: ["profile", "email"],
-	})
-);
-
-export default connectDB(handler);

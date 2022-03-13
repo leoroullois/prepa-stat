@@ -48,25 +48,32 @@ interface ISchools {
 	filiere: string;
 }
 /**JWT Token */
-interface IDecodedUser {
-	exp?: number;
-	iat?: number;
-	id: string;
-	name: string;
-}
-/** Register */
-interface IRegisterState {
+interface IToken {
+	exp: number;
+	iat: number;
+	_id: string;
 	name: string;
 	email: string;
-	password: string;
+}
+/** Register */
+interface IRegisterForm {
+	name: string;
+	email: string;
+	password1: string;
 	password2: string;
 }
-// ? Redux
-type RegisterAction = {
-	type: string;
-	payload: any;
-};
-type DispatchType = (args: RegisterAction) => RegisterAction;
+interface ILoginForm {
+	email: string;
+	password: string;
+	remember: boolean;
+}
+interface IError {
+	message: string;
+}
+interface IValidator {
+	errors: IError[];
+	isValid: boolean;
+}
 
 /** Login */
 interface ILoginState {
@@ -81,15 +88,16 @@ interface ILoginProps {
 }
 
 /**Auth */
-interface IUrls {
-	PUBLIC_URL: string;
-	SERVER_URL: string;
+interface IUser {
+	_id: string;
+	name: string;
+	email: string;
 }
 interface IAuth {
 	isAuthenticated: boolean;
 	user: any;
+	errors: string[];
 	loading: boolean;
-	urls: IUrls;
 }
 /**Errors */
 interface IErrors {

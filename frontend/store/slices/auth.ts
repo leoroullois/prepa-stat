@@ -1,49 +1,49 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { local } from "d3";
+import isEmpty from "is-empty";
+import Router from "next/router";
+// import { removeJwtToken, setJwtToken } from "../../lib/auth";
 
 const init = (): IAuth => {
-	const PUBLIC_URL =
-		process.env.NODE_ENV === "development"
-			? "http://localhost:3000"
-			: "https://prepa-stat.herokuapp.com";
-	const SERVER_URL =
-		process.env.NODE_ENV === "development"
-			? "http://localhost:5000"
-			: "https://prepa-stat.herokuapp.com";
 	return {
 		isAuthenticated: false,
 		user: {},
+		errors: [],
 		loading: false,
-		urls: {
-			PUBLIC_URL,
-			SERVER_URL,
-		},
 	};
 };
 
 export const login = createAsyncThunk(
 	"auth/login",
-	async (userData: ILoginState) => {
-		const res = await fetch("/se-connecter", {
+	async (userData: ILoginState, { rejectWithValue }) => {
+		const res = await fetch("/api/auth/login", {
 			method: "POST",
 			body: JSON.stringify(userData),
 			headers: { "Content-Type": "application/json" },
-		});
-
-		return res;
+		}).then((data) => data.json());
+		console.log("RES ", res);
+		if (!isEmpty(res._doc)) {
+			return res;
+		} else {
+			return rejectWithValue(res.message);
+		}
 	}
 );
 export const register = createAsyncThunk(
 	"auth/register",
-	async (userData: IRegisterState) => {
-		const res = await fetch("/s-enregistrer", {
+	async (userData: IRegisterForm, { rejectWithValue }) => {
+		const res = await fetch("/api/auth/register", {
 			method: "POST",
 			body: JSON.stringify(userData),
 			headers: {
 				"Content-Type": "application/json",
 			},
-		});
-		return res;
+		}).then((data) => data.json());
+		console.log("RES :", res);
+		if (!isEmpty(res._doc)) {
+			return res;
+		} else {
+			return rejectWithValue(res.message);
+		}
 	}
 );
 const auth = createSlice({
@@ -51,73 +51,69 @@ const auth = createSlice({
 	initialState: init(),
 	reducers: {
 		logout: (state) => {
-			localStorage.removeItem("jwtItem");
-			// setAuthToken(false);
-			state = init();
+			localStorage.removeItem("jwtToken");
+			Router.push("/");
+			return init();
+		},
+		setCurrentUser: (
+			state,
+			action: PayloadAction<{ email: string; id: string; name: string }>
+		) => {
+			const { email, id, name } = action.payload;
+			state.user = {
+				email,
+				name,
+				_id: id,
+			};
+			state.isAuthenticated = true;
 		},
 	},
 	extraReducers: (builder) => {
 		// ? LOGIN
-		builder.addCase(login.pending, (state, action: PayloadAction<any>) => {
-			const { body } = action.payload;
-			console.log("User loading...", body);
+		builder.addCase(login.pending, (state) => {
+			console.log("Loading...");
 		});
 		builder.addCase(login.fulfilled, (state, action: PayloadAction<any>) => {
-			const { body } = action.payload;
-			console.log("Successfully logged in.", body);
-			// Save to localStorage
-			// Set token to localStorage
-			// const { token } = res.body;
-			// localStorage.setItem("jwtToken", token);
-			// Set token to Auth header
-			// setAuthToken(token);
-			// Decode token to get user data
-			// const decoded = jwt_decode(token);
-			// Set current user
-			// dispatch(setCurrentUser(decoded));
-			// dispatch(setCurrentUser(userData));
+			console.log("payload ", action.payload);
+			const { token } = action.payload;
+			const { name, email, _id } = action.payload._doc;
+			const user = {
+				_id,
+				name,
+				email,
+			};
+			state.errors = [];
+			state.user = user;
+			state.isAuthenticated = true;
+			// ? Save to localStorage (token = 'Bearer ouefoefheoifhofio')
+			localStorage.setItem("jwtToken", token);
+
+			Router.push("/dashboard");
+			console.log("Successfully logged in.", action.payload);
 		});
-		builder.addCase(login.rejected, (state, action: PayloadAction<any>) => {
-			const { err } = action.payload;
-			console.log("Error when logging.", err);
-			// console.log("Error when logging.", err);
-			// 	return dispatch({
-			// 		type: GET_ERRORS,
-			// 		payload: err.response.data,
-			// 	});
+
+		builder.addCase(login.rejected, (state, action) => {
+			const err = action.payload as string;
+			console.log("[REJECTED] ", err);
+			state.errors.push(err);
 		});
 
 		// ? REGISTER
-		builder.addCase(register.pending, (state, action: PayloadAction<any>) => {
-			const { body } = action.payload;
-			console.log("User loading...", body);
+		builder.addCase(register.pending, (state) => {
+			console.log("[PENDING] User loading...");
 		});
 		builder.addCase(register.fulfilled, (state, action: PayloadAction<any>) => {
-			const { body } = action.payload;
-			console.log("Successfully registered in.", body);
-			// Save to localStorage
-			// Set token to localStorage
-			// const { token } = res.body;
-			// localStorage.setItem("jwtToken", token);
-			// Set token to Auth header
-			// setAuthToken(token);
-			// Decode token to get user data
-			// const decoded = jwt_decode(token);
-			// Set current user
-			// dispatch(setCurrentUser(decoded));
-			// dispatch(setCurrentUser(userData));
+			console.log("[FULFILLED] Successfully registered in.", action);
+			state.errors = [];
+			Router.push("/se-connecter");
 		});
-		builder.addCase(register.rejected, (state, action: PayloadAction<any>) => {
-			const { err } = action.payload;
-			console.log("Error when registering.", err);
-			// console.log("Error when logging.", err);
-			// 	return dispatch({
-			// 		type: GET_ERRORS,
-			// 		payload: err.response.data,
-			// 	});
+		builder.addCase(register.rejected, (state, action) => {
+			const err = action.payload as string;
+			state.errors.push(err);
+			console.log("[REJECTED] ", err);
 		});
 	},
 });
 
-export const { logout } = auth.actions;
+export const { logout, setCurrentUser } = auth.actions;
 export default auth.reducer;

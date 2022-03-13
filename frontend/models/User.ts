@@ -1,5 +1,5 @@
 import mongoose, { Document } from "mongoose";
-export interface IUsers extends Document {
+export interface IUser extends Document {
 	_id: mongoose.Types.ObjectId;
 	email: string;
 	password: string;
@@ -12,7 +12,7 @@ export interface IUsers extends Document {
 	googleId?: string;
 }
 
-const UsersSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
 	_id: {
 		type: mongoose.Types.ObjectId,
 		require: true,
@@ -55,4 +55,5 @@ const UsersSchema = new mongoose.Schema({
 	},
 });
 
-export const Users = mongoose.model<IUsers>("users", UsersSchema);
+export const User =
+	mongoose.models?.users || mongoose.model<IUser>("users", UserSchema);

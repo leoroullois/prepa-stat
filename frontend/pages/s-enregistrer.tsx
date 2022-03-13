@@ -5,10 +5,10 @@ import scss from "../scss/register.module.scss";
 /**Redux */
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../store/slices/auth";
-import classnames from "classnames";
 import { selectAuth } from "../store/selectors";
 import { useRouter } from "next/router";
 import Head from "next/head";
+
 interface IProps {
 	auth: IAuth;
 	// errors: IErrors;
@@ -20,23 +20,30 @@ const Register: FC<IProps> = () => {
 
 	const dispatch = useDispatch();
 
-	const [state, setState]: [IRegisterState, any] = useState({
+	const [state, setState] = useState<IRegisterForm>({
 		name: "",
 		email: "",
-		password: "",
+		password1: "",
 		password2: "",
 	});
+
 	useEffect(() => {
 		if (auth.isAuthenticated) {
 			router.push("/");
 		}
 	}, [auth.isAuthenticated, router]);
+
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setState({ ...state, [e.target.name]: e.target.value });
 	};
 	const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
 		e.preventDefault();
+	};
+	const handleClick = () => {
+		console.log("USER :", state);
 		dispatch(register(state));
+		
+
 	};
 	return (
 		<>
@@ -97,14 +104,14 @@ const Register: FC<IProps> = () => {
 					</label>
 					<input
 						type='password'
-						name='password'
+						name='password1'
 						id='register-password'
 						// className={classnames("", {
 						// invalid: errors.password,
 						// })}
 						placeholder='Entrez votre mot de passe'
 						required
-						value={state.password}
+						value={state.password1}
 						onChange={handleChange}
 					/>
 					{/* <span className='red-text'>{errors.password2}</span> */}
@@ -130,7 +137,11 @@ const Register: FC<IProps> = () => {
 					<p id='register-password-information'>
 						Votre mot de passe doit contenir au moins 8 caractères.
 					</p>
-					<button type='submit' className={scss["register-submit"]}>
+					<button
+						type='submit'
+						className={scss["register-submit"]}
+						onClick={handleClick}
+					>
 						Créer un compte
 					</button>
 				</form>

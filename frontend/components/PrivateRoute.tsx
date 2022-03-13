@@ -4,9 +4,9 @@ import { connect, useSelector } from "react-redux";
 import { selectAuth } from "../store/selectors";
 import { RootState } from "../store/store";
 interface IProps {
-	component: ReactComponentElement<any, any>;
+	children: JSX.Element;
 }
-const PrivateRoute: FC<IProps> = ({ component }) => {
+const PrivateRoute: FC<IProps> = ({ children }) => {
 	const router = useRouter();
 	const auth = useSelector(selectAuth);
 	useEffect(() => {
@@ -14,6 +14,6 @@ const PrivateRoute: FC<IProps> = ({ component }) => {
 			router.push("/");
 		}
 	});
-	return auth.isAuthenticated ? component : <div>Loading...</div>;
+	return auth.isAuthenticated ? children : <div>Loading...</div>;
 };
 export default PrivateRoute;

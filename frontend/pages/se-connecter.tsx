@@ -21,7 +21,7 @@ const Login: React.FC<any> = () => {
 	const router = useRouter();
 	const dispatch = useDispatch();
 
-	const [state, setState]: [ILoginState, any] = useState({
+	const [state, setState] = useState<ILoginState>({
 		email: "",
 		password: "",
 		remember: false,
@@ -31,7 +31,7 @@ const Login: React.FC<any> = () => {
 	};
 	const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
 		e.preventDefault();
-		login(state);
+		dispatch(login(state));
 	};
 	useEffect(() => {
 		if (auth.isAuthenticated) {

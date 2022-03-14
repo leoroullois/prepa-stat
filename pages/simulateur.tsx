@@ -27,14 +27,14 @@ const Simulator: FC<IProps> = ({ coefs }) => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-	const res = await fetch(process.env.HOST + "/api/coefs");
-	const coefs = await res.json();
-	return {
-		props: {
-			coefs,
-		},
-	};
-};
+// export const getStaticProps: GetStaticProps = async () => {
+// 	const res = await fetch(process.env.HOST + "/api/coefs");
+// 	const coefs = await res.json();
+// 	return {
+// 		props: {
+// 			coefs,
+// 		},
+// 	};
+// };
 
 export default Simulator;

@@ -8,24 +8,25 @@ import {
 } from "react";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
 import { useSelector } from "react-redux";
-import { selectSimul } from "../../../store/selectors";
+import { selectCoefs, selectSimul } from "../../../store/selectors";
 
 import scss from "./grades.module.scss";
 import style from "../multiform.module.scss";
+import { IEpreuves, ICoef } from "../../../models/Coef";
 // * Types declarations
 interface IProps {
 	modifyIndex: (index: number, formData: ModifyFormDataType) => void;
 }
-interface IEpreuves {
-	nom: string;
-	coef: number;
-}
-type EpreuvesType = IEpreuves[];
-interface ICoefs extends Document {
-	concours: string;
-	filiere: string;
-	epreuves: EpreuvesType;
-}
+// interface IEpreuves {
+// 	nom: string;
+// 	coef: number;
+// }
+// type EpreuvesType = IEpreuves[];
+// interface ICoefs extends Document {
+// 	concours: string;
+// 	filiere: string;
+// 	epreuves: EpreuvesType;
+// }
 // * Component
 const Grades: FC<IProps> = ({ modifyIndex }) => {
 	// TODO: gérer la LV2
@@ -33,6 +34,7 @@ const Grades: FC<IProps> = ({ modifyIndex }) => {
 	const [error, setError] = useState<boolean>(false);
 
 	const simul = useSelector(selectSimul);
+	const coefs = useSelector(selectCoefs);
 	/**
 	 * True if all marks are between 0 and 20 and not empty
 	 * @param marks array of grades
@@ -134,7 +136,7 @@ const Grades: FC<IProps> = ({ modifyIndex }) => {
 	 * ? @param data data fetched from the API
 	 * ! @returns array of grades
 	 */
-	const mapAPItoMarks = (data: ICoefs): IGrades[] => {
+	const mapAPItoMarks = (data: ICoef): IGrades[] => {
 		const { epreuves } = data;
 		console.table(epreuves);
 		const output = epreuves.map((elt: IEpreuves) => {
@@ -171,14 +173,19 @@ const Grades: FC<IProps> = ({ modifyIndex }) => {
 	};
 
 	useEffect(() => {
-		fetch(`/api/coefs/${simul.params.concours}/${simul.params.filiere}`)
-			.then((res) => res.json())
-			.then((data: ICoefs) => {
-				setMarks(mapAPItoMarks(data));
-			});
-	}, [simul.params]);
+		const data = coefs.filter((coef) => {
+			return (
+				coef.concours === simul.params.concours &&
+				coef.filiere === simul.params.filiere
+			);
+		});
+		setMarks(mapAPItoMarks(data[0]));
+	}, [simul.params, coefs]);
 	return (
-		<form onSubmit={handlePrevent} className={style.simulatorContent+" "+scss.grades}>
+		<form
+			onSubmit={handlePrevent}
+			className={style.simulatorContent + " " + scss.grades}
+		>
 			<h2>🧠 Rentrez vos notes</h2>
 			<table>
 				<thead>
@@ -191,7 +198,9 @@ const Grades: FC<IProps> = ({ modifyIndex }) => {
 				<tbody>{createRows(marks)}</tbody>
 			</table>
 			{error && (
-				<span className={scss.error}>Vous devez renseigner toute les notes.</span>
+				<span className={scss.error}>
+					Vous devez renseigner toute les notes.
+				</span>
 			)}
 			<div className={scss.btnContainer}>
 				<button type='button' onClick={handleBack}>

@@ -1,5 +1,5 @@
 import mongoose, { Document } from "mongoose";
-interface IEpreuves {
+export interface IEpreuves {
 	nom: string;
 	coef: number;
 }

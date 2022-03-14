@@ -22,7 +22,7 @@ export const getCoefsByConcours = async (
 
 	console.log("query :", req.query);
 	const coefs = req.query.coefs as string[];
-	const { 1: concours } = coefs;
+	const { 0: concours } = coefs;
 
 	if (allConcours.includes(concours)) {
 		Coef.find({ concours })
@@ -41,7 +41,7 @@ export const getCoefsByConcoursAndFiliere = async (
 	console.log(`${req.method} ${req.url}`);
 	console.log("params :", req.query);
 	const coefs = req.query.coefs as string[];
-	const { 1: concours, 2: filiere } = coefs;
+	const { 0: concours, 1: filiere } = coefs;
 	if (allConcours.includes(concours) && allFiliere.includes(filiere)) {
 		Coef.findOne({ concours, filiere })
 			.then((doc) => res.status(200).json(doc))

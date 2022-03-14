@@ -6,6 +6,8 @@ import navBar from "./slices/navBar";
 import sideNav from "./slices/sideNav";
 import multiForm from "./slices/multiform";
 import auth from "./slices/auth";
+import coefs from "./slices/coefs";
+
 const middleware = [thunk];
 
 const makeStore = () =>
@@ -15,6 +17,7 @@ const makeStore = () =>
 			sideNav,
 			simul: multiForm,
 			auth,
+			coefs,
 		},
 		middleware,
 	});

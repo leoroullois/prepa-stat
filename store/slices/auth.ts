@@ -38,7 +38,6 @@ export const register = createAsyncThunk(
 				"Content-Type": "application/json",
 			},
 		}).then((data) => data.json());
-		console.log("RES :", res);
 		if (!isEmpty(res._doc)) {
 			return res;
 		} else {
@@ -52,7 +51,6 @@ const auth = createSlice({
 	reducers: {
 		logout: (state) => {
 			localStorage.removeItem("jwtToken");
-			Router.push("/");
 			return init();
 		},
 		setCurrentUser: (
@@ -74,7 +72,6 @@ const auth = createSlice({
 			console.log("Loading...");
 		});
 		builder.addCase(login.fulfilled, (state, action: PayloadAction<any>) => {
-			console.log("payload ", action.payload);
 			const { token } = action.payload;
 			const { name, email, _id } = action.payload._doc;
 			const user = {
@@ -89,7 +86,6 @@ const auth = createSlice({
 			localStorage.setItem("jwtToken", token);
 
 			Router.push("/dashboard");
-			console.log("Successfully logged in.", action.payload);
 		});
 
 		builder.addCase(login.rejected, (state, action) => {

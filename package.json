@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "prepa-stat",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.8.6",
     "@reduxjs/toolkit": "^1.8.0",
     "@types/passport-google-oauth20": "^2.0.11",
     "bcrypt": "^5.0.1",
@@ -33,6 +34,7 @@
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
     "sass": "^1.49.9",
+    "slugify": "^1.6.5",
     "styled-components": "^5.3.3",
     "validator": "^13.7.0"
   },

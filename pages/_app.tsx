@@ -9,8 +9,9 @@ import store from "../store/store";
 import jwt_decode from "jwt-decode";
 import { logout, setCurrentUser } from "../store/slices/auth";
 import jwt from "jsonwebtoken";
+import { ChakraProvider } from "@chakra-ui/react";
+import "../styles/globals.css";
 function MyApp({ Component, pageProps }: AppProps) {
-	const router = useRouter();
 	const { query } = useRouter();
 	useEffect(() => {
 		// ? Récupère le token dans le localStorage
@@ -56,14 +57,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 				// router.push("/se-connecter");
 			}
 		}
-		console.log("fin useEffect");
 	}, [query.token]);
 
 	return (
 		<Provider store={store}>
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
+			<ChakraProvider>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
+			</ChakraProvider>
 		</Provider>
 	);
 }

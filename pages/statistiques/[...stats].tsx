@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, useEffect, useState } from "react";
+import { FC, MouseEventHandler, useEffect, useMemo, useState } from "react";
 /**CSS */
 import scss from "../../scss/stats.module.scss";
 import slugify from "slugify";
@@ -14,7 +14,9 @@ import {
 	TabPanels,
 	Tabs,
 } from "@chakra-ui/react";
+import Table from "../../components/Table";
 import { useRouter } from "next/router";
+import { ISchool } from "../../models/School";
 
 const Statistiques: FC = () => {
 	const router = useRouter();
@@ -44,7 +46,9 @@ const Statistiques: FC = () => {
 				<title>Statistiques {filiere.toUpperCase()} - PrépaStat</title>
 			</Head>
 			<main className={scss.stats}>
-				<Heading as='h1'>Statistiques {filiere.toUpperCase()}.</Heading>
+				<Heading as='h1' marginY={10}>
+					Statistiques {filiere.toUpperCase()}.
+				</Heading>
 				<Tabs
 					index={tabIndex}
 					onChange={handleTabsChange}
@@ -60,17 +64,13 @@ const Statistiques: FC = () => {
 					<TabPanels>
 						{allTabs.map((tab, i) => (
 							<TabPanel key={i}>
-								<h2>{tab}</h2>
-								<p>
-									Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum
-									labore sapiente mollitia culpa nesciunt cumque unde, dolorum
-									animi possimus pariatur nemo aut dolorem rem magnam ea iure
-									porro sunt repellat?
-								</p>
-								<ul>
-									<li>Filiere: {filiere}</li>
-									<li>Section: {section}</li>
-								</ul>
+								<Heading as='h2' size='md' textAlign='center' marginY={5}>
+									{tab}
+								</Heading>
+								<Heading as='h3' size='sm'>
+									Statistiques de base.
+								</Heading>
+								<Table />
 							</TabPanel>
 						))}
 					</TabPanels>
@@ -108,7 +108,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	console.log(params);
 	return {
 		props: { params },
 	};

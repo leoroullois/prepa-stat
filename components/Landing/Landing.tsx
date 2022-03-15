@@ -14,6 +14,7 @@ import simulator from "../../public/simulator.svg";
 import scss from "./landing.module.scss";
 import { useSelector } from "react-redux";
 import { selectNavBar } from "../../store/selectors";
+import { Heading } from "@chakra-ui/react";
 
 const lightStyles = {
 	backgroundColor: "#FFF",
@@ -54,10 +55,10 @@ const Landing: FC = () => {
 			>
 				<Fade triggerOnce delay={200}>
 					<div className={scss.wrapper}>
-						<h3>
+						<Heading as="h3" className={scss["our-goals"]}>
 							<div className={scss.bar}></div>
 							<span>Nos objectifs</span>
-						</h3>
+						</Heading>
 						<div className={scss.articleContainer}>
 							<OverviewArticle
 								title="Facilité l'accès à l'information"

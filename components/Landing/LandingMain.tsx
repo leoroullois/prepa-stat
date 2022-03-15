@@ -1,3 +1,4 @@
+import { Heading } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Fade } from "react-awesome-reveal";
@@ -9,11 +10,11 @@ const LandingMain = () => {
 		<Fade triggerOnce delay={200}>
 			<section className={scss.landingMain}>
 				<div className={scss.landingMain_left}>
-					<h1>PrépaStat</h1>
-					<h2>
+					<Heading as='h1'>PrépaStat</Heading>
+					<Heading as="h2">
 						Construisons ensemble votre avenir, intégrez l&apos;école
 						d&apos;ingénieur de vos rêves !
-					</h2>
+					</Heading>
 					<div className={scss.bar}></div>
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere

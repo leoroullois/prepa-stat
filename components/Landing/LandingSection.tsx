@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import scss from "./landingsection.module.scss";
 import { Fade } from "react-awesome-reveal";
+import { Heading } from "@chakra-ui/react";
 
 interface IProps {
 	title: string;
@@ -26,15 +27,19 @@ export const LandingSection: FC<IProps> = ({
 				<div className={scss.wrapper}>
 					<div className={scss.sectionTitle}>
 						<div className={scss.bar}></div>
-						<h3>{title}</h3>
+						<Heading as='h3' size='md'>
+							{title}
+						</Heading>
 					</div>
 					<div className={scss.sectionContent}>
-						<Image
-							className={scss.svg}
-							src={img}
-							width={450}
-							alt='Leaderboard'
-						/>
+						<div className={scss["svg-container"]}>
+							<Image
+								className={scss.svg}
+								src={img}
+								// width={450}
+								alt='Leaderboard'
+							/>
+						</div>
 						<div className={scss.sectionMainContent}>
 							<p className={scss.sectionText}>{text}</p>
 							<Link href={path}>

@@ -24,15 +24,16 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: flex-start;
+		margin-bottom: 30px;
 		.bar {
 			margin-right: $nav-height;
 			@include bar(5px, 80px, $light-orange, $main-orange);
 		}
 	}
 
-	.sectionContent img {
-		max-height: 250px;
-	}
+	// .sectionContent img {
+	// 	max-height: 250px;
+	// }
 
 	.sectionContent {
 		display: flex;
@@ -62,6 +63,7 @@
 			$light-orange-hover,
 			$main-white
 		);
+		margin: 20px 0;
 		align-self: flex-start;
 		font-size: 1.4rem;
 	}
@@ -75,48 +77,82 @@
 .svg {
 	filter: drop-shadow(0 0 7px #7b7b7b74);
 }
-@media screen and #{$tablet} {
-	.sectionContent img {
-		max-height: 300px;
-		min-width: 300px;
+.svg-container {
+	display: flex;
+	height: 250px;
+	width: 300px;
+}
+@media screen and (max-width: 930px) {
+	.sectionContent {
+		width: 100% !important;
 	}
+	.wrapper {
+		width: 80vw;
+		padding: 0 !important;
+	}
+	.sectionTitle {
+		display: flex;
+		flex-direction: column;
+		row-gap: 30px;
+		.bar {
+			margin-right: 0 !important;
+			align-self: flex-start;
+		}
+	}
+}
+@media screen and #{$tablet} {
 }
 @media screen and #{$mobileL} {
 	.sectionContent {
 		width: 100% !important;
 	}
+	.sectionTitle {
+		display: flex;
+		flex-direction: column;
+		row-gap: 30px;
+	}
 	.wrapper {
 		width: 80vw;
 		padding: 0 !important;
 	}
-	.sectionContent img {
-		max-height: 300px;
-		min-width: 300px;
-	}
+	// .sectionContent img {
+	// 	max-height: 300px;
+	// 	min-width: 300px;
+	// }
 }
 @media screen and #{$mobileM} {
 	.sectionContent {
 		width: 100% !important;
 	}
+	.sectionTitle {
+		display: flex;
+		flex-direction: column;
+		row-gap: 30px;
+	}
 	.wrapper {
 		width: 80vw;
 		padding: 0 !important;
 	}
-	.sectionContent img {
-		max-height: 300px;
-		min-width: 300px;
-	}
+	// .sectionContent img {
+	// 	max-height: 300px;
+	// 	min-width: 300px;
+	// }
 }
 @media screen and #{$mobileS} {
 	.sectionContent {
 		width: 100% !important;
 	}
+	.sectionTitle {
+		display: flex;
+		flex-direction: column;
+		row-gap: 30px;
+	}
 	.wrapper {
 		width: 80vw;
 		padding: 0 !important;
 	}
-	.sectionContent img {
-		max-height: 300px;
-		min-width: 300px;
-	}
+	// .sectionContent img {
+	// 	max-height: 300px;
+	// 	min-width: 300px;
+	// }
 }

@@ -8,6 +8,7 @@ import { register } from "../store/slices/auth";
 import { selectAuth } from "../store/selectors";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { Heading } from "@chakra-ui/react";
 
 interface IProps {
 	auth: IAuth;
@@ -42,8 +43,6 @@ const Register: FC<IProps> = () => {
 	const handleClick = () => {
 		console.log("USER :", state);
 		dispatch(register(state));
-		
-
 	};
 	return (
 		<>
@@ -51,8 +50,12 @@ const Register: FC<IProps> = () => {
 				<title>S&apos;enregistrer - PrépaStat</title>
 			</Head>
 			<main className={scss["register"]}>
-				<h1>S&apos;enregistrer</h1>
-				<h2>Bienvenue sur PrépaStat !</h2>
+				<Heading as='h1' size='lg'>
+					S&apos;enregistrer
+				</Heading>
+				<Heading as='h2' size='md'>
+					Bienvenue sur PrépaStat !
+				</Heading>
 				<form
 					action='/s-enregistrer'
 					method='post'

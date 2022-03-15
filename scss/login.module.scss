@@ -16,12 +16,13 @@
 	}
 	h2 {
 		opacity: 0.65;
-		margin-top: 10px;
+		margin: 10px 0 20px 0;
 	}
 
 	.login-form {
 		display: flex;
 		flex-direction: column;
+		margin-bottom: 20px;
 		input {
 			outline: none;
 			padding: 10px 30px;
@@ -109,7 +110,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	padding: 0 15%;
+	padding: 10px 15%;
 	background-color: $main-white;
 	border: 1px solid $main-gray;
 	text-decoration: none;

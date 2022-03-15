@@ -9,6 +9,7 @@ import AuthProviderBtn from "../components/Auth/AuthProviderBtn";
 import { selectAuth } from "../store/selectors";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { Heading } from "@chakra-ui/react";
 
 export const fetchApiCall = (url: string, method: string, body = {}) =>
 	fetch(url, {
@@ -45,8 +46,12 @@ const Login: React.FC<any> = () => {
 				<title>Se connecter - PrépaStat</title>
 			</Head>
 			<main className={scss["login"]}>
-				<h1>Se connecter</h1>
-				<h2>Content de vous revoir !</h2>
+				<Heading as='h1' size='lg'>
+					Se connecter
+				</Heading>
+				<Heading as='h2' size='md'>
+					Content de vous revoir !
+				</Heading>
 				<form
 					action='/se-connecter'
 					method='post'

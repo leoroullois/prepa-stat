@@ -34,7 +34,6 @@ const Statistiques: FC = () => {
 		const baseUrl = "/statistiques/" + paths[0];
 		const concours = slugifiedTabs[index];
 		const newUrl = baseUrl + "/" + concours;
-		// router.push(newUrl);
 		router.push(newUrl, undefined, { shallow: true });
 		setTabIndex(index);
 	};

@@ -2,7 +2,7 @@ import { FC, MouseEventHandler } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import classnames from "classnames";
-import scss from "../scss/login.module.scss";
+import scss from "../../scss/login.module.scss";
 
 interface IProps {
 	provider: string;

@@ -5,7 +5,7 @@ import { MdScience } from "react-icons/md";
 import { GiMaterialsScience } from "react-icons/gi";
 import { AiFillCalculator, AiFillApi } from "react-icons/ai";
 
-import scss from "../scss/navbar.module.scss";
+import scss from "./navbar.module.scss";
 
 interface IProps {
 	disableStat: (pValue: boolean) => void;

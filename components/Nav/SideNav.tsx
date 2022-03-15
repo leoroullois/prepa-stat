@@ -1,6 +1,6 @@
 import { FC } from "react";
 /**scss */
-import scss from "../scss/sidenav.module.scss";
+import scss from "./sidenav.module.scss";
 /**Redux */
 import { useDispatch } from "react-redux";
 /**react-icons */
@@ -10,11 +10,11 @@ import { MdLeaderboard, MdScience } from "react-icons/md";
 /**react-router */
 import { VscRunAll } from "react-icons/vsc";
 import { GiMaterialsScience } from "react-icons/gi";
-import AuthBtn from "./AuthBtn";
+import AuthBtn from "../Auth/AuthBtn";
 
 import Link from "next/link";
-import useWindowSize from "../hooks/useWindowSize";
-import { close } from "../store/slices/sideNav";
+import useWindowSize from "../../hooks/useWindowSize";
+import { close } from "../../store/slices/sideNav";
 interface IProps {
 	style: { marginLeft: string };
 }

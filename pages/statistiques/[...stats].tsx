@@ -107,4 +107,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		fallback: false,
 	};
 };
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+	console.log(params);
+	return {
+		props: { params },
+	};
+};
+
 export default Statistiques;

@@ -5,7 +5,7 @@ import { login } from "../store/slices/auth";
 import google from "/public/google.svg";
 import github from "/public/github.svg";
 import scss from "/scss/login.module.scss";
-import AuthProviderBtn from "../components/AuthProviderBtn";
+import AuthProviderBtn from "../components/Auth/AuthProviderBtn";
 import { selectAuth } from "../store/selectors";
 import { useRouter } from "next/router";
 import Head from "next/head";

@@ -7,7 +7,7 @@ import { logout, setCurrentUser } from "../store/slices/auth";
 import jwt_decode from "jwt-decode";
 import { getJwtToken } from "../lib/auth";
 import { useRouter } from "next/router";
-import PrivateRoute from "../components/PrivateRoute";
+import PrivateRoute from "../components/Auth/PrivateRoute";
 
 const Dashboard: NextPage = () => {
 	const dispatch = useDispatch();

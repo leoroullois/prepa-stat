@@ -1,11 +1,12 @@
 import { useRouter } from "next/router";
-import { FC, ReactComponentElement, useEffect } from "react";
-import { connect, useSelector } from "react-redux";
-import { selectAuth } from "../store/selectors";
-import { RootState } from "../store/store";
+import { FC, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectAuth } from "../../store/selectors";
+
 interface IProps {
 	children: JSX.Element;
 }
+
 const PrivateRoute: FC<IProps> = ({ children }) => {
 	const router = useRouter();
 	const auth = useSelector(selectAuth);

@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { selectNavBar, selectSideNav } from "../store/selectors";
 import { darkTheme, lightTheme } from "../styles/theme/theme";
 import { Footer } from "./Footer";
-import NavBar from "./NavBar";
-import SideNav from "./SideNav";
+import NavBar from "./Nav/NavBar";
+import SideNav from "./Nav/SideNav";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../styles/theme/global";
 

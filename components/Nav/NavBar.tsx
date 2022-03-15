@@ -6,17 +6,17 @@ import { FaCaretDown } from "react-icons/fa";
 import Link from "next/link";
 /**Components */
 import Dropdown from "./Dropdown";
-import AuthBtn from "./AuthBtn";
+import AuthBtn from "../Auth/AuthBtn";
 /**react-icon */
 import { IoMenu, IoPersonCircleSharp } from "react-icons/io5";
 /**scss */
-import scss from "../scss/navbar.module.scss";
+import scss from "./navbar.module.scss";
 /** Redux */
 import { useDispatch, useSelector } from "react-redux";
-import { selectAuth, selectNavBar } from "../store/selectors";
-import { toggleDarkMode, toggleDropdownStats } from "../store/slices/navBar";
-import useWindowSize from "../hooks/useWindowSize";
-import { open } from "../store/slices/sideNav";
+import { selectAuth, selectNavBar } from "../../store/selectors";
+import { toggleDarkMode, toggleDropdownStats } from "../../store/slices/navBar";
+import useWindowSize from "../../hooks/useWindowSize";
+import { open } from "../../store/slices/sideNav";
 
 const NavBar: FC = () => {
 	const dispatch = useDispatch();

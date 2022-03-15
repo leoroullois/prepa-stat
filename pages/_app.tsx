@@ -11,6 +11,7 @@ import { logout, setCurrentUser } from "../store/slices/auth";
 import jwt from "jsonwebtoken";
 import { ChakraProvider } from "@chakra-ui/react";
 import "../styles/globals.css";
+
 function MyApp({ Component, pageProps }: AppProps) {
 	const { query } = useRouter();
 	useEffect(() => {
@@ -19,7 +20,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 		if (query.token) {
 			const token = "Bearer " + query.token;
 
-			console.log("token", query.token);
 			const decoded: any = jwt.verify(
 				query.token as string,
 				process.env.NEXT_PUBLIC_JWT_KEY as string
@@ -41,7 +41,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 				console.log("useEffect");
 				localStorage.removeItem("jwtToken");
 				store.dispatch(logout());
-				// router.push("/se-connecter");
 			} else {
 				// ? Si le token est valide, on mets enb place la session de l'utilisateur
 				const user = {
@@ -54,7 +53,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 		} else {
 			if (!store.getState().auth.isAuthenticated) {
 				store.dispatch(logout());
-				// router.push("/se-connecter");
 			}
 		}
 	}, [query.token]);

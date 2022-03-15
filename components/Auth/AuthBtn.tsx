@@ -1,9 +1,9 @@
 import { FC, MouseEventHandler } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { selectAuth } from "../store/selectors";
-import { logout } from "../store/slices/auth";
-import scss from "../scss/navbar.module.scss";
+import { selectAuth } from "../../store/selectors";
+import { logout } from "../../store/slices/auth";
+import scss from "../Nav/navbar.module.scss";
 
 const AuthBtn: FC = () => {
 	const auth = useSelector(selectAuth);

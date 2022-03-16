@@ -1,11 +1,10 @@
-import { FC, MouseEventHandler, useEffect, useMemo, useState } from "react";
-/**CSS */
-import scss from "../../scss/stats.module.scss";
-import slugify from "slugify";
-
-/**Components */
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { FC, useState } from "react";
+import slugify from "slugify";
+import scss from "@scss/stats.module.scss";
+
 import {
 	Heading,
 	Tab,
@@ -14,9 +13,7 @@ import {
 	TabPanels,
 	Tabs,
 } from "@chakra-ui/react";
-import Table from "../../components/Table";
-import { useRouter } from "next/router";
-import { ISchool } from "../../models/School";
+import Table from "@components/Table";
 
 const Statistiques: FC = () => {
 	const router = useRouter();

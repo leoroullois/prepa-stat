@@ -1,13 +1,11 @@
-import { GetStaticProps, NextPage } from "next";
+import { NextPage } from "next";
 import Head from "next/head";
-import { MouseEventHandler, useEffect, useState } from "react";
+import { MouseEventHandler } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAuth } from "../store/selectors";
-import { logout, setCurrentUser } from "../store/slices/auth";
-import jwt_decode from "jwt-decode";
-import { getJwtToken } from "../lib/auth";
-import { useRouter } from "next/router";
-import PrivateRoute from "../components/Auth/PrivateRoute";
+import { selectAuth } from "@store/selectors";
+import { logout } from "@store/slices/auth";
+import PrivateRoute from "@components/Auth/PrivateRoute";
+import scss from "@scss/dashboard.module.scss";
 
 const Dashboard: NextPage = () => {
 	const dispatch = useDispatch();
@@ -22,7 +20,7 @@ const Dashboard: NextPage = () => {
 				<title>Dashboard - PrépaStat</title>
 			</Head>
 			<PrivateRoute>
-				<main>
+				<main className={scss["dashboard"]}>
 					<h1>Dashboard</h1>
 					<h2>Welcome back {JSON.stringify(auth.user)}</h2>
 					{/* <h3>Token {JSON.stringify(token)}</h3> */}

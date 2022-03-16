@@ -1,4 +1,4 @@
-import { RootState } from "./store";
+import { RootState } from "@store/store";
 
 export const selectNavBar = (state: RootState) => state.navBar;
 export const selectSideNav = (state: RootState) => state.sideNav;

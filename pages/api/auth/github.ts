@@ -1,8 +1,8 @@
 import nc from "next-connect";
-import { connectDB } from "../../../lib/db";
 import { ObjectId } from "mongodb";
 import passport from "passport";
-import { User } from "../../../models/User";
+import { connectDB } from "@lib/db";
+import { User } from "@models/User";
 const GitHubStrategy = require("passport-github").Strategy;
 // Saves user's ID to a session
 passport.serializeUser((user, done) => {

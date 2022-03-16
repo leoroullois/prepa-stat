@@ -2,9 +2,9 @@
 import { ObjectId } from "mongodb";
 import nc from "next-connect";
 import passport from "passport";
-import { connectDB } from "../../../lib/db";
+import { connectDB } from "@lib/db";
 // pages/api/spotify.js
-import { User } from "../../../models/User";
+import { User } from "@models/User";
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 // Saves user's ID to a session
 passport.serializeUser((user, done) => {

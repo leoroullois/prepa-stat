@@ -1,12 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { connectDB } from "../../../lib/db";
+import isEmpty from "is-empty";
 import {
-	getAllCoefs,
 	getCoefsByConcours,
 	getCoefsByConcoursAndFiliere,
-} from "../../../lib/coefs.middleware";
-import isEmpty from "is-empty";
-import { Coef } from "../../../models/Coef";
+} from "@lib/coefs.middleware";
+import { connectDB } from "@lib/db";
+import { Coef } from "@models/Coef";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	switch (req.method) {

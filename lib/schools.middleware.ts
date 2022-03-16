@@ -1,4 +1,4 @@
-import { School } from "../models/School";
+import { School } from "@models/School";
 import { NextApiRequest, NextApiResponse } from "next";
 const filieres = ["mp", "pc", "psi", "pt"];
 const concours = [

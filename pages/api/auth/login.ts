@@ -1,12 +1,10 @@
 // import { validateLoginInput } from "./../../../lib/auth";
 import { NextApiRequest, NextApiResponse } from "next";
-import { connectDB } from "../../../lib/db";
-// import { verifyPassword } from "../../../lib/auth";
 import jwt from "jsonwebtoken";
-import { User } from "../../../models/User";
-import mongoose from "mongoose";
-import { validateLoginInput, verifyPassword } from "../../../lib/auth";
 import isEmpty from "is-empty";
+import { User } from "@models/User";
+import { validateLoginInput, verifyPassword } from "@lib/auth";
+import { connectDB } from "@lib/db";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	console.log(`${req.method} - ${req.url}`);

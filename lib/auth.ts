@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react";
-// import { hash, compare } from "bcryptjs";
 import validator from "validator";
 import isEmpty from "is-empty";
 
 import pbkdf2 from "pbkdf2";
 import { lib } from "crypto-js";
 
-// import jwt_decode from "jwt-decode";
-import { login, logout, setCurrentUser } from "../store/slices/auth";
-import Router from "next/router";
 import { compare, hash } from "bcrypt";
-import { useDispatch } from "react-redux";
 
 export async function hashPassword(password: string) {
 	const hashedPassword = await hash(password, 12);

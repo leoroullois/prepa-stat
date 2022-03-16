@@ -1,12 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextComponentType } from "next";
-import { useRouter } from "next/router";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 // CSS
-import scss from "../../scss/leaderboard.module.scss";
-// import { printStat } from "../store/actions/statsAction";
-/**Components */
-// import { LeaderboardSection } from "../components/LeaderboardSection";
-// import { SubNav }
+import scss from "@scss/leaderboard.module.scss";
 
 export interface IProps {
 	params: {

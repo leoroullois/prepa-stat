@@ -1,13 +1,7 @@
-import React, { MouseEventHandler, useEffect, useState } from "react";
+import { MouseEventHandler, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import {
-	Heading,
-	Skeleton,
-	Tab,
 	Table as ChakraTable,
-	TabList,
-	TabPanel,
-	TabPanels,
-	Tabs,
 	Tbody,
 	Td,
 	Tfoot,
@@ -15,8 +9,7 @@ import {
 	Thead,
 	Tr,
 } from "@chakra-ui/react";
-import { ISchool } from "../models/School";
-import { useRouter } from "next/router";
+import { ISchool } from "@models/School";
 const Table = () => {
 	const [schools, setSchools] = useState<ISchool[]>();
 

@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import { NextApiRequest, NextApiResponse } from "next";
-import { hashPassword, validateRegisterInput } from "../../../lib/auth";
-import { connectDB } from "../../../lib/db";
-import { User } from "../../../models/User";
+import { hashPassword, validateRegisterInput } from "@lib/auth";
+import { connectDB } from "@lib/db";
+import { User } from "@models/User";
 import isEmpty from "is-empty";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {

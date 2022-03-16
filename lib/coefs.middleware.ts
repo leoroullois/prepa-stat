@@ -1,5 +1,4 @@
-import { ObjectId } from "mongoose";
-import { Coef } from "../models/Coef";
+import { Coef } from "@models/Coef";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const allConcours = ["x-ens", "mines-pont", "centrale", "ccinp", "e3a"];

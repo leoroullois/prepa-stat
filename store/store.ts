@@ -2,11 +2,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
 // ! Reducers
-import navBar from "./slices/navBar";
-import sideNav from "./slices/sideNav";
-import multiForm from "./slices/multiform";
-import auth from "./slices/auth";
-import coefs from "./slices/coefs";
+import navBar from "@store/slices/navBar";
+import sideNav from "@store/slices/sideNav";
+import multiForm from "@store/slices/multiform";
+import auth from "@store/slices/auth";
+import coefs from "@store/slices/coefs";
 
 const middleware = [thunk];
 

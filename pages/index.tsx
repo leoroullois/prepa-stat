@@ -3,8 +3,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Landing from "../components/Landing/Landing";
-import { selectAuth } from "../store/selectors";
+import Landing from "@components/Landing/Landing";
+import { selectAuth } from "@store/selectors";
 
 const Home: NextPage = () => {
 	const auth = useSelector(selectAuth);

@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import slugify from "slugify";
 import scss from "@scss/stats.module.scss";
 
@@ -14,11 +14,19 @@ import {
 	Tabs,
 } from "@chakra-ui/react";
 import Table from "@components/Table";
+import { useDispatch } from "react-redux";
+import { setSchools } from "@store/slices/schools";
+import { matchConcours } from "@lib/statistiques";
+import { ISchool } from "@models/School";
+interface IProps {
+	schools: ISchool[];
+}
 
-const Statistiques: FC = () => {
+const Statistiques: FC<IProps> = ({ schools }) => {
+	const dispatch = useDispatch();
 	const router = useRouter();
 	const params = router.query.stats as string[];
-	const { 0: filiere, 1: section } = params;
+	const { 0: filiere, 1: concours } = params;
 
 	const allTabs = ["Générale", "X", "ENS", "Centrale", "Mines", "CCINP", "E3A"];
 	const paths = router.query.stats as string[];
@@ -26,6 +34,17 @@ const Statistiques: FC = () => {
 	const [tabIndex, setTabIndex] = useState(
 		allTabs.map((elt) => slugify(elt).toLowerCase()).indexOf(paths[1])
 	);
+
+	useEffect(() => {
+		// dispatch(setSchools([]));
+		// fetch(`/api/schools/${filiere}/${matchConcours(concours)[0]}`)
+		// 	.then((res) => res.json())
+		// 	.then((data) => {
+		// 		dispatch(setSchools(data));
+		// 		console.log("updated schools");
+		// 	});
+		dispatch(setSchools(schools));
+	}, [filiere, concours, dispatch,schools]);
 
 	const handleTabsChange = (index: number) => {
 		const slugifiedTabs = allTabs.map((tab) => slugify(tab).toLowerCase());
@@ -61,10 +80,7 @@ const Statistiques: FC = () => {
 					<TabPanels>
 						{allTabs.map((tab, i) => (
 							<TabPanel key={i}>
-								<Heading as='h2' size='md' textAlign='center' marginY={5}>
-									{tab}
-								</Heading>
-								<Heading as='h3' size='sm'>
+								<Heading as='h2' size='md'>
 									Statistiques de base.
 								</Heading>
 								<Table />
@@ -105,8 +121,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+	const schools = await (
+		await fetch(process.env.HOST + "/api/schools/2021")
+	).json();
 	return {
-		props: { params },
+		props: { params, schools },
 	};
 };
 

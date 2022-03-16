@@ -20,7 +20,7 @@ import scss from "./schoolcard.module.scss";
 import { ISchool } from "@models/School";
 import { FC, useEffect } from "react";
 import { getConcours } from "@lib/statistiques";
-
+import classnames from "classnames";
 interface IProps {
 	school: ISchool | undefined;
 	isOpen: boolean;
@@ -76,38 +76,38 @@ const SchoolCardContent: FC<ISchoolCardProps> = ({ data, maxPlace }) => {
 				<div className={scss["integres"]}>
 					<h3>Intégrés {data.annee}</h3>
 					<div className={scss["bar"]}></div>
-					<div className={scss["card-icon equal-icon"]}>
+					<div className={classnames(scss["card-icon"])}>
 						<p>
 							Nombre de places: <span>{data.places}</span>
 						</p>
-						<IoCaretDown className={scss["card-icon up-icon"]} />
+						<IoCaretDown className={classnames(scss["down-icon"])} />
 					</div>
-					<div className={scss["card-icon equal-icon"]}>
+					<div className={classnames(scss["card-icon"])}>
 						<p>
 							Rang médian :{" "}
 							<span>
 								<span>{data.integres_rg_median}</span>
 							</span>
 						</p>
-						<IoCaretUpOutline className={scss["card-icon up-icon"]} />
+						<IoCaretUpOutline className={classnames(scss["up-icon"])} />
 					</div>
-					<div className={scss["card-icon equal-icon"]}>
+					<div className={classnames(scss["card-icon"])}>
 						<p>
 							Rang moyen: <span>{data.integres_rg_moyen}</span>
 						</p>
-						<GoDash className={scss["card-icon equal-icon"]} />
+						<GoDash className={classnames(scss["equal-icon"])} />
 					</div>
-					<div className={scss["card-icon equal-icon"]}>
+					<div className={classnames(scss["card-icon"])}>
 						<p>
 							% de 5/2 : <span>{data.integres_cinq_demi}%</span>
 						</p>
-						<GoDash className={scss["card-icon equal-icon"]} />
+						<GoDash className={classnames(scss["equal-icon"])} />
 					</div>
-					<div className={scss["integres-item"]}>
+					<div className={classnames(scss["card-icon"])}>
 						<p>
 							% de fille : <span>{data.integres_filles}%</span>
 						</p>
-						<GoDash className={scss["card-icon equal-icon"]} />
+						<GoDash className={classnames(scss["equal-icon"])} />
 					</div>
 				</div>
 				<div className={scss["other-container"]}>
@@ -117,7 +117,12 @@ const SchoolCardContent: FC<ISchoolCardProps> = ({ data, maxPlace }) => {
 						<p>SubNav here</p>
 					</div>
 					<div className={scss["other-content"]}>
-						<div className={scss["informations-container active"]}>
+						<div
+							className={classnames(
+								scss["informations-container"],
+								scss["active"]
+							)}
+						>
 							<p>
 								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint
 								qui ex molestias repellendus, quisquam et labore explicabo

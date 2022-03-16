@@ -16,7 +16,6 @@ import {
 import Table from "@components/Table";
 import { useDispatch } from "react-redux";
 import { setSchools } from "@store/slices/schools";
-import { matchConcours } from "@lib/statistiques";
 import { ISchool } from "@models/School";
 interface IProps {
 	schools: ISchool[];
@@ -36,15 +35,8 @@ const Statistiques: FC<IProps> = ({ schools }) => {
 	);
 
 	useEffect(() => {
-		// dispatch(setSchools([]));
-		// fetch(`/api/schools/${filiere}/${matchConcours(concours)[0]}`)
-		// 	.then((res) => res.json())
-		// 	.then((data) => {
-		// 		dispatch(setSchools(data));
-		// 		console.log("updated schools");
-		// 	});
 		dispatch(setSchools(schools));
-	}, [filiere, concours, dispatch,schools]);
+	}, [filiere, concours, dispatch, schools]);
 
 	const handleTabsChange = (index: number) => {
 		const slugifiedTabs = allTabs.map((tab) => slugify(tab).toLowerCase());
@@ -121,8 +113,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+	console.log("params", params?.stats);
+	const filiere = params?.stats?.[0];
+	const concours = params?.stats?.[1];
 	const schools = await (
-		await fetch(process.env.HOST + "/api/schools/2021")
+		await fetch(process.env.HOST + "/api/schools/2021/" + filiere)
 	).json();
 	return {
 		props: { params, schools },

@@ -42,8 +42,8 @@ const Table = () => {
 		);
 	};
 	useEffect(() => {
-		console.log("param ",concours);
-	},[concours])
+		console.log("param ", concours);
+	}, [concours]);
 	const addEmptyProperties = (school: any): ISchool => {
 		let mySchool: any = school;
 		const allKeys = [
@@ -82,7 +82,13 @@ const Table = () => {
 					.filter(
 						(school) =>
 							school.ecole !== currConcours || school.ecole.includes("concours")
+					)
+					.filter(
+						(school) =>
+							school.annee === 2021 &&
+							matchConcours(concours).includes(school.concours)
 					);
+				// currSchools.length=30;
 				return (
 					<section key={uuidv4()}>
 						<Heading as='h3'>{getConcours(currConcours)}</Heading>
@@ -97,33 +103,31 @@ const Table = () => {
 								</Tr>
 							</Thead>
 							<Tbody>
-								{schools
-									?.filter((school) => school.annee === 2021 && matchConcours(concours).includes(school.concours))
-									.map((school, i) => {
-										return (
-											<Tr
-												key={i}
-												onClick={onOpen}
-												onMouseEnter={handleMouseEnter}
-												className={scss["row"]}
-											>
-												{Object.entries(addEmptyProperties(school))
-													.filter((elt) => {
-														const [key, value] = elt;
-														return (
-															key == "ecole" ||
-															key == "inscrits_nb" ||
-															key == "admissibles_nb" ||
-															key === "integres_nb" ||
-															key === "places"
-														);
-													})
-													.map((elt, i) => (
-														<Td key={i}>{elt[1]}</Td>
-													))}
-											</Tr>
-										);
-									})}
+								{currSchools.map((school, i) => {
+									return (
+										<Tr
+											key={i}
+											onClick={onOpen}
+											onMouseEnter={handleMouseEnter}
+											className={scss["row"]}
+										>
+											{Object.entries(addEmptyProperties(school))
+												.filter((elt) => {
+													const [key, value] = elt;
+													return (
+														key == "ecole" ||
+														key == "inscrits_nb" ||
+														key == "admissibles_nb" ||
+														key === "integres_nb" ||
+														key === "places"
+													);
+												})
+												.map((elt, i) => (
+													<Td key={i}>{elt[1]}</Td>
+												))}
+										</Tr>
+									);
+								})}
 							</Tbody>
 							<Tfoot>
 								<Tr>

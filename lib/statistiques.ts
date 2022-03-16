@@ -20,7 +20,7 @@ export const getConcours = (concours: string | undefined): string => {
 		case "concours_polytech_inter_filière":
 			return "Concours Polytech Inter Filière";
 		case "puissance_alpha":
-			"Puissance alpha";
+			return "Puissance alpha";
 		case "avenir_prépas":
 			return "Avenir prépas";
 		case "autres_écoles_e3a":

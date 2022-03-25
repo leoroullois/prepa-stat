@@ -21,9 +21,10 @@ import SchoolCard from "@components/SchoolCard/SchoolCard";
 import scss from "./table.module.scss";
 import { getConcours } from "@lib/statistiques";
 import { useSelector } from "react-redux";
-import { selectSchools } from "@store/selectors";
+import { selectNavBar, selectSchools } from "@store/selectors";
 
 import { matchConcours } from "@lib/statistiques";
+import { IoCaretDown, IoCaretUp, IoRemove } from "react-icons/io5";
 enum sortTypes {
    ASC = "asc",
    DESC = "desc",
@@ -31,6 +32,8 @@ enum sortTypes {
 }
 const Table = () => {
    const { isOpen, onOpen, onClose } = useDisclosure();
+
+   const { darkMode } = useSelector(selectNavBar);
 
    const router = useRouter();
    const params = router.query.stats as string[];
@@ -158,19 +161,147 @@ const Table = () => {
 
                   <ChakraTable size='md' marginBottom={10}>
                      <Thead>
-                        <Tr>
-                           <Th onClick={() => onSortChange("ecole")}>école</Th>
-                           <Th onClick={() => onSortChange("inscrits_nb")}>
-                              Inscrits
+                        <Tr className={scss["th-row"]}>
+                           <Th>
+                              <div
+                                 onClick={() => onSortChange("ecole")}
+                                 className={scss["th-row_cell"]}
+                              >
+                                 <Text color={`gray.${darkMode ? 400 : 700}`}>
+                                    écoles
+                                 </Text>
+
+                                 {(currentSort === sortTypes.DEF ||
+                                    sortParam !== "ecole") && (
+                                    <IoRemove
+                                       className={scss["th-row_cell__equal"]}
+                                    />
+                                 )}
+                                 {currentSort === sortTypes.ASC &&
+                                    sortParam === "ecole" && (
+                                       <IoCaretUp
+                                          className={scss["th-row_cell__up"]}
+                                       />
+                                    )}
+                                 {currentSort === sortTypes.DESC &&
+                                    sortParam === "ecole" && (
+                                       <IoCaretDown
+                                          className={scss["th-row_cell__down"]}
+                                       />
+                                    )}
+                              </div>
                            </Th>
-                           <Th onClick={() => onSortChange("admissibles_nb")}>
-                              Admissibles
+                           <Th>
+                              <p
+                                 onClick={() => onSortChange("inscrits_nb")}
+                                 className={scss["th-row_cell"]}
+                              >
+                                 <Text color={`gray.${darkMode ? 400 : 700}`}>
+                                    Inscrits
+                                 </Text>
+                                 {(currentSort === sortTypes.DEF ||
+                                    sortParam !== "inscrits_nb") && (
+                                    <IoRemove
+                                       className={scss["th-row_cell__equal"]}
+                                    />
+                                 )}
+                                 {currentSort === sortTypes.ASC &&
+                                    sortParam === "inscrits_nb" && (
+                                       <IoCaretUp
+                                          className={scss["th-row_cell__up"]}
+                                       />
+                                    )}
+                                 {currentSort === sortTypes.DESC &&
+                                    sortParam === "inscrits_nb" && (
+                                       <IoCaretDown
+                                          className={scss["th-row_cell__down"]}
+                                       />
+                                    )}
+                              </p>
                            </Th>
-                           <Th onClick={() => onSortChange("integres_nb")}>
-                              Intégrés
+                           <Th>
+                              <div
+                                 onClick={() => onSortChange("admissibles_nb")}
+                                 className={scss["th-row_cell"]}
+                              >
+                                 <Text color={`gray.${darkMode ? 400 : 700}`}>
+                                    Admissibles
+                                 </Text>
+                                 {(currentSort === sortTypes.DEF ||
+                                    sortParam !== "admissibles_nb") && (
+                                    <IoRemove
+                                       className={scss["th-row_cell__equal"]}
+                                    />
+                                 )}
+                                 {currentSort === sortTypes.ASC &&
+                                    sortParam === "admissibles_nb" && (
+                                       <IoCaretUp
+                                          className={scss["th-row_cell__up"]}
+                                       />
+                                    )}
+                                 {currentSort === sortTypes.DESC &&
+                                    sortParam === "admissibles_nb" && (
+                                       <IoCaretDown
+                                          className={scss["th-row_cell__down"]}
+                                       />
+                                    )}
+                              </div>
                            </Th>
-                           <Th onClick={() => onSortChange("places")}>
-                              Places
+                           <Th>
+                              <div
+                                 onClick={() => onSortChange("integres_nb")}
+                                 className={scss["th-row_cell"]}
+                              >
+                                 <Text color={`gray.${darkMode ? 400 : 700}`}>
+                                    Integrés
+                                 </Text>
+                                 {(currentSort === sortTypes.DEF ||
+                                    sortParam !== "integres_nb") && (
+                                    <IoRemove
+                                       className={scss["th-row_cell__equal"]}
+                                    />
+                                 )}
+                                 {currentSort === sortTypes.ASC &&
+                                    sortParam === "integres_nb" && (
+                                       <IoCaretUp
+                                          className={scss["th-row_cell__up"]}
+                                       />
+                                    )}
+                                 {currentSort === sortTypes.DESC &&
+                                    sortParam === "integres_nb" && (
+                                       <IoCaretDown
+                                          className={scss["th-row_cell__down"]}
+                                       />
+                                    )}
+                              </div>
+                           </Th>
+                           <Th>
+                              <div
+                                 onClick={() => onSortChange("places")}
+                                 className={scss["th-row_cell"]}
+                              >
+                                 <Text color={`gray.${darkMode ? 400 : 700}`}>
+                                    Places
+                                 </Text>
+                                 {(currentSort === sortTypes.DEF ||
+                                    sortParam !== "places") && (
+                                    <IoRemove
+                                       className={scss["th-row_cell__equal"]}
+                                    />
+                                 )}
+                                 {currentSort === sortTypes.ASC &&
+                                    sortParam === "places" && (
+                                       <IoCaretUp
+                                          className={scss["th-row_cell__up"]}
+                                       />
+                                    )}
+                                 {currentSort === sortTypes.DESC &&
+                                    sortParam === "places" && (
+                                       <IoCaretDown
+                                          className={scss["th-row_cell__down"]}
+                                       />
+                                    )}
+                              </div>
                            </Th>
                         </Tr>
                      </Thead>

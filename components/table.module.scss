@@ -1,6 +1,34 @@
+@import "@scss/imports/extends";
+@import "@scss/imports/mixins";
+@import "@scss/imports/variables";
+
 .row {
-    cursor:pointer;
-	&:hover {
-		background-color: rgba(127, 127, 127, 0.1);
-	}
+   cursor: pointer;
+   &:hover {
+      background-color: rgba(127, 127, 127, 0.1);
+   }
+}
+// .th-row {
+// 	display:flex;
+// }
+.th-row_cell {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   color: inherit;
+   .th-row_cell__equal {
+      cursor: pointer;
+      color: rgba(127, 127, 127, 0.5);
+      font-size: 2rem;
+   }
+   .th-row_cell__up {
+      cursor: pointer;
+      color: $main-green;
+      font-size: 1rem;
+   }
+   .th-row_cell__down {
+      cursor: pointer;
+      color: $main-red;
+      font-size: 1rem;
+   }
 }

@@ -17,6 +17,7 @@ import Table from "@components/Table";
 import { useDispatch } from "react-redux";
 import { setSchools } from "@store/slices/schools";
 import { ISchool } from "@models/School";
+
 interface IProps {
 	schools: ISchool[];
 }

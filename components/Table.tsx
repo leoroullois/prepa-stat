@@ -77,9 +77,43 @@ const Table = () => {
    const sortCallbacks = (param: keyof ISchool, currentSort: sortTypes) => {
       switch (currentSort) {
          case sortTypes.ASC:
-            return (a: ISchool, b: ISchool) => b[param] - a[param];
+            return (a: ISchool, b: ISchool) => {
+               let y = b[param];
+               let x = a[param];
+               if (x == "-") {
+                  x = 0;
+               }
+               if (y == "-") {
+                  y = 0;
+               }
+               if (typeof x === "string" && typeof y === "string") {
+                  if (x > y) {
+                     return 1;
+                  } else {
+                     return -1;
+                  }
+               }
+               return y - x;
+            };
          case sortTypes.DESC:
-            return (a: ISchool, b: ISchool) => a[param] - b[param];
+            return (a: ISchool, b: ISchool) => {
+               let x = a[param];
+               let y = b[param];
+               if (x == "-") {
+                  x = 0;
+               }
+               if (y == "-") {
+                  y = 0;
+               }
+               if (typeof x === "string" && typeof y === "string") {
+                  if (x > y) {
+                     return -1;
+                  } else {
+                     return 1;
+                  }
+               }
+               return x - y;
+            };
          default:
             return (a: ISchool, b: ISchool) => a[param];
       }

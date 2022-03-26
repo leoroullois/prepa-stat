@@ -22,7 +22,7 @@ export const LandingSection: FC<IProps> = ({
 	direction,
 }) => {
 	return (
-		<Fade triggerOnce direction={direction}>
+		<Fade triggerOnce direction={direction} className={scss.alternate}>
 			<section id={name.toLocaleLowerCase()} className={scss.landingSection}>
 				<div className={scss.wrapper}>
 					<div className={scss.sectionTitle}>

@@ -13,22 +13,23 @@
 // }
 .th-row_cell {
    display: flex;
-   justify-content: space-around;
+   justify-content: space-between;
    align-items: center;
    color: inherit;
+   cursor: pointer;
    .th-row_cell__equal {
-      cursor: pointer;
       color: rgba(127, 127, 127, 0.5);
-      font-size: 2rem;
+      font-size: 1rem;
+      margin-left: 10px;
    }
    .th-row_cell__up {
-      cursor: pointer;
       color: $main-green;
       font-size: 1rem;
+      margin-left: 10px;
    }
    .th-row_cell__down {
-      cursor: pointer;
       color: $main-red;
       font-size: 1rem;
+      margin-left: 10px;
    }
 }

@@ -27,6 +27,9 @@ import { login } from "@store/slices/auth";
 import { selectAuth } from "@store/selectors";
 import Email from "@components/Auth/email";
 import { close } from "@store/slices/sideNav";
+import AuthProviderBtn from "@components/Auth/AuthProviderBtn";
+import google from "/public/google.svg";
+import github from "/public/github.svg";
 
 const Login: NextPage = () => {
    const router = useRouter();
@@ -104,9 +107,11 @@ const Login: NextPage = () => {
                      >
                         Se connecter
                      </Button>
+                     <AuthProviderBtn svg={google} provider='Google' />
+                     <AuthProviderBtn svg={github} provider='Github' />
                      <span className={scss.link}>
                         <p>Ou&nbsp;</p>
-                        <NextLink href='/register' passHref>
+                        <NextLink href='/s-enregistrer' passHref>
                            <Link>créer un compte</Link>
                         </NextLink>
                      </span>

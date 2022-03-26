@@ -5,13 +5,6 @@
 }
 
 
-@mixin bar($width) {
-	display: flex;
-	margin: 10px auto;
-	height: 1px;
-	width: $width;
-	background-color: $main-gray;
-}
 @mixin flex-center() {
 	display: flex;
 	justify-content: center;

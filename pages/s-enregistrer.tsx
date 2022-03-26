@@ -134,7 +134,7 @@ const Register: NextPage = () => {
                      </Button>
                      <span className={scss.link}>
                         <p>Ou&nbsp;</p>
-                        <NextLink href='/login' passHref>
+                        <NextLink href='/se-connecter' passHref>
                            <Link>se connecter</Link>
                         </NextLink>
                      </span>

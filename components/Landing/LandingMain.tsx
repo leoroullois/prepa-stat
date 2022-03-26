@@ -6,6 +6,7 @@ import { Fade } from "react-awesome-reveal";
 // import student from "../../public/student2-removebg-rogned.png";
 // import student from "@illustrations/exams-pana.svg";
 import student from "@illustrations/teacher-student-pana.svg";
+import pattern from "@patterns/landing-main.svg";
 /**CSS */
 import scss from "./landing.module.scss";
 const LandingMain = () => {
@@ -41,6 +42,8 @@ const LandingMain = () => {
             <div className={scss.landingMain_right}>
                <Image src={student} alt='Happy student' />
             </div>
+            {/* {JSON.stringify(pattern)} */}
+            <div className={scss.pattern}></div>
          </section>
       </Fade>
    );

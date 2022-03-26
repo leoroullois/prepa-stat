@@ -1,162 +1,152 @@
-import { FormEventHandler, useState, useEffect, FC, ChangeEvent } from "react";
-import Link from "next/link";
-/**CSS */
-import scss from "../scss/register.module.scss";
-/**Redux */
-import { useDispatch, useSelector } from "react-redux";
-import { register } from "../store/slices/auth";
-import { selectAuth } from "../store/selectors";
-import { useRouter } from "next/router";
+// * Next
+import { NextPage } from "next";
 import Head from "next/head";
-import { Heading } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
+// * React
+import {
+   ChangeEventHandler,
+   FormEventHandler,
+   MouseEventHandler,
+   useEffect,
+   useState,
+} from "react";
+// * UI
+import scss from "@scss/register.module.scss";
+import { Fade } from "react-awesome-reveal";
+import {
+   Button,
+   Divider,
+   FormErrorMessage,
+   Heading,
+   Link,
+} from "@chakra-ui/react";
+import { IoArrowForwardSharp } from "react-icons/io5";
+// * Components
+import Email from "@components/Auth/email";
+import Password from "@components/Auth/password";
+import Username from "@components/Auth/username";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAuth } from "@store/selectors";
+import { register } from "@store/slices/auth";
 
-interface IProps {
-	auth: IAuth;
-	// errors: IErrors;
-	registerUser: any;
-}
-const Register: FC<IProps> = () => {
-	const auth = useSelector(selectAuth);
-	const router = useRouter();
+const Register: NextPage = () => {
+   const dispatch = useDispatch();
+   const router = useRouter();
+   const { isAuthenticated } = useSelector(selectAuth);
 
-	const dispatch = useDispatch();
+   const [clicked, setClicked] = useState(false);
+   const [serverError, setServerError] = useState<string>("");
 
-	const [state, setState] = useState<IRegisterForm>({
-		name: "",
-		email: "",
-		password1: "",
-		password2: "",
-	});
+   const [email, setEmail] = useState<string>("");
+   const handleEmail: ChangeEventHandler = (e) => {
+      const elt = e.target as HTMLInputElement;
+      setEmail(elt.value);
+   };
+   const [username, setUsername] = useState<string>("");
+   const handleUsername: ChangeEventHandler = (e) => {
+      const elt = e.target as HTMLInputElement;
+      setUsername(elt.value);
+   };
 
-	useEffect(() => {
-		if (auth.isAuthenticated) {
-			router.push("/");
-		}
-	}, [auth.isAuthenticated, router]);
+   const [password1, setPassword1] = useState<string>("");
+   const handlePassword1: ChangeEventHandler = (e) => {
+      const elt = e.target as HTMLInputElement;
+      setPassword1(elt.value);
+   };
+   const [password2, setPassword2] = useState<string>("");
+   const handlePassword2: ChangeEventHandler = (e) => {
+      const elt = e.target as HTMLInputElement;
+      setPassword2(elt.value);
+   };
 
-	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-		setState({ ...state, [e.target.name]: e.target.value });
-	};
-	const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-		e.preventDefault();
-	};
-	const handleClick = () => {
-		console.log("USER :", state);
-		dispatch(register(state));
-	};
-	return (
-		<>
-			<Head>
-				<title>S&apos;enregistrer - PrépaStat</title>
-			</Head>
-			<main className={scss["register"]}>
-				<Heading as='h1' size='lg'>
-					S&apos;enregistrer
-				</Heading>
-				<Heading as='h2' size='md'>
-					Bienvenue sur PrépaStat !
-				</Heading>
-				<form
-					action='/s-enregistrer'
-					method='post'
-					// id='register-form'
-					className={scss["register-form"]}
-					onSubmit={handleSubmit}
-				>
-					<label htmlFor='register-name' className={scss["name"]}>
-						Nom d&apos;utilisateur
-					</label>
-					<input
-						type='text'
-						name='name'
-						id='register-name'
-						// className={classnames("", {
-						// 	invalid: errors.name,
-						// })}
-						required
-						value={state.name}
-						onChange={handleChange}
-						placeholder="Entrez votre nom d'utilisateur"
-					/>
-					{/* <span className='red-text'>{errors.name}</span> */}
+   const handlePrevent: FormEventHandler = (e) => e.preventDefault();
 
-					<label
-						htmlFor='register-email'
-						className={scss["register-email-label"]}
-					>
-						Email
-					</label>
-					<input
-						type='email'
-						name='email'
-						id='register-email'
-						// className={classnames("", {
-						// invalid: errors.email,
-						// })}
-						placeholder='Entrez votre email'
-						required
-						value={state.email}
-						onChange={handleChange}
-					/>
-					{/* <span className='red-text'>{errors.email}</span> */}
-					<label
-						htmlFor='register-password'
-						className={scss["register-password-label"]}
-					>
-						Mot de passe
-					</label>
-					<input
-						type='password'
-						name='password1'
-						id='register-password'
-						// className={classnames("", {
-						// invalid: errors.password,
-						// })}
-						placeholder='Entrez votre mot de passe'
-						required
-						value={state.password1}
-						onChange={handleChange}
-					/>
-					{/* <span className='red-text'>{errors.password2}</span> */}
-					<label
-						htmlFor='register-password2'
-						className={scss["register-password2-label"]}
-					>
-						Ressaisissez votre mot de passe
-					</label>
-					<input
-						type='password'
-						name='password2'
-						id='register-password2'
-						// className={classnames("", {
-						// 	invalid: errors.password2,
-						// })}
-						placeholder='Entrez votre mot de passe'
-						required
-						value={state.password2}
-						onChange={handleChange}
-					/>
-					{/* <span className='red-text'>{errors.password2}</span> */}
-					<p id='register-password-information'>
-						Votre mot de passe doit contenir au moins 8 caractères.
-					</p>
-					<button
-						type='submit'
-						className={scss["register-submit"]}
-						onClick={handleClick}
-					>
-						Créer un compte
-					</button>
-				</form>
-				<div className={scss["yes-account"]}>
-					<p>Vous avez déjà un compte ?</p>
-					<Link href='/se-connecter'>
-						<a>Se connecter</a>
-					</Link>
-				</div>
-			</main>
-		</>
-	);
+   const handleSubmit: MouseEventHandler = async (e) => {
+      e.preventDefault();
+      const state = {
+         name: username,
+         email,
+         password1,
+         password2,
+      };
+      console.log("USER :", state);
+      dispatch(register(state));
+   };
+
+   useEffect(() => {
+      if (isAuthenticated) {
+         router.push("/dashboard");
+      }
+   }, [router, isAuthenticated]);
+
+   return (
+      <>
+         <Head>
+            <title>Créer un compte - PrépaStat</title>
+         </Head>
+         <main className={scss.register}>
+            <Fade>
+               <form
+                  action='/api/auth/register'
+                  method='POST'
+                  className={scss.form}
+                  onSubmit={handlePrevent}
+               >
+                  <Fade cascade duration={400}>
+                     <Heading as='h1' size='xl'>
+                        Bienvenue sur PrépaStat !
+                     </Heading>
+                     <Heading as='h2' size='lg'>
+                        Créez vous un compte
+                     </Heading>
+                     <Divider />
+                     {/* <div className={scss.bar}></div> */}
+                     <Email
+                        email={email}
+                        handleEmail={handleEmail}
+                        clicked={clicked}
+                     />
+                     <Username
+                        username={username}
+                        handleUsername={handleUsername}
+                        clicked={clicked}
+                     />
+                     <Password
+                        password={password1}
+                        handlePassword={handlePassword1}
+                        clicked={clicked}
+                     />
+                     <Password
+                        password={password2}
+                        handlePassword={handlePassword2}
+                        text='Réécrivrez votre mot de passe'
+                        clicked={clicked}
+                     />
+                     <Button
+                        className={scss.submit}
+                        width='100%'
+                        rightIcon={<IoArrowForwardSharp />}
+                        type='submit'
+                        onClick={handleSubmit}
+                     >
+                        S&apos;enregistrer
+                     </Button>
+                     <span className={scss.link}>
+                        <p>Ou&nbsp;</p>
+                        <NextLink href='/login' passHref>
+                           <Link>se connecter</Link>
+                        </NextLink>
+                     </span>
+                  </Fade>
+                  {serverError && (
+                     <span className={scss.serverError}>• {serverError}</span>
+                  )}
+               </form>
+            </Fade>
+         </main>
+      </>
+   );
 };
 
 export default Register;

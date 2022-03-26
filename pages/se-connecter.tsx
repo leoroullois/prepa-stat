@@ -1,116 +1,124 @@
-import { FormEventHandler, useState, useEffect } from "react";
-import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../store/slices/auth";
-import google from "/public/google.svg";
-import github from "/public/github.svg";
-import scss from "/scss/login.module.scss";
-import AuthProviderBtn from "../components/Auth/AuthProviderBtn";
-import { selectAuth } from "../store/selectors";
-import { useRouter } from "next/router";
+// * Next
+import { NextPage } from "next";
 import Head from "next/head";
-import { Heading } from "@chakra-ui/react";
+import NextLink from "next/link";
 
-export const fetchApiCall = (url: string, method: string, body = {}) =>
-	fetch(url, {
-		method,
-		body: JSON.stringify(body),
-	});
+// * React
+import {
+   ChangeEventHandler,
+   FormEventHandler,
+   MouseEventHandler,
+   useEffect,
+   useState,
+} from "react";
+// * UI
+import { Button, Divider, Heading } from "@chakra-ui/react";
+import { Link } from "@chakra-ui/react";
+import { IoArrowForwardSharp } from "react-icons/io5";
+import { Fade } from "react-awesome-reveal";
+// * components
+import Password from "@components/Auth/password";
+import Username from "@components/Auth/username";
+// * Styles
+import scss from "@scss/login.module.scss";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "@store/slices/auth";
+import { selectAuth } from "@store/selectors";
+import Email from "@components/Auth/email";
+import { close } from "@store/slices/sideNav";
 
-const Login: React.FC<any> = () => {
-	const auth = useSelector(selectAuth);
-	const router = useRouter();
-	const dispatch = useDispatch();
+const Login: NextPage = () => {
+   const router = useRouter();
+   const dispatch = useDispatch();
+   const { isAuthenticated } = useSelector(selectAuth);
 
-	const [state, setState] = useState<ILoginState>({
-		email: "",
-		password: "",
-		remember: false,
-	});
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setState({ ...state, [e.target.name]: e.target.value });
-	};
-	const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-		e.preventDefault();
-		dispatch(login(state));
-	};
-	useEffect(() => {
-		if (auth.isAuthenticated) {
-			router.push("/dashboard");
-		}
-	}, [auth.isAuthenticated, router]);
+   const [clicked, setClicked] = useState(false);
+   const [serverError, setServerError] = useState("");
+   const [password, setPassword] = useState<string>("");
+   const handlePassword: ChangeEventHandler = (e) => {
+      const elt = e.target as HTMLInputElement;
+      setPassword(elt.value);
+   };
+   const [email, setEmail] = useState<string>("");
+   const handleEmail: ChangeEventHandler = (e) => {
+      const elt = e.target as HTMLInputElement;
+      setEmail(elt.value);
+   };
 
-	return (
-		<>
-			<Head>
-				<title>Se connecter - PrépaStat</title>
-			</Head>
-			<main className={scss["login"]}>
-				<Heading as='h1' size='lg'>
-					Se connecter
-				</Heading>
-				<Heading as='h2' size='md'>
-					Content de vous revoir !
-				</Heading>
-				<form
-					action='/se-connecter'
-					method='post'
-					className={scss["login-form"]}
-					onSubmit={handleSubmit}
-				>
-					<label htmlFor='login-email' id='login-email-label'>
-						Email
-					</label>
-					<input
-						type='email'
-						name='email'
-						id='login-email'
-						placeholder='Entrez votre email'
-						required
-						value={state.email}
-						onChange={handleChange}
-					/>
-					<label htmlFor='login-password' id='login-password-label'>
-						Mot de passe
-					</label>
-					<input
-						type='password'
-						name='password'
-						id='login-password'
-						placeholder='Entrez votre mot de passe'
-						required
-						value={state.password}
-						onChange={handleChange}
-					/>
-					<div className={scss["login-remember-forgot-container"]}>
-						<div className={scss["login-remember-container"]}>
-							<input
-								type='checkbox'
-								name='remember'
-								id='login-remember'
-								onChange={handleChange}
-							/>
-							<label htmlFor='login-remember'>Souvenez-vous de moi.</label>
-						</div>
-						<Link href='/mot-de-passe-oublie'>
-							<a className={scss["login-forgot"]}>Mot de passe oublié</a>
-						</Link>
-					</div>
-					<button type='submit' className={scss["login-submit"]}>
-						Connexion
-					</button>
-					<AuthProviderBtn svg={google} provider='Google' />
-					<AuthProviderBtn svg={github} provider='Github' />
-				</form>
-				<div className={scss["no-account"]}>
-					<p>Pas de compte ?</p>
-					<Link href='/s-enregistrer'>
-						<a>S&apos;enregistrer</a>
-					</Link>
-				</div>
-			</main>
-		</>
-	);
+   const handlePrevent: FormEventHandler = (e) => e.preventDefault();
+   const handleSubmit: MouseEventHandler = async (e) => {
+      e.preventDefault();
+      dispatch(
+         login({
+            email,
+            password,
+            remember: false,
+         })
+      );
+   };
+   useEffect(() => {
+      if (isAuthenticated) {
+         router.push("/dashboard");
+      }
+   }, [router, isAuthenticated]);
+
+   const handleClick: MouseEventHandler = (e) => {
+      dispatch(close());
+   };
+   return (
+      <>
+         <Head>
+            <title>Se connecter - PrépaStat</title>
+         </Head>
+         <main className={scss.login}>
+            <Fade>
+               <form
+                  action='/api/auth/login'
+                  method='POST'
+                  className={scss.form}
+                  onSubmit={handlePrevent}
+               >
+                  <Fade cascade duration={500}>
+                     <Heading as='h1'>Content de vous revoir !</Heading>
+                     <Divider marginY={3} />
+                     {/* <div className={scss.bar}></div> */}
+
+                     <Email
+                        email={email}
+                        handleEmail={handleEmail}
+                        clicked={clicked}
+                     />
+                     <Password
+                        password={password}
+                        handlePassword={handlePassword}
+                        clicked={clicked}
+                     />
+
+                     <Button
+                        className={scss.submit}
+                        width='100%'
+                        rightIcon={<IoArrowForwardSharp />}
+                        type='submit'
+                        onClick={handleSubmit}
+                     >
+                        Se connecter
+                     </Button>
+                     <span className={scss.link}>
+                        <p>Ou&nbsp;</p>
+                        <NextLink href='/register' passHref>
+                           <Link>créer un compte</Link>
+                        </NextLink>
+                     </span>
+                  </Fade>
+                  {serverError && (
+                     <span className={scss.serverError}>• {serverError}</span>
+                  )}
+               </form>
+            </Fade>
+         </main>
+      </>
+   );
 };
 
 export default Login;

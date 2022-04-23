@@ -69,6 +69,7 @@ const Login: NextPage = () => {
    const handleClick: MouseEventHandler = (e) => {
       dispatch(close());
    };
+   
    return (
       <>
          <Head>

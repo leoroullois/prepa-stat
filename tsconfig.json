@@ -25,6 +25,7 @@
          "@scss/*": ["scss/*"],
          "@public/*": ["public/*"],
          "@illustrations/*": ["public/illustrations/*"],
+         "@patterns/*": ["public/patterns/*"],
          "@icons/*": ["public/icons/*"],
          "@models/*": ["models/*"],
          "@styles/*": ["styles/*"]

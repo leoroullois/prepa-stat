@@ -1,0 +1,37 @@
+@import "@scss/imports/extends";
+@import "@scss/imports/mixins";
+@import "@scss/imports/variables";
+
+html,
+body {
+   padding: 0;
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+.bg-black {
+   background-color: $main-black;
+}
+.bg-white {
+   background-color: $main-white;
+}
+.text-black {
+   color: $main-black;
+}
+.text-white {
+   color: $main-white;
+}
+
+a {
+   color: inherit;
+   text-decoration: none;
+}
+
+* {
+   box-sizing: border-box;
+}
+#__next {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+}

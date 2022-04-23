@@ -64,7 +64,7 @@ const Home: NextPage = () => {
             />
             <meta name='twitter:card' content='summary_large_image' /> */}
 
-			
+
 
             <meta name='og:locality' content='France' />
          </Head>

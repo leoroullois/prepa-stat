@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 import { Fade } from "react-awesome-reveal";
 /**Icons */
 import { FcOpenedFolder, FcGraduationCap, FcManager } from "react-icons/fc";
@@ -16,15 +16,18 @@ import teamCollaboration from "@icons/team-collaboration.svg";
 
 /**CSS */
 import scss from "./landing.module.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectNavBar } from "../../store/selectors";
 import { Heading } from "@chakra-ui/react";
+import { close } from "@store/slices/sideNav";
 
 const lightStyles = {
    backgroundColor: "#FFF",
    borderBottom: "2px solid rgba(0,0,0,0.192)",
 };
 const Landing: FC = () => {
+   const dispatch = useDispatch();
+
    const navBar = useSelector(selectNavBar);
    const lorem =
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint voluptate suscipit in, possimus dicta nemo quisquam cumque. Culpaminus, cum sequi vero quisquam, assumenda accusantium recusandae expedita fuga itaque porro!";
@@ -55,8 +58,11 @@ const Landing: FC = () => {
          ></rect>
       </svg>
    );
+   const handleClick: MouseEventHandler = (e) => {
+      dispatch(close());
+   };
    return (
-      <main className={scss.landing}>
+      <main className={scss.landing} onClick={handleClick}>
          <LandingMain />
          <div className={scss.barSection}></div>
          <section

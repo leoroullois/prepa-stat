@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import {
    Button,
    Heading,
+   IconButton,
    Skeleton,
    Stack,
    Table as ChakraTable,
@@ -24,7 +25,8 @@ import { useSelector } from "react-redux";
 import { selectNavBar, selectSchools } from "@store/selectors";
 
 import { matchConcours } from "@lib/statistiques";
-import { IoCaretDown, IoCaretUp, IoRemove } from "react-icons/io5";
+import { IoCaretDown, IoCaretUp, IoRemove, IoStar } from "react-icons/io5";
+import classNames from "classnames";
 enum sortTypes {
    ASC = "asc",
    DESC = "desc",
@@ -135,7 +137,12 @@ const Table = () => {
          }
       }
    };
-
+   const handleFavorite: MouseEventHandler<HTMLElement> = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log(e.currentTarget.children[0]);
+      e.currentTarget.children[0].classList.toggle(scss.active);
+   };
    return (
       <>
          {matchConcours(concours).map((currConcours) => {
@@ -303,6 +310,7 @@ const Table = () => {
                                     )}
                               </div>
                            </Th>
+                           <Th>Favoris</Th>
                         </Tr>
                      </Thead>
                      <Tbody>
@@ -324,6 +332,20 @@ const Table = () => {
                                     <Td>{school.admissibles_nb}</Td>
                                     <Td>{school.integres_nb}</Td>
                                     <Td>{school.places}</Td>
+                                    <Td textAlign='center'>
+                                       <IconButton
+                                          aria-label='Ajouter à vos favoris'
+                                          onClick={handleFavorite}
+                                          icon={
+                                             <IoStar
+                                                className={classNames(
+                                                   scss["favorite-icon"],
+                                                   scss["active"]
+                                                )}
+                                             />
+                                          }
+                                       />
+                                    </Td>
                                  </Tr>
                               );
                            })}
@@ -335,6 +357,7 @@ const Table = () => {
                            <Th>Admissibles</Th>
                            <Th>Intégrés</Th>
                            <Th>Places</Th>
+                           <Th>Favoris</Th>
                         </Tr>
                      </Tfoot>
                   </ChakraTable>

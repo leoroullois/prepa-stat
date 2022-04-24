@@ -7,6 +7,7 @@ export const selectSideNav = (state: RootState) => state.sideNav;
 export const selectSimul = (state: RootState) => state.simul;
 export const selectCoefs = (state: RootState) => state.coefs;
 export const selectFavorites = (state: RootState) => state.favorites;
+export const selectSchools = (state: RootState) => state.schools;
 
 // * Auth
 export const selectAuth = (state: RootState) => state.auth;

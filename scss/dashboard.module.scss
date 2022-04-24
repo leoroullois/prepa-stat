@@ -22,29 +22,49 @@
 }
 .wish-list {
    display: flex;
+   row-gap: 5px;
+   width: 90%;
+   max-width: 600px;
    flex-direction: column;
    cursor: pointer;
 }
+
 .wish-list--item {
    display: flex;
    align-items: center;
    justify-content: space-between;
    column-gap: 20px;
-   padding: 20px 0;
+   width: 100%;
+   padding: 5px 15px;
+   height: auto;
+   font-size: 1rem;
+   border: 1px solid rgba(127, 127, 127, 0.2);
+   border-radius: 6px;
+   box-shadow: $main-shadow;
    list-style-type: none;
-   height: 2rem;
-   line-height: 2rem;
-   font-size: 1.2rem;
-   border-bottom: 1px solid rgba($main-black, 0.1);
    &:hover {
       background-color: rgba(127, 127, 127, 0.1);
    }
 }
+.white-mode {
+   background-color: $main-white;
+}
+.darkMode {
+   background-color: $main-black;
+}
+.wish-list--content {
+   display: flex;
+   flex-direction: column;
+   row-gap: 5px;
+   width: 80%;
+}
 .wish-list__drag-icon {
    font-size: 1rem;
-   color: $main-white;
+   color: $main-gray;
 }
-
+.wish-list__medal {
+   font-size: 1.5rem;
+}
 .wish-list__position {
    display: flex;
    justify-content: center;
@@ -56,5 +76,6 @@
    color: $main-white;
    font-size: 1rem;
    font-weight: bold;
+   box-shadow: $main-shadow;
 }
 

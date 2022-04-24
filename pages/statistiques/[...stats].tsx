@@ -19,6 +19,9 @@ import { setSchools } from "@store/slices/schools";
 import { ISchool } from "@models/School";
 import { close } from "@store/slices/sideNav";
 
+// TODO: les 10 écoles les plus populaires (favoris)
+// TODO: les concours dont les écoles sont le + en favoris
+
 interface IProps {
    schools: ISchool[];
 }
@@ -137,3 +140,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default Statistiques;
+

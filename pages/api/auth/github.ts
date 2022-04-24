@@ -57,7 +57,7 @@ passport.use(
                }
                Favorite.findOneAndUpdate(
                   { _id: id },
-                  { $setOnInsert: { _id: id, favorites: [] } },
+                  { $setOnInsert: { _id: new ObjectId(id), favorites: [] } },
                   { upsert: true, new: true },
                   (err: any, user: any) => {
                      if (err) {

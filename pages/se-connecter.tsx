@@ -49,6 +49,7 @@ const Login: NextPage = () => {
       setEmail(elt.value);
    };
 
+   const [remember, setRemember] = useState(false);
    const handlePrevent: FormEventHandler = (e) => e.preventDefault();
    const handleSubmit: MouseEventHandler = async (e) => {
       e.preventDefault();
@@ -56,7 +57,7 @@ const Login: NextPage = () => {
          login({
             email,
             password,
-            remember: false,
+            remember: remember,
          })
       );
    };
@@ -69,7 +70,7 @@ const Login: NextPage = () => {
    const handleClick: MouseEventHandler = (e) => {
       dispatch(close());
    };
-   
+
    return (
       <>
          <Head>
@@ -98,7 +99,16 @@ const Login: NextPage = () => {
                         handlePassword={handlePassword}
                         clicked={clicked}
                      />
-
+                     <div className={scss["remember--container"]}>
+                        <input
+                           type='checkbox'
+                           name='remembebr'
+                           id='remember'
+                           checked={remember}
+                           onChange={() => setRemember(!remember)}
+                        />
+                        <label htmlFor='remember'>Se souvenir de moi</label>
+                     </div>
                      <Button
                         className={scss.submit}
                         width='100%'
@@ -108,8 +118,6 @@ const Login: NextPage = () => {
                      >
                         Se connecter
                      </Button>
-                     <AuthProviderBtn svg={google} provider='Google' />
-                     <AuthProviderBtn svg={github} provider='Github' />
                      <span className={scss.link}>
                         <p>Ou&nbsp;</p>
                         <NextLink href='/s-enregistrer' passHref>
@@ -128,3 +136,4 @@ const Login: NextPage = () => {
 };
 
 export default Login;
+

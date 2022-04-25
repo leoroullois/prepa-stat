@@ -1,18 +1,18 @@
-import {
-   Button,
-   Heading,
-   ListItem,
-   Text,
-   UnorderedList,
-} from "@chakra-ui/react";
+import { Heading, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 import { selectAuth, selectDarkMode } from "@store/selectors";
 import React from "react";
 import { useSelector } from "react-redux";
 import scss from "@scss/myaccount.module.scss";
 import classNames from "classnames";
+
+
+
 const MyAccount = () => {
    const auth = useSelector(selectAuth);
    const darkMode = useSelector(selectDarkMode);
+
+
+
    return (
       <section>
          <Heading as='h2' size='lg' marginBottom={3}>

@@ -1,0 +1,48 @@
+@import "@scss/imports/extends";
+@import "@scss/imports/mixins";
+@import "@scss/imports/variables";
+
+.btn--dark {
+    display: flex;
+    color: $main-white;
+    background-color: rgba(127,127,127,.2);
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color .2s;
+    &:hover {
+        background-color: rgba(127,127,127,.3);
+    }
+}
+
+.btn--light {
+    display: flex;
+    color: $main-black;
+    background-color: rgba(127,127,127,.2);
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color .2s;
+    &:hover {
+        background-color: rgba(127,127,127,.4);
+    }
+}
+
+.btn--delete {
+    display: flex;
+    color: $main-white;
+    background-color: $main-red;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color .2s;
+    &:hover {
+        background-color: $dark-red;
+    }
+}
+
+.email {
+    &:hover {
+       text-decoration: underline;
+    }
+ }

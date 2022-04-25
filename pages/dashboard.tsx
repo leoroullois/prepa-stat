@@ -12,7 +12,15 @@ import { logout } from "@store/slices/auth";
 import PrivateRoute from "@components/Auth/PrivateRoute";
 import scss from "@scss/dashboard.module.scss";
 import { close } from "@store/slices/sideNav";
-import { Heading } from "@chakra-ui/react";
+import {
+   Box,
+   Button,
+   Divider,
+   Heading,
+   ListItem,
+   Text,
+   UnorderedList,
+} from "@chakra-ui/react";
 import { MdOutlineDragIndicator } from "react-icons/md";
 import {
    addToFavorites,
@@ -28,6 +36,9 @@ import {
 } from "react-beautiful-dnd";
 import { spawn } from "child_process";
 import classNames from "classnames";
+import Link from "next/link";
+import MyAccount from "@components/MyAccount";
+import WishList from "@components/WishList";
 // TODO: changer la l'implpémentation en bdd des favoris (rajouter l'index)
 const Dashboard: NextPage = () => {
    const darkMode = useSelector(selectDarkMode);
@@ -66,27 +77,9 @@ const Dashboard: NextPage = () => {
       }
    };
 
-   const handleOnDragEnd = (result: DropResult) => {
-      console.log(result);
+   
 
-      const items = Array.from(favorites);
-
-      // * inverse les deux items dans la liste
-      const [reorderedItem] = items.splice(result.source.index, 1);
-      if (result.destination) {
-         items.splice(result.destination.index, 0, reorderedItem);
-         updateFavorites(items);
-      }
-   };
-
-   useEffect(() => {
-      updateFavorites(finalFavorites);
-   }, [finalFavorites]);
-   useEffect(() => {
-      if (userId) {
-         dispatch(setFavorites(userId));
-      }
-   }, [userId, dispatch]);
+   
    return (
       <>
          <Head>
@@ -94,104 +87,78 @@ const Dashboard: NextPage = () => {
          </Head>
          <PrivateRoute>
             <main onClick={handleCloseNav} className={scss["dashboard"]}>
-               <Heading as='h1' size='xl'>
-                  Dashboard
-               </Heading>
-               <Heading as='h2' size='lg'>
-                  👋 Content de vous revoir {auth.user.name} !
-               </Heading>
-               {/* <h3>Token {JSON.stringify(token)}</h3> */}
-               <section className={scss["wish-list--container"]}>
-                  <Heading as='h3' size='md'>
-                     Nombre d&apos;écoles dans votre liste de voeux :{" "}
-                     {favorites.length}
+               <div className='wrapper'>
+                  <button onClick={handleFavorites}>
+                     Add school to favorite
+                  </button>
+                  <button onClick={handleResetFavorites}>
+                     Reset favorites
+                  </button>
+                  <button onClick={handleLogout}>Se déconnecter</button>
+                  <Heading as='h1' size='xl' marginTop={5}>
+                     Tableau de bord
                   </Heading>
-                  <DragDropContext onDragEnd={handleOnDragEnd}>
-                     <Droppable droppableId={scss["wish-list"]}>
-                        {(provided) => (
-                           <ol
-                              className={scss["wish-list"]}
-                              {...provided.droppableProps}
-                              ref={provided.innerRef}
-                           >
-                              {favorites.map((school, i) => {
-                                 let position = (i + 1).toString();
-                                 if (i == 0) {
-                                    position = "🥇";
-                                 } else if (i == 1) {
-                                    position = "🥈";
-                                 } else if (i == 2) {
-                                    position = "🥉";
-                                 }
-                                 return (
-                                    <Draggable
-                                       key={school._id}
-                                       draggableId={school._id}
-                                       index={i}
-                                    >
-                                       {(provided) => {
-                                          return (
-                                             <li
-                                                className={classNames(
-                                                   scss["wish-list--item"],
-                                                   {
-                                                      [scss["dark-mode"]]:
-                                                         darkMode,
-                                                      [scss["white-mode"]]:
-                                                         !darkMode,
+                  <Heading as='h2' size='lg' marginY={5}>
+                     👋 Content de vous revoir {auth.user.name} !
+                  </Heading>
+                  <Text
+                     color={`gray.${darkMode ? 300 : 700}`}
+                     fontSize={18}
+                     textAlign='justify'
+                     lineHeight={2}
+                  >
+                     Ici vous allez pouvoir accéder à vos écoles favorites et
+                     les trier de façon à créer votre liste de voeux ! Vous
+                     pouvez aussi les supprimer. Bien sûre, il n&apos;y a rien
+                     d&apos;officiel et il faudra reporter vous choix sur{" "}
+                     <Link href='https://www.scei-concours.fr/'>
+                        <a target='_blank'>SCEI</a>
+                     </Link>{" "}
+                     le moment venu. En ajoutant des écoles dans vos favoris,
+                     cela nous permet d&apos;exploiter les données de votre
+                     compte pour créer des statistiques et vous permettre
+                     d&apos;affiner vos choix.
+                  </Text>
+                  <Text color={`gray.${darkMode ? 300 : 700}`} fontSize={18}>
+                     [A venir] Vous pouvez aussi modifier votre mot de passe, et
+                     supprimer votre compte.
+                  </Text>
+                  <Divider marginY={5} />
+                  <section className={scss["wish-list--container"]}>
+                     {/* TODO: nb écoles par concours*/}
+                     <Box width='100%'>
+                        <Heading as='h2' size='lg' marginBottom={3}>
+                           📌 Informations générales :
+                        </Heading>
+                        <UnorderedList>
+                           <ListItem fontSize={18}>
+                              Nombre d&apos;écoles dans vos favoris:{" "}
+                              {favorites.length}
+                           </ListItem>
+                           <ListItem fontSize={18}>
+                              X-ENS : {favorites.length} écoles
+                           </ListItem>
+                           <ListItem fontSize={18}>
+                              Centrale : {favorites.length} écoles
+                           </ListItem>
+                           <ListItem>
+                              Mines : {favorites.length} écoles
+                           </ListItem>
+                           <ListItem fontSize={18}>
+                              CCINP : {favorites.length} écoles
+                           </ListItem>
+                           <ListItem fontSize={18}>
+                              E3A : {favorites.length} écoles
+                           </ListItem>
+                        </UnorderedList>
+                     </Box>
 
-                                                   }
-                                                )}
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                             >
-                                                <MdOutlineDragIndicator
-                                                   className={
-                                                      scss[
-                                                         "wish-list__drag-icon"
-                                                      ]
-                                                   }
-                                                />
-                                                <p
-                                                   className={
-                                                      scss["wish-list--content"]
-                                                   }
-                                                >
-                                                   <span>{school.ecole}</span>
-                                                   <span>
-                                                      {school.concours}
-                                                   </span>
-                                                </p>
-                                                <span
-                                                   className={classNames(
-                                                      scss["wish-list__medal"],
-                                                      {
-                                                         [scss[
-                                                            "wish-list__position"
-                                                         ]]:
-                                                            Number(position) >
-                                                            2,
-                                                      }
-                                                   )}
-                                                >
-                                                   {position}
-                                                </span>
-                                             </li>
-                                          );
-                                       }}
-                                    </Draggable>
-                                 );
-                              })}
-                              {provided.placeholder}
-                           </ol>
-                        )}
-                     </Droppable>
-                  </DragDropContext>
-               </section>
-               <button onClick={handleFavorites}>Add school to favorite</button>
-               <button onClick={handleResetFavorites}>Reset favorites</button>
-               <button onClick={handleLogout}>Se déconnecter</button>
+                     <Divider marginY={5} />
+                     <WishList/>
+                  </section>
+                  <Divider marginY={5} />
+                  <MyAccount />
+               </div>
             </main>
          </PrivateRoute>
       </>

@@ -1,17 +1,66 @@
-import { Heading, ListItem, Text, UnorderedList } from "@chakra-ui/react";
+import {
+   Button,
+   Divider,
+   FormLabel,
+   Heading,
+   Input,
+   InputGroup,
+   InputRightElement,
+   ListItem,
+   Modal,
+   ModalBody,
+   ModalCloseButton,
+   ModalContent,
+   ModalFooter,
+   ModalHeader,
+   ModalOverlay,
+   Text,
+   UnorderedList,
+   useDisclosure,
+   useToast,
+} from "@chakra-ui/react";
 import { selectAuth, selectDarkMode } from "@store/selectors";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { MouseEventHandler, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import scss from "@scss/myaccount.module.scss";
 import classNames from "classnames";
-
-
+import { resetFavorites } from "@store/slices/favorites";
+import ResetPasswordModel from "./ResetPasswordModel";
 
 const MyAccount = () => {
+   const dispatch = useDispatch();
+   const toast = useToast();
+
+   const {
+      isOpen: isPasswordOpen,
+      onOpen: onPasswordOpen,
+      onClose: onPasswordClose,
+   } = useDisclosure();
+
    const auth = useSelector(selectAuth);
    const darkMode = useSelector(selectDarkMode);
 
-
+   const handleResetFavorites: MouseEventHandler = (e) => {
+      if (auth.user) {
+         dispatch(resetFavorites(auth.user._id));
+         toast({
+            title: "Favoris supprimés.",
+            description: "Nous venons de supprimer vos favoris.",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+         });
+      } else {
+         console.log("You need to be logged in to do that");
+         toast({
+            title: "Erreur.",
+            description: "Vous devez être connecté pour effectuer cela.",
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+         });
+      }
+   };
 
    return (
       <section>
@@ -51,8 +100,22 @@ const MyAccount = () => {
                      [scss["btn--dark"]]: darkMode,
                      [scss["btn--light"]]: !darkMode,
                   })}
+                  onClick={() => onPasswordOpen()}
                >
                   Changer de mot de passe
+               </button>
+               <ResetPasswordModel
+                  onClose={onPasswordClose}
+                  isOpen={isPasswordOpen}
+               />
+            </ListItem>
+            <ListItem fontSize={18} marginBottom={5}>
+               <Text>Réinitialiser mes favoris</Text>
+               <button
+                  className={scss["btn--delete"]}
+                  onClick={handleResetFavorites}
+               >
+                  Réinitialiser
                </button>
             </ListItem>
             <ListItem fontSize={18} marginBottom={5}>

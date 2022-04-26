@@ -7,12 +7,63 @@
    flex-grow: 1;
    flex-direction: column;
    align-items: left;
+   background: linear-gradient(114deg, #0a0714, #1a1136);
+   background-size: 400% 400%;
+
+   -webkit-animation: AnimationName 34s ease infinite;
+   -moz-animation: AnimationName 34s ease infinite;
+   -o-animation: AnimationName 34s ease infinite;
+   animation: AnimationName 34s ease infinite;
    .logout {
       height: 40px;
       width: 150px;
    }
 }
 
+@-webkit-keyframes AnimationName {
+   0% {
+      background-position: 93% 0%;
+   }
+   50% {
+      background-position: 0% 100%;
+   }
+   100% {
+      background-position: 93% 0%;
+   }
+}
+@-moz-keyframes AnimationName {
+   0% {
+      background-position: 93% 0%;
+   }
+   50% {
+      background-position: 0% 100%;
+   }
+   100% {
+      background-position: 93% 0%;
+   }
+}
+@-o-keyframes AnimationName {
+   0% {
+      background-position: 93% 0%;
+   }
+   50% {
+      background-position: 0% 100%;
+   }
+   100% {
+      background-position: 93% 0%;
+   }
+}
+@keyframes AnimationName {
+   0% {
+      background-position: 93% 0%;
+   }
+   50% {
+      background-position: 0% 100%;
+   }
+   100% {
+      background-position: 93% 0%;
+   }
+}
 .main-title {
    display: flex;
    column-gap: 20px;
@@ -26,3 +77,4 @@
    width: 100%;
    max-width: 1100px;
 }
+

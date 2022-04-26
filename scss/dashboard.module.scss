@@ -1,14 +1,28 @@
-// @import "@scss/imports/extends";
-// @import "@scss/imports/mixins";
-// @import "@scss/imports/variables";
+@import "@scss/imports/extends";
+@import "@scss/imports/mixins";
+@import "@scss/imports/variables";
 
 .dashboard {
-	display: flex;
-	flex-grow:1;
-	flex-direction: column;
-	align-items: center;
-	.logout {
-		height: 40px;
-		width: 150px;
-	}
+   display: flex;
+   flex-grow: 1;
+   flex-direction: column;
+   align-items: left;
+   .logout {
+      height: 40px;
+      width: 150px;
+   }
+}
+
+.main-title {
+   display: flex;
+   column-gap: 20px;
+}
+
+.wish-list--container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   max-width: 1100px;
 }

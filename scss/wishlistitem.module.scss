@@ -1,0 +1,67 @@
+@import "@scss/imports/extends";
+@import "@scss/imports/mixins";
+@import "@scss/imports/variables";
+
+.wish-list--item {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   column-gap: 20px;
+   width: 100%;
+   padding: 5px 15px;
+   height: auto;
+   font-size: 1rem;
+   border: 1px solid rgba(127, 127, 127, 0.2);
+   border-radius: 6px;
+   box-shadow: $main-shadow;
+   list-style-type: none;
+   &:hover {
+      background-color: rgba(127, 127, 127, 0.1);
+   }
+}
+.white-mode {
+   background-color: $main-white;
+}
+.darkMode {
+   background-color: $main-black;
+}
+.wish-list--right--container {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
+   width: 92%;
+}
+.wish-list--content {
+   display: flex;
+   flex-direction: column;
+   row-gap: 5px;
+   width: 80%;
+   min-width: 300px;
+   max-width: 90vw;
+}
+
+.wish-list__drag-icon {
+   // border: 1px solid red;
+   // height: 50px;
+   // width: 50px;
+   font-size: 1rem;
+   color: $main-gray;
+}
+.wish-list__medal {
+   font-size: 1.5rem;
+}
+.wish-list__position {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 25px;
+   width: 25px;
+   border-radius: 50%;
+   background: linear-gradient($main-orange, $light-orange);
+   color: $main-white;
+   font-size: 1rem;
+   font-weight: bold;
+   box-shadow: $main-shadow;
+}

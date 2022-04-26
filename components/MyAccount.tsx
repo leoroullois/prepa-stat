@@ -25,7 +25,7 @@ import { useDispatch, useSelector } from "react-redux";
 import scss from "@scss/myaccount.module.scss";
 import classNames from "classnames";
 import { resetFavorites } from "@store/slices/favorites";
-import ResetPasswordModel from "./ResetPasswordModel";
+import ResetPasswordModal from "./ResetPasswordModal";
 
 const MyAccount = () => {
    const dispatch = useDispatch();
@@ -104,7 +104,7 @@ const MyAccount = () => {
                >
                   Changer de mot de passe
                </button>
-               <ResetPasswordModel
+               <ResetPasswordModal
                   onClose={onPasswordClose}
                   isOpen={isPasswordOpen}
                />

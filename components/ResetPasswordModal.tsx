@@ -24,7 +24,7 @@ interface IProps {
    isOpen: boolean;
    onClose: () => void;
 }
-const ResetPasswordModel: FC<IProps> = ({ isOpen, onClose }) => {
+const ResetPasswordModal: FC<IProps> = ({ isOpen, onClose }) => {
    const dispatch = useDispatch();
    const auth = useSelector(selectAuth);
    const toast = useToast();
@@ -209,5 +209,5 @@ const ResetPasswordModel: FC<IProps> = ({ isOpen, onClose }) => {
    );
 };
 
-export default ResetPasswordModel;
+export default ResetPasswordModal;
 

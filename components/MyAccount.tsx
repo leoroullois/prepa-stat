@@ -26,9 +26,10 @@ import scss from "@scss/myaccount.module.scss";
 import classNames from "classnames";
 import { resetFavorites } from "@store/slices/favorites";
 import ResetPasswordModal from "./ResetPasswordModal";
+import { AppDispatch } from "@store/store";
 
 const MyAccount = () => {
-   const dispatch = useDispatch();
+   const dispatch = useDispatch<AppDispatch>();
    const toast = useToast();
 
    const {
@@ -40,16 +41,28 @@ const MyAccount = () => {
    const auth = useSelector(selectAuth);
    const darkMode = useSelector(selectDarkMode);
 
-   const handleResetFavorites: MouseEventHandler = (e) => {
+   const handleResetFavorites: MouseEventHandler = async (e) => {
       if (auth.user) {
-         dispatch(resetFavorites(auth.user._id));
-         toast({
-            title: "Favoris supprimés.",
-            description: "Nous venons de supprimer vos favoris.",
-            status: "success",
-            duration: 5000,
-            isClosable: true,
-         });
+         try {
+            const res = await dispatch(resetFavorites(auth.user._id)).unwrap();
+            toast({
+               title: "Favoris supprimés.",
+               description: "Nous venons de supprimer vos favoris.",
+               status: "success",
+               duration: 5000,
+               isClosable: true,
+            });
+         } catch (err) {
+            toast({
+               title: "Favoris non supprimés.",
+               description:
+                  "Une erreur est survenue lors de la suppression de vos favoris.",
+               status: "error",
+               duration: 5000,
+               isClosable: true,
+            });
+            console.log(err);
+         }
       } else {
          console.log("You need to be logged in to do that");
          toast({

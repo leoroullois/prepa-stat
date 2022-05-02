@@ -19,7 +19,7 @@ import {
 import { v4 as uuidv4 } from "uuid";
 import { ISchool } from "@models/School";
 import SchoolCard from "@components/SchoolCard/SchoolCard";
-import scss from "./table.module.scss";
+import scss from "@scss/table.module.scss";
 import { getConcours } from "@lib/statistiques";
 import { useSelector } from "react-redux";
 import { selectNavBar, selectSchools } from "@store/selectors";

@@ -14,9 +14,10 @@ import MyAccount from "@components/MyAccount";
 import WishList from "@components/WishList";
 import DashboardInfos from "@components/DashboardInfos";
 import DashboardIntro from "@components/DashboardIntro";
+import { AppDispatch } from "@store/store";
 // TODO: changer la l'implpémentation en bdd des favoris (rajouter l'index)
 const Dashboard: NextPage = () => {
-   const dispatch = useDispatch();
+   const dispatch = useDispatch<AppDispatch>();
    const auth = useSelector(selectAuth);
 
    const [userId] = useState(auth.user?._id);
@@ -58,10 +59,6 @@ const Dashboard: NextPage = () => {
                   <button onClick={handleFavorites}>
                      Add school to favorite
                   </button>
-                  <button onClick={handleResetFavorites}>
-                     Reset favorites
-                  </button>
-                  <button onClick={handleLogout}>Se déconnecter</button>
                   <Heading as='h1' size='xl' marginTop={5}>
                      <span className={scss["main-title"]}>
                         <MdSpaceDashboard />

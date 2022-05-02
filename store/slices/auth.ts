@@ -7,7 +7,6 @@ interface IChangePassword {
    currPassword: string;
    newPassword: string;
    confirmPassword: string;
-   toast: any;
    onClose: () => void;
 }
 const init = (): IAuth => {
@@ -56,14 +55,8 @@ export const register = createAsyncThunk(
 export const changePassword = createAsyncThunk(
    "auth/changePassword",
    async (data: IChangePassword, { rejectWithValue, fulfillWithValue }) => {
-      const { userId, toast, onClose, ...passwords } = data;
-      toast({
-         description:
-            "Nous faisons notre possible pour changer votre mot de passe.",
-         status: "info",
-         duration: 5000,
-         isClosable: true,
-      });
+      const { userId, onClose, ...passwords } = data;
+
       try {
          const res = await fetch(`/api/auth/user/${userId}/changePassword`, {
             method: "UPDATE",
@@ -74,17 +67,15 @@ export const changePassword = createAsyncThunk(
          }).then((data) => data.json());
          if (!isEmpty(res._doc)) {
             onClose();
-            return fulfillWithValue({ res, toast });
+            return fulfillWithValue({ res });
          } else {
             return rejectWithValue({
                message: res.message,
-               toast,
             });
          }
       } catch (err) {
          return rejectWithValue({
             message: "Error changing password",
-            toast,
          });
       }
    }
@@ -163,24 +154,10 @@ const auth = createSlice({
          changePassword.fulfilled,
          (state, action: PayloadAction<any>) => {
             console.log("[FULFILLED] Password is updated.", action);
-            const { toast } = action.payload;
-            toast({
-               description: "Votre mot de passe a bien été changé.",
-               status: "success",
-               duration: 5000,
-               isClosable: true,
-            });
          }
       );
       builder.addCase(changePassword.rejected, (state, action) => {
          const err = action.payload as string;
-         const { toast } = action.payload as any;
-         toast({
-            description: "Pas d'utilisateur correspondant trouvé.",
-            status: "error",
-            duration: 5000,
-            isClosable: true,
-         });
          console.log("[REJECTED] ", err);
       });
    },

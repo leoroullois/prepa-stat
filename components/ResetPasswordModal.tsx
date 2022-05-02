@@ -19,13 +19,14 @@ import { selectAuth, selectDarkMode } from "@store/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { changePassword } from "@store/slices/auth";
 import { userInfo } from "os";
+import { AppDispatch } from "@store/store";
 
 interface IProps {
    isOpen: boolean;
    onClose: () => void;
 }
 const ResetPasswordModal: FC<IProps> = ({ isOpen, onClose }) => {
-   const dispatch = useDispatch();
+   const dispatch = useDispatch<AppDispatch>();
    const auth = useSelector(selectAuth);
    const toast = useToast();
    const [show, setShow] = useState({
@@ -55,17 +56,37 @@ const ResetPasswordModal: FC<IProps> = ({ isOpen, onClose }) => {
             });
          } else {
             if (passwords.newPassword === passwords.confirmPassword) {
-               dispatch(
-                  changePassword({
-                     userId: auth.user._id,
-                     toast,
-                     onClose,
-                     currPassword: passwords.currPassword,
-                     newPassword: passwords.newPassword,
-                     confirmPassword: passwords.confirmPassword,
-                  })
-               );
-               
+               try {
+                  toast({
+                     description:
+                        "Nous faisons notre possible pour changer votre mot de passe.",
+                     status: "info",
+                     duration: 5000,
+                     isClosable: true,
+                  });
+                  await dispatch(
+                     changePassword({
+                        userId: auth.user._id,
+                        onClose,
+                        currPassword: passwords.currPassword,
+                        newPassword: passwords.newPassword,
+                        confirmPassword: passwords.confirmPassword,
+                     })
+                  ).unwrap();
+                  toast({
+                     description: "Votre mot de passe a bien été changé.",
+                     status: "success",
+                     duration: 5000,
+                     isClosable: true,
+                  });
+               } catch (err) {
+                  toast({
+                     description: "Pas d'utilisateur correspondant trouvé.",
+                     status: "error",
+                     duration: 5000,
+                     isClosable: true,
+                  });
+               }
             } else {
                console.log("Your passwords don't match");
                toast({

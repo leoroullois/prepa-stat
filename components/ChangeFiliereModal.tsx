@@ -20,7 +20,11 @@ import {
 } from "@chakra-ui/react";
 import { selectAuth, selectDarkMode, selectUser } from "@store/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { changeFiliere, changePassword } from "@store/slices/auth";
+import {
+   changeFiliere,
+   changePassword,
+   setCurrentUser,
+} from "@store/slices/auth";
 import { userInfo } from "os";
 import { AppDispatch } from "@store/store";
 
@@ -48,6 +52,9 @@ const ChangeFiliereModal: FC<IProps> = ({ isOpen, onClose }) => {
                   filiere,
                })
             ).unwrap();
+            dispatch(
+               setCurrentUser({ ...auth.user, id: auth.user._id, filiere })
+            );
             toast({
                description: "Votre filière a bien été changée.",
                status: "success",

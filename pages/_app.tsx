@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken";
 import Layout from "@components/Layout";
 import store from "@store/store";
 import jwt_decode from "jwt-decode";
-import { logout, setCurrentUser } from "@store/slices/auth";
+import { logout, setCurrentUser, setCurrentUserById } from "@store/slices/auth";
 import { ChakraProvider } from "@chakra-ui/react";
 import "@scss/globals.scss";
 
@@ -45,10 +45,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             const user = {
                id: token._id,
                email: token.email,
-               name: token.name,
-               filiere: token.filiere,
             };
-            store.dispatch(setCurrentUser(user));
+            store.dispatch(setCurrentUserById(user.id));
          }
       } else {
          if (!store.getState().auth.isAuthenticated) {
@@ -72,3 +70,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp;
+

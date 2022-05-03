@@ -22,8 +22,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             const payload = {
                _id: user._id,
                email: user.email,
-               name: user.name,
-               filiere: user.filiere,
             };
             const token = jwt.sign(payload, process.env.JWT_KEY as string, {
                expiresIn: remember ? 31556926 : 0, // one year in seconds
@@ -48,3 +46,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 export default connectDB(handler);
+

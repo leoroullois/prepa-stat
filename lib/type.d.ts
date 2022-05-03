@@ -52,9 +52,7 @@ interface IToken {
    exp: number;
    iat: number;
    _id: string;
-   name: string;
    email: string;
-   filiere: string;
 }
 /** Register */
 interface IRegisterForm {

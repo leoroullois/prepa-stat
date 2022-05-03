@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import isEmpty from "is-empty";
 import Router from "next/router";
-// import { removeJwtToken, setJwtToken } from "../../lib/auth";
+
 export interface IChangePassword {
    userId: string;
    currPassword: string;
@@ -84,7 +84,31 @@ export const register = createAsyncThunk(
       }
    }
 );
-
+export const setCurrentUserById = createAsyncThunk(
+   "auth/setCurrentUserById",
+   async (userId: string, { rejectWithValue }) => {
+      console.log("userId : ", userId);
+      try {
+         const res = await fetch(`/api/user/${userId}`).then((data) =>
+            data.json()
+         );
+         if (!isEmpty(res)) {
+            return res;
+         } else {
+            return rejectWithValue({
+               message: "User is empty",
+               error: res.error,
+            });
+         }
+      } catch (err) {
+         console.log("ERROR ", err);
+         return rejectWithValue({
+            message: "An error has occured when trying to register",
+            error: err,
+         });
+      }
+   }
+);
 export const changePassword = createAsyncThunk(
    "auth/changePassword",
    async (data: IChangePassword, { rejectWithValue, fulfillWithValue }) => {
@@ -304,11 +328,36 @@ const auth = createSlice({
                "[FULFILLED] Your filiere is updated.",
                action.payload.res.user
             );
+            return state;
          }
       );
       builder.addCase(changeFiliere.rejected, (state, action) => {
          const err = action.payload as string;
          console.log("[REJECTED] ", err);
+      });
+
+      // ? Change current user by id
+      builder.addCase(setCurrentUserById.pending, (state) => {
+         console.log("[PENDING] setCurrentUserById...");
+      });
+      builder.addCase(
+         setCurrentUserById.fulfilled,
+         (state, action: PayloadAction<any>) => {
+            const { _id, name, email, filiere } = action.payload;
+            state.user = {
+               _id,
+               name,
+               email,
+               filiere,
+            };
+            state.isAuthenticated = true;
+            console.log("[FULFILLED] setCurrentUserById.", action.payload);
+            return state;
+         }
+      );
+      builder.addCase(setCurrentUserById.rejected, (state, action) => {
+         const err = action.payload as string;
+         console.log("[REJECTED] setCurrentUserById ", err);
       });
    },
 });

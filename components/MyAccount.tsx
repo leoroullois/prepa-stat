@@ -29,6 +29,7 @@ import ResetPasswordModal from "./ResetPasswordModal";
 import { AppDispatch } from "@store/store";
 import { logout } from "@store/slices/auth";
 import ChangeFiliereModal from "./ChangeFiliereModal";
+import ChangeNameModal from "./ChangeNameModal";
 
 const MyAccount = () => {
    const dispatch = useDispatch<AppDispatch>();
@@ -43,6 +44,12 @@ const MyAccount = () => {
       isOpen: isFiliereOpen,
       onOpen: onFiliereOpen,
       onClose: onFiliereClose,
+   } = useDisclosure();
+
+   const {
+      isOpen: isNameOpen,
+      onOpen: onNameOpen,
+      onClose: onNameClose,
    } = useDisclosure();
 
    const auth = useSelector(selectAuth);
@@ -126,9 +133,14 @@ const MyAccount = () => {
                      [scss["btn--dark"]]: darkMode,
                      [scss["btn--light"]]: !darkMode,
                   })}
+                  onClick={onNameOpen}
                >
                   Changer de nom d&apos;utilisateur
                </button>
+               <ChangeNameModal
+                  onClose={onNameClose}
+                  isOpen={isNameOpen}
+               />
             </ListItem>
             <ListItem fontSize={18} marginBottom={5}>
                Email : <span className={scss["email"]}>{auth.user.email}</span>

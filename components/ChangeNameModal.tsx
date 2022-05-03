@@ -5,6 +5,7 @@ import {
    FormLabel,
    Input,
    InputGroup,
+   InputLeftElement,
    InputRightElement,
    Modal,
    ModalBody,
@@ -22,41 +23,38 @@ import { selectAuth, selectDarkMode, selectUser } from "@store/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import {
    changeFiliere,
+   changeName,
    changePassword,
    setCurrentUser,
 } from "@store/slices/auth";
 import { userInfo } from "os";
 import { AppDispatch } from "@store/store";
+import { MdDriveFileRenameOutline } from "react-icons/md";
 
 interface IProps {
    isOpen: boolean;
    onClose: () => void;
 }
-const ChangeFiliereModal: FC<IProps> = ({ isOpen, onClose }) => {
+const ChangeNameModal: FC<IProps> = ({ isOpen, onClose }) => {
    const dispatch = useDispatch<AppDispatch>();
    const auth = useSelector(selectAuth);
    const user = useSelector(selectUser);
    const toast = useToast();
 
-   const [filiere, setFiliere] = useState(user.filiere);
+   const [name, setName] = useState("");
 
-   const handleFiliere: ChangeEventHandler<HTMLInputElement> = async (e) => {
-      setFiliere(e.target.value.toUpperCase());
-   };
-   const handleChangeFiliere: MouseEventHandler = async (e) => {
+   const handleChangeName: MouseEventHandler = async (e) => {
       if (auth.isAuthenticated) {
          try {
             await dispatch(
-               changeFiliere({
+               changeName({
                   userId: auth.user._id,
-                  filiere,
+                  name,
                })
             ).unwrap();
-            dispatch(
-               setCurrentUser({ ...auth.user, id: auth.user._id, filiere })
-            );
+            dispatch(setCurrentUser({ ...auth.user, id: auth.user._id, name }));
             toast({
-               description: "Votre filière a bien été changée.",
+               description: "Votre nom d'utilisateur a bien été changée.",
                status: "success",
                duration: 5000,
                isClosable: true,
@@ -66,7 +64,7 @@ const ChangeFiliereModal: FC<IProps> = ({ isOpen, onClose }) => {
             toast({
                title: "Erreur",
                description:
-                  "Une erreur est survenue lors du changement de filière.",
+                  "Une erreur est survenue lors du changement de nom d'utilisateur.",
                status: "error",
                duration: 5000,
                isClosable: true,
@@ -87,38 +85,31 @@ const ChangeFiliereModal: FC<IProps> = ({ isOpen, onClose }) => {
       <Modal onClose={onClose} size='lg' isOpen={isOpen}>
          <ModalOverlay />
          <ModalContent bgColor='gray.800'>
-            <ModalHeader>Changer de filière</ModalHeader>
+            <ModalHeader>Changer de nom d&apos;utilisateur</ModalHeader>
             <ModalCloseButton />
             <Divider />
             <ModalBody>
-               <RadioGroup onChange={setFiliere} value={filiere}>
-                  <Stack
-                     direction='column'
-                     justifyContent='center'
-                     alignItems='center'
-                  >
-                     <Radio value='MP' isRequired>
-                        MP
-                     </Radio>
-                     <Radio value='PC' isRequired>
-                        PC
-                     </Radio>
-                     <Radio value='PSI' isRequired>
-                        PSI
-                     </Radio>
-                     <Radio value='PT' isRequired>
-                        PT
-                     </Radio>
-                  </Stack>
-               </RadioGroup>
+               <FormLabel htmlFor='name'>Nom d&apos;utilisateur</FormLabel>
+               <InputGroup>
+                  <InputLeftElement pointerEvents='none'>
+                     <MdDriveFileRenameOutline />
+                  </InputLeftElement>
+                  <Input
+                     type='text'
+                     id='name'
+                     value={name}
+                     onChange={(e) => setName(e.target.value)}
+                     placeholder='John Doe'
+                  />
+               </InputGroup>
             </ModalBody>
             <Divider marginY={3} />
             <ModalFooter>
                <Button onClick={onClose} marginRight={5}>
                   Fermer
                </Button>
-               <Button onClick={handleChangeFiliere} bgColor='green.500'>
-                  Changer de nom de filière
+               <Button onClick={handleChangeName} bgColor='green.500'>
+                  Changer de nom de nom d&apos;utilisateur
                </Button>
             </ModalFooter>
          </ModalContent>
@@ -126,5 +117,5 @@ const ChangeFiliereModal: FC<IProps> = ({ isOpen, onClose }) => {
    );
 };
 
-export default ChangeFiliereModal;
+export default ChangeNameModal;
 

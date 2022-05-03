@@ -141,7 +141,7 @@ export const changePassword = createAsyncThunk(
 export const changeName = createAsyncThunk(
    "auth/changeName",
    async (data: IChangeName, { rejectWithValue, fulfillWithValue }) => {
-      const { userId, ...name } = data;
+      const { userId, name } = data;
 
       try {
          const body = { name };
@@ -304,7 +304,13 @@ const auth = createSlice({
       builder.addCase(
          changeName.fulfilled,
          (state, action: PayloadAction<any>) => {
-            console.log("[FULFILLED] Your user name is updated.", action);
+            const { res } = action.payload;
+            state.user = {
+               ...state.user,
+               name: res.user.name,
+            };
+            console.log("[FULFILLED] Your user name is updated.", action.payload);
+            return state;
          }
       );
       builder.addCase(changeName.rejected, (state, action) => {

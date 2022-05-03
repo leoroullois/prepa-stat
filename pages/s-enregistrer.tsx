@@ -20,6 +20,11 @@ import {
    FormErrorMessage,
    Heading,
    Link,
+   ListItem,
+   Radio,
+   RadioGroup,
+   Stack,
+   UnorderedList,
 } from "@chakra-ui/react";
 import { IoArrowForwardSharp } from "react-icons/io5";
 // * Components
@@ -28,17 +33,20 @@ import Password from "@components/Auth/password";
 import Username from "@components/Auth/username";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth } from "@store/selectors";
-import { register } from "@store/slices/auth";
-import { AppDispatch } from "@store/store";
+import { login, register } from "@store/slices/auth";
+import { AppDispatch, RootState } from "@store/store";
 
+export interface IServerError {
+   message: string;
+}
 const Register: NextPage = () => {
    const dispatch = useDispatch<AppDispatch>();
    const router = useRouter();
    const { isAuthenticated } = useSelector(selectAuth);
 
    const [clicked, setClicked] = useState(false);
-   const [serverError, setServerError] = useState<string>("");
 
+   const serverError = useSelector(selectAuth).errors;
    const [email, setEmail] = useState<string>("");
    const handleEmail: ChangeEventHandler = (e) => {
       const elt = e.target as HTMLInputElement;
@@ -61,18 +69,28 @@ const Register: NextPage = () => {
       setPassword2(elt.value);
    };
 
+   const [filiere, setFiliere] = useState("MP");
+
    const handlePrevent: FormEventHandler = (e) => e.preventDefault();
 
    const handleSubmit: MouseEventHandler = async (e) => {
       e.preventDefault();
-      const state = {
+      const user = {
          name: username,
          email,
+         filiere,
          password1,
          password2,
       };
-      console.log("USER :", state);
-      dispatch(register(state));
+      console.log("USER :", user);
+      try {
+         const res = await dispatch(register(user)).unwrap();
+         await dispatch(
+            login({ email, password: password1, remember: false })
+         ).unwrap();
+      } catch (err) {
+         console.log("ERROR :", err);
+      }
    };
 
    useEffect(() => {
@@ -121,9 +139,31 @@ const Register: NextPage = () => {
                      <Password
                         password={password2}
                         handlePassword={handlePassword2}
-                        text='Réécrivrez votre mot de passe'
+                        text='Confirmez votre mot de passe'
                         clicked={clicked}
                      />
+                     <Divider marginY={3} />
+                     <RadioGroup
+                        onChange={setFiliere}
+                        value={filiere}
+                        defaultValue='MP'
+                     >
+                        <Stack direction='row'>
+                           <Radio value='MP' isRequired>
+                              MP
+                           </Radio>
+                           <Radio value='PC' isRequired>
+                              PC
+                           </Radio>
+                           <Radio value='PSI' isRequired>
+                              PSI
+                           </Radio>
+                           <Radio value='PT' isRequired>
+                              PT
+                           </Radio>
+                        </Stack>
+                     </RadioGroup>
+                     <Divider marginY={3} />
                      <Button
                         className={scss.submit}
                         width='100%'
@@ -133,6 +173,7 @@ const Register: NextPage = () => {
                      >
                         S&apos;enregistrer
                      </Button>
+                     <Divider marginY={3} />
                      <span className={scss.link}>
                         <p>Ou&nbsp;</p>
                         <NextLink href='/se-connecter' passHref>
@@ -141,7 +182,11 @@ const Register: NextPage = () => {
                      </span>
                   </Fade>
                   {serverError && (
-                     <span className={scss.serverError}>• {serverError}</span>
+                     <UnorderedList className={scss.serverError}>
+                        {serverError.map((elt: any, i) => {
+                           return <ListItem key={i}>{elt.message}</ListItem>;
+                        })}
+                     </UnorderedList>
                   )}
                </form>
             </Fade>

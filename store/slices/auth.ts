@@ -21,33 +21,53 @@ const init = (): IAuth => {
 export const login = createAsyncThunk(
    "auth/login",
    async (userData: ILoginState, { rejectWithValue }) => {
-      const res = await fetch("/api/auth/login", {
-         method: "POST",
-         body: JSON.stringify(userData),
-         headers: { "Content-Type": "application/json" },
-      }).then((data) => data.json());
-      console.log("RES ", res);
-      if (!isEmpty(res._doc)) {
-         return res;
-      } else {
-         return rejectWithValue(res.message);
+      try {
+         const res = await fetch("/api/auth/login", {
+            method: "POST",
+            body: JSON.stringify(userData),
+            headers: { "Content-Type": "application/json" },
+         }).then((data) => data.json());
+         console.log("RES ", res)
+         if (!isEmpty(res._doc)) {
+            return res;
+         } else {
+            return rejectWithValue({message: "User is empty.", error: res});
+         }
+      } catch (err) {
+         console.log(err);
+         return rejectWithValue({
+            message: "Something went wrong",
+            error: err,
+         });
       }
    }
 );
 export const register = createAsyncThunk(
    "auth/register",
    async (userData: IRegisterForm, { rejectWithValue }) => {
-      const res = await fetch("/api/auth/register", {
-         method: "POST",
-         body: JSON.stringify(userData),
-         headers: {
-            "Content-Type": "application/json",
-         },
-      }).then((data) => data.json());
-      if (!isEmpty(res._doc)) {
-         return res;
-      } else {
-         return rejectWithValue(res.message);
+      try {
+         const res = await fetch("/api/auth/register", {
+            method: "POST",
+            body: JSON.stringify(userData),
+            headers: {
+               "Content-Type": "application/json",
+            },
+         }).then((data) => data.json());
+         console.log("(auth.ts, redux) RES ", res);
+         if (!isEmpty(res._doc)) {
+            return res;
+         } else {
+            return rejectWithValue({
+               message: "User is empty",
+               error: res.error,
+            });
+         }
+      } catch (err) {
+         console.log("ERROR ", err);
+         return rejectWithValue({
+            message: "An error has occured when trying to register",
+            error: err,
+         });
       }
    }
 );
@@ -124,9 +144,14 @@ const auth = createSlice({
       });
 
       builder.addCase(login.rejected, (state, action) => {
-         const err = action.payload as string;
+         const err = action.payload as any;
          console.log("[REJECTED] ", err);
-         state.errors.push(err);
+         const isArray = Array.isArray(err.error);
+         if (isArray) {
+            state.errors = err.error;
+         } else {
+            state.errors = [err.error];
+         }
       });
 
       // ? REGISTER
@@ -138,12 +163,20 @@ const auth = createSlice({
          (state, action: PayloadAction<any>) => {
             console.log("[FULFILLED] Successfully registered in.", action);
             state.errors = [];
-            Router.push("/se-connecter");
          }
       );
       builder.addCase(register.rejected, (state, action) => {
-         const err = action.payload as string;
-         state.errors.push(err);
+         interface IPayload {
+            message: string;
+            error: any;
+         }
+         const err = action.payload as any;
+         const isArray = Array.isArray(err.error);
+         if (isArray) {
+            state.errors = err.error;
+         } else {
+            state.errors = [err.error];
+         }
          console.log("[REJECTED] ", err);
       });
       // ?

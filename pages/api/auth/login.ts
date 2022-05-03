@@ -29,7 +29,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                expiresIn: remember ? 31556926 : 0, // one year in seconds
             });
             res.setHeader("Authorization", token as string);
-            // mongoose.connection.close();
 
             return res.status(201).json({
                message: "User logged in.",

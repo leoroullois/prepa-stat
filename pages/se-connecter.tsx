@@ -12,7 +12,14 @@ import {
    useState,
 } from "react";
 // * UI
-import { Button, Divider, Heading } from "@chakra-ui/react";
+import {
+   Button,
+   Checkbox,
+   Divider,
+   Heading,
+   ListItem,
+   UnorderedList,
+} from "@chakra-ui/react";
 import { Link } from "@chakra-ui/react";
 import { IoArrowForwardSharp } from "react-icons/io5";
 import { Fade } from "react-awesome-reveal";
@@ -38,7 +45,9 @@ const Login: NextPage = () => {
    const { isAuthenticated } = useSelector(selectAuth);
 
    const [clicked, setClicked] = useState(false);
-   const [serverError, setServerError] = useState("");
+
+   const serverError = useSelector(selectAuth).errors;
+
    const [password, setPassword] = useState<string>("");
    const handlePassword: ChangeEventHandler = (e) => {
       const elt = e.target as HTMLInputElement;
@@ -54,13 +63,17 @@ const Login: NextPage = () => {
    const handlePrevent: FormEventHandler = (e) => e.preventDefault();
    const handleSubmit: MouseEventHandler = async (e) => {
       e.preventDefault();
-      dispatch(
-         login({
-            email,
-            password,
-            remember: remember,
-         })
-      );
+      try {
+         await dispatch(
+            login({
+               email,
+               password,
+               remember: remember,
+            })
+         ).unwrap();
+      } catch (err) {
+         console.log("ERROR : ", err);
+      }
    };
    useEffect(() => {
       if (isAuthenticated) {
@@ -101,14 +114,13 @@ const Login: NextPage = () => {
                         clicked={clicked}
                      />
                      <div className={scss["remember--container"]}>
-                        <input
-                           type='checkbox'
-                           name='remembebr'
-                           id='remember'
+                        <Checkbox
+                           colorScheme='green'
                            checked={remember}
-                           onChange={() => setRemember(!remember)}
-                        />
-                        <label htmlFor='remember'>Se souvenir de moi</label>
+                           onChange={() => setRemember((remember) => !remember)}
+                        >
+                           Se souvenir de moi
+                        </Checkbox>
                      </div>
                      <Button
                         className={scss.submit}
@@ -127,7 +139,11 @@ const Login: NextPage = () => {
                      </span>
                   </Fade>
                   {serverError && (
-                     <span className={scss.serverError}>• {serverError}</span>
+                     <UnorderedList className={scss.serverError}>
+                        {serverError.map((elt: any, i) => {
+                           return <ListItem key={i}>{elt.message}</ListItem>;
+                        })}
+                     </UnorderedList>
                   )}
                </form>
             </Fade>

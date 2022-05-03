@@ -7,7 +7,6 @@ interface IChangePassword {
    currPassword: string;
    newPassword: string;
    confirmPassword: string;
-   onClose: () => void;
 }
 const init = (): IAuth => {
    return {
@@ -27,11 +26,11 @@ export const login = createAsyncThunk(
             body: JSON.stringify(userData),
             headers: { "Content-Type": "application/json" },
          }).then((data) => data.json());
-         console.log("RES ", res)
+         console.log("RES ", res);
          if (!isEmpty(res._doc)) {
             return res;
          } else {
-            return rejectWithValue({message: "User is empty.", error: res});
+            return rejectWithValue({ message: "User is empty.", error: res });
          }
       } catch (err) {
          console.log(err);
@@ -75,18 +74,20 @@ export const register = createAsyncThunk(
 export const changePassword = createAsyncThunk(
    "auth/changePassword",
    async (data: IChangePassword, { rejectWithValue, fulfillWithValue }) => {
-      const { userId, onClose, ...passwords } = data;
+      const { userId, ...passwords } = data;
 
       try {
-         const res = await fetch(`/api/auth/user/${userId}/changePassword`, {
-            method: "UPDATE",
-            body: JSON.stringify(passwords),
+         const body = { pass: passwords };
+         console.log("body", body);
+         const res = await fetch(`/api/user/${userId}`, {
+            method: "POST",
+            body: JSON.stringify(body),
             headers: {
                "Content-Type": "application/json",
             },
          }).then((data) => data.json());
-         if (!isEmpty(res._doc)) {
-            onClose();
+         console.log("res ", res);
+         if (!isEmpty(res.user)) {
             return fulfillWithValue({ res });
          } else {
             return rejectWithValue({

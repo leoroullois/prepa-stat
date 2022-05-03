@@ -67,7 +67,6 @@ const ResetPasswordModal: FC<IProps> = ({ isOpen, onClose }) => {
                   await dispatch(
                      changePassword({
                         userId: auth.user._id,
-                        onClose,
                         currPassword: passwords.currPassword,
                         newPassword: passwords.newPassword,
                         confirmPassword: passwords.confirmPassword,
@@ -79,9 +78,17 @@ const ResetPasswordModal: FC<IProps> = ({ isOpen, onClose }) => {
                      duration: 5000,
                      isClosable: true,
                   });
+                  onClose();
+                  setPasswords({
+                     currPassword: "",
+                     newPassword: "",
+                     confirmPassword: "",
+                  });
                } catch (err) {
                   toast({
-                     description: "Pas d'utilisateur correspondant trouvé.",
+                     title: "Erreur",
+                     description:
+                        "Votre mot de passe actuel ne correspond pas.",
                      status: "error",
                      duration: 5000,
                      isClosable: true,

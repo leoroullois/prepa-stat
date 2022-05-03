@@ -16,6 +16,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
    const { id } = req.query;
    switch (req.method) {
       case "GET":
+         /**
+          * GET the user (without favorites)
+          */
          try {
             const user = await User.findById(id);
             if (!user) {
@@ -29,6 +32,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
          }
 
       case "DELETE":
+         /**
+          * Delete the user and his favorites
+          */
          try {
             const user = await User.findOneAndDelete({ _id: id });
             const favorites = await Favorite.findOneAndDelete({ _id: id });
@@ -49,13 +55,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             return res.status(404).json({ message: "Error fetching user." });
          }
       case "POST":
+         /**
+          * Update user with the provided body
+          */
+         console.log("BODY : ", req.body);
          try {
-            const { name, filiere, pass } = JSON.parse(req.body);
-            let user: IUser | null = await User.findById(id);
+            const { name, filiere, pass } = req.body;
+            const user = await User.findById(id);
             if (isEmpty(user)) {
                return res.status(404).json({ message: "User is empty." });
             } else {
-               user = user as IUser;
                if (!isEmpty(pass)) {
                   const { currPassword, newPassword, confirmPassword } = pass;
 
@@ -65,7 +74,28 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                   );
                   if (valid) {
                      if (newPassword === confirmPassword) {
-                        user.password = await hashPassword(newPassword);
+                        try {
+                           const updatedUser = await User.findOneAndUpdate(
+                              { _id: id },
+                              {
+                                 name,
+                                 filiere,
+                                 password: await hashPassword(newPassword),
+                              }
+                           );
+                           return res
+                              .status(200)
+                              .json({
+                                 message: "User updated.",
+                                 user: updatedUser,
+                              });
+                        } catch (err) {
+                           console.log("err", err);
+                           return res.status(400).json({
+                              message: "An error has occured.",
+                              error: err,
+                           });
+                        }
                      }
                   } else {
                      return res.status(401).json({
@@ -73,19 +103,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                      });
                   }
                }
-
-               if(!isEmpty(name)){
-                  user.name = name;
-               }
-               if(!isEmpty(filiere)){
-                  user.filiere = filiere;
-               }
-               const updatedUser = await user.save();
-               return res
-                  .status(200)
-                  .json({ message: "User updated.", updatedUser });
+               // else if (!isEmpty(name)) {
+               //    user.name = name;
+               // } else if (!isEmpty(filiere)) {
+               //    user.filiere = filiere;
+               // }
             }
          } catch (err) {
+            console.log("err", err);
             return res
                .status(404)
                .json({ message: "Error fetching user.", error: err });

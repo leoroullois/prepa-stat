@@ -40,6 +40,7 @@ const UserSchema = new mongoose.Schema({
       type: String,
       required: true,
       enum: ["MP", "PT", "PSI", "PC"],
+      default: "MP",
    },
    email: {
       type: String,

@@ -2,16 +2,30 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import isEmpty from "is-empty";
 import Router from "next/router";
 // import { removeJwtToken, setJwtToken } from "../../lib/auth";
-interface IChangePassword {
+export interface IChangePassword {
    userId: string;
    currPassword: string;
    newPassword: string;
    confirmPassword: string;
 }
+export interface IChangeName {
+   userId: string;
+   name: string;
+}
+export interface IChangeFiliere {
+   userId: string;
+   filiere: string;
+}
+
 const init = (): IAuth => {
    return {
       isAuthenticated: false,
-      user: {},
+      user: {
+         _id: "",
+         name: "",
+         email: "",
+         filiere: "",
+      },
       errors: [],
       loading: false,
    };
@@ -78,7 +92,6 @@ export const changePassword = createAsyncThunk(
 
       try {
          const body = { pass: passwords };
-         console.log("body", body);
          const res = await fetch(`/api/user/${userId}`, {
             method: "POST",
             body: JSON.stringify(body),
@@ -86,7 +99,6 @@ export const changePassword = createAsyncThunk(
                "Content-Type": "application/json",
             },
          }).then((data) => data.json());
-         console.log("res ", res);
          if (!isEmpty(res.user)) {
             return fulfillWithValue({ res });
          } else {
@@ -101,6 +113,64 @@ export const changePassword = createAsyncThunk(
       }
    }
 );
+
+export const changeName = createAsyncThunk(
+   "auth/changeName",
+   async (data: IChangeName, { rejectWithValue, fulfillWithValue }) => {
+      const { userId, ...name } = data;
+
+      try {
+         const body = { name };
+         const res = await fetch(`/api/user/${userId}`, {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+               "Content-Type": "application/json",
+            },
+         }).then((data) => data.json());
+         if (!isEmpty(res.user)) {
+            return fulfillWithValue({ res });
+         } else {
+            return rejectWithValue({
+               message: res.message,
+            });
+         }
+      } catch (err) {
+         return rejectWithValue({
+            message: "Error changing name",
+         });
+      }
+   }
+);
+
+export const changeFiliere = createAsyncThunk(
+   "auth/changeFiliere",
+   async (data: IChangeFiliere, { rejectWithValue, fulfillWithValue }) => {
+      const { userId, filiere } = data;
+
+      try {
+         const body = { filiere };
+         const res = await fetch(`/api/user/${userId}`, {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+               "Content-Type": "application/json",
+            },
+         }).then((data) => data.json());
+         if (!isEmpty(res.user)) {
+            return fulfillWithValue({ res });
+         } else {
+            return rejectWithValue({
+               message: res.message,
+            });
+         }
+      } catch (err) {
+         return rejectWithValue({
+            message: "Error changing filiere",
+         });
+      }
+   }
+);
 const auth = createSlice({
    name: "auth",
    initialState: init(),
@@ -111,12 +181,18 @@ const auth = createSlice({
       },
       setCurrentUser: (
          state,
-         action: PayloadAction<{ email: string; id: string; name: string }>
+         action: PayloadAction<{
+            email: string;
+            id: string;
+            name: string;
+            filiere: string;
+         }>
       ) => {
-         const { email, id, name } = action.payload;
+         const { email, id, name, filiere } = action.payload;
          state.user = {
             email,
             name,
+            filiere,
             _id: id,
          };
          state.isAuthenticated = true;
@@ -129,11 +205,12 @@ const auth = createSlice({
       });
       builder.addCase(login.fulfilled, (state, action: PayloadAction<any>) => {
          const { token } = action.payload;
-         const { name, email, _id } = action.payload._doc;
+         const { name, email, _id, filiere } = action.payload._doc;
          const user = {
             _id,
             name,
             email,
+            filiere,
          };
          state.errors = [];
          state.user = user;
@@ -180,7 +257,8 @@ const auth = createSlice({
          }
          console.log("[REJECTED] ", err);
       });
-      // ?
+
+      // ? Change password
       builder.addCase(changePassword.pending, (state) => {
          console.log("[PENDING] Changing password...");
       });
@@ -191,6 +269,44 @@ const auth = createSlice({
          }
       );
       builder.addCase(changePassword.rejected, (state, action) => {
+         const err = action.payload as string;
+         console.log("[REJECTED] ", err);
+      });
+
+      // ? Change name
+      builder.addCase(changeName.pending, (state) => {
+         console.log("[PENDING] Changing your user name...");
+      });
+      builder.addCase(
+         changeName.fulfilled,
+         (state, action: PayloadAction<any>) => {
+            console.log("[FULFILLED] Your user name is updated.", action);
+         }
+      );
+      builder.addCase(changeName.rejected, (state, action) => {
+         const err = action.payload as string;
+         console.log("[REJECTED] ", err);
+      });
+
+      // ? Change name
+      builder.addCase(changeFiliere.pending, (state) => {
+         console.log("[PENDING] Changing your filiere...");
+      });
+      builder.addCase(
+         changeFiliere.fulfilled,
+         (state, action: PayloadAction<any>) => {
+            const { res } = action.payload;
+            state.user = {
+               ...state.user,
+               filiere: res.user.filiere,
+            };
+            console.log(
+               "[FULFILLED] Your filiere is updated.",
+               action.payload.res.user
+            );
+         }
+      );
+      builder.addCase(changeFiliere.rejected, (state, action) => {
          const err = action.payload as string;
          console.log("[REJECTED] ", err);
       });

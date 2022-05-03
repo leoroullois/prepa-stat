@@ -41,11 +41,12 @@ function MyApp({ Component, pageProps }: AppProps) {
             localStorage.removeItem("jwtToken");
             store.dispatch(logout());
          } else {
-            // ? Si le token est valide, on mets enb place la session de l'utilisateur
+            // ? Si le token est valide, on mets en place la session de l'utilisateur
             const user = {
                id: token._id,
                email: token.email,
                name: token.name,
+               filiere: token.filiere,
             };
             store.dispatch(setCurrentUser(user));
          }

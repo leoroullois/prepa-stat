@@ -83,12 +83,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                                  password: await hashPassword(newPassword),
                               }
                            );
-                           return res
-                              .status(200)
-                              .json({
-                                 message: "User updated.",
-                                 user: updatedUser,
-                              });
+                           return res.status(200).json({
+                              message: "User updated.",
+                              user: updatedUser,
+                           });
                         } catch (err) {
                            console.log("err", err);
                            return res.status(400).json({
@@ -102,12 +100,24 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                         message: "Password is not valid. User not updated",
                      });
                   }
+               } else {
+                  try {
+                     const updatedUser = await User.findOneAndUpdate(
+                        { _id: id },
+                        { name, filiere }
+                     );
+                     return res.status(200).json({
+                        message: "User updated.",
+                        user: updatedUser,
+                     });
+                  } catch (err) {
+                     console.log("err", err);
+                     return res.status(400).json({
+                        message: "An error has occured.",
+                        error: err,
+                     });
+                  }
                }
-               // else if (!isEmpty(name)) {
-               //    user.name = name;
-               // } else if (!isEmpty(filiere)) {
-               //    user.filiere = filiere;
-               // }
             }
          } catch (err) {
             console.log("err", err);

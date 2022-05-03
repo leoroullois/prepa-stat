@@ -28,6 +28,7 @@ import { resetFavorites } from "@store/slices/favorites";
 import ResetPasswordModal from "./ResetPasswordModal";
 import { AppDispatch } from "@store/store";
 import { logout } from "@store/slices/auth";
+import ChangeFiliereModal from "./ChangeFiliereModal";
 
 const MyAccount = () => {
    const dispatch = useDispatch<AppDispatch>();
@@ -37,6 +38,11 @@ const MyAccount = () => {
       isOpen: isPasswordOpen,
       onOpen: onPasswordOpen,
       onClose: onPasswordClose,
+   } = useDisclosure();
+   const {
+      isOpen: isFiliereOpen,
+      onOpen: onFiliereOpen,
+      onClose: onFiliereClose,
    } = useDisclosure();
 
    const auth = useSelector(selectAuth);
@@ -128,15 +134,20 @@ const MyAccount = () => {
                Email : <span className={scss["email"]}>{auth.user.email}</span>
             </ListItem>
             <ListItem marginTop={3} fontSize={18} marginBottom={5}>
-               <Text>Filière : MP</Text>
+               <Text>Filière : {auth.user.filiere}</Text>
                <button
                   className={classNames({
                      [scss["btn--dark"]]: darkMode,
                      [scss["btn--light"]]: !darkMode,
                   })}
+                  onClick={onFiliereOpen}
                >
                   Modifier ma filière
                </button>
+               <ChangeFiliereModal
+                  onClose={onFiliereClose}
+                  isOpen={isFiliereOpen}
+               />
             </ListItem>
             <ListItem marginTop={3} fontSize={18} marginBottom={5}>
                <Text>Mot de passe:</Text>

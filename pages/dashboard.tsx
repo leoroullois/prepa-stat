@@ -74,6 +74,14 @@ const Dashboard: NextPage = () => {
                      <WishList />
                   </section>
                   <Divider marginY={5} />
+                  <Heading as='h2'>Mes simulations</Heading>
+                  <p>
+                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                     Aperiam debitis repellat vero in ratione harum inventore,
+                     adipisci doloremque, sint, quibusdam hic asperiores sunt.
+                     Accusantium facere molestias rerum qui dolores incidunt?
+                  </p>
+                  <Divider marginY={5} />
                   <MyAccount />
                </div>
             </main>

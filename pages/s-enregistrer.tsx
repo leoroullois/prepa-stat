@@ -29,9 +29,10 @@ import Username from "@components/Auth/username";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth } from "@store/selectors";
 import { register } from "@store/slices/auth";
+import { AppDispatch } from "@store/store";
 
 const Register: NextPage = () => {
-   const dispatch = useDispatch();
+   const dispatch = useDispatch<AppDispatch>();
    const router = useRouter();
    const { isAuthenticated } = useSelector(selectAuth);
 

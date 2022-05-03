@@ -30,10 +30,11 @@ import { close } from "@store/slices/sideNav";
 import AuthProviderBtn from "@components/Auth/AuthProviderBtn";
 import google from "/public/google.svg";
 import github from "/public/github.svg";
+import { AppDispatch } from "@store/store";
 
 const Login: NextPage = () => {
    const router = useRouter();
-   const dispatch = useDispatch();
+   const dispatch = useDispatch<AppDispatch>();
    const { isAuthenticated } = useSelector(selectAuth);
 
    const [clicked, setClicked] = useState(false);

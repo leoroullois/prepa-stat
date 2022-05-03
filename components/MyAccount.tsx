@@ -27,6 +27,7 @@ import classNames from "classnames";
 import { resetFavorites } from "@store/slices/favorites";
 import ResetPasswordModal from "./ResetPasswordModal";
 import { AppDispatch } from "@store/store";
+import { logout } from "@store/slices/auth";
 
 const MyAccount = () => {
    const dispatch = useDispatch<AppDispatch>();
@@ -75,6 +76,37 @@ const MyAccount = () => {
       }
    };
 
+   const handleDeleteAccount: MouseEventHandler = async (e) => {
+      if (auth.user) {
+         try {
+            const res = await fetch(`/api/user/${auth.user._id}`, {
+               method: "DELETE",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+            }).then((res) => res.json());
+            toast({
+               title: "Compte supprimé.",
+               description: "Nous venons de supprimer votre compte.",
+               status: "success",
+               duration: 5000,
+               isClosable: true,
+            });
+            dispatch(logout());
+         } catch (err) {
+            toast({
+               title: "Compte non supprimé.",
+               description:
+                  "Une erreur est survenue lors de la suppression de votre compte.",
+               status: "error",
+               duration: 5000,
+               isClosable: true,
+            });
+         }
+      } else {
+         console.log("You need to be logged in to do that");
+      }
+   };
    return (
       <section>
          <Heading as='h2' size='lg' marginBottom={3}>
@@ -133,7 +165,12 @@ const MyAccount = () => {
             </ListItem>
             <ListItem fontSize={18} marginBottom={5}>
                <Text>Supprimer mon compte</Text>
-               <button className={scss["btn--delete"]}>Supprimer</button>
+               <button
+                  className={scss["btn--delete"]}
+                  onClick={handleDeleteAccount}
+               >
+                  Supprimer
+               </button>
             </ListItem>
          </UnorderedList>
       </section>

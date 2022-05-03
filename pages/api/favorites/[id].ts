@@ -4,7 +4,7 @@ import isEmpty from "is-empty";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-   console.log("query", req.query);
+   console.log(req.method + " " + req.url);
    const { id } = req.query;
    switch (req.method) {
       case "GET":
@@ -35,6 +35,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             );
             return res.status(200).json(favorites);
          }
+      case "DELETE":
+         const deleted = await Favorite.findOneAndUpdate(
+            { _id: id },
+            {
+               $set: {
+                  favorites: [],
+               },
+            }
+         );
+         return res.status(200).json(deleted);
       default:
          return res.status(500).json({ message: "Route not valid" });
    }

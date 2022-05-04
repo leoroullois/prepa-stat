@@ -14,6 +14,8 @@ import { setFavorites } from "@store/slices/favorites";
 import WishListItem from "./WishListItem";
 import { AppDispatch } from "@store/store";
 import Link from "next/link";
+import isEmpty from "is-empty";
+import { updateFavorites as updateFavoritesDb } from "@store/slices/favorites";
 
 const WishList = () => {
    const dispatch = useDispatch<AppDispatch>();
@@ -23,9 +25,8 @@ const WishList = () => {
    const [userId] = useState(auth.user?._id);
 
    const [favorites, updateFavorites] = useState(finalFavorites);
-   const handleOnDragEnd = (result: DropResult) => {
+   const handleOnDragEnd = async (result: DropResult) => {
       console.log(result);
-
       const items = Array.from(favorites);
 
       // * inverse les deux items dans la liste
@@ -33,6 +34,15 @@ const WishList = () => {
       if (result.destination) {
          items.splice(result.destination.index, 0, reorderedItem);
          updateFavorites(items);
+         try {
+            const favoritesToSend = items.map((school) => {
+               return school._id;
+            });
+            await dispatch(updateFavoritesDb({ favorites: favoritesToSend, userId: userId })).unwrap();
+            await dispatch(setFavorites(userId)).unwrap();
+         } catch (err) {
+            throw new Error("Error during the drag and drop processus.");
+         }
       }
    };
    const getPosition = (i: number): string => {
@@ -70,8 +80,9 @@ const WishList = () => {
                   >
                      {favorites.length === 0 && (
                         <Text>
-                           😭 Vous n&apos;avez pas encore d&apos;écoles dans vos favoris. Vous pouvez en
-                           ajouter en naviguant dans la section{" "}
+                           😭 Vous n&apos;avez pas encore d&apos;écoles dans vos
+                           favoris. Vous pouvez en ajouter en naviguant dans la
+                           section{" "}
                            <Link
                               href={`/statistiques/${auth.user.filiere.toLocaleLowerCase()}`}
                            >

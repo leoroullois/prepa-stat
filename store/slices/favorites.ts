@@ -12,6 +12,9 @@ interface IIds {
 const init = (): State => {
    return [];
 };
+/**
+ * Add a school to the favorites of the user
+ */
 export const addToFavorites = createAsyncThunk(
    "favorites/addToFavorites",
    async ({ userId, schoolId }: IIds, { rejectWithValue }) => {
@@ -37,9 +40,12 @@ export const addToFavorites = createAsyncThunk(
    }
 );
 
+/**
+ * Get favorites from the database and store them in the store
+ */
 export const setFavorites = createAsyncThunk(
    "favorites/setFavorites",
-   async (userId: string, { rejectWithValue }) => {
+   async (userId: string, { rejectWithValue, fulfillWithValue }) => {
       const res = await fetch(`/api/favorites/${userId}`).then((res) =>
          res.json()
       );
@@ -58,13 +64,44 @@ export const setFavorites = createAsyncThunk(
       }
    }
 );
-
+/**
+ * Update the schools in the database
+ */
+export const updateFavorites = createAsyncThunk(
+   "favorites/updateFavorites",
+   async (
+      data: { favorites: string[]; userId: string },
+      { rejectWithValue, fulfillWithValue }
+   ) => {
+      try {
+         const res = await fetch(`/api/favorites/update`, {
+            method: "POST",
+            body: JSON.stringify({
+               favorites: data.favorites,
+               userId: data.userId,
+            }),
+         }).then((res) => res.json());
+         if (isEmpty(res.favorites)) {
+            rejectWithValue("No favorites found");
+         }
+         return fulfillWithValue(res);
+      } catch (err) {
+         return rejectWithValue(err);
+      }
+   }
+);
+/**
+ * Remove all schools from the favorites list
+ */
 export const resetFavorites = createAsyncThunk(
    "favorites/resetFavorites",
    async (userId: string, { rejectWithValue }) => {
       if (mongoose.Types.ObjectId.isValid(userId)) {
-         const res = await fetch(`/api/favorites/${userId}`, {
+         const res = await fetch(`/api/favorites/reset`, {
             method: "DELETE",
+            body: JSON.stringify({
+               userId,
+            }),
          }).then((res) => res.json());
          return res;
       } else {
@@ -72,6 +109,7 @@ export const resetFavorites = createAsyncThunk(
       }
    }
 );
+
 const favorites = createSlice({
    name: "favorites",
    initialState: init(),
@@ -101,14 +139,11 @@ const favorites = createSlice({
          const err = action.payload;
          console.log("[REJECTED]", err);
       });
-      builder.addCase(
-         setFavorites.fulfilled,
-         (state, action: PayloadAction<any>) => {
-            console.log("[FULFILLED]", action.payload);
-            const schools = action.payload as ISchool[];
-            return schools;
-         }
-      );
+      builder.addCase(setFavorites.fulfilled, (state, action) => {
+         console.log("[FULFILLED]", action.payload);
+         const schools = action.payload as ISchool[];
+         return schools;
+      });
 
       // * RESET FAVORITES
       builder.addCase(resetFavorites.pending, (state, action) => {
@@ -123,6 +158,21 @@ const favorites = createSlice({
          (state, action: PayloadAction<any>) => {
             console.log("[FULFILLED]", action.payload);
             return [];
+         }
+      );
+
+      // * UPDATE FAVORITES
+      builder.addCase(updateFavorites.pending, (state, action) => {
+         console.log("[PENDING] ", action.payload);
+      });
+      builder.addCase(updateFavorites.rejected, (state, action) => {
+         const err = action.payload;
+         console.log("[REJECTED]", err);
+      });
+      builder.addCase(
+         updateFavorites.fulfilled,
+         (state, action: PayloadAction<any>) => {
+            console.log("[FULFILLED]", action.payload);
          }
       );
    },

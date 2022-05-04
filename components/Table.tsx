@@ -1,11 +1,8 @@
 import { MouseEventHandler, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import {
-   Button,
    Heading,
    IconButton,
-   Skeleton,
-   Stack,
    Table as ChakraTable,
    Tbody,
    Td,
@@ -22,17 +19,31 @@ import SchoolCard from "@components/SchoolCard/SchoolCard";
 import scss from "@scss/table.module.scss";
 import { getConcours } from "@lib/statistiques";
 import { useSelector } from "react-redux";
-import { selectNavBar, selectSchools } from "@store/selectors";
+import {
+   selectFavorites,
+   selectNavBar,
+   selectSchools,
+   selectUser,
+} from "@store/selectors";
 
 import { matchConcours } from "@lib/statistiques";
 import { IoCaretDown, IoCaretUp, IoRemove, IoStar } from "react-icons/io5";
 import classNames from "classnames";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@store/store";
+import { addToFavorites } from "@store/slices/favorites";
+
 enum sortTypes {
    ASC = "asc",
    DESC = "desc",
    DEF = "default",
 }
+
 const Table = () => {
+   const dispatch = useDispatch<AppDispatch>();
+
+   const user = useSelector(selectUser);
+
    const { isOpen, onOpen, onClose } = useDisclosure();
 
    const { darkMode } = useSelector(selectNavBar);
@@ -46,6 +57,8 @@ const Table = () => {
 
    const { 0: filiere, 1: concours } = params;
    const schools = useSelector(selectSchools);
+
+   const favorites = useSelector(selectFavorites);
 
    const handleMouseEnter: MouseEventHandler<HTMLTableRowElement> = (e) => {
       const row = e.currentTarget;
@@ -137,11 +150,23 @@ const Table = () => {
          }
       }
    };
-   const handleFavorite: MouseEventHandler<HTMLElement> = (e) => {
+   const handleFavorite: MouseEventHandler<HTMLElement> = async (e) => {
       e.preventDefault();
       e.stopPropagation();
       console.log(e.currentTarget.children[0]);
-      e.currentTarget.children[0].classList.toggle(scss.active);
+      try {
+         console.log(currentSchool);
+         if (currentSchool?._id) {
+            await dispatch(
+               addToFavorites({ userId: user._id, schoolId: currentSchool._id })
+            );
+            e.currentTarget.children[0].classList.toggle(scss.active);
+         } else {
+            throw new Error("School not found");
+         }
+      } catch (err) {
+         console.log(err);
+      }
    };
    return (
       <>
@@ -163,8 +188,6 @@ const Table = () => {
                <section key={uuidv4()}>
                   <Heading as='h3'>{getConcours(currConcours)}</Heading>
                   <Text>{currSchools.length} écoles</Text>
-                  <Text>sortParam {sortParam}</Text>
-                  <Text>currentSort {currentSort}</Text>
 
                   <ChakraTable size='md' marginBottom={10}>
                      <Thead>
@@ -336,11 +359,21 @@ const Table = () => {
                                        <IconButton
                                           aria-label='Ajouter à vos favoris'
                                           onClick={handleFavorite}
+                                          bgColor={
+                                             darkMode ? "white.500" : "gray.300"
+                                          }
                                           icon={
                                              <IoStar
                                                 className={classNames(
                                                    scss["favorite-icon"],
-                                                   scss["active"]
+                                                   {
+                                                      [scss["active"]]:
+                                                         favorites.findIndex(
+                                                            (favSchool) =>
+                                                               school._id ===
+                                                               favSchool._id
+                                                         ) !== -1,
+                                                   }
                                                 )}
                                              />
                                           }
@@ -386,3 +419,4 @@ const Table = () => {
 };
 
 export default Table;
+

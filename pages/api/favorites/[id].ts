@@ -36,6 +36,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             return res.status(200).json(favorites);
          }
       case "DELETE":
+         const { schoolId } = req.body;
+         if(isEmpty(schoolId)) {
+            return res.status(404).json({ message: "schoolId is undefined." });
+         }
+         const favorites = await Favorite.findById(id);
+         if (isEmpty(favorites)) {
+            return res.status(404).json({ message: "No user found." });
+         }
+         
          const deleted = await Favorite.findOneAndUpdate(
             { _id: id },
             {

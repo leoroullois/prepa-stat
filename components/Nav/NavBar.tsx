@@ -80,7 +80,11 @@ const NavBar: FC = () => {
          )}
          {size.width > 768 && <AuthBtn />}
          {auth.isAuthenticated && (
-            <IoPersonCircleSharp className={scss.dashboardIcon} />
+            <Link href='/dashboard'>
+               <a>
+                  <IoPersonCircleSharp className={scss.dashboardIcon} />
+               </a>
+            </Link>
          )}
          {!navBar.darkMode ? (
             <MdDarkMode
@@ -97,3 +101,4 @@ const NavBar: FC = () => {
    );
 };
 export default NavBar;
+

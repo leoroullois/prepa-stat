@@ -31,7 +31,12 @@ import { IoCaretDown, IoCaretUp, IoRemove, IoStar } from "react-icons/io5";
 import classNames from "classnames";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@store/store";
-import { addToFavorites } from "@store/slices/favorites";
+import {
+   addToFavorites,
+   removeFromFavorites,
+   resetFavorites,
+   setFavorites,
+} from "@store/slices/favorites";
 
 enum sortTypes {
    ASC = "asc",
@@ -157,10 +162,35 @@ const Table = () => {
       try {
          console.log(currentSchool);
          if (currentSchool?._id) {
-            await dispatch(
-               addToFavorites({ userId: user._id, schoolId: currentSchool._id })
-            );
-            e.currentTarget.children[0].classList.toggle(scss.active);
+            console.log("add to favorites", favorites, currentSchool);
+            if (
+               favorites.findIndex(
+                  (favorite) => favorite._id === currentSchool._id
+               ) !== -1
+            ) {
+               // ? si l'école est déjà dans les favoris : la retirer
+               console.log("REMOVE");
+               if (favorites.length === 1) {
+                  await dispatch(resetFavorites(user._id)).unwrap();
+               } else {
+                  await dispatch(
+                     removeFromFavorites({
+                        userId: user._id,
+                        schoolId: currentSchool._id,
+                     })
+                  ).unwrap();
+               }
+            } else {
+               // ? sinon : l'ajouter
+               console.log("ADD");
+               await dispatch(
+                  addToFavorites({
+                     userId: user._id,
+                     schoolId: currentSchool._id,
+                  })
+               ).unwrap();
+            }
+            await dispatch(setFavorites(user._id)).unwrap();
          } else {
             throw new Error("School not found");
          }

@@ -109,6 +109,38 @@ export const resetFavorites = createAsyncThunk(
       }
    }
 );
+/**
+ * Remove all schools from the favorites list
+ */
+export const removeFromFavorites = createAsyncThunk(
+   "favorites/removeFromFavorites",
+   async (
+      data: { userId: string; schoolId: string },
+      { rejectWithValue, fulfillWithValue }
+   ) => {
+      const { userId, schoolId } = data;
+
+      if (mongoose.Types.ObjectId.isValid(userId)) {
+         const res = await fetch(`/api/favorites/${userId}`, {
+            method: "DELETE",
+            body: JSON.stringify({
+               schoolId,
+            }),
+         }).then((res) => res.json());
+         const output = await Promise.all(
+            res.favorites.map(async (id: string) => {
+               const school = await fetch(`/api/schools/id/${id}`).then((res) =>
+                  res.json()
+               );
+               return school;
+            })
+         );
+         return fulfillWithValue(output);
+      } else {
+         return rejectWithValue("ID is not valid");
+      }
+   }
+);
 
 const favorites = createSlice({
    name: "favorites",
@@ -162,8 +194,8 @@ const favorites = createSlice({
       );
 
       // * UPDATE FAVORITES
-      builder.addCase(updateFavorites.pending, (state, action) => {
-         console.log("[PENDING] ", action.payload);
+      builder.addCase(updateFavorites.pending, () => {
+         console.log("[PENDING] updateFavorites");
       });
       builder.addCase(updateFavorites.rejected, (state, action) => {
          const err = action.payload;
@@ -175,6 +207,20 @@ const favorites = createSlice({
             console.log("[FULFILLED]", action.payload);
          }
       );
+      // * REMOVE FROM FAVORITES
+      builder.addCase(removeFromFavorites.pending, () => {
+         console.log("[PENDING] removeFromFavorites");
+      });
+      builder.addCase(removeFromFavorites.rejected, (state, action) => {
+         const err = action.payload;
+         console.log("[REJECTED]", err);
+      });
+      builder.addCase(removeFromFavorites.fulfilled, (state, action) => {
+         console.log("[FULFILLED] removeFromFavorites", action.payload);
+         const res = action.payload as any;
+         state = res.favorites;
+         return state;
+      });
    },
 });
 

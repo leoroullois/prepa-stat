@@ -18,6 +18,7 @@ import { useDispatch } from "react-redux";
 import { setSchools } from "@store/slices/schools";
 import { ISchool } from "@models/School";
 import { close } from "@store/slices/sideNav";
+import General from "@components/General";
 
 // TODO: les 10 écoles les plus populaires (favoris)
 // TODO: les concours dont les écoles sont le + en favoris
@@ -42,7 +43,6 @@ const Statistiques: FC<IProps> = ({ schools }) => {
       "E3A",
    ];
    const paths = router.query.stats as string[];
-
    const [tabIndex, setTabIndex] = useState(
       allTabs.map((elt) => slugify(elt).toLowerCase()).indexOf(paths[1])
    );
@@ -90,7 +90,8 @@ const Statistiques: FC<IProps> = ({ schools }) => {
                         <Heading as='h2' size='md'>
                            Statistiques de base.
                         </Heading>
-                        <Table />
+                        {tab === "Générale" && <General />}
+                        {tab !== "Générale" && <Table />}
                      </TabPanel>
                   ))}
                </TabPanels>

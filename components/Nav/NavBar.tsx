@@ -14,15 +14,18 @@ import scss from "./navbar.module.scss";
 /** Redux */
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth, selectNavBar } from "../../store/selectors";
-import { toggleDarkMode, toggleDropdownStats } from "../../store/slices/navBar";
+import { toggleDarkMode, toggleDropdownStats } from "@store/slices/navBar";
 import useWindowSize from "../../hooks/useWindowSize";
 import { open } from "../../store/slices/sideNav";
 import classNames from "classnames";
+import { useColorMode } from "@chakra-ui/react";
 
 const NavBar: FC = () => {
    const dispatch = useDispatch();
    const navBar = useSelector(selectNavBar);
    const { darkMode } = navBar;
+
+   const { toggleColorMode } = useColorMode();
 
    const auth = useSelector(selectAuth);
 
@@ -34,6 +37,7 @@ const NavBar: FC = () => {
    const handleDarkMode: MouseEventHandler = (e) => {
       console.log(e);
       dispatch(toggleDarkMode());
+      toggleColorMode();
    };
 
    return (
@@ -79,24 +83,26 @@ const NavBar: FC = () => {
             </div>
          )}
          {size.width > 768 && <AuthBtn />}
-         {auth.isAuthenticated && (
-            <Link href='/dashboard'>
-               <a>
-                  <IoPersonCircleSharp className={scss.dashboardIcon} />
-               </a>
-            </Link>
-         )}
-         {!navBar.darkMode ? (
-            <MdDarkMode
-               style={{ cursor: "pointer" }}
-               onClick={handleDarkMode}
-            />
-         ) : (
-            <MdOutlineDarkMode
-               style={{ cursor: "pointer" }}
-               onClick={handleDarkMode}
-            />
-         )}
+         <div className={scss["icons-container"]}>
+            {auth.isAuthenticated && (
+               <Link href='/dashboard'>
+                  <a>
+                     <IoPersonCircleSharp className={scss.dashboardIcon} />
+                  </a>
+               </Link>
+            )}
+            {!navBar.darkMode ? (
+               <MdDarkMode
+                  onClick={handleDarkMode}
+                  className={scss.darkModeIcon}
+               />
+            ) : (
+               <MdOutlineDarkMode
+                  onClick={handleDarkMode}
+                  className={scss.darkModeIcon}
+               />
+            )}
+         </div>
       </nav>
    );
 };

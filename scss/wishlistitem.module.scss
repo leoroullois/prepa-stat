@@ -16,16 +16,17 @@
    border-radius: 6px;
    box-shadow: $main-shadow;
    list-style-type: none;
-   background: linear-gradient(to right, rgba(9, 7, 19, 0.5), rgb(4, 2, 14, .5));
    backdrop-filter: blur(1px);
    &:hover {
       background-color: rgba(127, 127, 127, 0.1);
    }
 }
 .white-mode {
-   background-color: $main-white;
+   background-color: transparent;
+   background: linear-gradient(to right, rgba(9, 7, 19, 0.05), rgb(4, 2, 14, .05));
 }
-.darkMode {
+.wish-list--item.darkMode {
+   background: linear-gradient(to right, rgba(9, 7, 19, 0.5), rgb(4, 2, 14, .5));
    background-color: $main-black;
 }
 .wish-list--right--container {

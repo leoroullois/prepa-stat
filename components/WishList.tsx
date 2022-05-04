@@ -14,12 +14,13 @@ import { setFavorites } from "@store/slices/favorites";
 import WishListItem from "./WishListItem";
 import { AppDispatch } from "@store/store";
 import Link from "next/link";
-import isEmpty from "is-empty";
 import { updateFavorites as updateFavoritesDb } from "@store/slices/favorites";
 
 const WishList = () => {
    const dispatch = useDispatch<AppDispatch>();
+   
    const darkMode = useSelector(selectDarkMode);
+
    const finalFavorites = useSelector(selectFavorites);
    const auth = useSelector(selectAuth);
    const [userId] = useState(auth.user?._id);
@@ -38,7 +39,9 @@ const WishList = () => {
             const favoritesToSend = items.map((school) => {
                return school._id;
             });
-            await dispatch(updateFavoritesDb({ favorites: favoritesToSend, userId: userId })).unwrap();
+            await dispatch(
+               updateFavoritesDb({ favorites: favoritesToSend, userId: userId })
+            ).unwrap();
             await dispatch(setFavorites(userId)).unwrap();
          } catch (err) {
             throw new Error("Error during the drag and drop processus.");

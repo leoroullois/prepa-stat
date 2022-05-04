@@ -221,11 +221,11 @@ const Table = () => {
                      matchConcours(concours).includes(school.concours)
                );
             return (
-               <section key={uuidv4()}>
+               <section key={uuidv4()} className={scss["table"]}>
                   <Heading as='h3'>{getConcours(currConcours)}</Heading>
                   <Text>{currSchools.length} écoles</Text>
 
-                  <ChakraTable size='md' marginBottom={10}>
+                  <ChakraTable size='sm' marginBottom={10} variant='simple'>
                      <Thead>
                         <Tr className={scss["th-row"]}>
                            <Th>
@@ -399,18 +399,18 @@ const Table = () => {
                                           bgColor={
                                              darkMode ? "white.500" : "gray.300"
                                           }
+                                          color={
+                                             favorites.findIndex(
+                                                (favSchool) =>
+                                                   school._id === favSchool._id
+                                             ) !== -1
+                                                ? "yellow.500"
+                                                : "gray.500"
+                                          }
                                           icon={
                                              <IoStar
                                                 className={classNames(
-                                                   scss["favorite-icon"],
-                                                   {
-                                                      [scss["active"]]:
-                                                         favorites.findIndex(
-                                                            (favSchool) =>
-                                                               school._id ===
-                                                               favSchool._id
-                                                         ) !== -1,
-                                                   }
+                                                   scss["favorite-icon"]
                                                 )}
                                              />
                                           }

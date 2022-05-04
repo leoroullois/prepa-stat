@@ -281,7 +281,7 @@ const auth = createSlice({
 
       builder.addCase(login.rejected, (state, action) => {
          const err = action.payload as any;
-         console.log("[REJECTED] ", err);
+         console.log("[REJECTED] login", err);
          const isArray = Array.isArray(err.error);
          if (isArray) {
             state.errors = err.error;
@@ -313,7 +313,7 @@ const auth = createSlice({
          } else {
             state.errors = [err.error];
          }
-         console.log("[REJECTED] ", err);
+         console.log("[REJECTED] register", err);
       });
 
       // ? Change password
@@ -328,7 +328,7 @@ const auth = createSlice({
       );
       builder.addCase(changePassword.rejected, (state, action) => {
          const err = action.payload as string;
-         console.log("[REJECTED] ", err);
+         console.log("[REJECTED] changePassword", err);
       });
 
       // ? Change name
@@ -352,7 +352,7 @@ const auth = createSlice({
       );
       builder.addCase(changeName.rejected, (state, action) => {
          const err = action.payload as string;
-         console.log("[REJECTED] ", err);
+         console.log("[REJECTED] changeName", err);
       });
 
       // ? Change name
@@ -376,7 +376,7 @@ const auth = createSlice({
       );
       builder.addCase(changeFiliere.rejected, (state, action) => {
          const err = action.payload as string;
-         console.log("[REJECTED] ", err);
+         console.log("[REJECTED] changeFiliere", err);
       });
 
       // ? Delete account

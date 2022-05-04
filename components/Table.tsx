@@ -67,11 +67,12 @@ const Table = () => {
 
    const handleMouseEnter: MouseEventHandler<HTMLTableRowElement> = (e) => {
       const row = e.currentTarget;
-      setCurrentSchool(
-         schools?.filter(
-            (school) => school.ecole === row.firstChild?.textContent
-         )[0]
-      );
+      if (row.id) {
+         const newCurrentSchool = schools.find(
+            (school) => school._id === row.id
+         );
+         setCurrentSchool(newCurrentSchool);
+      }
    };
    useEffect(() => {
       console.log("param ", concours);
@@ -158,41 +159,46 @@ const Table = () => {
    const handleFavorite: MouseEventHandler<HTMLElement> = async (e) => {
       e.preventDefault();
       e.stopPropagation();
-      console.log(e.currentTarget.children[0]);
       try {
-         console.log(currentSchool);
-         if (currentSchool?._id) {
-            console.log("add to favorites", favorites, currentSchool);
-            if (
-               favorites.findIndex(
-                  (favorite) => favorite._id === currentSchool._id
-               ) !== -1
-            ) {
-               // ? si l'école est déjà dans les favoris : la retirer
-               console.log("REMOVE");
-               if (favorites.length === 1) {
-                  await dispatch(resetFavorites(user._id)).unwrap();
+         const row = e.currentTarget.parentElement?.parentElement;
+         if (row?.id) {
+            const currSchool = schools.find((school) => school._id === row.id);
+            console.log("currSchool", currSchool);
+            console.log("row.id", row.id);
+            if (currSchool) {
+               if (
+                  favorites.findIndex((elt) => elt._id === currSchool._id) !==
+                  -1
+               ) {
+                  // ? si l'école est déjà dans les favoris : la retirer
+                  console.log("REMOVE favorites :", favorites);
+                  if (favorites.length === 1) {
+                     await dispatch(resetFavorites(user._id)).unwrap();
+                  } else {
+                     await dispatch(
+                        removeFromFavorites({
+                           userId: user._id,
+                           schoolId: currSchool._id,
+                        })
+                     ).unwrap();
+                  }
                } else {
+                  // ? sinon : l'ajouter
+                  console.log("ADD favorites : ", favorites);
                   await dispatch(
-                     removeFromFavorites({
+                     addToFavorites({
                         userId: user._id,
-                        schoolId: currentSchool._id,
+                        schoolId: currSchool._id,
                      })
                   ).unwrap();
                }
+               await dispatch(setFavorites(user._id)).unwrap();
+               setTimeout(async () => {}, 0);
             } else {
-               // ? sinon : l'ajouter
-               console.log("ADD");
-               await dispatch(
-                  addToFavorites({
-                     userId: user._id,
-                     schoolId: currentSchool._id,
-                  })
-               ).unwrap();
+               throw new Error("School not found");
             }
-            await dispatch(setFavorites(user._id)).unwrap();
          } else {
-            throw new Error("School not found");
+            console.log("No row found");
          }
       } catch (err) {
          console.log(err);
@@ -252,7 +258,7 @@ const Table = () => {
                               </div>
                            </Th>
                            <Th>
-                              <p
+                              <div
                                  onClick={() => onSortChange("inscrits_nb")}
                                  className={scss["th-row_cell"]}
                               >
@@ -277,7 +283,7 @@ const Table = () => {
                                           className={scss["th-row_cell__down"]}
                                        />
                                     )}
-                              </p>
+                              </div>
                            </Th>
                            <Th>
                               <div
@@ -379,6 +385,7 @@ const Table = () => {
                                     onClick={onOpen}
                                     onMouseEnter={handleMouseEnter}
                                     className={scss["row"]}
+                                    id={school._id}
                                  >
                                     <Td maxWidth={350}>{school.ecole}</Td>
                                     <Td>{school.inscrits_nb}</Td>
@@ -433,6 +440,7 @@ const Table = () => {
             onOpen={onOpen}
             onClose={onClose}
             school={{
+               _id: currentSchool?._id,
                ecole: currentSchool?.ecole ?? "",
                classement: 5,
                places: currentSchool?.places ?? 0,

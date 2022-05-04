@@ -50,6 +50,7 @@ const SchoolCardContent: FC<ISchoolCardProps> = ({ data, maxPlace }) => {
                </div>
             </div>
          </div>
+         <p>{data._id}</p>
          <div className={scss["card-content"]}>
             <div className={scss["integres"]}>
                <h3>Intégrés {data.annee}</h3>
@@ -137,3 +138,4 @@ const SchoolCardContent: FC<ISchoolCardProps> = ({ data, maxPlace }) => {
 };
 
 export default SchoolCardContent;
+

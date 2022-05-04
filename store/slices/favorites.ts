@@ -149,46 +149,46 @@ const favorites = createSlice({
    extraReducers: (builder) => {
       // * Add to favorites
       builder.addCase(addToFavorites.pending, (state, action) => {
-         console.log("[PENDING] ", action.payload);
+         console.log("[PENDING] addToFavorites", action.payload);
       });
       builder.addCase(addToFavorites.rejected, (state, action) => {
          const err = action.payload;
-         console.log("[REJECTED]", err);
+         console.log("[REJECTED] addToFavorites", err);
       });
       builder.addCase(
          addToFavorites.fulfilled,
          (state, action: PayloadAction<any>) => {
-            console.log("[FULFILLED]", action.payload);
+            console.log("[FULFILLED] addToFavorites", action.payload);
             const schools = action.payload as ISchool[];
             return schools;
          }
       );
       // * SET FAVORITES
       builder.addCase(setFavorites.pending, (state, action) => {
-         console.log("[PENDING] ", action.payload);
+         console.log("[PENDING] setFavorites", action.payload);
       });
       builder.addCase(setFavorites.rejected, (state, action) => {
          const err = action.payload;
-         console.log("[REJECTED]", err);
+         console.log("[REJECTED] setFavorites", err);
       });
       builder.addCase(setFavorites.fulfilled, (state, action) => {
-         console.log("[FULFILLED]", action.payload);
+         console.log("[FULFILLED] setFavorites", action.payload);
          const schools = action.payload as ISchool[];
          return schools;
       });
 
       // * RESET FAVORITES
       builder.addCase(resetFavorites.pending, (state, action) => {
-         console.log("[PENDING] ", action.payload);
+         console.log("[PENDING] resetFavorites", action.payload);
       });
       builder.addCase(resetFavorites.rejected, (state, action) => {
          const err = action.payload;
-         console.log("[REJECTED]", err);
+         console.log("[REJECTED] resetFavorites", err);
       });
       builder.addCase(
          resetFavorites.fulfilled,
          (state, action: PayloadAction<any>) => {
-            console.log("[FULFILLED]", action.payload);
+            console.log("[FULFILLED] resetFavorites", action.payload);
             return [];
          }
       );
@@ -199,12 +199,12 @@ const favorites = createSlice({
       });
       builder.addCase(updateFavorites.rejected, (state, action) => {
          const err = action.payload;
-         console.log("[REJECTED]", err);
+         console.log("[REJECTED] updateFavorites", err);
       });
       builder.addCase(
          updateFavorites.fulfilled,
          (state, action: PayloadAction<any>) => {
-            console.log("[FULFILLED]", action.payload);
+            console.log("[FULFILLED] updateFavorites", action.payload);
          }
       );
       // * REMOVE FROM FAVORITES
@@ -213,7 +213,7 @@ const favorites = createSlice({
       });
       builder.addCase(removeFromFavorites.rejected, (state, action) => {
          const err = action.payload;
-         console.log("[REJECTED]", err);
+         console.log("[REJECTED] removeFromFavorites", err);
       });
       builder.addCase(removeFromFavorites.fulfilled, (state, action) => {
          console.log("[FULFILLED] removeFromFavorites", action.payload);

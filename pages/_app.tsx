@@ -35,9 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
          // Check for expired token
          const currentTime = Date.now() / 1000; // to get in milliseconds
 
-         console.log("token avant vérification validdité :", token);
          if (token.exp < currentTime) {
-            console.log("useEffect");
             localStorage.removeItem("jwtToken");
             store.dispatch(logout());
          } else {
@@ -54,10 +52,6 @@ function MyApp({ Component, pageProps }: AppProps) {
          }
       }
    }, [query.token]);
-   const handleClick: MouseEventHandler = (e) => {
-      //   e.stopPropagation();
-      console.log(e.target);
-   };
    return (
       <Provider store={store}>
          <ChakraProvider>

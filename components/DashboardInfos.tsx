@@ -164,10 +164,6 @@ const DashboardInfos = () => {
       }
    }, [data]);
 
-   useEffect(() => {
-      drawChart();
-   }, [drawChart]);
-
    return (
       <Box width='100%'>
          <Heading as='h2' size='lg' marginBottom={3}>

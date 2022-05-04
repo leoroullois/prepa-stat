@@ -1,4 +1,5 @@
 type SchoolData = {
+	_id: string;
 	ecole: string;
 	classement: number;
 	places: number;

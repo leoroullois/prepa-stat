@@ -1,3 +1,5 @@
+import { IConcours } from "@components/DashboardInfos";
+
 export const getConcours = (concours: string | undefined): string => {
    let x = concours ?? "";
    switch (x) {
@@ -27,6 +29,36 @@ export const getConcours = (concours: string | undefined): string => {
          return "Autres écoles E3A";
       default:
          return "Error";
+   }
+};
+export const getDashboardConcours = (concours: string): IConcours => {
+   switch (concours) {
+      case "banque_ens":
+         return IConcours.XENS;
+      case "concours_ecole_polytechnique":
+         return IConcours.XENS;
+      case "banque_centrale_supelec":
+         return IConcours.CENTRALE;
+      case "concours_commun_mines_ponts":
+         return IConcours.MINES;
+      case "concours_mines_télécom":
+         return IConcours.MINES;
+      case "banque_epreuves_ccinp":
+         return IConcours.CCINP;
+      case "banque_epreuves_ccinp_inter_filière":
+         return IConcours.CCINP;
+      case "concours_commun_inp":
+         return IConcours.CCINP;
+      case "concours_polytech_inter_filière":
+         return IConcours.E3A;
+      case "puissance_alpha":
+         return IConcours.E3A;
+      case "avenir_prépas":
+         return IConcours.E3A;
+      case "autres_écoles_e3a":
+         return IConcours.E3A;
+      default:
+         return IConcours.E3A;
    }
 };
 
@@ -59,3 +91,4 @@ export const matchConcours = (concours: string): string[] => {
          return [""];
    }
 };
+

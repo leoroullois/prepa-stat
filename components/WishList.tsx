@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { setFavorites } from "@store/slices/favorites";
 import WishListItem from "./WishListItem";
 import { AppDispatch } from "@store/store";
+import Link from "next/link";
 
 const WishList = () => {
    const dispatch = useDispatch<AppDispatch>();
@@ -67,6 +68,18 @@ const WishList = () => {
                      {...provided.droppableProps}
                      ref={provided.innerRef}
                   >
+                     {favorites.length === 0 && (
+                        <Text>
+                           😭 Vous n&apos;avez pas encore d&apos;écoles dans vos favoris. Vous pouvez en
+                           ajouter en naviguant dans la section{" "}
+                           <Link
+                              href={`/statistiques/${auth.user.filiere.toLocaleLowerCase()}`}
+                           >
+                              <a>statistiques</a>
+                           </Link>{" "}
+                           de votre filière.
+                        </Text>
+                     )}
                      {favorites.map((school, i) => {
                         const position = getPosition(i);
                         return (
@@ -92,10 +105,12 @@ const WishList = () => {
                )}
             </Droppable>
          </DragDropContext>
-         <Text marginTop={5} fontSize={18}>
-            Vous pouvez réarranger l&apos;ordre de votre liste de voeux comme
-            vous le souhaitez.
-         </Text>
+         {favorites.length > 0 && (
+            <Text marginTop={5} fontSize={18}>
+               💡 Vous pouvez classer vos écoles présentes dans votre liste de
+               voeux comme vous le souhaitez.
+            </Text>
+         )}
       </>
    );
 };

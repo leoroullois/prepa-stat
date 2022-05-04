@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 import { useCallback, useEffect } from "react";
 import * as d3 from "d3";
 import scss from "@scss/dashboardinfo.module.scss";
-enum IConcours {
+import { getDashboardConcours } from "@lib/statistiques";
+export enum IConcours {
    XENS = "X-ENS",
    CENTRALE = "Centrale",
    MINES = "Mines",
@@ -18,30 +19,41 @@ interface IData {
 }
 const DashboardInfos = () => {
    const favorites = useSelector(selectFavorites);
+   const schools = favorites.map((school) => {
+      return {
+         concours: getDashboardConcours(school.concours),
+      };
+   });
+   const getNumberOfSchoolsInOneConcours = useCallback(
+      (concours: IConcours) => {
+         return schools.filter((school) => school.concours === concours).length;
+      },
+      [schools]
+   );
    const data = useMemo<IData[]>(
       () => [
          {
             concours: IConcours.XENS,
-            nbEcoles: 10,
+            nbEcoles: getNumberOfSchoolsInOneConcours(IConcours.XENS),
          },
          {
             concours: IConcours.CENTRALE,
-            nbEcoles: 5,
+            nbEcoles: getNumberOfSchoolsInOneConcours(IConcours.CENTRALE),
          },
          {
             concours: IConcours.MINES,
-            nbEcoles: 8,
+            nbEcoles: getNumberOfSchoolsInOneConcours(IConcours.MINES),
          },
          {
             concours: IConcours.CCINP,
-            nbEcoles: 10,
+            nbEcoles: getNumberOfSchoolsInOneConcours(IConcours.CCINP),
          },
          {
             concours: IConcours.E3A,
-            nbEcoles: 3,
+            nbEcoles: getNumberOfSchoolsInOneConcours(IConcours.E3A),
          },
       ],
-      []
+      [getNumberOfSchoolsInOneConcours]
    );
    const drawChart = useCallback(() => {
       const h = 300;

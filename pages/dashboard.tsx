@@ -30,15 +30,6 @@ const Dashboard: NextPage = () => {
       dispatch(close());
    };
 
-   const handleFavorites: MouseEventHandler = async (e) => {
-      const schoolId = "621502163b0ddef4ef421a4b";
-      if (userId) {
-         dispatch(addToFavorites({ userId, schoolId }));
-      } else {
-         console.log("You need to be logged in to do that");
-      }
-   };
-
    const handleResetFavorites: MouseEventHandler = async (e) => {
       if (userId) {
          // TODO: supprimer les favoris du seul mec avec l'id
@@ -56,9 +47,6 @@ const Dashboard: NextPage = () => {
          <PrivateRoute>
             <main onClick={handleCloseNav} className={scss["dashboard"]}>
                <div className='wrapper'>
-                  <button onClick={handleFavorites}>
-                     Add school to favorite
-                  </button>
                   <Heading as='h1' size='xl' marginTop={5}>
                      <span className={scss["main-title"]}>
                         <MdSpaceDashboard />

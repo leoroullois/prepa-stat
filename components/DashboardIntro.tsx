@@ -17,10 +17,10 @@ const DashboardIntro = () => {
             textAlign='justify'
             lineHeight={2}
          >
-            Ici vous allez pouvoir accéder à vos écoles favorites et les trier
-            de façon à créer votre liste de voeux ! Vous pouvez aussi les
-            supprimer. Bien sûre, il n&apos;y a rien d&apos;officiel et il
-            faudra reporter vous choix sur{" "}
+            Ici vous allez pouvoir accéder à vos écoles favorites et les classer
+            par ordre de préférence de façon à créer votre liste de voeux ! Vous
+            pouvez aussi les supprimer. Bien sûre, il n&apos;y a rien
+            d&apos;officiel et il faudra reporter vos choix sur{" "}
             <Link href='https://www.scei-concours.fr/'>
                <a target='_blank'>SCEI</a>
             </Link>{" "}

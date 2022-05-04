@@ -63,7 +63,7 @@ export const resetFavorites = createAsyncThunk(
    "favorites/resetFavorites",
    async (userId: string, { rejectWithValue }) => {
       if (mongoose.Types.ObjectId.isValid(userId)) {
-         const res = await fetch(`/api/favorites/${userId}/reset`, {
+         const res = await fetch(`/api/favorites/${userId}`, {
             method: "DELETE",
          }).then((res) => res.json());
          return res;

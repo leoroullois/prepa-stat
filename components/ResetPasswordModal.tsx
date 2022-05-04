@@ -15,10 +15,9 @@ import {
    ModalOverlay,
    useToast,
 } from "@chakra-ui/react";
-import { selectAuth, selectDarkMode } from "@store/selectors";
+import { selectAuth } from "@store/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { changePassword } from "@store/slices/auth";
-import { userInfo } from "os";
 import { AppDispatch } from "@store/store";
 
 interface IProps {

@@ -1,19 +1,6 @@
 import {
-   Button,
-   Divider,
-   FormLabel,
    Heading,
-   Input,
-   InputGroup,
-   InputRightElement,
    ListItem,
-   Modal,
-   ModalBody,
-   ModalCloseButton,
-   ModalContent,
-   ModalFooter,
-   ModalHeader,
-   ModalOverlay,
    Text,
    UnorderedList,
    useDisclosure,
@@ -27,7 +14,7 @@ import classNames from "classnames";
 import { resetFavorites } from "@store/slices/favorites";
 import ResetPasswordModal from "./ResetPasswordModal";
 import { AppDispatch } from "@store/store";
-import { logout } from "@store/slices/auth";
+import { deleteAccount, logout } from "@store/slices/auth";
 import ChangeFiliereModal from "./ChangeFiliereModal";
 import ChangeNameModal from "./ChangeNameModal";
 
@@ -92,12 +79,8 @@ const MyAccount = () => {
    const handleDeleteAccount: MouseEventHandler = async (e) => {
       if (auth.user) {
          try {
-            const res = await fetch(`/api/user/${auth.user._id}`, {
-               method: "DELETE",
-               headers: {
-                  "Content-Type": "application/json",
-               },
-            }).then((res) => res.json());
+            await dispatch(deleteAccount(auth.user._id)).unwrap();
+
             toast({
                title: "Compte supprimé.",
                description: "Nous venons de supprimer votre compte.",
@@ -137,10 +120,7 @@ const MyAccount = () => {
                >
                   Changer de nom d&apos;utilisateur
                </button>
-               <ChangeNameModal
-                  onClose={onNameClose}
-                  isOpen={isNameOpen}
-               />
+               <ChangeNameModal onClose={onNameClose} isOpen={isNameOpen} />
             </ListItem>
             <ListItem fontSize={18} marginBottom={5}>
                Email : <span className={scss["email"]}>{auth.user.email}</span>

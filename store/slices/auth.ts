@@ -33,16 +33,17 @@ const init = (): IAuth => {
 
 export const login = createAsyncThunk(
    "auth/login",
-   async (userData: ILoginState, { rejectWithValue }) => {
+   async (userData: ILoginState, { rejectWithValue, fulfillWithValue }) => {
       try {
          const res = await fetch("/api/auth/login", {
             method: "POST",
             body: JSON.stringify(userData),
             headers: { "Content-Type": "application/json" },
-         }).then((data) => data.json());
+         }).then((res) => res.json());
          console.log("RES ", res);
+         const { message, token, _doc: user } = res;
          if (!isEmpty(res._doc)) {
-            return res;
+            return fulfillWithValue({ message, token, user });
          } else {
             return rejectWithValue({ message: "User is empty.", error: res });
          }
@@ -86,18 +87,18 @@ export const register = createAsyncThunk(
 );
 export const setCurrentUserById = createAsyncThunk(
    "auth/setCurrentUserById",
-   async (userId: string, { rejectWithValue }) => {
+   async (userId: string, { rejectWithValue, fulfillWithValue }) => {
       console.log("userId : ", userId);
       try {
-         const res = await fetch(`/api/user/${userId}`).then((data) =>
-            data.json()
+         const user = await fetch(`/api/user/${userId}`).then((res) =>
+            res.json()
          );
-         if (!isEmpty(res)) {
-            return res;
+         if (!isEmpty(user)) {
+            return fulfillWithValue({ message: "User found", user });
          } else {
             return rejectWithValue({
                message: "User is empty",
-               error: res.error,
+               error: user.error,
             });
          }
       } catch (err) {
@@ -195,6 +196,39 @@ export const changeFiliere = createAsyncThunk(
       }
    }
 );
+
+export const deleteAccount = createAsyncThunk(
+   "auth/deleteAccount",
+   async (userId: string, { rejectWithValue, fulfillWithValue }) => {
+      try {
+         const deletedUser = await fetch(`/api/user/${userId}`, {
+            method: "DELETE",
+            headers: {
+               "Content-Type": "application/json",
+            },
+         }).then((res) => res.json());
+         const deletedFavorites = await fetch(`/api/favorites/${userId}`, {
+            method: "DELETE",
+         }).then((res) => res.json());
+
+         if (!isEmpty(deletedUser)) {
+            return fulfillWithValue({
+               message: "User is deleted.",
+               user: deletedUser,
+            });
+         } else {
+            return rejectWithValue({
+               message: "User is empty",
+            });
+         }
+      } catch (err) {
+         return rejectWithValue({
+            message: "Error deleting account",
+            error: err,
+         });
+      }
+   }
+);
 const auth = createSlice({
    name: "auth",
    initialState: init(),
@@ -229,7 +263,7 @@ const auth = createSlice({
       });
       builder.addCase(login.fulfilled, (state, action: PayloadAction<any>) => {
          const { token } = action.payload;
-         const { name, email, _id, filiere } = action.payload._doc;
+         const { name, email, _id, filiere } = action.payload.user;
          const user = {
             _id,
             name,
@@ -309,7 +343,10 @@ const auth = createSlice({
                ...state.user,
                name: res.user.name,
             };
-            console.log("[FULFILLED] Your user name is updated.", action.payload);
+            console.log(
+               "[FULFILLED] Your user name is updated.",
+               action.payload
+            );
             return state;
          }
       );
@@ -342,6 +379,26 @@ const auth = createSlice({
          console.log("[REJECTED] ", err);
       });
 
+      // ? Delete account
+      builder.addCase(deleteAccount.pending, (state) => {
+         console.log("[PENDING] Deleting user...");
+      });
+      builder.addCase(
+         deleteAccount.fulfilled,
+         (state, action: PayloadAction<any>) => {
+            const { res } = action.payload;
+            console.log(
+               "[FULFILLED] Your filiere is updated.",
+               action.payload.res.user
+            );
+            return state;
+         }
+      );
+      builder.addCase(deleteAccount.rejected, (state, action) => {
+         const err = action.payload as string;
+         console.log("[REJECTED] ", err);
+      });
+
       // ? Change current user by id
       builder.addCase(setCurrentUserById.pending, (state) => {
          console.log("[PENDING] setCurrentUserById...");
@@ -349,7 +406,7 @@ const auth = createSlice({
       builder.addCase(
          setCurrentUserById.fulfilled,
          (state, action: PayloadAction<any>) => {
-            const { _id, name, email, filiere } = action.payload;
+            const { _id, name, email, filiere } = action.payload.user;
             state.user = {
                _id,
                name,

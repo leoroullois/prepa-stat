@@ -29,8 +29,9 @@ const DashboardIntro = () => {
             statistiques et vous permettre d&apos;affiner vos choix.
          </Text>
          <Text color={`gray.${darkMode ? 300 : 700}`} fontSize={18}>
-            [A venir] Vous pouvez aussi modifier votre mot de passe, et
-            supprimer votre compte.
+            Vous pouvez aussi modifier votre mot de passe, votre nom
+            d&apos;utilisateur, filière, supprimer votre compte et enfin
+            réinitialiser vos favoris.
          </Text>
       </>
    );

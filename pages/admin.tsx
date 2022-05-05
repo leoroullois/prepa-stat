@@ -1,9 +1,12 @@
 import { FC, MouseEventHandler, useState } from "react";
 import { Button } from "@chakra-ui/react";
-import { GetStaticProps, NextPage } from "next";
-import json from "@lib/scei/json/2021/2021_mp.json";
+import Head from "next/head";
+import PrivateRoute from "@components/Auth/PrivateRoute";
+import { useSelector } from "react-redux";
+import { selectUser } from "@store/selectors";
 
-const Admin: FC<{ files: string }> = ({ files }) => {
+const Admin: FC = () => {
+   const user = useSelector(selectUser);
    const [state, setState] = useState("");
    const handleClick: MouseEventHandler = async (e) => {
       e.preventDefault();
@@ -33,9 +36,23 @@ const Admin: FC<{ files: string }> = ({ files }) => {
    };
    return (
       <>
-         <h1>Admin</h1>
-         <p>{files}</p>
-         <Button onClick={handleClick}>Ajouter à la base de données</Button>
+         <Head>
+            <title>Admin panel</title>
+         </Head>
+         <PrivateRoute>
+            <main>
+               {user.email === "roullois.leo@protonmail.com" ? (
+                  <>
+                     <h1>Admin</h1>
+                     <Button onClick={handleClick}>
+                        Ajouter à la base de données
+                     </Button>
+                  </>
+               ) : (
+                  <h1>You are not authorized to access this page</h1>
+               )}
+            </main>
+         </PrivateRoute>
       </>
    );
 };

@@ -21,6 +21,9 @@ const navBar = createSlice({
       toggleDarkMode: (state) => {
          state.darkMode = !state.darkMode;
       },
+      setColorMode: (state, action) => {
+         state.darkMode = action.payload;
+      },
       toggleDropdownLeaderboard: (state) => {
          state.leaderboard = !state.leaderboard;
          state.stats = false;
@@ -33,6 +36,7 @@ const navBar = createSlice({
 });
 export const {
    toggleDarkMode,
+   setColorMode,
    toggleDropdownLeaderboard,
    toggleDropdownStats,
 } = navBar.actions;

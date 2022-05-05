@@ -17,7 +17,6 @@ import { v4 as uuidv4 } from "uuid";
 import { ISchool } from "@models/School";
 import SchoolCard from "@components/SchoolCard/SchoolCard";
 import scss from "@scss/table.module.scss";
-import { getConcours } from "@lib/statistiques";
 import { useSelector } from "react-redux";
 import {
    selectFavorites,
@@ -222,7 +221,7 @@ const Table = () => {
                );
             return (
                <section key={uuidv4()} className={scss["table"]}>
-                  <Heading as='h3'>{getConcours(currConcours)}</Heading>
+                  <Heading as='h3'>{currConcours}</Heading>
                   <Text>{currSchools.length} écoles</Text>
 
                   <ChakraTable size='sm' marginBottom={10} variant='simple'>

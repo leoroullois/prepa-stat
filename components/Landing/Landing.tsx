@@ -1,7 +1,6 @@
 import { FC, MouseEventHandler } from "react";
 import { Fade } from "react-awesome-reveal";
 /**Icons */
-import { FcOpenedFolder, FcGraduationCap, FcManager } from "react-icons/fc";
 /**Components */
 import { OverviewArticle } from "./OverviewArticle";
 import { LandingSection } from "./LandingSection";

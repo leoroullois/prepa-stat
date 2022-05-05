@@ -19,7 +19,7 @@ import {
    Stack,
    useToast,
 } from "@chakra-ui/react";
-import { selectAuth, selectDarkMode, selectUser } from "@store/selectors";
+import { selectAuth, selectUser } from "@store/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import {
    changeFiliere,
@@ -84,7 +84,7 @@ const ChangeNameModal: FC<IProps> = ({ isOpen, onClose }) => {
    return (
       <Modal onClose={onClose} size='lg' isOpen={isOpen}>
          <ModalOverlay />
-         <ModalContent bgColor='gray.800'>
+         <ModalContent>
             <ModalHeader>Changer de nom d&apos;utilisateur</ModalHeader>
             <ModalCloseButton />
             <Divider />
@@ -108,7 +108,7 @@ const ChangeNameModal: FC<IProps> = ({ isOpen, onClose }) => {
                <Button onClick={onClose} marginRight={5}>
                   Fermer
                </Button>
-               <Button onClick={handleChangeName} bgColor='green.500'>
+               <Button onClick={handleChangeName} colorScheme="green">
                   Changer de nom de nom d&apos;utilisateur
                </Button>
             </ModalFooter>

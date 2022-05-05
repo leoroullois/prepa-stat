@@ -1,10 +1,11 @@
-import { Heading, Text } from "@chakra-ui/react";
-import { selectAuth, selectDarkMode } from "@store/selectors";
+import { Heading, Text, useColorMode } from "@chakra-ui/react";
+import { selectAuth } from "@store/selectors";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
 const DashboardIntro = () => {
-   const darkMode = useSelector(selectDarkMode);
+   const {colorMode} = useColorMode();
+   const darkMode = colorMode === "dark";
    const auth = useSelector(selectAuth);
    return (
       <>

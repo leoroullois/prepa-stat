@@ -7,7 +7,7 @@ import { logout } from "@store/slices/auth";
 import PrivateRoute from "@components/Auth/PrivateRoute";
 import scss from "@scss/dashboard.module.scss";
 import { close } from "@store/slices/sideNav";
-import { Divider, Heading } from "@chakra-ui/react";
+import { Divider, Heading, useColorMode } from "@chakra-ui/react";
 import { MdSpaceDashboard } from "react-icons/md";
 import { addToFavorites, resetFavorites } from "@store/slices/favorites";
 import MyAccount from "@components/MyAccount";
@@ -38,7 +38,7 @@ const Dashboard: NextPage = () => {
          console.log("You need to be logged in to do that");
       }
    };
-
+   const { colorMode } = useColorMode();
    return (
       <>
          <Head>
@@ -47,6 +47,7 @@ const Dashboard: NextPage = () => {
          <PrivateRoute>
             <main onClick={handleCloseNav} className={scss["dashboard"]}>
                <div className='wrapper'>
+                  {colorMode}
                   <Heading as='h1' size='xl' marginTop={5}>
                      <span className={scss["main-title"]}>
                         <MdSpaceDashboard />

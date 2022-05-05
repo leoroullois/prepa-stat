@@ -3,10 +3,11 @@ import {
    ListItem,
    Text,
    UnorderedList,
+   useColorMode,
    useDisclosure,
    useToast,
 } from "@chakra-ui/react";
-import { selectAuth, selectDarkMode } from "@store/selectors";
+import { selectAuth } from "@store/selectors";
 import React, { MouseEventHandler, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import scss from "@scss/myaccount.module.scss";
@@ -40,7 +41,8 @@ const MyAccount = () => {
    } = useDisclosure();
 
    const auth = useSelector(selectAuth);
-   const darkMode = useSelector(selectDarkMode);
+
+   const { colorMode} = useColorMode();
 
    const handleResetFavorites: MouseEventHandler = async (e) => {
       if (auth.user) {
@@ -113,8 +115,8 @@ const MyAccount = () => {
                <Text>Nom d&apos;utilisateur : {auth.user.name}</Text>
                <button
                   className={classNames({
-                     [scss["btn--dark"]]: darkMode,
-                     [scss["btn--light"]]: !darkMode,
+                     [scss["btn--dark"]]: colorMode === "dark",
+                     [scss["btn--light"]]: colorMode === "light",
                   })}
                   onClick={onNameOpen}
                >
@@ -129,8 +131,8 @@ const MyAccount = () => {
                <Text>Filière : {auth.user.filiere}</Text>
                <button
                   className={classNames({
-                     [scss["btn--dark"]]: darkMode,
-                     [scss["btn--light"]]: !darkMode,
+                     [scss["btn--dark"]]: colorMode === "dark",
+                     [scss["btn--light"]]: colorMode === "light",
                   })}
                   onClick={onFiliereOpen}
                >
@@ -145,8 +147,8 @@ const MyAccount = () => {
                <Text>Mot de passe:</Text>
                <button
                   className={classNames({
-                     [scss["btn--dark"]]: darkMode,
-                     [scss["btn--light"]]: !darkMode,
+                     [scss["btn--dark"]]: colorMode === "dark",
+                     [scss["btn--light"]]: colorMode === "light",
                   })}
                   onClick={() => onPasswordOpen()}
                >

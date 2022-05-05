@@ -14,7 +14,7 @@ import scss from "./navbar.module.scss";
 /** Redux */
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth, selectNavBar } from "../../store/selectors";
-import { toggleDarkMode, toggleDropdownStats } from "@store/slices/navBar";
+import { setColorMode, toggleDarkMode, toggleDropdownStats } from "@store/slices/navBar";
 import useWindowSize from "../../hooks/useWindowSize";
 import { open } from "../../store/slices/sideNav";
 import classNames from "classnames";
@@ -25,7 +25,7 @@ const NavBar: FC = () => {
    const navBar = useSelector(selectNavBar);
    const { darkMode } = navBar;
 
-   const { toggleColorMode } = useColorMode();
+   const { toggleColorMode, colorMode } = useColorMode();
 
    const auth = useSelector(selectAuth);
 
@@ -35,9 +35,9 @@ const NavBar: FC = () => {
       dispatch(toggleDropdownStats());
    };
    const handleDarkMode: MouseEventHandler = (e) => {
-      console.log(e);
-      dispatch(toggleDarkMode());
       toggleColorMode();
+      dispatch(setColorMode(colorMode==="dark"))
+      console.log("Color mode is", colorMode);
    };
 
    return (

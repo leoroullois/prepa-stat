@@ -1,5 +1,5 @@
 import scss from "@scss/wishlist.module.scss";
-import { Heading, Text } from "@chakra-ui/react";
+import { Heading, Text, useColorMode } from "@chakra-ui/react";
 
 import {
    DragDropContext,
@@ -7,7 +7,7 @@ import {
    Draggable,
    DropResult,
 } from "react-beautiful-dnd";
-import { selectAuth, selectDarkMode, selectFavorites } from "@store/selectors";
+import { selectAuth, selectFavorites } from "@store/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { setFavorites } from "@store/slices/favorites";
@@ -18,8 +18,6 @@ import { updateFavorites as updateFavoritesDb } from "@store/slices/favorites";
 
 const WishList = () => {
    const dispatch = useDispatch<AppDispatch>();
-   
-   const darkMode = useSelector(selectDarkMode);
 
    const finalFavorites = useSelector(selectFavorites);
    const auth = useSelector(selectAuth);

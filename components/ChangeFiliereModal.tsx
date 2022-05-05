@@ -18,7 +18,7 @@ import {
    Stack,
    useToast,
 } from "@chakra-ui/react";
-import { selectAuth, selectDarkMode, selectUser } from "@store/selectors";
+import { selectAuth, selectUser } from "@store/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import {
    changeFiliere,
@@ -86,7 +86,7 @@ const ChangeFiliereModal: FC<IProps> = ({ isOpen, onClose }) => {
    return (
       <Modal onClose={onClose} size='lg' isOpen={isOpen}>
          <ModalOverlay />
-         <ModalContent bgColor='gray.800'>
+         <ModalContent>
             <ModalHeader>Changer de filière</ModalHeader>
             <ModalCloseButton />
             <Divider />
@@ -117,7 +117,7 @@ const ChangeFiliereModal: FC<IProps> = ({ isOpen, onClose }) => {
                <Button onClick={onClose} marginRight={5}>
                   Fermer
                </Button>
-               <Button onClick={handleChangeFiliere} bgColor='green.500'>
+               <Button onClick={handleChangeFiliere} colorScheme="green">
                   Changer de nom de filière
                </Button>
             </ModalFooter>

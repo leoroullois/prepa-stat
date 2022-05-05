@@ -118,7 +118,7 @@ const ResetPasswordModal: FC<IProps> = ({ isOpen, onClose }) => {
    return (
       <Modal onClose={onClose} size='lg' isOpen={isOpen}>
          <ModalOverlay />
-         <ModalContent bgColor='gray.800'>
+         <ModalContent>
             <ModalHeader>Changer de mot de passe</ModalHeader>
             <ModalCloseButton />
             <Divider />
@@ -227,7 +227,7 @@ const ResetPasswordModal: FC<IProps> = ({ isOpen, onClose }) => {
                <Button onClick={onClose} marginRight={5}>
                   Fermer
                </Button>
-               <Button onClick={handleChangePassword} bgColor='red.500'>
+               <Button onClick={handleChangePassword} colorScheme="red">
                   Changer de mot de passe
                </Button>
             </ModalFooter>

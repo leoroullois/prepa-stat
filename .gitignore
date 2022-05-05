@@ -37,10 +37,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 .idea
-
-/lib/scei/json
-/lib/scei/2017
-/lib/scei/2018
-/lib/scei/2019
-/lib/scei/2020
-/lib/scei/2021

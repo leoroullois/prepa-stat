@@ -76,8 +76,8 @@ const Statistiques: FC<IProps> = ({ schools }) => {
                index={tabIndex}
                onChange={handleTabsChange}
                size='lg'
+               width="100%"
                variant='enclosed'
-               colorScheme='orange'
             >
                <TabList>
                   {allTabs.map((tab, i) => (

@@ -7,8 +7,7 @@ import { AiFillCalculator, AiFillApi } from "react-icons/ai";
 
 import scss from "./navbar.module.scss";
 import classNames from "classnames";
-import { useSelector } from "react-redux";
-import { selectNavBar } from "@store/selectors";
+import { useColorMode } from "@chakra-ui/react";
 
 interface IProps {
    disableStat: (pValue: boolean) => void;
@@ -17,19 +16,15 @@ const Dropdown: FC<IProps> = ({ disableStat }) => {
    const handleClick = () => {
       disableStat(false);
    };
-   const { darkMode } = useSelector(selectNavBar);
+   const { colorMode } = useColorMode();
 
    return (
-      <div
-         className={classNames(scss.dropdownContent, {
-            "bg-black": darkMode,
-            "text-white": darkMode,
-            "bg-white": !darkMode,
-            "text-dark": !darkMode,
-         })}
-         onClick={handleClick}
-      >
-         <ul>
+      <div className={classNames(scss.dropdownContent)} onClick={handleClick}>
+         <ul
+            style={{
+               backgroundColor: colorMode === "light" ? "#f5f5f5" : "#1a1a1a",
+            }}
+         >
             <li>
                <Link href='/statistiques/mp/generale'>
                   <a className={scss.dropdownLink}>
@@ -67,3 +62,4 @@ const Dropdown: FC<IProps> = ({ disableStat }) => {
    );
 };
 export default Dropdown;
+

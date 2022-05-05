@@ -1,29 +1,24 @@
-import { FC, MouseEventHandler, useEffect } from "react";
-// react-icons
+import { FC, MouseEventHandler } from "react";
+import classNames from "classnames";
 import { MdOutlineDarkMode, MdDarkMode } from "react-icons/md";
 import { FaCaretDown } from "react-icons/fa";
+import { IoMenu, IoPersonCircleSharp } from "react-icons/io5";
 
 import Link from "next/link";
-/**Components */
-import Dropdown from "./Dropdown";
-import AuthBtn from "../Auth/AuthBtn";
-/**react-icon */
-import { IoMenu, IoPersonCircleSharp } from "react-icons/io5";
-/**scss */
+import AuthBtn from "@components/Auth/AuthBtn";
 import scss from "./navbar.module.scss";
-/** Redux */
+import Dropdown from "./Dropdown";
+
+import useWindowSize from "@hooks/useWindowSize";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAuth, selectNavBar } from "../../store/selectors";
-import { setColorMode, toggleDarkMode, toggleDropdownStats } from "@store/slices/navBar";
-import useWindowSize from "../../hooks/useWindowSize";
-import { open } from "../../store/slices/sideNav";
-import classNames from "classnames";
+import { open } from "@store/slices/sideNav";
+import { toggleDropdownStats } from "@store/slices/navBar";
+import { selectAuth, selectNavBar } from "@store/selectors";
 import { useColorMode } from "@chakra-ui/react";
 
 const NavBar: FC = () => {
    const dispatch = useDispatch();
    const navBar = useSelector(selectNavBar);
-   const { darkMode } = navBar;
 
    const { toggleColorMode, colorMode } = useColorMode();
 
@@ -34,10 +29,8 @@ const NavBar: FC = () => {
    const handleStat = () => {
       dispatch(toggleDropdownStats());
    };
-   const handleDarkMode: MouseEventHandler = (e) => {
+   const handleDarkMode: MouseEventHandler = async (e) => {
       toggleColorMode();
-      dispatch(setColorMode(colorMode==="dark"))
-      console.log("Color mode is", colorMode);
    };
 
    return (
@@ -51,36 +44,36 @@ const NavBar: FC = () => {
             </a>
          </Link>
          {size.width >= 1100 && (
-            <Link href='/'>
-               <a className={scss.link + " " + scss.basicLink}>Accueil</a>
-            </Link>
-         )}
-         {size.width >= 1100 && (
-            <Link href='/classements/l-etudiant'>
-               <a className={scss.link + " " + scss.basicLink}>Classements</a>
-            </Link>
-         )}
-         {size.width >= 1100 && (
-            <Link href='/simulateur'>
-               <a className={scss.link + " " + scss.basicLink}>Simulateur</a>
-            </Link>
-         )}
-         {size.width >= 1100 && (
-            <div
-               className={classNames(scss.link, scss.dropdownBtn, {
-                  "bg-black": darkMode,
-                  "text-white": darkMode,
-                  "bg-white": !darkMode,
-                  "text-dark": !darkMode,
-               })}
-               onClick={handleStat}
-            >
-               <div className={classNames(scss.dropdownBtnContent)}>
-                  Statistiques
-                  <FaCaretDown className={scss.dropdownIcon} />
+            <>
+               <Link href='/'>
+                  <a className={scss.link + " " + scss.basicLink}>Accueil</a>
+               </Link>
+               <Link href='/classements/l-etudiant'>
+                  <a className={scss.link + " " + scss.basicLink}>
+                     Classements
+                  </a>
+               </Link>
+               <Link href='/simulateur'>
+                  <a className={scss.link + " " + scss.basicLink}>Simulateur</a>
+               </Link>
+               <div
+                  className={classNames(scss.link, scss.dropdownBtn)}
+                  // style={{
+                  //    backgroundColor:
+                  //       colorMode === "dark" ? "#1a1a1a" : "#f5f5f5",
+                  //    color: colorMode === "dark" ? "#f5f5f5" : "#1a1a1a",
+                  // }}
+                  onClick={handleStat}
+               >
+                  <div className={classNames(scss.dropdownBtnContent)}>
+                     Statistiques
+                     <FaCaretDown className={scss.dropdownIcon} />
+                  </div>
+                  {navBar.stats && (
+                     <Dropdown disableStat={toggleDropdownStats} />
+                  )}
                </div>
-               {navBar.stats && <Dropdown disableStat={toggleDropdownStats} />}
-            </div>
+            </>
          )}
          {size.width > 768 && <AuthBtn />}
          <div className={scss["icons-container"]}>
@@ -91,7 +84,7 @@ const NavBar: FC = () => {
                   </a>
                </Link>
             )}
-            {!navBar.darkMode ? (
+            {colorMode === "light" ? (
                <MdDarkMode
                   onClick={handleDarkMode}
                   className={scss.darkModeIcon}

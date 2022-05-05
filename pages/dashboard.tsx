@@ -47,7 +47,6 @@ const Dashboard: NextPage = () => {
          <PrivateRoute>
             <main onClick={handleCloseNav} className={scss["dashboard"]}>
                <div className='wrapper'>
-                  {colorMode}
                   <Heading as='h1' size='xl' marginTop={5}>
                      <span className={scss["main-title"]}>
                         <MdSpaceDashboard />

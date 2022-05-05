@@ -5,7 +5,6 @@ $mobileL: "(min-width:375px) and (max-width:425px)";
 $mobileM: "(min-width:320px) and (max-width:375px)";
 $mobileS: "(max-width: 320px)";
 
-
 // Variables
 $nav-height: 60px;
 $form-width: 500px;
@@ -23,6 +22,7 @@ $main-blue: #74b9ff;
 // $dark-blue: #217dda;
 $dark-blue: #3568ff;
 $darkest-blue: #255af8;
+$dark-mode-blue: #1a202c;
 
 $main-green: rgb(32, 233, 122);
 $main-red: rgb(241, 44, 44);
@@ -39,4 +39,4 @@ $light-orange-hover: #d66214;
 
 $main-gradient: linear-gradient(90deg, $main-orange 1.05%, $light-orange 100%);
 
-$main-border: 1px solid rgba(127,127,127,0.3);
+$main-border: 1px solid rgba(127, 127, 127, 0.3);

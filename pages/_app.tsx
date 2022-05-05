@@ -1,17 +1,17 @@
 // import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { MouseEventHandler, useEffect } from "react";
+import { useEffect } from "react";
 import { Provider } from "react-redux";
 import jwt from "jsonwebtoken";
 import Layout from "@components/Layout";
 import store from "@store/store";
 import jwt_decode from "jwt-decode";
-import { logout, setCurrentUser, setCurrentUserById } from "@store/slices/auth";
+import { logout, setCurrentUserById } from "@store/slices/auth";
 import { ChakraProvider } from "@chakra-ui/react";
 import "@scss/globals.scss";
 
-function MyApp({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
    const { query } = useRouter();
    useEffect(() => {
       // ? Récupère le token dans le localStorage
@@ -61,7 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
          </ChakraProvider>
       </Provider>
    );
-}
+};
 
-export default MyApp;
+export default App;
 

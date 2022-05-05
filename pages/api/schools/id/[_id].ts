@@ -1,8 +1,6 @@
 import { ObjectId } from "mongodb";
-import { getAllSchools } from "@lib/schools.middleware";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "@lib/db";
-import { getSchools1, getSchools2, getSchools3 } from "@lib/schools.middleware";
 import isEmpty from "is-empty";
 import { School } from "@models/School";
 

@@ -28,6 +28,11 @@ def purge(text):
         '&amp;', '&').replace("-", "_").replace('\n', '').replace("\t", "_").replace('\xa0', '').replace(" ", "_").replace("Ã©", "é").replace("Ã¢", "â").replace("Ã¨", "è").replace("ã´", "ô").replace("Ã´", "ô").replace("Ã©", "é").replace("___", "_").replace("__", "_").lower()
 
 
+def softPurge(text):
+    return text.strip().replace(
+        '&amp;', '&').replace('\n', '').replace("\t", "").replace('\xa0', '').replace("Ã©", "é").replace("Ã¢", "â").replace("Ã¨", "è").replace("ã´", "ô").replace("Ã´", "ô").replace("Ã©", "é").title()
+
+
 def scrap(annee, filiere):
     urlpage = "https://www.scei-concours.fr/stat"+annee+"/"+filiere+".html"
     page = urllib.request.urlopen(urlpage)
@@ -56,10 +61,11 @@ def scrap(annee, filiere):
                 if n == 0:
                     if j.find('b') != None:
                         data = purge(str(j.find('b').text))
+                        print(data)
                         tab.append(data)
                     else:
                         tab.append(" ".join(re.split(
-                            r"\s+", purge(str(j)[find_first_chevron(str(j))+1:find_second_chevron(str(j))]))))
+                            r"\s+", softPurge(str(j)[find_first_chevron(str(j))+1:find_second_chevron(str(j))]))))
                 else:
                     tab.append(purge(j.text.replace("%", "").replace(
                         ",", ".").replace("*", "")))
@@ -67,17 +73,6 @@ def scrap(annee, filiere):
             if p > 0:
                 dict[current_concour].append(tab)
             p = 1
-
-    # max_fill = [0 for i in range(len(dict['CONCOURS ECOLE POLYTECHNIQUE'][0]))]
-
-    # with open(annee+"_"+filiere+".json", 'w') as outfile:
-    #     json.dump(dict, outfile)
-
-    # for key, value in dict.items():
-    #     for i in value:
-    #         for j in range(len(i)):
-    #             if len(i[j]) > max_fill[j]:
-    #                 max_fill[j] = len(i[j])
 
     tableau = ["concours\t", "ecole\t", "inscrits_nb\t", "inscrits_filles\t", "inscrits_cinq_demi\t", "admissibles_nb\t", "admissibles_filles\t", "admissibles_cinq_demi\t", "classes_nb\t",
                "classes_filles\t", "classes_cinq_demi\t", "integres_nb\t", "integres_filles\t", "integres_cinq_demi\t", "integres_rg_median\t", "integres_rg_moyen\t", "places\n"]
@@ -89,26 +84,29 @@ def scrap(annee, filiere):
             m += tableau[i]
         f.write(m)
         for key, value in dict.items():
-            key = purge(key)
+            key = softPurge(key)
             for i in value:
                 m = key+"\t"
                 for j in range(len(i)):
+
                     if(j == len(i)-1):
                         m += purge(str(i[j]))+"\n"
+                    elif (j == 0):
+                        m += softPurge(str(i[j]))+"\t"
                     else:
                         m += purge(str(i[j]))+"\t"
 
                 f.write(m)
 
 
-annees = ["2017", "2018", "2019", "2020", "2021"]
+annees = ["2018", "2019", "2020", "2021"]
 filieres = ["mp", "pc", "psi", "pt"]
-# for annee in annees:
-#     for filiere in filieres:
-#         scrap(annee, filiere)
+for annee in annees:
+    for filiere in filieres:
+        scrap(annee, filiere)
 
-for filiere in filieres:
-    scrap("2017", filiere)
+# for filiere in filieres:
+    # scrap("2019", filiere)
 # 'BANQUE CENTRALE-SUPELEC'
 # 'CONCOURS ECOLE POLYTECHNIQUE'
 # 'CONCOURS COMMUN MINES-PONTS'

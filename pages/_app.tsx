@@ -1,17 +1,17 @@
 // import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { MouseEventHandler, useEffect } from "react";
+import { useEffect } from "react";
 import { Provider } from "react-redux";
 import jwt from "jsonwebtoken";
 import Layout from "@components/Layout";
 import store from "@store/store";
 import jwt_decode from "jwt-decode";
-import { logout, setCurrentUser } from "@store/slices/auth";
+import { logout, setCurrentUserById } from "@store/slices/auth";
 import { ChakraProvider } from "@chakra-ui/react";
 import "@scss/globals.scss";
 
-function MyApp({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
    const { query } = useRouter();
    useEffect(() => {
       // ? Récupère le token dans le localStorage
@@ -35,19 +35,16 @@ function MyApp({ Component, pageProps }: AppProps) {
          // Check for expired token
          const currentTime = Date.now() / 1000; // to get in milliseconds
 
-         console.log("token avant vérification validdité :", token);
          if (token.exp < currentTime) {
-            console.log("useEffect");
             localStorage.removeItem("jwtToken");
             store.dispatch(logout());
          } else {
-            // ? Si le token est valide, on mets enb place la session de l'utilisateur
+            // ? Si le token est valide, on mets en place la session de l'utilisateur
             const user = {
                id: token._id,
                email: token.email,
-               name: token.name,
             };
-            store.dispatch(setCurrentUser(user));
+            store.dispatch(setCurrentUserById(user.id));
          }
       } else {
          if (!store.getState().auth.isAuthenticated) {
@@ -55,10 +52,6 @@ function MyApp({ Component, pageProps }: AppProps) {
          }
       }
    }, [query.token]);
-   const handleClick: MouseEventHandler = (e) => {
-      //   e.stopPropagation();
-      console.log(e.target);
-   };
    return (
       <Provider store={store}>
          <ChakraProvider>
@@ -68,6 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
          </ChakraProvider>
       </Provider>
    );
-}
+};
 
-export default MyApp;
+export default App;
+

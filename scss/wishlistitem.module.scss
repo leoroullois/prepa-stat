@@ -16,14 +16,26 @@
    border-radius: 6px;
    box-shadow: $main-shadow;
    list-style-type: none;
+   backdrop-filter: blur(1px);
+   cursor:pointer!important;
    &:hover {
       background-color: rgba(127, 127, 127, 0.1);
    }
 }
 .white-mode {
-   background-color: $main-white;
+   background-color: transparent;
+   background: linear-gradient(
+      to right,
+      rgba(9, 7, 19, 0.05),
+      rgb(4, 2, 14, 0.05)
+   );
 }
-.darkMode {
+.wish-list--item.darkMode {
+   background: linear-gradient(
+      to right,
+      rgba(9, 7, 19, 0.5),
+      rgb(4, 2, 14, 0.5)
+   );
    background-color: $main-black;
 }
 .wish-list--right--container {
@@ -64,4 +76,13 @@
    font-size: 1rem;
    font-weight: bold;
    box-shadow: $main-shadow;
+}
+
+.ecole {
+   font-weight: bold;
+   font-size: 1.1rem;
+}
+.info {
+   display: flex;
+   column-gap: 20px;
 }

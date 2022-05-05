@@ -1,10 +1,11 @@
-import { Heading, Text } from "@chakra-ui/react";
-import { selectAuth, selectDarkMode } from "@store/selectors";
+import { Heading, Text, useColorMode } from "@chakra-ui/react";
+import { selectAuth } from "@store/selectors";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
 const DashboardIntro = () => {
-   const darkMode = useSelector(selectDarkMode);
+   const {colorMode} = useColorMode();
+   const darkMode = colorMode === "dark";
    const auth = useSelector(selectAuth);
    return (
       <>
@@ -17,10 +18,10 @@ const DashboardIntro = () => {
             textAlign='justify'
             lineHeight={2}
          >
-            Ici vous allez pouvoir accéder à vos écoles favorites et les trier
-            de façon à créer votre liste de voeux ! Vous pouvez aussi les
-            supprimer. Bien sûre, il n&apos;y a rien d&apos;officiel et il
-            faudra reporter vous choix sur{" "}
+            Ici vous allez pouvoir accéder à vos écoles favorites et les classer
+            par ordre de préférence de façon à créer votre liste de voeux ! Vous
+            pouvez aussi les supprimer. Bien sûre, il n&apos;y a rien
+            d&apos;officiel et il faudra reporter vos choix sur{" "}
             <Link href='https://www.scei-concours.fr/'>
                <a target='_blank'>SCEI</a>
             </Link>{" "}
@@ -29,8 +30,9 @@ const DashboardIntro = () => {
             statistiques et vous permettre d&apos;affiner vos choix.
          </Text>
          <Text color={`gray.${darkMode ? 300 : 700}`} fontSize={18}>
-            [A venir] Vous pouvez aussi modifier votre mot de passe, et
-            supprimer votre compte.
+            Vous pouvez aussi modifier votre mot de passe, votre nom
+            d&apos;utilisateur, filière, supprimer votre compte et enfin
+            réinitialiser vos favoris.
          </Text>
       </>
    );

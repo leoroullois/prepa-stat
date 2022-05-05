@@ -1,15 +1,17 @@
 import { connectDB } from "@lib/db";
-import { Favorite } from "@models/Favorite";
+import { Favorite, IFavorite } from "@models/Favorite";
+import isEmpty from "is-empty";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-   const { id } = req.query;
-   console.log("id : ", id);
-   console.log(req.method + " " + req.url + " " + req.body);
+   console.log(req.method + " " + req.url);
+   console.log(req.body);
+   const { userId } = JSON.parse(req.body);
    switch (req.method) {
+      // * Delete all favorites of the specified user
       case "DELETE":
          const deleted = await Favorite.findOneAndUpdate(
-            { _id: id },
+            { _id: userId },
             {
                $set: {
                   favorites: [],

@@ -1,326 +1,326 @@
 concours	ecole	inscrits_nb	inscrits_filles	inscrits_cinq_demi	admissibles_nb	admissibles_filles	admissibles_cinq_demi	classes_nb	classes_filles	classes_cinq_demi	integres_nb	integres_filles	integres_cinq_demi	integres_rg_median	integres_rg_moyen	places
-concours_ecole_polytechnique	ecole_polytechnique	1233	27.0	29.1	251	21.1	27.9	159	25.2	28.3	131	30.5	24.4	76	74	131
-concours_ecole_polytechnique	espci_paris	1308	30.0	29.6	445	24.3	29.9	378	24.9	28.6	55	27.3	29.1	222	215	55
-concours_ecole_polytechnique	espci_paris_etranger	58	29.3	31.0	21	14.3	33.3	18	11.1	38.9	2	0.0	100.0	12	12	2
-banque_ens	ens_ulm	1143	27.8	30.5	100	16.0	42.0	65	21.5	40.0	18	11.1	38.9	18	19	18
-banque_ens	ens_paris_saclay_pc	1358	27.4	29.9	272	17.3	35.3	162	19.1	38.9	19	0.0	42.1	117	106	19
-banque_ens	ens_de_lyon	1215	28.1	30.6	244	18.4	40.2	177	19.8	37.3	27	14.8	40.7	86	76	27
-banque_centrale_supelec	centralesupélec_campus_gif	2455	31.0	25.9	654	25.4	27.8	624	26.1	27.9	149	26.2	30.2	235	218	145
-banque_centrale_supelec	centralesupélec_campus_gif_étr.	97	27.8	25.8	33	15.2	36.4	33	15.2	36.4	10	20.0	60.0	11	10	8
-banque_centrale_supelec	centrale_lyon	2722	32.0	25.5	624	26.6	29.2	601	27.1	29.0	61	27.9	34.4	386	383	62
-banque_centrale_supelec	institut_d'optique_graduate_school_(supoptique)	1675	33.6	29.3	625	31.4	33.6	588	32.3	33.5	50	46.0	50.0	443	419	45
-banque_centrale_supelec	institut_d'optique_graduate_school_(supoptique)_étr.	43	27.9	20.9	28	25.0	17.9	25	24.0	20.0	1	0.0	0.0	15	15	2
-banque_centrale_supelec	centrale_lille	2533	32.9	27.0	713	29.3	33.5	686	29.9	33.7	53	20.8	50.9	466	435	50
-banque_centrale_supelec	centrale_nantes	2654	33.0	26.4	505	28.5	33.7	487	29.2	33.7	55	36.4	29.1	382	370	55
-banque_centrale_supelec	centrale_marseille	2845	34.4	24.3	1079	31.8	24.2	1014	32.5	24.5	77	42.9	27.3	713	702	80
-banque_centrale_supelec	centrale_casablanca	339	28.0	33.6	53	26.4	41.5	41	29.3	43.9	0	0.0	0.0	0	0	2
-banque_centrale_supelec	ecole_navale_brest	477	22.0	31.0	151	21.2	44.4	56	12.5	57.1	15	0.0	53.3	29	25	15
-banque_centrale_supelec	ensea_cergy	931	32.1	26.4	681	33.5	26.9	396	35.9	25.8	22	50.0	22.7	363	341	30
-banque_centrale_supelec	université_de_technologie_de_troyes_(utt)	469	31.6	23.5	146	37.7	18.5	112	40.2	19.6	1	100.0	0.0	99	99	20
-banque_centrale_supelec	centralesupélec_campus_gif_ci										5	40.0	20.0	3	3	5
-banque_centrale_supelec	centrale_lyon_ci										1	0.0	0.0	6	6	1
-banque_centrale_supelec	centrale_lille_ci										0	0.0	0.0	0	0	1
-banque_centrale_supelec	centrale_nantes_ci										1	0.0	0.0	7	7	5
-banque_centrale_supelec	institut_d'optique_graduate_school_(supoptique)_ci										2	100.0	0.0	15	15	2
-banque_centrale_supelec	centrale_marseille_ci										2	50.0	0.0	9	9	2
-banque_centrale_supelec	concours_cycle_international_centralesupélec	35	57.1	17.1	21	52.4	19.0	20	50.0	20.0	11					16
-concours_commun_mines_ponts	ensae_paristech										4	25.0	25.0	512	438	10
-concours_commun_mines_ponts	ensta_paristech										31	29.0	6.5	433	379	38
-concours_commun_mines_ponts	imt_atlantique_cursus_sophia_antipolis										2	0.0	50.0	877	877	3
-concours_commun_mines_ponts	imt_atlantique_cursus_brest_nantes_rennes_toulouse										54	31.5	29.6	948	907	57
-concours_commun_mines_ponts	isae_supaero_toulouse										34	26.5	29.4	311	309	35
-concours_commun_mines_ponts	mines_de_nancy										42	23.8	28.6	653	649	42
-concours_commun_mines_ponts	mines_de_saint_etienne										45	24.4	31.1	833	802	41
-concours_commun_mines_ponts	mines_paristech										24	25.0	4.2	70	63	22
-concours_commun_mines_ponts	ponts_paristech										38	28.9	21.1	208	208	38
-concours_commun_mines_ponts	telecom_paristech_cursus_paris										17	23.5	17.6	395	402	24
-concours_commun_mines_ponts	telecom_paristech_cursus_sophia										8	25.0	0.0	521	521	7
-concours_commun_mines_ponts	concours_commun_mines_ponts_pc	3434	31.9	24.8	1170	25.8	26.7	1128	26.3	26.2	299					317
-ccp_:_ecoles_recrutant_sur_le_concours_physique	bordeaux_inp_ensc_cognitique										4	50.0	0.0	1555	1648	4
-ccp_:_ecoles_recrutant_sur_le_concours_physique	bordeaux_inp_enseirb_matmeca_electronique										13	30.8	61.5	1985	1920	13
-ccp_:_ecoles_recrutant_sur_le_concours_physique	bordeaux_inp_enseirb_matmeca_informatique										7	28.6	28.6	1254	1256	5
-ccp_:_ecoles_recrutant_sur_le_concours_physique	bordeaux_inp_enseirb_matmeca_mathématiques_et_mécanique										5	40.0	20.0	1434	1377	11
-ccp_:_ecoles_recrutant_sur_le_concours_physique	bordeaux_inp_enseirb_matmeca_télecom.										7	42.9	42.9	1731	1710	8
-ccp_:_ecoles_recrutant_sur_le_concours_physique	cpe_lyon_sciences_du_numérique										10	0.0	40.0	2723	2680	8
-ccp_:_ecoles_recrutant_sur_le_concours_physique	eisti_cergy_pau										18	11.1	38.9	3078	2880	13
-ccp_:_ecoles_recrutant_sur_le_concours_physique	enac_toulouse_civil										17	23.5	23.5	637	624	20
-ccp_:_ecoles_recrutant_sur_le_concours_physique	enac_toulouse_fonctionnaire										4	0.0	25.0	130	135	4
-ccp_:_ecoles_recrutant_sur_le_concours_physique	engees_strasbourg_civil_(apprenti)										0	0.0	0.0	0	0	2
-ccp_:_ecoles_recrutant_sur_le_concours_physique	engees_strasbourg_civil_(étudiant)										14	85.7	14.3	2431	2363	10
-ccp_:_ecoles_recrutant_sur_le_concours_physique	engees_strasbourg_fonctionnaire										3	33.3	66.7	1822	1684	3
-ccp_:_ecoles_recrutant_sur_le_concours_physique	ensgti_pau_génie_des_procédés										16	43.8	25.0	3033	2999	12
-ccp_:_ecoles_recrutant_sur_le_concours_physique	ensi_poitiers_energie										16	31.2	31.2	2925	2858	17
-ccp_:_ecoles_recrutant_sur_le_concours_physique	ensiame_valenciennes_méca_energ.										20	30.0	25.0	2795	2704	20
-ccp_:_ecoles_recrutant_sur_le_concours_physique	ensiame_valenciennes_mécatronique										4	50.0	50.0	2776	2587	5
-ccp_:_ecoles_recrutant_sur_le_concours_physique	ensicaen_electronique_et_physique_appliquée										16	12.5	37.5	2524	2396	15
-ccp_:_ecoles_recrutant_sur_le_concours_physique	ensicaen_informatique										11	36.4	18.2	2403	2424	8
-ccp_:_ecoles_recrutant_sur_le_concours_physique	ensmm_besanã§on										18	33.3	11.1	2332	2295	25
-ccp_:_ecoles_recrutant_sur_le_concours_physique	grenoble_inp_ense3										54	37.0	35.2	1463	1433	60
-ccp_:_ecoles_recrutant_sur_le_concours_physique	grenoble_inp_pagora										14	35.7	28.6	2719	2680	18
-ccp_:_ecoles_recrutant_sur_le_concours_physique	grenoble_inp_phelma_(physique_electronique_télécoms)										29	27.6	20.7	1018	930	35
-ccp_:_ecoles_recrutant_sur_le_concours_physique	grenoble_inp_phelma_(physique_matériaux_procédés)										60	35.0	25.0	873	831	66
-ccp_:_ecoles_recrutant_sur_le_concours_physique	grenoble_inp_ensimag										11	27.3	27.3	524	526	10
-ccp_:_ecoles_recrutant_sur_le_concours_physique	grenoble_inp_esisar										14	14.3	21.4	2076	1975	6
-ccp_:_ecoles_recrutant_sur_le_concours_physique	isae_ensma_poitiers										31	32.3	38.7	1054	1088	28
-ccp_:_ecoles_recrutant_sur_le_concours_physique	isima_clermont_ferrand										8	12.5	12.5	2330	2222	8
-ccp_:_ecoles_recrutant_sur_le_concours_physique	lorraine_inp_ensem_energie										23	26.1	30.4	2450	2369	24
-ccp_:_ecoles_recrutant_sur_le_concours_physique	lorraine_inp_ensem_spécialité_des_systèmes_numériques										6	0.0	33.3	2669	2633	5
-ccp_:_ecoles_recrutant_sur_le_concours_physique	lorraine_inp_ensg										7	42.9	28.6	2747	2501	10
-ccp_:_ecoles_recrutant_sur_le_concours_physique	seatech_toulon										19	26.3	42.1	2309	2108	18
-ccp_:_ecoles_recrutant_sur_le_concours_physique	supmeca_paris										19	31.6	15.8	1516	1450	20
-ccp_:_ecoles_recrutant_sur_le_concours_physique	telecom_physique_strasbourg										32	43.8	28.1	1998	1989	31
-ccp_:_ecoles_recrutant_sur_le_concours_physique	toulouse_inp_enseeiht_electronique_energie_automatique_(eea)										21	19.0	47.6	1320	1282	20
-ccp_:_ecoles_recrutant_sur_le_concours_physique	toulouse_inp_enseeiht_mécanique_des_fluides_energetique_environnement_(mfee)										18	44.4	22.2	1063	1034	16
-ccp_:_ecoles_recrutant_sur_le_concours_physique	toulouse_inp_enseeiht_sciences_du_numérique										6	16.7	16.7	874	781	7
-ccp_:_ecoles_recrutant_sur_le_concours_physique	toulouse_inp_ensiacet_génie_des_procédés										13	38.5	30.8	2065	2030	17
-ccp_:_ecoles_recrutant_sur_le_concours_physique	toulouse_inp_ensiacet_génie_industriel										9	33.3	22.2	1827	1804	10
-ccp_:_ecoles_recrutant_sur_le_concours_physique	concours_commun_polytechnique_pc_physique	4889	35.1	22.5	3762	34.8	25.1	3315	36.4	25.4	597					612
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	bordeaux_inp_enscbp_chimie_génie_physique										36	52.8	36.1	1667	1627	42
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	chimie_paristech										56	46.4	14.3	309	287	65
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	cpe_lyon_chimie_â€“_génie_des_procédés										55	52.7	18.2	2705	2548	45
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	ecpm_esbs_strasbourg_chembiotech										6	66.7	50.0	1069	1063	5
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	ecpm_strasbourg										44	61.4	18.2	1257	1202	42
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	ensc_lille										33	48.5	39.4	1722	1651	40
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	ensc_montpellier										59	57.6	16.9	783	785	60
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	ensc_mulhouse										34	52.9	20.6	2389	2313	35
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	ensc_rennes										44	47.7	25.0	2062	1875	40
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	ensi_poitiers_génie_de_l'eau_et_génie_civil										19	31.6	36.8	2825	2752	21
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	ensicaen_mat._et_chimie										31	35.5	29.0	2555	2514	30
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	lorraine_inp_ensic										54	51.9	25.9	2026	1865	45
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	sigma_clermont_ferrand_(ex_ensccf)										39	61.5	25.6	2149	2088	36
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	toulouse_inp_ensiacet_chimie										32	50.0	12.5	1179	1157	30
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	toulouse_inp_ensiacet_génie_chimique										31	58.1	22.6	1777	1775	34
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	toulouse_inp_ensiacet_matériaux										29	27.6	31.0	1892	1823	33
-ccp_:_ecoles_recrutant_sur_le_concours_chimie	concours_commun_polytechnique_pc_chimie	4704	36.5	22.7	3692	36.5	25.1	3266	37.9	25.3	602					603
-banque_epreuves_c.c.p_inter_filière	lorraine_inp_eeigm	426	49.1	19.2	223	52.5	21.1	20	55.0	20.0	4	50.0	50.0	25	21	10
-banque_epreuves_c.c.p_inter_filière	ensil_ensci_limoges_céramique_industrielle	454	44.3	25.1	383	45.4	25.1	93	53.8	30.1	22	50.0	45.5	103	100	45
-banque_epreuves_c.c.p_inter_filière	lorraine_inp_ensgsi	614	43.5	18.9	403	44.2	19.6	76	42.1	25.0	3	66.7	0.0	58	62	35
-banque_epreuves_c.c.p_inter_filière	esm_saint_cyr	503	21.1	26.6	137	20.4	32.1	45	4.4	53.3	11	0.0	54.5	105	102	76
-banque_epreuves_c.c.p_inter_filière	grenoble_inp_génie_industriel	1105	38.1	20.2	400	40.2	26.5	61	45.9	34.4	3	66.7	66.7	158	154	80
-banque_epreuves_c.c.p	ecole_de_l'air_base	415	25.8	30.4	115	29.6	47.0	20	25.0	60.0	2	50.0	100.0	5	5	2
-banque_epreuves_c.c.p	ecole_de_l'air_méca	380	24.7	31.3	108	28.7	47.2	20	25.0	60.0	3	66.7	33.3	18	17	3
-banque_epreuves_c.c.p	ecole_de_l'air_pilote	475	21.9	27.6	136	23.5	42.6	23	13.0	47.8	8	12.5	50.0	11	12	8
-banque_epreuves_c.c.p	ensisa_mulhouse_informatique_et_réseaux										3	100.0	0.0	27	22	4
-banque_epreuves_c.c.p	ensisa_mulhouse_mécanique										6	16.7	16.7	52	55	5
-banque_epreuves_c.c.p	ensisa_mulhouse_automatique_et_systèmes_embarqués										6	16.7	0.0	53	45	4
-banque_epreuves_c.c.p	ensisa_mulhouse_textile_et_fibres										15	60.0	13.3	68	59	9
-banque_epreuves_c.c.p	concours_ensisa_mulhouse_pc	712	42.8	19.1	629	43.2	19.7	114	44.7	19.3	30					22
-banque_epreuves_c.c.p	lorraine_inp_enstib	391	37.9	19.4	242	39.7	14.9	13	23.1	15.4	2	0.0	0.0	3	3	6
-banque_epreuves_c.c.p	eost_strasbourg	459	40.7	19.2	352	42.3	19.3	84	42.9	25.0	11	45.5	36.4	25	23	12
-concours_commun_tpe	entpe_lyon_civil										19	15.8	63.2	303	277	20
-concours_commun_tpe	entpe_lyon_fonctionnaire										30	43.3	56.7	189	180	30
-concours_commun_tpe	concours_tpe_civil_fct._pc	2088	34.5	27.7	1289	34.7	31.5	422	44.8	36.0	49					50
-concours_commun_tpe	entpe_lyon_etranger	2088	34.5	27.7	23	26.1	17.4	4	25.0	25.0	0	0.0	0.0	0	0	1
-concours_commun_tpe	eivp_paris_civil	2088	34.5	27.7	1312	34.5	31.2	430	44.7	35.6	20	65.0	35.0	308	277	20
-concours_commun_tpe	eivp_paris_fonctionnaire	2088	34.5	27.7	1289	34.7	31.5	426	44.8	35.7	3	66.7	66.7	136	110	3
-concours_commun_tpe	imt_lille_douai_fonct.	2088	34.5	27.7	1289	34.7	31.5	422	44.8	36.0	3	66.7	33.3	103	104	3
-concours_mines_télécom	ensiie_evry										12	25.0	41.7	1333	1247	10
-concours_mines_télécom	ensta_bretagne_(filière_sous_statut_étudiant)										20	45.0	35.0	568	547	15
-concours_mines_télécom	imt_mines_albi										56	35.7	51.8	935	895	50
-concours_mines_télécom	imt_mines_alès										49	49.0	34.7	1148	1068	42
-concours_mines_télécom	imt_lille_douai										49	22.4	38.8	1186	1125	50
-concours_mines_télécom	mines_saint_etienne_ismin										16	18.8	50.0	1245	1201	15
-concours_mines_télécom	télécom_physique_strasbourg_ti_santé										7	71.4	28.6	1123	1172	8
-concours_mines_télécom	telecom_sudparis_cursus_evry										29	34.5	13.8	805	776	30
-concours_mines_télécom	telecom_sudparis_cursus_sophia_antipolis										2	50.0	100.0	397	397	3
-concours_mines_télécom	concours_mines_télécom	3473	34.6	25.4	1912	34.9	28.1	1796	35.7	28.0	240					223
-concours_mines_télécom	ensta_bretagne_(filière_sous_statut_ieta_direction_générale_de_l'armement)	3473	34.6	25.4	1699	34.5	30.8	1601	35.4	30.5	8	25.0	37.5	614	564	8
-concours_mines_télécom	ensg_géomatique_marne_la_vallée_civil										6	33.3	33.3	1401	1380	7
-concours_mines_télécom	enssat_lannion										12	33.3	50.0	1551	1515	10
-concours_mines_télécom	telecom_nancy										6	16.7	33.3	803	734	5
-concours_mines_télécom	telecom_st_etienne_statut_étudiant										11	9.1	45.5	1271	1211	11
-concours_mines_télécom	concours_mines_télécom_spécifique_pc	3473	34.6	25.4	2537	35.0	27.2	2087	35.8	27.3	35					33
-concours_ensam	arts_et_métiers_voie_de_l'apprentissage										0	0.0	0.0	0	0	1
-concours_ensam	arts_et_métiers										22	59.1	36.4	41	39	19
-concours_ensam	concours_arts_et_mã‰tiers	1298	33.6	26.8	126	42.1	49.2	100	42.0	49.0	22					20
-concours_estp	estp_paris_bâtiment_(b)_â€“_campus_de_troyes										11	72.7	18.2	663	666	6
-concours_estp	estp_paris_bâtiment_(b)_campus_de_cachan										59	49.2	27.1	412	388	57
-concours_estp	estp_paris_topographie_(t)										11	27.3	9.1	777	770	20
-concours_estp	estp_paris_génie_mécanique_et_electrique(gme)										33	39.4	18.2	688	634	30
-concours_estp	estp_paris_travaux_publics_(tp)										68	32.4	17.6	477	426	60
-concours_estp	concours_estp	1026	34.4	27.0	864	34.7	28.1	798	35.8	28.9	182					173
-concours_polytech_inter_filière	ensibs_lorient										3	33.3	0.0	4195	3857	12
-concours_polytech_inter_filière	ensim_le_mans										2	50.0	0.0	3129	3137	6
-concours_polytech_inter_filière	esbs_strasbourg										3	33.3	0.0	630	501	3
-concours_polytech_inter_filière	esgt_le_mans										3	0.0	0.0	3844	3784	15
-concours_polytech_inter_filière	esi_reims										2	0.0	0.0	4112	4055	10
-concours_polytech_inter_filière	esiab_brest										1	100.0	100.0	3958	3958	3
-concours_polytech_inter_filière	esipe_créteil_génie_biomédical_et_santé_(isbs)										3	66.7	33.3	4247	4265	10
-concours_polytech_inter_filière	esipe_créteil_système_d'information										0	0.0	0.0	4728	4707	4
-concours_polytech_inter_filière	esipe_créteil_technologie_pour_la_santé										0	0.0	0.0	0	0	2
-concours_polytech_inter_filière	esir_rennes										7	14.3	42.9	4056	3773	20
-concours_polytech_inter_filière	esirem_dijon										3	0.0	0.0	4066	3862	3
-concours_polytech_inter_filière	esiroi_saint_denis_de_la_réunion										1	100.0	100.0	5002	5002	3
-concours_polytech_inter_filière	esix_normandie_caen_cherbourg										1	0.0	0.0	4723	4615	4
-concours_polytech_inter_filière	isat_nevers_département_mit_(mécanique_et_ingénierie_des_transports)										0	0.0	0.0	2261	2338	5
-concours_polytech_inter_filière	isat_nevers_département_epee_(energies_et_moteurs)										0	0.0	0.0	3189	3254	12
-concours_polytech_inter_filière	isat_nevers_infrastructures_et_réseaux_de_transports										0	0.0	0.0	4631	4616	4
-concours_polytech_inter_filière	isifc_besanã§on_génie_biomédical										2	100.0	50.0	3911	3756	6
-concours_polytech_inter_filière	isis_castres										3	66.7	33.3	3452	3892	5
-concours_polytech_inter_filière	istia_angers										3	66.7	0.0	3604	3536	4
-concours_polytech_inter_filière	isty_vélizy										0	0.0	0.0	5106	5106	3
-concours_polytech_inter_filière	polytech_annecy_chambéry_environnement,_bâtiment,_ã‰nergie										8	25.0	25.0	3735	3476	15
-concours_polytech_inter_filière	polytech_annecy_chambéry_informatique_données_usages										1	0.0	0.0	4511	4294	5
-concours_polytech_inter_filière	polytech_annecy_chambéry_instrumentation,_automatique,_informatique										2	0.0	0.0	4041	3614	4
-concours_polytech_inter_filière	polytech_annecy_chambéry_mécanique,_matériaux										4	0.0	0.0	4161	4189	8
-concours_polytech_inter_filière	polytech_clermont_ferrand_génie_biologique										4	75.0	50.0	2262	2328	5
-concours_polytech_inter_filière	polytech_clermont_ferrand_génie_civil										2	50.0	0.0	4172	3663	16
-concours_polytech_inter_filière	polytech_clermont_ferrand_génie_electrique										2	0.0	0.0	4899	4908	5
-concours_polytech_inter_filière	polytech_clermont_ferrand_génie_mathématique_et_modélisation										3	0.0	33.3	4331	3958	14
-concours_polytech_inter_filière	polytech_clermont_ferrand_génie_physique										2	0.0	100.0	4786	4491	8
-concours_polytech_inter_filière	polytech_grenoble_géotechnique_et_génie_civil										1	100.0	0.0	3783	3774	6
-concours_polytech_inter_filière	polytech_grenoble_matériaux										5	40.0	20.0	3928	3710	8
-concours_polytech_inter_filière	polytech_grenoble_prévention_des_risques										3	33.3	33.3	4729	4335	6
-concours_polytech_inter_filière	polytech_grenoble_informatique_et_électronique_des_systèmes_embarqués										1	0.0	0.0	2514	2563	5
-concours_polytech_inter_filière	polytech_grenoble_réseaux_informatiques										1	0.0	0.0	4295	3990	8
-concours_polytech_inter_filière	polytech_grenoble_technologies_de_l'information_pour_la_santé										1	100.0	100.0	4503	4102	5
-concours_polytech_inter_filière	polytech_lille_génie_biologique_et_alimentaire										4	50.0	50.0	4460	4218	4
-concours_polytech_inter_filière	polytech_lille_génie_informatique_et_statistique										0	0.0	0.0	3714	3424	10
-concours_polytech_inter_filière	polytech_lille_géotechnique,_génie_civil										0	0.0	0.0	3662	3429	10
-concours_polytech_inter_filière	polytech_lille_informatique,_microélectronique,_automatique										1	0.0	0.0	3749	3695	8
-concours_polytech_inter_filière	polytech_lille_ingénierie_et_commercialisation_des_systèmes_de_mesure										1	0.0	0.0	4918	4918	5
-concours_polytech_inter_filière	polytech_lille_matériaux										2	0.0	50.0	3248	3356	8
-concours_polytech_inter_filière	polytech_lille_mécanique										2	0.0	0.0	3408	3309	10
-concours_polytech_inter_filière	polytech_lyon_génie_bomédical										1	100.0	0.0	2578	2593	4
-concours_polytech_inter_filière	polytech_lyon_informatique										0	0.0	0.0	2164	2054	4
-concours_polytech_inter_filière	polytech_lyon_matériaux										3	0.0	0.0	2845	2821	4
-concours_polytech_inter_filière	polytech_lyon_mathématiques_appliquées_et_modélisation										0	0.0	0.0	2654	2257	4
-concours_polytech_inter_filière	polytech_lyon_mécanique										2	0.0	100.0	2472	2231	4
-concours_polytech_inter_filière	polytech_lyon_systèmes_industriels,_robotique										1	0.0	0.0	3212	3126	4
-concours_polytech_inter_filière	polytech_marseille_génie_biomédical										5	40.0	40.0	3214	2753	9
-concours_polytech_inter_filière	polytech_marseille_génie_civil										2	0.0	100.0	4775	4611	12
-concours_polytech_inter_filière	polytech_marseille_génie_industriel_et_informatique										1	0.0	0.0	4729	4212	8
-concours_polytech_inter_filière	polytech_marseille_informatique										0	0.0	0.0	4340	4060	8
-concours_polytech_inter_filière	polytech_marseille_matériaux										8	37.5	12.5	4214	4184	10
-concours_polytech_inter_filière	polytech_marseille_mécanique,_energétique										8	0.0	37.5	4250	3441	16
-concours_polytech_inter_filière	polytech_marseille_microélectronique,télécommunications										3	0.0	0.0	4977	4870	8
-concours_polytech_inter_filière	polytech_montpellier_informatique_et_gestion										2	0.0	0.0	3875	3444	3
-concours_polytech_inter_filière	polytech_montpellier_matériaux										7	57.1	42.9	3431	3401	7
-concours_polytech_inter_filière	polytech_montpellier_mécanique_et_interactions										2	0.0	50.0	3450	3356	2
-concours_polytech_inter_filière	polytech_montpellier_microélectronique_et_automatique										1	0.0	0.0	2860	3040	5
-concours_polytech_inter_filière	polytech_montpellier_sciences_et_technologies_de_l'eau										6	16.7	16.7	3497	3351	7
-concours_polytech_inter_filière	polytech_montpellier_génie_biologique_et_agroalimentaire										5	60.0	0.0	2918	3121	5
-concours_polytech_inter_filière	polytech_nancy_energie,_mécanique,_matériaux,_environnement										5	40.0	0.0	3503	3361	12
-concours_polytech_inter_filière	polytech_nancy_ingénierie_de_l'information_et_des_systèmes										2	0.0	50.0	3252	3166	2
-concours_polytech_inter_filière	polytech_nancy_management_opérationnel,_maintenance,_maã®trise_des_risques										1	0.0	100.0	4740	4775	2
-concours_polytech_inter_filière	polytech_nantes_ã‰lectronique_et_technologies_numériques										0	0.0	0.0	3491	3225	8
-concours_polytech_inter_filière	polytech_nantes_ã‰nergie_électrique										1	100.0	100.0	3819	3883	4
-concours_polytech_inter_filière	polytech_nantes_génie_civil										2	0.0	0.0	2814	2573	4
-concours_polytech_inter_filière	polytech_nantes_génie_des_procédés_et_bioprocédés										2	100.0	0.0	1807	1807	2
-concours_polytech_inter_filière	polytech_nantes_informatique										1	0.0	0.0	3197	2958	9
-concours_polytech_inter_filière	polytech_nantes_matériaux										7	14.3	14.3	2758	2507	8
-concours_polytech_inter_filière	polytech_nantes_thermique,_ã‰nergétique										3	66.7	33.3	3705	3477	7
-concours_polytech_inter_filière	polytech_nice_sophia_bâtiments										3	33.3	33.3	4118	4061	13
-concours_polytech_inter_filière	polytech_nice_sophia_ã‰lectronique										1	100.0	0.0	4670	4415	10
-concours_polytech_inter_filière	polytech_nice_sophia_génie_biologique										3	100.0	0.0	1244	1431	3
-concours_polytech_inter_filière	polytech_nice_sophia_génie_de_l'eau										5	0.0	40.0	4694	4376	10
-concours_polytech_inter_filière	polytech_nice_sophia_informatique										1	0.0	0.0	4460	4218	14
-concours_polytech_inter_filière	polytech_nice_sophia_mathématiques_appliquées,_modélisation										1	0.0	100.0	3866	3781	14
-concours_polytech_inter_filière	polytech_orléans_génie_civil_et_géo_environnement										1	0.0	0.0	4615	4406	14
-concours_polytech_inter_filière	polytech_orléans_génie_industriel										2	50.0	100.0	4851	4720	12
-concours_polytech_inter_filière	polytech_orléans_innovation_en_conception_et_matériaux										2	0.0	50.0	4892	4774	8
-concours_polytech_inter_filière	polytech_orléans_technologies_pour_l'ã‰nergie,_l'aérospatial_et_la_motorisation										5	20.0	0.0	2924	2830	14
-concours_polytech_inter_filière	polytech_orléans_génie_physique_et_systèmes_embarqués										1	100.0	0.0	4091	4121	6
-concours_polytech_inter_filière	polytech_paris_sud_electronique,_energie,_systèmes										0	0.0	0.0	4063	3689	6
-concours_polytech_inter_filière	polytech_paris_sud_informatique										0	0.0	0.0	1746	1746	2
-concours_polytech_inter_filière	polytech_paris_sud_photonique_et_systèmes_optroniques										2	50.0	50.0	4623	4000	5
-concours_polytech_inter_filière	polytech_paris_sud_matériaux										0	0.0	0.0	4127	3867	4
-concours_polytech_inter_filière	polytech_sorbonne_electronique_et_informatique										1	100.0	0.0	3253	3180	3
-concours_polytech_inter_filière	polytech_sorbonne_informatique_et_mathématiques_appliquées										1	0.0	0.0	1872	2192	3
-concours_polytech_inter_filière	polytech_sorbonne_matériaux										7	57.1	57.1	4211	3931	10
-concours_polytech_inter_filière	polytech_sorbonne_robotique										2	0.0	100.0	3247	2943	5
-concours_polytech_inter_filière	polytech_sorbonne_sciences_de_la_terre										0	0.0	0.0	4533	4215	10
-concours_polytech_inter_filière	polytech_tours_ã‰lectronique,_ã‰nergie_électrique										0	0.0	0.0	4487	4487	2
-concours_polytech_inter_filière	polytech_tours_génie_de_l'aménagement_et_de_l'environnement										3	0.0	33.3	4632	4453	7
-concours_polytech_inter_filière	polytech_tours_informatique										0	0.0	0.0	4272	3659	7
-concours_polytech_inter_filière	polytech_tours_mécanique,_conception_de_systèmes										0	0.0	0.0	3852	3870	5
-concours_polytech_inter_filière	sup_galilée_villetaneuse										3	33.3	33.3	4166	3933	18
-concours_polytech_inter_filière	concours_polytech	2282	40.2	21.8	1684	41.0	22.6	1522	41.5	24.0	212					694
-autres_écoles_e3a	ece_paris	641	38.5	18.7	568	38.6	19.0	219	37.9	21.0	34	29.4	20.6	144	137	30
-autres_écoles_e3a	efrei_paris	419	36.0	16.2	389	36.2	15.2	90	32.2	17.8	12	41.7	8.3	69	64	20
-autres_écoles_e3a	eidd_paris	349	44.4	14.9	309	45.3	14.9	150	51.3	14.7	3	66.7	0.0	131	130	15
-autres_écoles_e3a	eigsi_la_rochelle	275	41.8	17.5	222	41.9	18.0	79	43.0	15.2	9	33.3	11.1	66	66	10
-autres_écoles_e3a	eil_côte_d'opale_calais_(informatique)										2	100.0	0.0	51	51	3
-autres_écoles_e3a	eil_côte_d'opale_longuenesse_(génie_industriel)										1	0.0	0.0	47	47	5
-autres_écoles_e3a	concours_eil_côte_d'opale_longuenesse_calais	158	45.6	18.4	117	49.6	18.8	52	53.8	19.2	3					8
-autres_écoles_e3a	elisa_aérospace_saint_quentin_(80)	335	39.1	21.8	254	41.7	23.6	87	39.1	26.4	5	60.0	80.0	69	70	5
-autres_écoles_e3a	eme	263	51.7	18.3	217	53.5	21.2	110	54.5	26.4	5	0.0	20.0	91	81	20
-autres_écoles_e3a	ensait_roubaix										35	77.1	11.4	92	90	35
-autres_écoles_e3a	ensait_roubaix_formation_en_alternance										1	100.0	0.0	126	126	2
-autres_écoles_e3a	concours_ensait_roubaix	543	54.1	18.2	442	53.8	19.0	143	60.8	24.5	36					37
-autres_écoles_e3a	ensil_limoges_ee	574	48.8	22.1	447	50.8	24.6	125	60.0	26.4	21	47.6	38.1	54	49	18
-autres_écoles_e3a	ensil_limoges_elt	299	36.1	22.7	221	38.0	23.1	43	48.8	27.9	3	33.3	66.7	32	32	6
-autres_écoles_e3a	ensil_limoges_matériaux	528	44.3	22.2	414	47.6	23.9	138	56.5	26.8	14	57.1	28.6	35	33	12
-autres_écoles_e3a	epf_campus_troyes										8	37.5	12.5	188	191	7
-autres_écoles_e3a	epf_campus_montpellier										7	42.9	14.3	122	119	4
-autres_écoles_e3a	epf_campus_sceaux										6	16.7	50.0	124	110	4
-autres_écoles_e3a	concours_epf_sceaux_troyes_montpellier	458	48.7	17.2	365	51.0	19.5	222	51.4	20.7	21					15
-autres_écoles_e3a	esb_nantes	161	39.1	25.5	118	43.2	28.0	15	20.0	40.0	6	33.3	16.7	10	9	10
-autres_écoles_e3a	esiea_paris_laval	274	36.5	18.2	239	36.0	18.4	88	36.4	21.6	5	0.0	0.0	79	77	15
-autres_écoles_e3a	esiee_amiens	291	37.1	18.2	231	38.1	18.6	33	39.4	15.2	1	0.0	0.0	30	30	10
-autres_écoles_e3a	esiee_paris	356	39.9	16.9	327	40.4	16.8	91	41.8	12.1	17	29.4	0.0	51	56	20
-autres_écoles_e3a	esigelec_rouen	322	39.1	19.9	296	39.9	19.6	91	30.8	27.5	12	16.7	16.7	72	71	20
-autres_écoles_e3a	esilv_paris_la_défense	523	36.5	17.8	450	37.6	19.1	186	35.5	20.4	31	35.5	12.9	72	70	30
-autres_écoles_e3a	esitc_caen	179	48.6	20.1	151	49.7	21.2	12	33.3	8.3	1	0.0	0.0	12	12	12
-autres_écoles_e3a	estaca_laval_aéronautique_et_spatial										2	50.0	0.0	32	32	1
-autres_écoles_e3a	estaca_laval_automobile										2	0.0	50.0	103	103	1
-autres_écoles_e3a	estaca_paris_saclay_aéronautique_et_spatial										3	66.7	0.0	61	51	2
-autres_écoles_e3a	estaca_paris_saclay_automobile_ou_transports_guidés										4	0.0	25.0	66	69	3
-autres_écoles_e3a	concours_estaca_paris_saclay/laval	561	31.6	21.2	162	29.6	30.9	162	29.6	30.9	11					7
-autres_écoles_e3a	estia_bidart	215	41.9	14.4	185	41.1	15.1	54	33.3	20.4	12	25.0	8.3	29	28	20
-autres_écoles_e3a	imt_lille_douai_en_partenariat_ispa	295	44.4	21.0	276	44.2	21.0	37	51.4	16.2	6	33.3	50.0	18	17	12
-autres_écoles_e3a	toulouse_inp_enit	536	41.0	17.2	199	45.2	16.6	154	47.4	15.6	1	100.0	0.0	124	124	2
-autres_écoles_e3a	insa_centre_val_de_loire_gsi										2	0.0	50.0	25	25	2
-autres_écoles_e3a	insa_centre_val_de_loire_mri										3	33.3	33.3	15	15	8
-autres_écoles_e3a	insa_centre_val_de_loire_sti										2	0.0	0.0	16	16	2
-autres_écoles_e3a	concours_insa_centre_val_de_loire	385	41.6	18.7	253	43.9	19.4	34	32.4	26.5	7					12
-autres_écoles_e3a	ismans_groupe_cesi_le_mans	149	47.0	19.5	145	46.9	20.0	30	50.0	13.3	3	33.3	33.3	22	20	10
-autres_écoles_e3a	itech_lyon	474	59.3	20.3	424	59.2	21.5	110	71.8	13.6	40	77.5	22.5	67	63	40
-autres_écoles_e3a	paoli_tech	109	44.0	22.0	72	45.8	29.2	31	48.4	29.0	0	0.0	0.0	0	0	2
-autres_écoles_e3a	3il_ingénieurs	155	39.4	21.3	133	37.6	22.6	23	26.1	21.7	0	0.0	0.0	0	0	5
-fesic	ecam_rennes	856	49.4	17.5	795	49.8	18.2	46	39.1	10.9	6	50.0	0.0	22	19	12
-fesic	ecam_lyon	856	49.4	17.5	528	49.6	23.3	73	52.1	30.1	3	66.7	33.3	58	54	5
-fesic	ecam_strasbourg_europe	856	49.4	17.5	792	49.6	18.3	71	47.9	18.3	5	60.0	0.0	52	53	10
-fesic	ecam_epmi_cergy_pontoise	856	49.4	17.5	807	49.8	18.2	86	39.5	18.6	2	0.0	0.0	69	69	10
-fesic	esaip_angers_/_aix_en_provence	856	49.4	17.5	799	49.8	18.1	363	49.9	25.1	9	55.6	22.2	346	340	20
-fesic	escom_chimie_compiègne	856	49.4	17.5	724	49.3	19.5	164	62.8	22.0	18	66.7	11.1	130	129	20
-fesic	eseo_angers	856	49.4	17.5	621	49.4	21.6	379	49.9	26.9	0	0.0	0.0	0	0	15
-fesic	hei	856	49.4	17.5	750	49.3	19.1	346	49.1	24.9	13	23.1	15.4	290	280	25
-fesic	isen_ouest_(brest)	856	49.4	17.5	757	49.5	18.9	100	49.0	17.0	1	100.0	0.0	75	75	10
-fesic	isen_lille	856	49.4	17.5	757	49.5	18.9	99	49.5	17.2	2	0.0	0.0	69	69	25
-fesic	isen_méditerrannée_campus_toulon										0	0.0	0.0	0	0	15
-fesic	isen_méditerrannée_campus_nã®mes										3	33.3	33.3	92	92	10
-fesic	concours_concours_isen_méditerrannée_pc	856	49.4	17.5	757	49.5	18.9	99	49.5	17.2	3					25
-fesic	isep_paris	856	49.4	17.5	775	49.3	18.7	125	39.2	28.0	12	0.0	33.3	98	96	20
-fesic	unilasalle_beauvais	856	49.4	17.5	772	49.2	18.8	61	54.1	26.2	1	0.0	100.0	61	61	6
-centrale_casablanca_cnc	centrale_casablanca_ci				0	0.0	0.0	0	0.0	0.0	0	0.0	0.0	0	0	2
-epita	epita										12	25.0	16.7	60	55	4
-epita	ipsa_paris										4	25.0	25.0	33	35	4
-epita	ipsa_toulouse										5	20.0	0.0	24	28	4
-epita	esme_sudria_paris										1	0.0	100.0	52	52	10
-epita	concours_epita_/_ipsa_/_esme_pc	217	32.7	19.4	140	33.6	15.0	97	33.0	15.5	22					22
-cesi	cesi_angoulãªme										0	0.0	0.0	0	0	8
-cesi	cesi_arras										2	0.0	0.0	28	28	10
-cesi	cesi_bordeaux										2	0.0	50.0	25	25	8
-cesi	cesi_lyon										1	0.0	0.0	26	26	12
-cesi	cesi_mont_saint_aignan										0	0.0	0.0	0	0	8
-cesi	cesi_nancy										0	0.0	0.0	0	0	8
-cesi	cesi_nanterre										3	33.3	66.7	24	28	20
-cesi	cesi_saint_nazaire										1	100.0	0.0	43	43	15
-cesi	concours_cesi_ingénieur_généraliste	180	23.3	16.7	96	27.1	16.7	49	26.5	22.4	9					89
-cesi	cesi_aix_en_provence										0	0.0	0.0	0	0	2
-cesi	cesi_arras										0	0.0	0.0	0	0	4
-cesi	cesi_bordeaux										0	0.0	0.0	0	0	2
-cesi	cesi_la_rochelle										0	0.0	0.0	0	0	2
-cesi	cesi_lyon										1	0.0	0.0	3	3	2
-cesi	cesi_mont_saint_aignan										0	0.0	0.0	0	0	2
-cesi	cesi_nancy										0	0.0	0.0	0	0	2
-cesi	cesi_nanterre										0	0.0	0.0	0	0	7
-cesi	cesi_nice_sophia_antipolis										0	0.0	0.0	0	0	2
-cesi	cesi_orléans										0	0.0	0.0	0	0	3
-cesi	cesi_pau										0	0.0	0.0	0	0	2
-cesi	cesi_reims										0	0.0	0.0	0	0	2
-cesi	cesi_saint_nazaire										0	0.0	0.0	0	0	2
-cesi	cesi_strasbourg										0	0.0	0.0	0	0	2
-cesi	cesi_toulouse										0	0.0	0.0	0	0	3
-cesi	concours_cesi_ingénieur_en_informatique	44	11.4	11.4	30	13.3	6.7	17	11.8	0.0	1					39
+Concours Ecole Polytechnique	Ecole Polytechnique	1233	27.0	29.1	251	21.1	27.9	159	25.2	28.3	131	30.5	24.4	76	74	131
+Concours Ecole Polytechnique	Espci Paris	1308	30.0	29.6	445	24.3	29.9	378	24.9	28.6	55	27.3	29.1	222	215	55
+Concours Ecole Polytechnique	Espci Paris Etranger	58	29.3	31.0	21	14.3	33.3	18	11.1	38.9	2	0.0	100.0	12	12	2
+Banque Ens	Ens Ulm	1143	27.8	30.5	100	16.0	42.0	65	21.5	40.0	18	11.1	38.9	18	19	18
+Banque Ens	Ens Paris-Saclay Pc	1358	27.4	29.9	272	17.3	35.3	162	19.1	38.9	19	0.0	42.1	117	106	19
+Banque Ens	Ens De Lyon	1215	28.1	30.6	244	18.4	40.2	177	19.8	37.3	27	14.8	40.7	86	76	27
+Banque Centrale-Supelec	Centralesupélec - Campus Gif	2455	31.0	25.9	654	25.4	27.8	624	26.1	27.9	149	26.2	30.2	235	218	145
+Banque Centrale-Supelec	Centralesupélec - Campus Gif - Étr.	97	27.8	25.8	33	15.2	36.4	33	15.2	36.4	10	20.0	60.0	11	10	8
+Banque Centrale-Supelec	Centrale Lyon	2722	32.0	25.5	624	26.6	29.2	601	27.1	29.0	61	27.9	34.4	386	383	62
+Banque Centrale-Supelec	Institut D'Optique Graduate School (Supoptique)	1675	33.6	29.3	625	31.4	33.6	588	32.3	33.5	50	46.0	50.0	443	419	45
+Banque Centrale-Supelec	Institut D'Optique Graduate School (Supoptique) - Étr.	43	27.9	20.9	28	25.0	17.9	25	24.0	20.0	1	0.0	0.0	15	15	2
+Banque Centrale-Supelec	Centrale Lille	2533	32.9	27.0	713	29.3	33.5	686	29.9	33.7	53	20.8	50.9	466	435	50
+Banque Centrale-Supelec	Centrale Nantes	2654	33.0	26.4	505	28.5	33.7	487	29.2	33.7	55	36.4	29.1	382	370	55
+Banque Centrale-Supelec	Centrale Marseille	2845	34.4	24.3	1079	31.8	24.2	1014	32.5	24.5	77	42.9	27.3	713	702	80
+Banque Centrale-Supelec	Centrale Casablanca	339	28.0	33.6	53	26.4	41.5	41	29.3	43.9	0	0.0	0.0	0	0	2
+Banque Centrale-Supelec	Ecole Navale Brest	477	22.0	31.0	151	21.2	44.4	56	12.5	57.1	15	0.0	53.3	29	25	15
+Banque Centrale-Supelec	Ensea Cergy	931	32.1	26.4	681	33.5	26.9	396	35.9	25.8	22	50.0	22.7	363	341	30
+Banque Centrale-Supelec	Université De Technologie De Troyes (Utt)	469	31.6	23.5	146	37.7	18.5	112	40.2	19.6	1	100.0	0.0	99	99	20
+Banque Centrale-Supelec	Centralesupélec - Campus Gif - Ci										5	40.0	20.0	3	3	5
+Banque Centrale-Supelec	Centrale Lyon - Ci										1	0.0	0.0	6	6	1
+Banque Centrale-Supelec	Centrale Lille - Ci										0	0.0	0.0	0	0	1
+Banque Centrale-Supelec	Centrale Nantes - Ci										1	0.0	0.0	7	7	5
+Banque Centrale-Supelec	Institut D'Optique Graduate School (Supoptique) - Ci										2	100.0	0.0	15	15	2
+Banque Centrale-Supelec	Centrale Marseille - Ci										2	50.0	0.0	9	9	2
+Banque Centrale-Supelec	Concours_Cycle_International_Centralesupélec	35	57.1	17.1	21	52.4	19.0	20	50.0	20.0	11					16
+Concours Commun Mines-Ponts	Ensae Paristech										4	25.0	25.0	512	438	10
+Concours Commun Mines-Ponts	Ensta Paristech										31	29.0	6.5	433	379	38
+Concours Commun Mines-Ponts	Imt Atlantique Cursus Sophia Antipolis										2	0.0	50.0	877	877	3
+Concours Commun Mines-Ponts	Imt Atlantique Cursus Brest-Nantes-Rennes-Toulouse										54	31.5	29.6	948	907	57
+Concours Commun Mines-Ponts	Isae - Supaero Toulouse										34	26.5	29.4	311	309	35
+Concours Commun Mines-Ponts	Mines De Nancy										42	23.8	28.6	653	649	42
+Concours Commun Mines-Ponts	Mines De Saint-Etienne										45	24.4	31.1	833	802	41
+Concours Commun Mines-Ponts	Mines Paristech										24	25.0	4.2	70	63	22
+Concours Commun Mines-Ponts	Ponts Paristech										38	28.9	21.1	208	208	38
+Concours Commun Mines-Ponts	Telecom Paristech Cursus Paris										17	23.5	17.6	395	402	24
+Concours Commun Mines-Ponts	Telecom Paristech Cursus Sophia										8	25.0	0.0	521	521	7
+Concours Commun Mines-Ponts	Concours_Commun_Mines_Ponts_Pc	3434	31.9	24.8	1170	25.8	26.7	1128	26.3	26.2	299					317
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Bordeaux Inp - Ensc Cognitique										4	50.0	0.0	1555	1648	4
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Bordeaux Inp - Enseirb-Matmeca Electronique										13	30.8	61.5	1985	1920	13
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Bordeaux Inp - Enseirb-Matmeca Informatique										7	28.6	28.6	1254	1256	5
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Bordeaux Inp - Enseirb-Matmeca Mathématiques Et Mécanique										5	40.0	20.0	1434	1377	11
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Bordeaux Inp - Enseirb-Matmeca Télecom.										7	42.9	42.9	1731	1710	8
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Cpe Lyon Sciences Du Numérique										10	0.0	40.0	2723	2680	8
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Eisti Cergy - Pau										18	11.1	38.9	3078	2880	13
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Enac Toulouse Civil										17	23.5	23.5	637	624	20
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Enac Toulouse Fonctionnaire										4	0.0	25.0	130	135	4
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Engees Strasbourg Civil (Apprenti)										0	0.0	0.0	0	0	2
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Engees Strasbourg Civil (Étudiant)										14	85.7	14.3	2431	2363	10
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Engees Strasbourg Fonctionnaire										3	33.3	66.7	1822	1684	3
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Ensgti Pau - Génie Des Procédés										16	43.8	25.0	3033	2999	12
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Ensi Poitiers Energie										16	31.2	31.2	2925	2858	17
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Ensiame Valenciennes Méca Energ.										20	30.0	25.0	2795	2704	20
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Ensiame Valenciennes Mécatronique										4	50.0	50.0	2776	2587	5
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Ensicaen Electronique Et Physique Appliquée										16	12.5	37.5	2524	2396	15
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Ensicaen Informatique										11	36.4	18.2	2403	2424	8
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Ensmm Besanã§On										18	33.3	11.1	2332	2295	25
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Grenoble Inp - Ense3										54	37.0	35.2	1463	1433	60
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Grenoble Inp - Pagora										14	35.7	28.6	2719	2680	18
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Grenoble Inp - Phelma (Physique Electronique Télécoms)										29	27.6	20.7	1018	930	35
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Grenoble Inp - Phelma (Physique Matériaux Procédés)										60	35.0	25.0	873	831	66
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Grenoble Inp - Ensimag										11	27.3	27.3	524	526	10
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Grenoble Inp - Esisar										14	14.3	21.4	2076	1975	6
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Isae-Ensma Poitiers										31	32.3	38.7	1054	1088	28
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Isima Clermont-Ferrand										8	12.5	12.5	2330	2222	8
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Lorraine Inp - Ensem - Energie										23	26.1	30.4	2450	2369	24
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Lorraine Inp - Ensem - Spécialité Des Systèmes Numériques										6	0.0	33.3	2669	2633	5
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Lorraine Inp - Ensg										7	42.9	28.6	2747	2501	10
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Seatech Toulon										19	26.3	42.1	2309	2108	18
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Supmeca Paris										19	31.6	15.8	1516	1450	20
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Telecom Physique Strasbourg										32	43.8	28.1	1998	1989	31
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Toulouse Inp - Enseeiht - Electronique-Energie-Automatique (Eea)										21	19.0	47.6	1320	1282	20
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Toulouse Inp - Enseeiht - Mécanique Des Fluides-Energetique-Environnement (Mfee)										18	44.4	22.2	1063	1034	16
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Toulouse Inp - Enseeiht - Sciences Du Numérique										6	16.7	16.7	874	781	7
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Toulouse Inp - Ensiacet - Génie Des Procédés										13	38.5	30.8	2065	2030	17
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Toulouse Inp - Ensiacet - Génie Industriel										9	33.3	22.2	1827	1804	10
+Ccp : Ecoles Recrutant Sur Le Concours Physique	Concours_Commun_Polytechnique_Pc_Physique	4889	35.1	22.5	3762	34.8	25.1	3315	36.4	25.4	597					612
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Bordeaux Inp - Enscbp Chimie-Génie Physique										36	52.8	36.1	1667	1627	42
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Chimie Paristech										56	46.4	14.3	309	287	65
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Cpe Lyon Chimie Â€“ Génie Des Procédés										55	52.7	18.2	2705	2548	45
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Ecpm - Esbs Strasbourg - Chembiotech										6	66.7	50.0	1069	1063	5
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Ecpm Strasbourg										44	61.4	18.2	1257	1202	42
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Ensc Lille										33	48.5	39.4	1722	1651	40
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Ensc Montpellier										59	57.6	16.9	783	785	60
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Ensc Mulhouse										34	52.9	20.6	2389	2313	35
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Ensc Rennes										44	47.7	25.0	2062	1875	40
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Ensi Poitiers - Génie De L'Eau Et Génie Civil										19	31.6	36.8	2825	2752	21
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Ensicaen Mat. Et Chimie										31	35.5	29.0	2555	2514	30
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Lorraine Inp - Ensic										54	51.9	25.9	2026	1865	45
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Sigma Clermont-Ferrand (Ex Ensccf)										39	61.5	25.6	2149	2088	36
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Toulouse Inp - Ensiacet - Chimie										32	50.0	12.5	1179	1157	30
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Toulouse Inp - Ensiacet - Génie Chimique										31	58.1	22.6	1777	1775	34
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Toulouse Inp - Ensiacet - Matériaux										29	27.6	31.0	1892	1823	33
+Ccp : Ecoles Recrutant Sur Le Concours Chimie	Concours_Commun_Polytechnique_Pc_Chimie	4704	36.5	22.7	3692	36.5	25.1	3266	37.9	25.3	602					603
+Banque Epreuves C.C.P  Inter-Filière	Lorraine Inp - Eeigm	426	49.1	19.2	223	52.5	21.1	20	55.0	20.0	4	50.0	50.0	25	21	10
+Banque Epreuves C.C.P  Inter-Filière	Ensil-Ensci Limoges Céramique Industrielle	454	44.3	25.1	383	45.4	25.1	93	53.8	30.1	22	50.0	45.5	103	100	45
+Banque Epreuves C.C.P  Inter-Filière	Lorraine Inp - Ensgsi	614	43.5	18.9	403	44.2	19.6	76	42.1	25.0	3	66.7	0.0	58	62	35
+Banque Epreuves C.C.P  Inter-Filière	Esm Saint-Cyr	503	21.1	26.6	137	20.4	32.1	45	4.4	53.3	11	0.0	54.5	105	102	76
+Banque Epreuves C.C.P  Inter-Filière	Grenoble Inp - Génie Industriel	1105	38.1	20.2	400	40.2	26.5	61	45.9	34.4	3	66.7	66.7	158	154	80
+Banque Epreuves C.C.P	Ecole De L'Air Base	415	25.8	30.4	115	29.6	47.0	20	25.0	60.0	2	50.0	100.0	5	5	2
+Banque Epreuves C.C.P	Ecole De L'Air Méca	380	24.7	31.3	108	28.7	47.2	20	25.0	60.0	3	66.7	33.3	18	17	3
+Banque Epreuves C.C.P	Ecole De L'Air Pilote	475	21.9	27.6	136	23.5	42.6	23	13.0	47.8	8	12.5	50.0	11	12	8
+Banque Epreuves C.C.P	Ensisa Mulhouse Informatique Et Réseaux										3	100.0	0.0	27	22	4
+Banque Epreuves C.C.P	Ensisa Mulhouse Mécanique										6	16.7	16.7	52	55	5
+Banque Epreuves C.C.P	Ensisa Mulhouse Automatique Et Systèmes Embarqués										6	16.7	0.0	53	45	4
+Banque Epreuves C.C.P	Ensisa Mulhouse Textile Et Fibres										15	60.0	13.3	68	59	9
+Banque Epreuves C.C.P	Concours_Ensisa_Mulhouse_Pc	712	42.8	19.1	629	43.2	19.7	114	44.7	19.3	30					22
+Banque Epreuves C.C.P	Lorraine Inp - Enstib	391	37.9	19.4	242	39.7	14.9	13	23.1	15.4	2	0.0	0.0	3	3	6
+Banque Epreuves C.C.P	Eost Strasbourg	459	40.7	19.2	352	42.3	19.3	84	42.9	25.0	11	45.5	36.4	25	23	12
+Concours Commun Tpe	Entpe Lyon Civil										19	15.8	63.2	303	277	20
+Concours Commun Tpe	Entpe Lyon Fonctionnaire										30	43.3	56.7	189	180	30
+Concours Commun Tpe	Concours_Tpe_Civil_Fct._Pc	2088	34.5	27.7	1289	34.7	31.5	422	44.8	36.0	49					50
+Concours Commun Tpe	Entpe Lyon Etranger	2088	34.5	27.7	23	26.1	17.4	4	25.0	25.0	0	0.0	0.0	0	0	1
+Concours Commun Tpe	Eivp Paris Civil	2088	34.5	27.7	1312	34.5	31.2	430	44.7	35.6	20	65.0	35.0	308	277	20
+Concours Commun Tpe	Eivp Paris Fonctionnaire	2088	34.5	27.7	1289	34.7	31.5	426	44.8	35.7	3	66.7	66.7	136	110	3
+Concours Commun Tpe	Imt Lille Douai Fonct.	2088	34.5	27.7	1289	34.7	31.5	422	44.8	36.0	3	66.7	33.3	103	104	3
+Concours Mines - Télécom	Ensiie Evry										12	25.0	41.7	1333	1247	10
+Concours Mines - Télécom	Ensta Bretagne (Filière Sous Statut Étudiant)										20	45.0	35.0	568	547	15
+Concours Mines - Télécom	Imt Mines Albi										56	35.7	51.8	935	895	50
+Concours Mines - Télécom	Imt Mines Alès										49	49.0	34.7	1148	1068	42
+Concours Mines - Télécom	Imt Lille Douai										49	22.4	38.8	1186	1125	50
+Concours Mines - Télécom	Mines Saint Etienne-Ismin										16	18.8	50.0	1245	1201	15
+Concours Mines - Télécom	Télécom Physique Strasbourg Ti-Santé										7	71.4	28.6	1123	1172	8
+Concours Mines - Télécom	Telecom Sudparis - Cursus Evry										29	34.5	13.8	805	776	30
+Concours Mines - Télécom	Telecom Sudparis - Cursus Sophia-Antipolis										2	50.0	100.0	397	397	3
+Concours Mines - Télécom	Concours_Mines_Télécom	3473	34.6	25.4	1912	34.9	28.1	1796	35.7	28.0	240					223
+Concours Mines - Télécom	Ensta Bretagne (Filière Sous Statut Ieta - Direction Générale De L'Armement)	3473	34.6	25.4	1699	34.5	30.8	1601	35.4	30.5	8	25.0	37.5	614	564	8
+Concours Mines - Télécom	Ensg-Géomatique Marne La Vallée Civil										6	33.3	33.3	1401	1380	7
+Concours Mines - Télécom	Enssat Lannion										12	33.3	50.0	1551	1515	10
+Concours Mines - Télécom	Telecom Nancy										6	16.7	33.3	803	734	5
+Concours Mines - Télécom	Telecom St Etienne - Statut Étudiant										11	9.1	45.5	1271	1211	11
+Concours Mines - Télécom	Concours_Mines_Télécom_Spécifique_Pc	3473	34.6	25.4	2537	35.0	27.2	2087	35.8	27.3	35					33
+Concours Ensam	Arts Et Métiers - Voie De L'Apprentissage										0	0.0	0.0	0	0	1
+Concours Ensam	Arts Et Métiers										22	59.1	36.4	41	39	19
+Concours Ensam	Concours_Arts_Et_Mã‰Tiers	1298	33.6	26.8	126	42.1	49.2	100	42.0	49.0	22					20
+Concours Estp	Estp Paris - Bâtiment (B) Â€“ Campus De Troyes										11	72.7	18.2	663	666	6
+Concours Estp	Estp Paris - Bâtiment (B) - Campus De Cachan										59	49.2	27.1	412	388	57
+Concours Estp	Estp Paris - Topographie (T)										11	27.3	9.1	777	770	20
+Concours Estp	Estp Paris - Génie Mécanique Et Electrique(Gme)										33	39.4	18.2	688	634	30
+Concours Estp	Estp Paris - Travaux Publics (Tp)										68	32.4	17.6	477	426	60
+Concours Estp	Concours_Estp	1026	34.4	27.0	864	34.7	28.1	798	35.8	28.9	182					173
+Concours Polytech Inter-Filière	Ensibs Lorient										3	33.3	0.0	4195	3857	12
+Concours Polytech Inter-Filière	Ensim Le Mans										2	50.0	0.0	3129	3137	6
+Concours Polytech Inter-Filière	Esbs Strasbourg										3	33.3	0.0	630	501	3
+Concours Polytech Inter-Filière	Esgt Le Mans										3	0.0	0.0	3844	3784	15
+Concours Polytech Inter-Filière	Esi Reims										2	0.0	0.0	4112	4055	10
+Concours Polytech Inter-Filière	Esiab Brest										1	100.0	100.0	3958	3958	3
+Concours Polytech Inter-Filière	Esipe Créteil - Génie Biomédical Et Santé (Isbs)										3	66.7	33.3	4247	4265	10
+Concours Polytech Inter-Filière	Esipe Créteil - Système D'Information										0	0.0	0.0	4728	4707	4
+Concours Polytech Inter-Filière	Esipe Créteil - Technologie Pour La Santé										0	0.0	0.0	0	0	2
+Concours Polytech Inter-Filière	Esir Rennes										7	14.3	42.9	4056	3773	20
+Concours Polytech Inter-Filière	Esirem Dijon										3	0.0	0.0	4066	3862	3
+Concours Polytech Inter-Filière	Esiroi Saint Denis De La Réunion										1	100.0	100.0	5002	5002	3
+Concours Polytech Inter-Filière	Esix Normandie - Caen - Cherbourg										1	0.0	0.0	4723	4615	4
+Concours Polytech Inter-Filière	Isat Nevers - Département Mit (Mécanique Et Ingénierie Des Transports)										0	0.0	0.0	2261	2338	5
+Concours Polytech Inter-Filière	Isat Nevers - Département Epee (Energies Et Moteurs)										0	0.0	0.0	3189	3254	12
+Concours Polytech Inter-Filière	Isat Nevers - Infrastructures Et Réseaux De Transports										0	0.0	0.0	4631	4616	4
+Concours Polytech Inter-Filière	Isifc Besanã§On - Génie Biomédical										2	100.0	50.0	3911	3756	6
+Concours Polytech Inter-Filière	Isis Castres										3	66.7	33.3	3452	3892	5
+Concours Polytech Inter-Filière	Istia Angers										3	66.7	0.0	3604	3536	4
+Concours Polytech Inter-Filière	Isty Vélizy										0	0.0	0.0	5106	5106	3
+Concours Polytech Inter-Filière	Polytech Annecy-Chambéry - Environnement, Bâtiment, Ã‰Nergie										8	25.0	25.0	3735	3476	15
+Concours Polytech Inter-Filière	Polytech Annecy-Chambéry - Informatique Données Usages										1	0.0	0.0	4511	4294	5
+Concours Polytech Inter-Filière	Polytech Annecy-Chambéry - Instrumentation, Automatique, Informatique										2	0.0	0.0	4041	3614	4
+Concours Polytech Inter-Filière	Polytech Annecy-Chambéry - Mécanique, Matériaux										4	0.0	0.0	4161	4189	8
+Concours Polytech Inter-Filière	Polytech Clermont-Ferrand - Génie Biologique										4	75.0	50.0	2262	2328	5
+Concours Polytech Inter-Filière	Polytech Clermont-Ferrand - Génie Civil										2	50.0	0.0	4172	3663	16
+Concours Polytech Inter-Filière	Polytech Clermont-Ferrand - Génie Electrique										2	0.0	0.0	4899	4908	5
+Concours Polytech Inter-Filière	Polytech Clermont-Ferrand - Génie Mathématique Et Modélisation										3	0.0	33.3	4331	3958	14
+Concours Polytech Inter-Filière	Polytech Clermont-Ferrand - Génie Physique										2	0.0	100.0	4786	4491	8
+Concours Polytech Inter-Filière	Polytech Grenoble - Géotechnique Et Génie Civil										1	100.0	0.0	3783	3774	6
+Concours Polytech Inter-Filière	Polytech Grenoble - Matériaux										5	40.0	20.0	3928	3710	8
+Concours Polytech Inter-Filière	Polytech Grenoble - Prévention Des Risques										3	33.3	33.3	4729	4335	6
+Concours Polytech Inter-Filière	Polytech Grenoble - Informatique Et Électronique Des Systèmes Embarqués										1	0.0	0.0	2514	2563	5
+Concours Polytech Inter-Filière	Polytech Grenoble - Réseaux Informatiques										1	0.0	0.0	4295	3990	8
+Concours Polytech Inter-Filière	Polytech Grenoble - Technologies De L'Information Pour La Santé										1	100.0	100.0	4503	4102	5
+Concours Polytech Inter-Filière	Polytech Lille - Génie Biologique Et Alimentaire										4	50.0	50.0	4460	4218	4
+Concours Polytech Inter-Filière	Polytech Lille - Génie Informatique Et Statistique										0	0.0	0.0	3714	3424	10
+Concours Polytech Inter-Filière	Polytech Lille - Géotechnique, Génie Civil										0	0.0	0.0	3662	3429	10
+Concours Polytech Inter-Filière	Polytech Lille - Informatique, Microélectronique, Automatique										1	0.0	0.0	3749	3695	8
+Concours Polytech Inter-Filière	Polytech Lille - Ingénierie Et Commercialisation Des Systèmes De Mesure										1	0.0	0.0	4918	4918	5
+Concours Polytech Inter-Filière	Polytech Lille - Matériaux										2	0.0	50.0	3248	3356	8
+Concours Polytech Inter-Filière	Polytech Lille - Mécanique										2	0.0	0.0	3408	3309	10
+Concours Polytech Inter-Filière	Polytech Lyon - Génie Bomédical										1	100.0	0.0	2578	2593	4
+Concours Polytech Inter-Filière	Polytech Lyon - Informatique										0	0.0	0.0	2164	2054	4
+Concours Polytech Inter-Filière	Polytech Lyon - Matériaux										3	0.0	0.0	2845	2821	4
+Concours Polytech Inter-Filière	Polytech Lyon - Mathématiques Appliquées Et Modélisation										0	0.0	0.0	2654	2257	4
+Concours Polytech Inter-Filière	Polytech Lyon - Mécanique										2	0.0	100.0	2472	2231	4
+Concours Polytech Inter-Filière	Polytech Lyon - Systèmes Industriels, Robotique										1	0.0	0.0	3212	3126	4
+Concours Polytech Inter-Filière	Polytech Marseille - Génie Biomédical										5	40.0	40.0	3214	2753	9
+Concours Polytech Inter-Filière	Polytech Marseille - Génie Civil										2	0.0	100.0	4775	4611	12
+Concours Polytech Inter-Filière	Polytech Marseille - Génie Industriel Et Informatique										1	0.0	0.0	4729	4212	8
+Concours Polytech Inter-Filière	Polytech Marseille - Informatique										0	0.0	0.0	4340	4060	8
+Concours Polytech Inter-Filière	Polytech Marseille - Matériaux										8	37.5	12.5	4214	4184	10
+Concours Polytech Inter-Filière	Polytech Marseille - Mécanique, Energétique										8	0.0	37.5	4250	3441	16
+Concours Polytech Inter-Filière	Polytech Marseille - Microélectronique,Télécommunications										3	0.0	0.0	4977	4870	8
+Concours Polytech Inter-Filière	Polytech Montpellier - Informatique Et Gestion										2	0.0	0.0	3875	3444	3
+Concours Polytech Inter-Filière	Polytech Montpellier - Matériaux										7	57.1	42.9	3431	3401	7
+Concours Polytech Inter-Filière	Polytech Montpellier - Mécanique Et Interactions										2	0.0	50.0	3450	3356	2
+Concours Polytech Inter-Filière	Polytech Montpellier - Microélectronique Et Automatique										1	0.0	0.0	2860	3040	5
+Concours Polytech Inter-Filière	Polytech Montpellier - Sciences Et Technologies De L'Eau										6	16.7	16.7	3497	3351	7
+Concours Polytech Inter-Filière	Polytech Montpellier Génie Biologique Et Agroalimentaire										5	60.0	0.0	2918	3121	5
+Concours Polytech Inter-Filière	Polytech Nancy - Energie, Mécanique, Matériaux, Environnement										5	40.0	0.0	3503	3361	12
+Concours Polytech Inter-Filière	Polytech Nancy - Ingénierie De L'Information Et Des Systèmes										2	0.0	50.0	3252	3166	2
+Concours Polytech Inter-Filière	Polytech Nancy - Management Opérationnel, Maintenance, Maã®Trise Des Risques										1	0.0	100.0	4740	4775	2
+Concours Polytech Inter-Filière	Polytech Nantes - Ã‰Lectronique Et Technologies Numériques										0	0.0	0.0	3491	3225	8
+Concours Polytech Inter-Filière	Polytech Nantes - Ã‰Nergie Électrique										1	100.0	100.0	3819	3883	4
+Concours Polytech Inter-Filière	Polytech Nantes - Génie Civil										2	0.0	0.0	2814	2573	4
+Concours Polytech Inter-Filière	Polytech Nantes - Génie Des Procédés Et Bioprocédés										2	100.0	0.0	1807	1807	2
+Concours Polytech Inter-Filière	Polytech Nantes - Informatique										1	0.0	0.0	3197	2958	9
+Concours Polytech Inter-Filière	Polytech Nantes - Matériaux										7	14.3	14.3	2758	2507	8
+Concours Polytech Inter-Filière	Polytech Nantes - Thermique, Ã‰Nergétique										3	66.7	33.3	3705	3477	7
+Concours Polytech Inter-Filière	Polytech Nice-Sophia - Bâtiments										3	33.3	33.3	4118	4061	13
+Concours Polytech Inter-Filière	Polytech Nice-Sophia - Ã‰Lectronique										1	100.0	0.0	4670	4415	10
+Concours Polytech Inter-Filière	Polytech Nice-Sophia - Génie Biologique										3	100.0	0.0	1244	1431	3
+Concours Polytech Inter-Filière	Polytech Nice-Sophia - Génie De L'Eau										5	0.0	40.0	4694	4376	10
+Concours Polytech Inter-Filière	Polytech Nice-Sophia - Informatique										1	0.0	0.0	4460	4218	14
+Concours Polytech Inter-Filière	Polytech Nice-Sophia - Mathématiques Appliquées, Modélisation										1	0.0	100.0	3866	3781	14
+Concours Polytech Inter-Filière	Polytech Orléans - Génie Civil Et Géo-Environnement										1	0.0	0.0	4615	4406	14
+Concours Polytech Inter-Filière	Polytech Orléans - Génie Industriel										2	50.0	100.0	4851	4720	12
+Concours Polytech Inter-Filière	Polytech Orléans - Innovation En Conception Et Matériaux										2	0.0	50.0	4892	4774	8
+Concours Polytech Inter-Filière	Polytech Orléans - Technologies Pour L'Ã‰Nergie, L'Aérospatial Et La Motorisation										5	20.0	0.0	2924	2830	14
+Concours Polytech Inter-Filière	Polytech Orléans - Génie Physique Et Systèmes Embarqués										1	100.0	0.0	4091	4121	6
+Concours Polytech Inter-Filière	Polytech Paris-Sud - Electronique, Energie, Systèmes										0	0.0	0.0	4063	3689	6
+Concours Polytech Inter-Filière	Polytech Paris-Sud - Informatique										0	0.0	0.0	1746	1746	2
+Concours Polytech Inter-Filière	Polytech Paris-Sud - Photonique Et Systèmes Optroniques										2	50.0	50.0	4623	4000	5
+Concours Polytech Inter-Filière	Polytech Paris-Sud - Matériaux										0	0.0	0.0	4127	3867	4
+Concours Polytech Inter-Filière	Polytech Sorbonne - Electronique Et Informatique										1	100.0	0.0	3253	3180	3
+Concours Polytech Inter-Filière	Polytech Sorbonne - Informatique Et Mathématiques Appliquées										1	0.0	0.0	1872	2192	3
+Concours Polytech Inter-Filière	Polytech Sorbonne - Matériaux										7	57.1	57.1	4211	3931	10
+Concours Polytech Inter-Filière	Polytech Sorbonne - Robotique										2	0.0	100.0	3247	2943	5
+Concours Polytech Inter-Filière	Polytech Sorbonne - Sciences De La Terre										0	0.0	0.0	4533	4215	10
+Concours Polytech Inter-Filière	Polytech Tours - Ã‰Lectronique, Ã‰Nergie Électrique										0	0.0	0.0	4487	4487	2
+Concours Polytech Inter-Filière	Polytech Tours - Génie De L'Aménagement Et De L'Environnement										3	0.0	33.3	4632	4453	7
+Concours Polytech Inter-Filière	Polytech Tours - Informatique										0	0.0	0.0	4272	3659	7
+Concours Polytech Inter-Filière	Polytech Tours - Mécanique, Conception De Systèmes										0	0.0	0.0	3852	3870	5
+Concours Polytech Inter-Filière	Sup Galilée Villetaneuse										3	33.3	33.3	4166	3933	18
+Concours Polytech Inter-Filière	Concours_Polytech	2282	40.2	21.8	1684	41.0	22.6	1522	41.5	24.0	212					694
+Autres Écoles E3A	Ece Paris	641	38.5	18.7	568	38.6	19.0	219	37.9	21.0	34	29.4	20.6	144	137	30
+Autres Écoles E3A	Efrei Paris	419	36.0	16.2	389	36.2	15.2	90	32.2	17.8	12	41.7	8.3	69	64	20
+Autres Écoles E3A	Eidd Paris	349	44.4	14.9	309	45.3	14.9	150	51.3	14.7	3	66.7	0.0	131	130	15
+Autres Écoles E3A	Eigsi La Rochelle	275	41.8	17.5	222	41.9	18.0	79	43.0	15.2	9	33.3	11.1	66	66	10
+Autres Écoles E3A	Eil Côte D'Opale - Calais (Informatique)										2	100.0	0.0	51	51	3
+Autres Écoles E3A	Eil Côte D'Opale - Longuenesse (Génie Industriel)										1	0.0	0.0	47	47	5
+Autres Écoles E3A	Concours_Eil_Côte_D'Opale_Longuenesse_Calais	158	45.6	18.4	117	49.6	18.8	52	53.8	19.2	3					8
+Autres Écoles E3A	Elisa Aérospace Saint Quentin (80)	335	39.1	21.8	254	41.7	23.6	87	39.1	26.4	5	60.0	80.0	69	70	5
+Autres Écoles E3A	Eme	263	51.7	18.3	217	53.5	21.2	110	54.5	26.4	5	0.0	20.0	91	81	20
+Autres Écoles E3A	Ensait Roubaix										35	77.1	11.4	92	90	35
+Autres Écoles E3A	Ensait Roubaix - Formation En Alternance										1	100.0	0.0	126	126	2
+Autres Écoles E3A	Concours_Ensait_Roubaix	543	54.1	18.2	442	53.8	19.0	143	60.8	24.5	36					37
+Autres Écoles E3A	Ensil Limoges Ee	574	48.8	22.1	447	50.8	24.6	125	60.0	26.4	21	47.6	38.1	54	49	18
+Autres Écoles E3A	Ensil Limoges Elt	299	36.1	22.7	221	38.0	23.1	43	48.8	27.9	3	33.3	66.7	32	32	6
+Autres Écoles E3A	Ensil Limoges Matériaux	528	44.3	22.2	414	47.6	23.9	138	56.5	26.8	14	57.1	28.6	35	33	12
+Autres Écoles E3A	Epf Campus Troyes										8	37.5	12.5	188	191	7
+Autres Écoles E3A	Epf Campus Montpellier										7	42.9	14.3	122	119	4
+Autres Écoles E3A	Epf Campus Sceaux										6	16.7	50.0	124	110	4
+Autres Écoles E3A	Concours_Epf_Sceaux_Troyes_Montpellier	458	48.7	17.2	365	51.0	19.5	222	51.4	20.7	21					15
+Autres Écoles E3A	Esb Nantes	161	39.1	25.5	118	43.2	28.0	15	20.0	40.0	6	33.3	16.7	10	9	10
+Autres Écoles E3A	Esiea Paris - Laval	274	36.5	18.2	239	36.0	18.4	88	36.4	21.6	5	0.0	0.0	79	77	15
+Autres Écoles E3A	Esiee Amiens	291	37.1	18.2	231	38.1	18.6	33	39.4	15.2	1	0.0	0.0	30	30	10
+Autres Écoles E3A	Esiee Paris	356	39.9	16.9	327	40.4	16.8	91	41.8	12.1	17	29.4	0.0	51	56	20
+Autres Écoles E3A	Esigelec Rouen	322	39.1	19.9	296	39.9	19.6	91	30.8	27.5	12	16.7	16.7	72	71	20
+Autres Écoles E3A	Esilv Paris-La Défense	523	36.5	17.8	450	37.6	19.1	186	35.5	20.4	31	35.5	12.9	72	70	30
+Autres Écoles E3A	Esitc Caen	179	48.6	20.1	151	49.7	21.2	12	33.3	8.3	1	0.0	0.0	12	12	12
+Autres Écoles E3A	Estaca Laval Aéronautique Et Spatial										2	50.0	0.0	32	32	1
+Autres Écoles E3A	Estaca Laval Automobile										2	0.0	50.0	103	103	1
+Autres Écoles E3A	Estaca Paris-Saclay Aéronautique Et Spatial										3	66.7	0.0	61	51	2
+Autres Écoles E3A	Estaca Paris-Saclay Automobile Ou Transports Guidés										4	0.0	25.0	66	69	3
+Autres Écoles E3A	Concours_Estaca_Paris_Saclay/Laval	561	31.6	21.2	162	29.6	30.9	162	29.6	30.9	11					7
+Autres Écoles E3A	Estia Bidart	215	41.9	14.4	185	41.1	15.1	54	33.3	20.4	12	25.0	8.3	29	28	20
+Autres Écoles E3A	Imt Lille Douai En Partenariat Ispa	295	44.4	21.0	276	44.2	21.0	37	51.4	16.2	6	33.3	50.0	18	17	12
+Autres Écoles E3A	Toulouse Inp - Enit	536	41.0	17.2	199	45.2	16.6	154	47.4	15.6	1	100.0	0.0	124	124	2
+Autres Écoles E3A	Insa Centre Val De Loire Gsi										2	0.0	50.0	25	25	2
+Autres Écoles E3A	Insa Centre Val De Loire Mri										3	33.3	33.3	15	15	8
+Autres Écoles E3A	Insa Centre Val De Loire Sti										2	0.0	0.0	16	16	2
+Autres Écoles E3A	Concours_Insa_Centre_Val_De_Loire	385	41.6	18.7	253	43.9	19.4	34	32.4	26.5	7					12
+Autres Écoles E3A	Ismans-Groupe Cesi Le Mans	149	47.0	19.5	145	46.9	20.0	30	50.0	13.3	3	33.3	33.3	22	20	10
+Autres Écoles E3A	Itech Lyon	474	59.3	20.3	424	59.2	21.5	110	71.8	13.6	40	77.5	22.5	67	63	40
+Autres Écoles E3A	Paoli Tech	109	44.0	22.0	72	45.8	29.2	31	48.4	29.0	0	0.0	0.0	0	0	2
+Autres Écoles E3A	3Il Ingénieurs	155	39.4	21.3	133	37.6	22.6	23	26.1	21.7	0	0.0	0.0	0	0	5
+Fesic	Ecam Rennes	856	49.4	17.5	795	49.8	18.2	46	39.1	10.9	6	50.0	0.0	22	19	12
+Fesic	Ecam Lyon	856	49.4	17.5	528	49.6	23.3	73	52.1	30.1	3	66.7	33.3	58	54	5
+Fesic	Ecam Strasbourg Europe	856	49.4	17.5	792	49.6	18.3	71	47.9	18.3	5	60.0	0.0	52	53	10
+Fesic	Ecam-Epmi Cergy-Pontoise	856	49.4	17.5	807	49.8	18.2	86	39.5	18.6	2	0.0	0.0	69	69	10
+Fesic	Esaip Angers / Aix-En-Provence	856	49.4	17.5	799	49.8	18.1	363	49.9	25.1	9	55.6	22.2	346	340	20
+Fesic	Escom Chimie Compiègne	856	49.4	17.5	724	49.3	19.5	164	62.8	22.0	18	66.7	11.1	130	129	20
+Fesic	Eseo Angers	856	49.4	17.5	621	49.4	21.6	379	49.9	26.9	0	0.0	0.0	0	0	15
+Fesic	Hei	856	49.4	17.5	750	49.3	19.1	346	49.1	24.9	13	23.1	15.4	290	280	25
+Fesic	Isen Ouest (Brest)	856	49.4	17.5	757	49.5	18.9	100	49.0	17.0	1	100.0	0.0	75	75	10
+Fesic	Isen Lille	856	49.4	17.5	757	49.5	18.9	99	49.5	17.2	2	0.0	0.0	69	69	25
+Fesic	Isen Méditerrannée Campus Toulon										0	0.0	0.0	0	0	15
+Fesic	Isen Méditerrannée Campus Nã®Mes										3	33.3	33.3	92	92	10
+Fesic	Concours_Concours_Isen_Méditerrannée_Pc	856	49.4	17.5	757	49.5	18.9	99	49.5	17.2	3					25
+Fesic	Isep Paris	856	49.4	17.5	775	49.3	18.7	125	39.2	28.0	12	0.0	33.3	98	96	20
+Fesic	Unilasalle Beauvais	856	49.4	17.5	772	49.2	18.8	61	54.1	26.2	1	0.0	100.0	61	61	6
+Centrale Casablanca  - Cnc	Centrale Casablanca - Ci				0	0.0	0.0	0	0.0	0.0	0	0.0	0.0	0	0	2
+Epita	Epita										12	25.0	16.7	60	55	4
+Epita	Ipsa Paris										4	25.0	25.0	33	35	4
+Epita	Ipsa Toulouse										5	20.0	0.0	24	28	4
+Epita	Esme Sudria Paris										1	0.0	100.0	52	52	10
+Epita	Concours_Epita_/_Ipsa_/_Esme_Pc	217	32.7	19.4	140	33.6	15.0	97	33.0	15.5	22					22
+Cesi	Cesi Angoulãªme										0	0.0	0.0	0	0	8
+Cesi	Cesi Arras										2	0.0	0.0	28	28	10
+Cesi	Cesi Bordeaux										2	0.0	50.0	25	25	8
+Cesi	Cesi Lyon										1	0.0	0.0	26	26	12
+Cesi	Cesi Mont-Saint-Aignan										0	0.0	0.0	0	0	8
+Cesi	Cesi Nancy										0	0.0	0.0	0	0	8
+Cesi	Cesi Nanterre										3	33.3	66.7	24	28	20
+Cesi	Cesi Saint-Nazaire										1	100.0	0.0	43	43	15
+Cesi	Concours_Cesi_Ingénieur_Généraliste	180	23.3	16.7	96	27.1	16.7	49	26.5	22.4	9					89
+Cesi	Cesi Aix-En-Provence										0	0.0	0.0	0	0	2
+Cesi	Cesi Arras										0	0.0	0.0	0	0	4
+Cesi	Cesi Bordeaux										0	0.0	0.0	0	0	2
+Cesi	Cesi La Rochelle										0	0.0	0.0	0	0	2
+Cesi	Cesi Lyon										1	0.0	0.0	3	3	2
+Cesi	Cesi Mont-Saint-Aignan										0	0.0	0.0	0	0	2
+Cesi	Cesi Nancy										0	0.0	0.0	0	0	2
+Cesi	Cesi Nanterre										0	0.0	0.0	0	0	7
+Cesi	Cesi Nice Sophia Antipolis										0	0.0	0.0	0	0	2
+Cesi	Cesi Orléans										0	0.0	0.0	0	0	3
+Cesi	Cesi Pau										0	0.0	0.0	0	0	2
+Cesi	Cesi Reims										0	0.0	0.0	0	0	2
+Cesi	Cesi Saint-Nazaire										0	0.0	0.0	0	0	2
+Cesi	Cesi Strasbourg										0	0.0	0.0	0	0	2
+Cesi	Cesi Toulouse										0	0.0	0.0	0	0	3
+Cesi	Concours_Cesi_Ingénieur_En_Informatique	44	11.4	11.4	30	13.3	6.7	17	11.8	0.0	1					39

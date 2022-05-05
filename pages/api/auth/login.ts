@@ -17,19 +17,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       if (validation.isValid) {
          const user = await User.findOne({ email });
          if (isEmpty(user)) {
-            // mongoose.connection.close();
             return res.status(404).json({ message: "User not found." });
          } else if (await verifyPassword(password, user.password)) {
             const payload = {
                _id: user._id,
                email: user.email,
-               name: user.name,
             };
             const token = jwt.sign(payload, process.env.JWT_KEY as string, {
                expiresIn: remember ? 31556926 : 0, // one year in seconds
             });
             res.setHeader("Authorization", token as string);
-            // mongoose.connection.close();
 
             return res.status(201).json({
                message: "User logged in.",
@@ -49,3 +46,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 export default connectDB(handler);
+

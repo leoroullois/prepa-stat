@@ -1,6 +1,5 @@
 import scss from "@scss/wishlist.module.scss";
-import { Heading, Text } from "@chakra-ui/react";
-import { MdOutlineDragIndicator } from "react-icons/md";
+import { Heading, Text, useColorMode } from "@chakra-ui/react";
 
 import {
    DragDropContext,
@@ -8,24 +7,25 @@ import {
    Draggable,
    DropResult,
 } from "react-beautiful-dnd";
-import classNames from "classnames";
-import { selectAuth, selectDarkMode, selectFavorites } from "@store/selectors";
+import { selectAuth, selectFavorites } from "@store/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { setFavorites } from "@store/slices/favorites";
 import WishListItem from "./WishListItem";
+import { AppDispatch } from "@store/store";
+import Link from "next/link";
+import { updateFavorites as updateFavoritesDb } from "@store/slices/favorites";
 
 const WishList = () => {
-   const dispatch = useDispatch();
-   const darkMode = useSelector(selectDarkMode);
+   const dispatch = useDispatch<AppDispatch>();
+
    const finalFavorites = useSelector(selectFavorites);
    const auth = useSelector(selectAuth);
    const [userId] = useState(auth.user?._id);
 
    const [favorites, updateFavorites] = useState(finalFavorites);
-   const handleOnDragEnd = (result: DropResult) => {
+   const handleOnDragEnd = async (result: DropResult) => {
       console.log(result);
-
       const items = Array.from(favorites);
 
       // * inverse les deux items dans la liste
@@ -33,6 +33,17 @@ const WishList = () => {
       if (result.destination) {
          items.splice(result.destination.index, 0, reorderedItem);
          updateFavorites(items);
+         try {
+            const favoritesToSend = items.map((school) => {
+               return school._id;
+            });
+            await dispatch(
+               updateFavoritesDb({ favorites: favoritesToSend, userId: userId })
+            ).unwrap();
+            await dispatch(setFavorites(userId)).unwrap();
+         } catch (err) {
+            throw new Error("Error during the drag and drop processus.");
+         }
       }
    };
    const getPosition = (i: number): string => {
@@ -68,6 +79,19 @@ const WishList = () => {
                      {...provided.droppableProps}
                      ref={provided.innerRef}
                   >
+                     {favorites.length === 0 && (
+                        <Text>
+                           😭 Vous n&apos;avez pas encore d&apos;écoles dans vos
+                           favoris. Vous pouvez en ajouter en naviguant dans la
+                           section{" "}
+                           <Link
+                              href={`/statistiques/${auth.user.filiere.toLocaleLowerCase()}`}
+                           >
+                              <a>statistiques</a>
+                           </Link>{" "}
+                           de votre filière.
+                        </Text>
+                     )}
                      {favorites.map((school, i) => {
                         const position = getPosition(i);
                         return (
@@ -93,10 +117,12 @@ const WishList = () => {
                )}
             </Droppable>
          </DragDropContext>
-         <Text marginTop={5} fontSize={18}>
-            Vous pouvez réarranger l&apos;ordre de votre liste de voeux comme
-            vous le souhaitez.
-         </Text>
+         {favorites.length > 0 && (
+            <Text marginTop={5} fontSize={18}>
+               💡 Vous pouvez classer vos écoles présentes dans votre liste de
+               voeux comme vous le souhaitez.
+            </Text>
+         )}
       </>
    );
 };

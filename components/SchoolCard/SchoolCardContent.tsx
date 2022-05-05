@@ -1,139 +1,150 @@
 import {
+   Box,
    Button,
-   Modal,
-   ModalBody,
-   ModalCloseButton,
-   ModalContent,
-   ModalFooter,
-   ModalHeader,
-   ModalOverlay,
+   Center,
+   Divider,
+   Flex,
+   Heading,
+   HStack,
+   Stat,
+   StatArrow,
+   StatGroup,
+   StatHelpText,
+   StatLabel,
+   StatNumber,
    Text,
 } from "@chakra-ui/react";
-/**react-icons */
-import { FaStar } from "react-icons/fa";
-import { GoDash } from "react-icons/go";
-import { IoCaretDown, IoCaretUpOutline } from "react-icons/io5";
-import { RiExternalLinkFill } from "react-icons/ri";
 
 import scss from "./schoolcard.module.scss";
 
-import { ISchool } from "@models/School";
-import { FC, useEffect } from "react";
-import { getConcours } from "@lib/statistiques";
-import classnames from "classnames";
+import { FC, MouseEventHandler } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { selectUser } from "@store/selectors";
+import { addToFavorites } from "@store/slices/favorites";
+import { AppDispatch } from "@store/store";
 
 const SchoolCardContent: FC<ISchoolCardProps> = ({ data, maxPlace }) => {
+   const dispatch = useDispatch<AppDispatch>();
+   const user = useSelector(selectUser);
+
+   const handleFavorite: MouseEventHandler = async (e) => {
+      try {
+         await dispatch(
+            addToFavorites({
+               userId: user._id,
+               schoolId: data._id,
+            })
+         ).unwrap();
+      } catch (err) {
+         console.log(err);
+      }
+   };
    return (
-      <section className={scss["school-card"]}>
-         <div className={scss["favorite-icon-container"]}>
-            <FaStar className={scss["favorite-icon"]} />
-         </div>
-         <div className={scss["card-band"]}>
-            <h2>{data.ecole}</h2>
-            <a
-               className={scss["card-band-link-container"]}
-               href={data.url}
-               target='_blank'
-               rel='noopener noreferrer'
-            >
-               <RiExternalLinkFill className={scss["card-band-link"]} />
-            </a>
-         </div>
-         <div id='card-header'>
-            <div className={scss["card-leaderboard"]}>
-               <div className={scss["card-leaderboard-title"]}>
-                  Classement :
-               </div>
-               <div className={scss["card-leaderboard-content"]}>
-                  {data.classement.toString().padStart(3, "0")}
-                  <span>/{maxPlace}</span>
-               </div>
-            </div>
-         </div>
-         <div className={scss["card-content"]}>
-            <div className={scss["integres"]}>
-               <h3>Intégrés {data.annee}</h3>
-               <div className={scss["bar"]}></div>
-               <div className={classnames(scss["card-icon"])}>
-                  <p>
-                     Nombre de places: <span>{data.places}</span>
-                  </p>
-                  <IoCaretDown className={classnames(scss["down-icon"])} />
-               </div>
-               <div className={classnames(scss["card-icon"])}>
-                  <p>
-                     Rang médian :{" "}
-                     <span>
-                        <span>{data.integres_rg_median}</span>
-                     </span>
-                  </p>
-                  <IoCaretUpOutline className={classnames(scss["up-icon"])} />
-               </div>
-               <div className={classnames(scss["card-icon"])}>
-                  <p>
-                     Rang moyen: <span>{data.integres_rg_moyen}</span>
-                  </p>
-                  <GoDash className={classnames(scss["equal-icon"])} />
-               </div>
-               <div className={classnames(scss["card-icon"])}>
-                  <p>
-                     % de 5/2 : <span>{data.integres_cinq_demi}%</span>
-                  </p>
-                  <GoDash className={classnames(scss["equal-icon"])} />
-               </div>
-               <div className={classnames(scss["card-icon"])}>
-                  <p>
-                     % de fille : <span>{data.integres_filles}%</span>
-                  </p>
-                  <GoDash className={classnames(scss["equal-icon"])} />
-               </div>
-            </div>
-            <div className={scss["other-container"]}>
-               <h3>Autre</h3>
-               <div className={scss["bar"]}></div>
-               <div className={scss["card-subnav-container"]}>
-                  <p>SubNav here</p>
-               </div>
-               <div className={scss["other-content"]}>
-                  <div
-                     className={classnames(
-                        scss["informations-container"],
-                        scss["active"]
-                     )}
+      <>
+         {/* BANDEROLLE */}
+         <Heading as='h2' size='md' className={scss.title}>
+            {data.ecole}
+         </Heading>
+         <Heading as='h3' size='md'>
+            ✨ Statistiques d&apos;intégration {data.annee}
+         </Heading>
+         <Divider marginY={3} />
+         <Flex width='100%' flexDirection='column'>
+            <StatGroup>
+               <Flex width='100%'>
+                  <Stat
+                     width={15}
+                     height='100%'
+                     display='flex'
+                     flexDirection='column'
+                     justifyContent='center'
                   >
-                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Sint qui ex molestias repellendus, quisquam et
-                        labore explicabo distinctio doloribus tempora at itaque
-                        magnam reprehenderit earum rerum sed vitae voluptatibus.
-                        Illum?
-                     </p>
-                  </div>
-                  <div className={scss["graphiques-container"]}>
-                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Sint qui ex molestias repellendus, quisquam et
-                        labore explicabo distinctio doloribus tempora at itaque
-                        magnam reprehenderit earum rerum sed vitae voluptatibus.
-                        Illum? Lorem ipsum dolor, sit amet consectetur
-                        adipisicing elit. Ipsam laboriosam voluptatibus nostrum
-                        explicabo perferendis doloribus reiciendis enim, maiores
-                        molestias culpa facilis soluta vel vitae deserunt
-                        reprehenderit itaque tempora! Quis, excepturi?
-                     </p>
-                  </div>
-                  <div className={scss["lorem-ipsum-container"]}>
-                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Sint qui ex molestias repellendus, quisquam et
-                        labore
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
+                     <StatLabel>Places</StatLabel>
+                     <StatNumber>{data.places}</StatNumber>
+                     <StatHelpText>
+                        <StatArrow type='increase' />
+                        {data.places}
+                     </StatHelpText>
+                  </Stat>
+                  <Stat
+                     height='100%'
+                     display='flex'
+                     flexDirection='column'
+                     justifyContent='center'
+                  >
+                     <StatLabel>Rang médian</StatLabel>
+                     <StatNumber>{data.integres_rg_median}</StatNumber>
+                     <StatHelpText>
+                        <StatArrow type='decrease' />
+                        {data.integres_rg_median}
+                     </StatHelpText>
+                  </Stat>
+                  <Stat
+                     height='100%'
+                     display='flex'
+                     flexDirection='column'
+                     justifyContent='center'
+                  >
+                     <StatLabel>Rang moyen</StatLabel>
+                     <StatNumber>{data.integres_rg_moyen}</StatNumber>
+                     <StatHelpText>
+                        <StatArrow type='increase' />
+                        {data.integres_rg_moyen}
+                     </StatHelpText>
+                  </Stat>
+               </Flex>
+            </StatGroup>
+            <Divider marginY={3} />
+            <StatGroup>
+               <Flex width='100%'>
+                  <Stat
+                     height='100%'
+                     display='flex'
+                     flexDirection='column'
+                     justifyContent='center'
+                  >
+                     <StatLabel>Cinq demis</StatLabel>
+                     <StatNumber>{data.integres_cinq_demi}%</StatNumber>
+                     <StatHelpText>
+                        <StatArrow type='decrease' />
+                        {data.integres_cinq_demi}
+                     </StatHelpText>
+                  </Stat>
+                  <Stat
+                     height='100%'
+                     display='flex'
+                     flexDirection='column'
+                     justifyContent='center'
+                  >
+                     <StatLabel>Filles</StatLabel>
+                     <StatNumber>{data.integres_filles}%</StatNumber>
+                     <StatHelpText>
+                        <StatArrow type='increase' />
+                        {data.integres_filles}
+                     </StatHelpText>
+                  </Stat>
+               </Flex>
+            </StatGroup>
+         </Flex>
+         <Divider marginY={3} />
+         <HStack columnGap={5} className={scss["card-leaderboard"]}>
+            <Heading as='h3' size='md'>
+               🏅 Classement
+            </Heading>
+            <Divider orientation='vertical' height='60px' />
+            <Text className={scss["card-leaderboard-content"]}>
+               <Box as='span'></Box>
+               {data.classement.toString().padStart(3, "0")}
+               <Box as='span'>/{maxPlace}</Box>
+            </Text>
+         </HStack>
+         <Center width='100%' marginTop={5}>
+            <Button onClick={handleFavorite}>🚀 Ajouter aux favoris</Button>
+         </Center>
+      </>
    );
 };
 
 export default SchoolCardContent;
+

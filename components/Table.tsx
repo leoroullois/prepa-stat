@@ -1,11 +1,8 @@
 import { MouseEventHandler, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import {
-   Button,
    Heading,
    IconButton,
-   Skeleton,
-   Stack,
    Table as ChakraTable,
    Tbody,
    Td,
@@ -19,20 +16,38 @@ import {
 import { v4 as uuidv4 } from "uuid";
 import { ISchool } from "@models/School";
 import SchoolCard from "@components/SchoolCard/SchoolCard";
-import scss from "./table.module.scss";
-import { getConcours } from "@lib/statistiques";
+import scss from "@scss/table.module.scss";
 import { useSelector } from "react-redux";
-import { selectNavBar, selectSchools } from "@store/selectors";
+import {
+   selectFavorites,
+   selectNavBar,
+   selectSchools,
+   selectUser,
+} from "@store/selectors";
 
 import { matchConcours } from "@lib/statistiques";
 import { IoCaretDown, IoCaretUp, IoRemove, IoStar } from "react-icons/io5";
 import classNames from "classnames";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@store/store";
+import {
+   addToFavorites,
+   removeFromFavorites,
+   resetFavorites,
+   setFavorites,
+} from "@store/slices/favorites";
+
 enum sortTypes {
    ASC = "asc",
    DESC = "desc",
    DEF = "default",
 }
+
 const Table = () => {
+   const dispatch = useDispatch<AppDispatch>();
+
+   const user = useSelector(selectUser);
+
    const { isOpen, onOpen, onClose } = useDisclosure();
 
    const { darkMode } = useSelector(selectNavBar);
@@ -47,13 +62,16 @@ const Table = () => {
    const { 0: filiere, 1: concours } = params;
    const schools = useSelector(selectSchools);
 
+   const favorites = useSelector(selectFavorites);
+
    const handleMouseEnter: MouseEventHandler<HTMLTableRowElement> = (e) => {
       const row = e.currentTarget;
-      setCurrentSchool(
-         schools?.filter(
-            (school) => school.ecole === row.firstChild?.textContent
-         )[0]
-      );
+      if (row.id) {
+         const newCurrentSchool = schools.find(
+            (school) => school._id === row.id
+         );
+         setCurrentSchool(newCurrentSchool);
+      }
    };
    useEffect(() => {
       console.log("param ", concours);
@@ -137,11 +155,53 @@ const Table = () => {
          }
       }
    };
-   const handleFavorite: MouseEventHandler<HTMLElement> = (e) => {
+   const handleFavorite: MouseEventHandler<HTMLElement> = async (e) => {
       e.preventDefault();
       e.stopPropagation();
-      console.log(e.currentTarget.children[0]);
-      e.currentTarget.children[0].classList.toggle(scss.active);
+      try {
+         const row = e.currentTarget.parentElement?.parentElement;
+         if (row?.id) {
+            const currSchool = schools.find((school) => school._id === row.id);
+            console.log("currSchool", currSchool);
+            console.log("row.id", row.id);
+            if (currSchool) {
+               if (
+                  favorites.findIndex((elt) => elt._id === currSchool._id) !==
+                  -1
+               ) {
+                  // ? si l'école est déjà dans les favoris : la retirer
+                  console.log("REMOVE favorites :", favorites);
+                  if (favorites.length === 1) {
+                     await dispatch(resetFavorites(user._id)).unwrap();
+                  } else {
+                     await dispatch(
+                        removeFromFavorites({
+                           userId: user._id,
+                           schoolId: currSchool._id,
+                        })
+                     ).unwrap();
+                  }
+               } else {
+                  // ? sinon : l'ajouter
+                  console.log("ADD favorites : ", favorites);
+                  await dispatch(
+                     addToFavorites({
+                        userId: user._id,
+                        schoolId: currSchool._id,
+                     })
+                  ).unwrap();
+               }
+               await dispatch(setFavorites(user._id)).unwrap();
+               setTimeout(async () => {}, 0);
+            } else {
+               throw new Error("School not found");
+            }
+         } else {
+            console.log("No row found");
+         }
+      } catch (err) {
+         console.log(err);
+      }
    };
    return (
       <>
@@ -160,13 +220,11 @@ const Table = () => {
                      matchConcours(concours).includes(school.concours)
                );
             return (
-               <section key={uuidv4()}>
-                  <Heading as='h3'>{getConcours(currConcours)}</Heading>
+               <section key={uuidv4()} className={scss["table"]}>
+                  <Heading as='h3'>{currConcours}</Heading>
                   <Text>{currSchools.length} écoles</Text>
-                  <Text>sortParam {sortParam}</Text>
-                  <Text>currentSort {currentSort}</Text>
 
-                  <ChakraTable size='md' marginBottom={10}>
+                  <ChakraTable size='sm' marginBottom={10} variant='simple'>
                      <Thead>
                         <Tr className={scss["th-row"]}>
                            <Th>
@@ -199,7 +257,7 @@ const Table = () => {
                               </div>
                            </Th>
                            <Th>
-                              <p
+                              <div
                                  onClick={() => onSortChange("inscrits_nb")}
                                  className={scss["th-row_cell"]}
                               >
@@ -224,7 +282,7 @@ const Table = () => {
                                           className={scss["th-row_cell__down"]}
                                        />
                                     )}
-                              </p>
+                              </div>
                            </Th>
                            <Th>
                               <div
@@ -326,6 +384,7 @@ const Table = () => {
                                     onClick={onOpen}
                                     onMouseEnter={handleMouseEnter}
                                     className={scss["row"]}
+                                    id={school._id}
                                  >
                                     <Td maxWidth={350}>{school.ecole}</Td>
                                     <Td>{school.inscrits_nb}</Td>
@@ -336,11 +395,21 @@ const Table = () => {
                                        <IconButton
                                           aria-label='Ajouter à vos favoris'
                                           onClick={handleFavorite}
+                                          bgColor={
+                                             darkMode ? "white.500" : "gray.300"
+                                          }
+                                          color={
+                                             favorites.findIndex(
+                                                (favSchool) =>
+                                                   school._id === favSchool._id
+                                             ) !== -1
+                                                ? "yellow.500"
+                                                : "gray.500"
+                                          }
                                           icon={
                                              <IoStar
                                                 className={classNames(
-                                                   scss["favorite-icon"],
-                                                   scss["active"]
+                                                   scss["favorite-icon"]
                                                 )}
                                              />
                                           }
@@ -370,6 +439,7 @@ const Table = () => {
             onOpen={onOpen}
             onClose={onClose}
             school={{
+               _id: currentSchool?._id,
                ecole: currentSchool?.ecole ?? "",
                classement: 5,
                places: currentSchool?.places ?? 0,
@@ -386,3 +456,4 @@ const Table = () => {
 };
 
 export default Table;
+

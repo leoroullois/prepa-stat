@@ -2,7 +2,7 @@ import { FC } from "react";
 /**scss */
 import scss from "./sidenav.module.scss";
 /**Redux */
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 /**react-icons */
 import { IoClose } from "react-icons/io5";
 import { AiFillApi, AiFillCalculator, AiFillHome } from "react-icons/ai";
@@ -10,29 +10,26 @@ import { MdLeaderboard, MdScience } from "react-icons/md";
 /**react-router */
 import { VscRunAll } from "react-icons/vsc";
 import { GiMaterialsScience } from "react-icons/gi";
-import AuthBtn from "../Auth/AuthBtn";
-import { Heading } from "@chakra-ui/react";
+import AuthBtn from "@components/Auth/AuthBtn";
+import { Heading, useColorMode } from "@chakra-ui/react";
 import Link from "next/link";
-import useWindowSize from "../../hooks/useWindowSize";
-import { close } from "../../store/slices/sideNav";
+import useWindowSize from "@hooks/useWindowSize";
+import { close } from "@store/slices/sideNav";
 import classNames from "classnames";
-import { selectNavBar } from "@store/selectors";
 interface IProps {
    style: { marginLeft: string };
 }
 const SideNav: FC<IProps> = ({ style }) => {
    const dispatch = useDispatch();
    const size = useWindowSize();
-   const { darkMode } = useSelector(selectNavBar);
+   const { colorMode } = useColorMode();
    return (
       <nav
-         className={classNames(scss.link, scss.sideNav, scss.dropdownBtn, {
-            "bg-black": darkMode,
-            "text-white": darkMode,
-            "bg-white": !darkMode,
-            "text-dark": !darkMode,
-         })}
-         style={style}
+         className={classNames(scss.link, scss.sideNav, scss.dropdownBtn)}
+         style={{
+            ...style,
+            backgroundColor: colorMode === "dark" ? "#1a1a1a" : "#f5f5f5",
+         }}
       >
          <Heading as='h2' size='lg'>
             <div className={scss.closeIcon} onClick={() => dispatch(close())}>
@@ -126,3 +123,4 @@ const SideNav: FC<IProps> = ({ style }) => {
 };
 
 export default SideNav;
+

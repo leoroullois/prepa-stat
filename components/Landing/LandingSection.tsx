@@ -36,7 +36,6 @@ export const LandingSection: FC<IProps> = ({
 							<Image
 								className={scss.svg}
 								src={img}
-								// width={450}
 								alt='Leaderboard'
 							/>
 						</div>

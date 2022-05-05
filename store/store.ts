@@ -8,23 +8,25 @@ import multiForm from "@store/slices/multiform";
 import auth from "@store/slices/auth";
 import coefs from "@store/slices/coefs";
 import favorites from "@store/slices/favorites";
-import schools from '@store/slices/schools';
+import schools from "@store/slices/schools";
 
 const middleware = [thunk];
 
 const makeStore = () =>
-	configureStore({
-		reducer: {
-			navBar,
-			sideNav,
-			simul: multiForm,
-			auth,
-			coefs,
-			favorites,
-			schools
-		},
-		middleware,
-	});
+   configureStore({
+      reducer: {
+         navBar,
+         sideNav,
+         simul: multiForm,
+         auth,
+         coefs,
+         favorites,
+         schools,
+      },
+      //   middleware,
+      middleware: (getDefaultMiddleware) =>
+         getDefaultMiddleware().concat(thunk),
+   });
 
 const store = makeStore();
 // Infer the `RootState` and `AppDispatch` types from the store itself
@@ -33,3 +35,4 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 export default store;
+

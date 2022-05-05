@@ -1,15 +1,14 @@
-import { FC, MouseEventHandler } from "react";
+import { FC, MouseEventHandler, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 /**Icons */
-import { FcOpenedFolder, FcGraduationCap, FcManager } from "react-icons/fc";
 /**Components */
 import { OverviewArticle } from "./OverviewArticle";
 import { LandingSection } from "./LandingSection";
 import LandingMain from "./LandingMain";
 /**Images */
-import leaderboard from "../../public/leaderboard.svg";
-import stats from "../../public/stats.svg";
-import simulator from "../../public/simulator.svg";
+import leaderboard from "@public/leaderboard.svg";
+import stats from "@public/stats.svg";
+import simulator from "@public/simulator.svg";
 import documents from "@icons/documents.svg";
 import student from "@icons/student.svg";
 import teamCollaboration from "@icons/team-collaboration.svg";
@@ -17,9 +16,11 @@ import teamCollaboration from "@icons/team-collaboration.svg";
 /**CSS */
 import scss from "./landing.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { selectNavBar } from "../../store/selectors";
-import { Heading } from "@chakra-ui/react";
+import { selectNavBar } from "@store/selectors";
+import { Heading, useColorMode } from "@chakra-ui/react";
 import { close } from "@store/slices/sideNav";
+import { title } from "process";
+import classNames from "classnames";
 
 const lightStyles = {
    backgroundColor: "#FFF",
@@ -27,7 +28,7 @@ const lightStyles = {
 };
 const Landing: FC = () => {
    const dispatch = useDispatch();
-
+   const { colorMode } = useColorMode();
    const navBar = useSelector(selectNavBar);
    const lorem =
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint voluptate suscipit in, possimus dicta nemo quisquam cumque. Culpaminus, cum sequi vero quisquam, assumenda accusantium recusandae expedita fuga itaque porro!";
@@ -61,13 +62,60 @@ const Landing: FC = () => {
    const handleClick: MouseEventHandler = (e) => {
       dispatch(close());
    };
+   const [articles] = useState([
+      {
+         title: "Facilité l'accès à l'information",
+         text: lorem,
+         icon: documents,
+         delay: 300,
+      },
+      {
+         title: "Accompagner les étudiants",
+         text: lorem,
+         icon: student,
+         delay: 400,
+      },
+      {
+         title: "Motiver les étudiants",
+         text: lorem,
+         icon: teamCollaboration,
+         delay: 500,
+      },
+   ]);
+
+   const [landingSections] = useState([
+      {
+         title: "Comparez les écoles d'ingénieurs",
+         img: leaderboard,
+         text: lorem,
+         path: "/classements",
+         name: "Classements",
+         direction: "left",
+      },
+      {
+         title: "Simulez votre admissibilité",
+         img: simulator,
+         text: lorem,
+         path: "/simulateur",
+         name: "Simulateur",
+         direction: "right",
+      },
+      {
+         title: "Trouvez l'école qui vous correspond",
+         img: stats,
+         text: lorem,
+         path: "/statistiques/mp/generale",
+         name: "Statistiques",
+         direction: "left",
+      },
+   ]);
    return (
       <main className={scss.landing} onClick={handleClick}>
          <LandingMain />
          <div className={scss.barSection}></div>
          <section
             className={scss.overview}
-            style={navBar.darkMode ? {} : lightStyles}
+            style={colorMode === "dark" ? {} : lightStyles}
          >
             <Fade triggerOnce delay={200}>
                <div className={scss.wrapper}>
@@ -76,55 +124,38 @@ const Landing: FC = () => {
                      <span>Nos objectifs</span>
                   </Heading>
                   <div className={scss.articleContainer}>
-                     <OverviewArticle
-                        title="Facilité l'accès à l'information"
-                        text={lorem}
-                        icon={documents}
-                        delay={300}
-                     />
-                     <OverviewArticle
-                        title='Accompagner les étudiants'
-                        text={lorem}
-                        icon={student}
-                        delay={400}
-                     />
-                     <OverviewArticle
-                        title='Motiver les étudiants'
-                        text={lorem}
-                        icon={teamCollaboration}
-                        delay={500}
-                     />
+                     {articles.map(({ title, text, icon, delay }, i) => (
+                        <OverviewArticle
+                           title={title}
+                           text={text}
+                           icon={icon}
+                           delay={delay}
+                           key={i}
+                        />
+                     ))}
                   </div>
                </div>
             </Fade>
          </section>
          <div className={scss.landingSections}>
-            <LandingSection
-               title="Comparez les écoles d'ingénieurs"
-               img={leaderboard}
-               text={lorem}
-               path='/classements'
-               name='Classements'
-               direction='left'
-            />
-            <LandingSection
-               title='Simulez votre admissibilité'
-               img={simulator}
-               text={lorem}
-               path='/simulateur'
-               name='Simulateur'
-               direction='right'
-            />
-            <LandingSection
-               title="Trouvez l'école qui vous correspond"
-               img={stats}
-               text={lorem}
-               path='/statistiques/mp/generale'
-               name='Statistiques'
-               direction='left'
-            />
+            {landingSections.map(
+               ({ title, img, text, path, name, direction }, i) => (
+                  <LandingSection
+                     title={title}
+                     img={img}
+                     text={text}
+                     path={path}
+                     name={name}
+                     direction={direction}
+                     key={i}
+                  />
+               )
+            )}
             <div className={scss.bgRect + " " + scss.bgRect1}>{bgRect}</div>
-            <div id='bg-rect-2' className={scss.bgRect + " " + scss.bgRect2}>
+            <div
+               id='bg-rect-2'
+               className={classNames(scss.bgRect, scss.bgRect2)}
+            >
                {bgRect}
             </div>
          </div>
@@ -133,3 +164,4 @@ const Landing: FC = () => {
 };
 
 export default Landing;
+

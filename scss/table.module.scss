@@ -32,9 +32,34 @@
    }
 }
 .favorite-icon {
-   color: $main-white;
-   font-size: 1.2rem;
+   // color: $main-white;
+   font-size: 1.4rem;
 }
-.favorite-icon.active {
-   color: $main-yellow;
+
+.table {
+   max-width: 90vw;
+   overflow-x: scroll;
+   /* width */
+   &::-webkit-scrollbar {
+      height: 10px;
+      border-radius: 6px;
+   }
+   
+   /* Track */
+   &::-webkit-scrollbar-track {
+      border-radius: 6px;
+      background: rgba(127, 127, 127, 0.5);
+   }
+   
+   /* Handle */
+   &::-webkit-scrollbar-thumb {
+      border-radius: 6px;
+      background: rgba(125, 125, 125, 0.5);
+   }
+
+   /* Handle on hover */
+   &::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(to right,$main-orange, $light-orange);
+   }
 }
+

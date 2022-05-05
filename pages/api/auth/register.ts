@@ -11,21 +11,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
    // * Only POST method is accepted
    if (req.method === "POST") {
       console.log(`${req.method} - ${req.url}`);
-      const { email, name, password1 } = req.body;
+      const { email, name, filiere, password1 } = req.body;
       console.log("BODY : ", req.body);
       // * Validation
       const validation = validateRegisterInput(req.body);
       if (validation.isValid) {
          const checkExistingEmail = await User.findOne({ email });
-         const checkExistingUsername = await User.findOne({ name });
 
          // ? Send error response if duplicate user is found
          if (!isEmpty(checkExistingEmail)) {
             return res.status(422).json({ message: "Email already exists." });
-         } else if (!isEmpty(checkExistingUsername)) {
-            return res
-               .status(422)
-               .json({ message: "Username already exists." });
          } else {
             // * Hash password
             const id = new mongoose.Types.ObjectId();
@@ -33,6 +28,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
                _id: id,
                email,
                name,
+               filiere,
                password: await hashPassword(password1),
             });
             const initFavs = await Favorite.create({
@@ -43,7 +39,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             return res.status(201).json({ message: "User created", ...status });
          }
       } else {
-         res.status(401).json(validation.errors);
+         res.status(401).json({
+            message: "Invalid input",
+            error: validation.errors,
+         });
       }
    } else {
       // * Response for other than POST method

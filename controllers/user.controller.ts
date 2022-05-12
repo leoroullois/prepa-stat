@@ -76,7 +76,6 @@ export const updateUser: Controller = async (req, res, next) => {
                         user: updatedUser,
                      });
                   } catch (err) {
-                     console.log("err", err);
                      return res.status(400).json({
                         message: "An error has occured.",
                         error: err,
@@ -99,7 +98,6 @@ export const updateUser: Controller = async (req, res, next) => {
                   user: updatedUser,
                });
             } catch (err) {
-               console.log("err", err);
                return res.status(400).json({
                   message: "An error has occured.",
                   error: err,
@@ -108,7 +106,6 @@ export const updateUser: Controller = async (req, res, next) => {
          }
       }
    } catch (err) {
-      console.log("err", err);
       return res
          .status(404)
          .json({ message: "Error fetching user.", error: err });

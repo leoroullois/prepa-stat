@@ -1,7 +1,10 @@
+import { AppDispatch } from "./../store";
 import mongoose from "mongoose";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ISchool } from "@models/School";
 import isEmpty from "is-empty";
+import { IFavorite } from "@models/Favorite";
+import { IUser } from "@models/User";
 
 type State = ISchool[];
 
@@ -9,33 +12,37 @@ interface IIds {
    userId: string;
    schoolId: string;
 }
+
 const init = (): State => {
    return [];
 };
-/**
- * Add a school to the favorites of the user
- */
-export const addToFavorites = createAsyncThunk(
-   "favorites/addToFavorites",
-   async ({ userId, schoolId }: IIds, { rejectWithValue }) => {
-      const res = await fetch(`/api/favorites/${userId}`, {
-         method: "POST",
-         body: JSON.stringify({
-            schoolId,
-         }),
-      }).then((res) => res.json());
-      if (isEmpty(res.favorites)) {
-         rejectWithValue("No favorites found");
-      } else {
+export const addSchoolToFavoritesOfUser = createAsyncThunk<ISchool[], IIds>(
+   "favorites/addSchoolToFavoritesOfUser",
+   async ({ userId, schoolId }, thunkApi) => {
+      try {
+         const res = await fetch(`/api/favorites/${userId}`, {
+            method: "POST",
+            headers: {
+               "Content-Type": "application/json",
+               Authorization: localStorage.getItem("jwtToken") as string,
+            },
+            body: JSON.stringify({
+               schoolId,
+            }),
+         }).then((res) => res.json());
          const output = await Promise.all(
             res.favorites.map(async (id: string) => {
-               const school = await fetch(`/api/schools/id/${id}`).then((res) =>
-                  res.json()
-               );
+               const school = await fetch(`/api/schools/${id}`, {
+                  headers: {
+                     Authorization: localStorage.getItem("jwtToken") as string,
+                  },
+               }).then((res) => res.json());
                return school;
             })
          );
-         return output;
+         return output as ISchool[];
+      } catch (err) {
+         return thunkApi.rejectWithValue(err);
       }
    }
 );
@@ -43,15 +50,15 @@ export const addToFavorites = createAsyncThunk(
 /**
  * Get favorites from the database and store them in the store
  */
-export const setFavorites = createAsyncThunk(
+export const setFavorites = createAsyncThunk<ISchool[], string>(
    "favorites/setFavorites",
-   async (userId: string, { rejectWithValue, fulfillWithValue }) => {
-      const res = await fetch(`/api/favorites/${userId}`).then((res) =>
-         res.json()
-      );
-      if (isEmpty(res.favorites)) {
-         rejectWithValue("No favorites found");
-      } else {
+   async (userId: string, { rejectWithValue }) => {
+      try {
+         const res = await fetch(`/api/favorites/${userId}`, {
+            headers: {
+               Authorization: localStorage.getItem("jwtToken") as string,
+            },
+         }).then((res) => res.json());
          const output = await Promise.all(
             res.favorites.map(async (id: string) => {
                const school = await fetch(`/api/schools/id/${id}`).then((res) =>
@@ -60,31 +67,63 @@ export const setFavorites = createAsyncThunk(
                return school;
             })
          );
-         return output;
+         return output as ISchool[];
+      } catch (err) {
+         return rejectWithValue(err);
       }
    }
 );
 /**
  * Update the schools in the database
  */
-export const updateFavorites = createAsyncThunk(
-   "favorites/updateFavorites",
-   async (
-      data: { favorites: string[]; userId: string },
-      { rejectWithValue, fulfillWithValue }
-   ) => {
+export const updateFavorites = createAsyncThunk<
+   ISchool[],
+   { favorites: string[]; userId: string }
+>("favorites/updateFavorites", async (data, { rejectWithValue }) => {
+   try {
+      const res = await fetch(`/api/favorites/update`, {
+         method: "POST",
+         body: JSON.stringify({
+            favorites: data.favorites,
+            userId: data.userId,
+         }),
+         headers: {
+            "Content-Type": "application/json",
+            Authorization: localStorage.getItem("jwtToken") as string,
+         },
+      }).then((res) => res.json());
+      const output = await Promise.all(
+         res.favorites.map(async (id: string) => {
+            const school = await fetch(`/api/schools/id/${id}`).then((res) =>
+               res.json()
+            );
+            return school;
+         })
+      );
+      return output as ISchool[];
+   } catch (err) {
+      return rejectWithValue(err);
+   }
+});
+/**
+ * Remove all schools from the favorites list
+ */
+export const resetFavorites = createAsyncThunk<IFavorite, string>(
+   "favorites/resetFavorites",
+   async (userId: string, { rejectWithValue }) => {
       try {
-         const res = await fetch(`/api/favorites/update`, {
-            method: "POST",
+         const res = await fetch(`/api/favorites/reset`, {
+            method: "DELETE",
             body: JSON.stringify({
-               favorites: data.favorites,
-               userId: data.userId,
+               userId,
             }),
+            headers: {
+               "Content-Type": "application/json",
+               Authorization: localStorage.getItem("jwtToken") as string,
+            },
          }).then((res) => res.json());
-         if (isEmpty(res.favorites)) {
-            rejectWithValue("No favorites found");
-         }
-         return fulfillWithValue(res);
+
+         return res as IFavorite;
       } catch (err) {
          return rejectWithValue(err);
       }
@@ -93,134 +132,71 @@ export const updateFavorites = createAsyncThunk(
 /**
  * Remove all schools from the favorites list
  */
-export const resetFavorites = createAsyncThunk(
-   "favorites/resetFavorites",
-   async (userId: string, { rejectWithValue }) => {
-      if (mongoose.Types.ObjectId.isValid(userId)) {
-         const res = await fetch(`/api/favorites/reset`, {
-            method: "DELETE",
-            body: JSON.stringify({
-               userId,
-            }),
-         }).then((res) => res.json());
-         return res;
-      } else {
-         return rejectWithValue("ID is not valid");
-      }
+export const removeFromFavorites = createAsyncThunk<
+   ISchool[],
+   { userId: string; schoolId: string }
+>("favorites/removeFromFavorites", async (data, { rejectWithValue }) => {
+   const { userId, schoolId } = data;
+   try {
+      const res = await fetch(`/api/favorites/${userId}`, {
+         method: "DELETE",
+         body: JSON.stringify({
+            schoolId,
+         }),
+      }).then((res) => res.json());
+      const output = await Promise.all(
+         res.favorites.map(async (id: string) => {
+            const school = await fetch(`/api/schools/${id}`).then((res) =>
+               res.json()
+            );
+            return school;
+         })
+      );
+      return output as ISchool[];
+   } catch (err) {
+      return rejectWithValue(err);
    }
-);
-/**
- * Remove all schools from the favorites list
- */
-export const removeFromFavorites = createAsyncThunk(
-   "favorites/removeFromFavorites",
-   async (
-      data: { userId: string; schoolId: string },
-      { rejectWithValue, fulfillWithValue }
-   ) => {
-      const { userId, schoolId } = data;
-
-      if (mongoose.Types.ObjectId.isValid(userId)) {
-         const res = await fetch(`/api/favorites/${userId}`, {
-            method: "DELETE",
-            body: JSON.stringify({
-               schoolId,
-            }),
-         }).then((res) => res.json());
-         const output = await Promise.all(
-            res.favorites.map(async (id: string) => {
-               const school = await fetch(`/api/schools/id/${id}`).then((res) =>
-                  res.json()
-               );
-               return school;
-            })
-         );
-         return fulfillWithValue(output);
-      } else {
-         return rejectWithValue("ID is not valid");
-      }
-   }
-);
+});
 
 const favorites = createSlice({
    name: "favorites",
    initialState: init(),
    reducers: {},
    extraReducers: (builder) => {
-      // * Add to favorites
-      builder.addCase(addToFavorites.pending, (state, action) => {
-         console.log("[PENDING] addToFavorites", action.payload);
-      });
-      builder.addCase(addToFavorites.rejected, (state, action) => {
-         const err = action.payload;
-         console.log("[REJECTED] addToFavorites", err);
-      });
       builder.addCase(
-         addToFavorites.fulfilled,
-         (state, action: PayloadAction<any>) => {
-            console.log("[FULFILLED] addToFavorites", action.payload);
-            const schools = action.payload as ISchool[];
+         addSchoolToFavoritesOfUser.fulfilled,
+         (state: State, action: PayloadAction<ISchool[]>) => {
+            const schools = action.payload;
             return schools;
          }
       );
-      // * SET FAVORITES
-      builder.addCase(setFavorites.pending, (state, action) => {
-         console.log("[PENDING] setFavorites", action.payload);
-      });
-      builder.addCase(setFavorites.rejected, (state, action) => {
-         const err = action.payload;
-         console.log("[REJECTED] setFavorites", err);
-      });
-      builder.addCase(setFavorites.fulfilled, (state, action) => {
-         console.log("[FULFILLED] setFavorites", action.payload);
-         const schools = action.payload as ISchool[];
-         return schools;
-      });
 
-      // * RESET FAVORITES
-      builder.addCase(resetFavorites.pending, (state, action) => {
-         console.log("[PENDING] resetFavorites", action.payload);
-      });
+      builder.addCase(
+         setFavorites.fulfilled,
+         (state, action: PayloadAction<ISchool[]>) => {
+            const schools = action.payload;
+            return schools;
+         }
+      );
+
       builder.addCase(resetFavorites.rejected, (state, action) => {
          const err = action.payload;
-         console.log("[REJECTED] resetFavorites", err);
       });
+      builder.addCase(resetFavorites.fulfilled, () => []);
+
       builder.addCase(
-         resetFavorites.fulfilled,
-         (state, action: PayloadAction<any>) => {
-            console.log("[FULFILLED] resetFavorites", action.payload);
-            return [];
+         updateFavorites.fulfilled,
+         (state, action: PayloadAction<ISchool[]>) => {
+            return action.payload;
          }
       );
 
-      // * UPDATE FAVORITES
-      builder.addCase(updateFavorites.pending, () => {
-         console.log("[PENDING] updateFavorites");
-      });
-      builder.addCase(updateFavorites.rejected, (state, action) => {
-         const err = action.payload;
-         console.log("[REJECTED] updateFavorites", err);
-      });
       builder.addCase(
-         updateFavorites.fulfilled,
-         (state, action: PayloadAction<any>) => {
-            console.log("[FULFILLED] updateFavorites", action.payload);
+         removeFromFavorites.fulfilled,
+         (state, action: PayloadAction<ISchool[]>) => {
+            return action.payload;
          }
       );
-      // * REMOVE FROM FAVORITES
-      builder.addCase(removeFromFavorites.pending, () => {
-         console.log("[PENDING] removeFromFavorites");
-      });
-      builder.addCase(removeFromFavorites.rejected, (state, action) => {
-         const err = action.payload;
-         console.log("[REJECTED] removeFromFavorites", err);
-      });
-      builder.addCase(removeFromFavorites.fulfilled, (state, action) => {
-         console.log("[FULFILLED] removeFromFavorites", action.payload);
-         const res = action.payload as any;
-         state = res.favorites;
-         return state;
-      });
    },
 });
 

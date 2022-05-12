@@ -1,7 +1,7 @@
 import nc from "next-connect";
 import { ObjectId } from "mongodb";
 import passport from "passport";
-import { connectDB } from "@lib/db";
+import { connectDB } from "@backend/db";
 import { User } from "@models/User";
 import { Favorite } from "@models/Favorite";
 const GitHubStrategy = require("passport-github").Strategy;

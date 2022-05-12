@@ -1,6 +1,7 @@
 // ! Config
 import { configureStore } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
+import logger from "redux-logger";
 // ! Reducers
 import navBar from "@store/slices/navBar";
 import sideNav from "@store/slices/sideNav";
@@ -23,9 +24,8 @@ const makeStore = () =>
          favorites,
          schools,
       },
-      //   middleware,
       middleware: (getDefaultMiddleware) =>
-         getDefaultMiddleware().concat(thunk),
+         getDefaultMiddleware().concat(thunk).concat(logger),
    });
 
 const store = makeStore();

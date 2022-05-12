@@ -14,7 +14,7 @@ import {
    useDisclosure,
 } from "@chakra-ui/react";
 import { v4 as uuidv4 } from "uuid";
-import { ISchool } from "@models/School";
+import { ISchool } from "backend/models/School";
 import SchoolCard from "@components/SchoolCard/SchoolCard";
 import scss from "@scss/table.module.scss";
 import { useSelector } from "react-redux";

@@ -3,7 +3,7 @@ import { FC, MouseEventHandler, useEffect } from "react";
 import MultiForm from "../components/MultiForm/MultiForm";
 /**CSS */
 import scss from "../scss/simulator.module.scss";
-import { ICoef } from "../models/Coef";
+import { ICoef } from "../backend/models/Coef";
 import Head from "next/head";
 import { useDispatch } from "react-redux";
 import { setCoefs } from "../store/slices/coefs";

@@ -1,7 +1,7 @@
 // pages/api/spotify.js
 import { ObjectId } from "mongodb";
 import passport from "passport";
-import { User } from "@models/User";
+import { User } from "backend/models/User";
 const GitHubStrategy = require("passport-github").Strategy;
 // Saves user's ID to a session
 passport.serializeUser((user, done) => {

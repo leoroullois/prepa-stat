@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ISchool } from "@models/School";
+import { ISchool } from "backend/models/School";
 import isEmpty from "is-empty";
 
 type State = ISchool[];

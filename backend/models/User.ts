@@ -5,8 +5,13 @@ export enum Filieres {
    PSI,
    PC,
 }
+export enum UserTypeId {
+   Admin,
+   Customer,
+}
 export interface IUser extends Document {
    _id: mongoose.Types.ObjectId;
+   user_type_id: UserTypeId;
    email: string;
    password: string;
    name: string;
@@ -24,13 +29,10 @@ const UserSchema = new mongoose.Schema({
       type: mongoose.Types.ObjectId,
       require: true,
    },
-   githubId: {
-      type: String,
-      required: false,
-   },
-   googleId: {
-      type: String,
-      required: false,
+   user_type_id: {
+      type: Number,
+      enum: [UserTypeId.Admin, UserTypeId.Customer],
+      required: true,
    },
    name: {
       type: String,
@@ -47,6 +49,14 @@ const UserSchema = new mongoose.Schema({
       required: true,
    },
    password: {
+      type: String,
+      required: false,
+   },
+   githubId: {
+      type: String,
+      required: false,
+   },
+   googleId: {
       type: String,
       required: false,
    },

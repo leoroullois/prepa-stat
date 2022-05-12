@@ -16,7 +16,7 @@ import {
 import Table from "@components/Table";
 import { useDispatch } from "react-redux";
 import { setSchools } from "@store/slices/schools";
-import { ISchool } from "@models/School";
+import { ISchool } from "backend/models/School";
 import { close } from "@store/slices/sideNav";
 import General from "@components/General";
 

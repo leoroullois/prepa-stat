@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { FC } from "react";
 import { DraggableProvided } from "react-beautiful-dnd";
 import { MdOutlineDragIndicator } from "react-icons/md";
-import { ISchool } from "@models/School";
+import { ISchool } from "backend/models/School";
 import { useColorMode } from "@chakra-ui/react";
 
 interface IProps {

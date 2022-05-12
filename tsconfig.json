@@ -27,10 +27,14 @@
          "@illustrations/*": ["public/illustrations/*"],
          "@patterns/*": ["public/patterns/*"],
          "@icons/*": ["public/icons/*"],
-         "@models/*": ["models/*"],
-         "@styles/*": ["styles/*"]
+         "@backend/*": ["backend/*"],
+         "@models/*": ["backend/models/*"],
+         "@controllers/*": ["backend/controllers/*"],
+         "@validators/*": ["backend/validators/*"],
+         "@middlewares/*": ["backend/middlewares/*"]
       }
    },
    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
    "exclude": ["node_modules"]
 }
+

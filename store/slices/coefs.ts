@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICoef } from "../../models/Coef";
+import { ICoef } from "../../backend/models/Coef";
 
 type State = ICoef[];
 

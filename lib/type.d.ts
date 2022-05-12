@@ -1,3 +1,5 @@
+import { UserTypeId } from "@backend/models/User";
+
 /**Simulator */
 interface ICardBegin {
    concours: string;
@@ -26,32 +28,13 @@ interface IAllFormData {
    params: ICardBegin;
    grades: IGrades[];
 }
-/**Schools */
-interface ISchools {
-   ecole: string;
-   inscrits_nb: number;
-   inscrits_filles: number;
-   inscrits_cinq_demi: number;
-   admissibles_nb: number;
-   admissibles_filles: number;
-   admissibles_cinq_demi: number;
-   classes_nb: number;
-   classes_filles: number;
-   classes_cinq_demi: number;
-   integres_nb: number;
-   integres_filles: number;
-   integres_cinq_demi: number;
-   integres_rg_median: number;
-   integres_rg_moyen: number;
-   places: number;
-   annee: number;
-   filiere: string;
-}
+
 /**JWT Token */
 interface IToken {
    exp: number;
    iat: number;
    _id: string;
+   user_type_id: UserTypeId;
    email: string;
 }
 /** Register */
@@ -86,13 +69,7 @@ interface ILoginProps {
    errors: any;
 }
 
-/**Auth */
-interface IUser {
-   _id: string;
-   name: string;
-   email: string;
-   filiere: string;
-}
+
 interface IAuth {
    isAuthenticated: boolean;
    user: IUser;

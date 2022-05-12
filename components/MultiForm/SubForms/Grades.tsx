@@ -12,7 +12,7 @@ import { selectCoefs, selectSimul } from "../../../store/selectors";
 
 import scss from "./grades.module.scss";
 import style from "../multiform.module.scss";
-import { IEpreuves, ICoef } from "../../../models/Coef";
+import { IEpreuves, ICoef } from "../../../backend/models/Coef";
 // * Types declarations
 interface IProps {
 	modifyIndex: (index: number, formData: ModifyFormDataType) => void;

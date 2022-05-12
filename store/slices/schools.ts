@@ -1,4 +1,4 @@
-import { ISchool } from "@models/School";
+import { ISchool } from "backend/models/School";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type State = ISchool[];

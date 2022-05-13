@@ -1,0 +1,64 @@
+@import "@scss/imports/variables";
+@import "@scss/imports/mixins";
+
+.provider {
+   display: flex;
+   margin: 0 auto;
+   align-items: center;
+   column-gap: 30px;
+   justify-content: space-around;
+   padding: 10px 15%;
+   background-color: $main-white;
+   border: 1px solid $main-gray;
+   text-decoration: none;
+   color: $main-black;
+   font-weight: bold;
+   border-radius: 6px;
+   font-size: 1.2rem;
+   transition: all 0.1s ease-out;
+   margin-top: 20px;
+   cursor: pointer;
+   &:hover {
+      background-color: white;
+   }
+}
+
+.login {
+   display: flex;
+   flex-grow: 1;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+}
+.form {
+   align-items: center;
+   width: 500px;
+   border: 1px solid $main-gray;
+   border-radius: 8px;
+   padding: 10px;
+   h1 {
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: center;
+   }
+   div[role="group"] {
+      margin-top: 10px;
+   }
+}
+
+// .bar {
+//    @include bar(90%);
+// }
+.submit {
+   margin-top: 20px;
+   width: 100%;
+}
+.link {
+   display: flex;
+   justify-content: center;
+   margin-top: 10px;
+}
+.serverError {
+   color: $main-red;
+}

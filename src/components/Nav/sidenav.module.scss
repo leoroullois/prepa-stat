@@ -1,0 +1,95 @@
+@import "../../scss/imports/extends";
+@import "../../scss/imports/mixins";
+@import "../../scss/imports/variables";
+
+.sideNav {
+   display: flex;
+   flex-direction: column;
+   // color: $main-black;
+   height: 100% !important;
+   width: 300px;
+   max-width: 100%;
+   position: fixed;
+   z-index: 999;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   // bottom:0;
+   margin-left: -301px;
+   transition: margin-left 0.2s ease-in;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   .closeIcon {
+      font-size: 2rem;
+      cursor: pointer;
+   }
+   .bar {
+      width: 100%;
+      height: 1px;
+      padding: 0;
+      margin: 0;
+      background-color: rgba(127, 127, 127, 0.3);
+   }
+   h2 {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 15px;
+      .closeIcon {
+         display: flex;
+         margin-right: 20px;
+      }
+   }
+   .responsiveLink {
+      display: flex;
+      align-items: center;
+      min-height: $nav-height;
+      padding: 10px 20px;
+      //   color: $main-black;
+      text-decoration: none;
+      text-transform: none;
+      &:hover {
+         background-color: rgba(127, 127, 127, 0.15);
+      }
+   }
+   .responsiveIcon {
+      font-size: 1.5rem;
+      margin-right: 20px;
+      font-size: 1.5rem;
+   }
+   .responsiveLinkStatsContainer {
+      display: flex;
+      flex-direction: column;
+      // h3 {
+      // 	color: $darkest-blue;
+      // 	padding: 0px 20px;
+      // 	margin-bottom: 10px;
+      // }
+      .responsiveLinkStats {
+         padding: 10px 20px;
+         display: flex;
+         align-items: center;
+         height: 0.7 * $nav-height;
+         width: 100%;
+         //  color: $main-black;
+         text-decoration: none;
+         font-size: 1.2rem;
+         &:hover {
+            background-color: rgba(127, 127, 127, 0.15);
+         }
+      }
+   }
+   .logInLink {
+      font-size: 1.5rem;
+   }
+   #side-nav-auth-btn {
+      height: $nav-height;
+      font-size: 1.2rem;
+      font-weight: bold;
+      //   color: $main-black;
+      //   background-color: $main-white !important;
+      border: none;
+      &:hover {
+         //  background-color: rgba($main-black, 0.05) !important;
+      }
+   }
+}

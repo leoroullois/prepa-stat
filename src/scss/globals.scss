@@ -1,0 +1,57 @@
+@import "@scss/imports/extends";
+@import "@scss/imports/mixins";
+@import "@scss/imports/variables";
+
+html,
+body {
+   padding: 0;
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+   align-items: center;
+   min-height: 100vh;
+   transition: all 0.25s linear;
+}
+
+.bg-black {
+   background-color: $main-black;
+}
+.bg-white {
+   background-color: $main-white;
+}
+.text-black {
+   color: $main-black;
+}
+.text-white {
+   color: $main-white;
+}
+
+a {
+   color: inherit;
+   text-decoration: none;
+   &:hover {
+      text-decoration: underline;
+   }
+}
+
+* {
+   box-sizing: border-box;
+}
+#__next {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   min-height:100vh!important;
+}
+
+
+main {
+   flex: 1;
+}
+
+.wrapper {
+   margin: 0 auto;
+   width: 90%;
+   max-width: 1100px;
+}
+

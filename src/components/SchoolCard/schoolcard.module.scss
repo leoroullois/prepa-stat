@@ -1,0 +1,29 @@
+@import "@scss/imports/extends";
+@import "@scss/imports/mixins";
+@import "@scss/imports/variables";
+
+.title {
+   background: $main-gradient;
+   color: $main-white;
+   padding: 10px 20px;
+   border-radius: 15px;
+   box-shadow: $main-shadow;
+   margin: 0 auto 20px auto;
+}
+
+.card-leaderboard {
+   display: flex;
+   justify-content: center;
+   font-size: 1.5rem;
+   font-weight: bold;
+   margin: 0 auto;
+   .card-leaderboard-content {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+      span {
+         color: $main-gray;
+         font-size: 1rem;
+      }
+   }
+}
+

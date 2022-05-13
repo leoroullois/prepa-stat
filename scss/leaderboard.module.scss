@@ -1,9 +1,0 @@
-@import "./imports/extends";
-@import "./imports/mixins";
-@import "./imports/variables";
-
-.leaderboard {
-	display: flex;
-	flex-grow: 1;
-	min-height: calc(100vh - 150px - 60px);
-}

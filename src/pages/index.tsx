@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+
 import Landing from "@components/Landing/Landing";
 import { selectAuth } from "@store/selectors";
 
@@ -64,8 +65,6 @@ const Home: NextPage = () => {
             />
             <meta name='twitter:card' content='summary_large_image' /> */}
 
-
-
             <meta name='og:locality' content='France' />
          </Head>
          {auth.isAuthenticated ? <div>Loading...</div> : <Landing />}
@@ -74,3 +73,4 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+

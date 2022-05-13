@@ -1,16 +1,15 @@
-import { FC } from "react";
-import { useSelector } from "react-redux";
-import { selectNavBar, selectSideNav } from "../store/selectors";
-import { Footer } from "@components/Footer/Footer";
-import NavBar from "./Nav/NavBar";
-import SideNav from "./Nav/SideNav";
-import { useColorMode } from "@chakra-ui/react";
+import { FC } from 'react';
+import { useSelector } from 'react-redux';
+
+import { Footer } from '@components/Footer/Footer';
+import NavBar from '@components/Nav/NavBar';
+import SideNav from '@components/Nav/SideNav';
+import { selectSideNav } from '@store/selectors';
 
 interface IProps {
    children: JSX.Element;
 }
 const Layout: FC<IProps> = ({ children }) => {
-   const { colorMode } = useColorMode();
    const sideNav = useSelector(selectSideNav);
    const style = sideNav.opened
       ? { marginLeft: "0px" }

@@ -21,7 +21,7 @@ import { FC, MouseEventHandler } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { selectUser } from "@store/selectors";
-import { addToFavorites } from "@store/slices/favorites";
+import { addOneSchoolToFavorites } from "@store/slices/favorites";
 import { AppDispatch } from "@store/store";
 
 const SchoolCardContent: FC<ISchoolCardProps> = ({ data, maxPlace }) => {
@@ -31,7 +31,7 @@ const SchoolCardContent: FC<ISchoolCardProps> = ({ data, maxPlace }) => {
    const handleFavorite: MouseEventHandler = async (e) => {
       try {
          await dispatch(
-            addToFavorites({
+            addOneSchoolToFavorites({
                userId: user._id,
                schoolId: data._id,
             })

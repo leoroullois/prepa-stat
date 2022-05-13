@@ -1,15 +1,14 @@
-// ! Config
-import { configureStore } from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
 import logger from "redux-logger";
-// ! Reducers
-import navBar from "@store/slices/navBar";
-import sideNav from "@store/slices/sideNav";
-import multiForm from "@store/slices/multiform";
+import thunk from "redux-thunk";
+
+import { configureStore } from "@reduxjs/toolkit";
 import auth from "@store/slices/auth";
 import coefs from "@store/slices/coefs";
 import favorites from "@store/slices/favorites";
+import multiForm from "@store/slices/multiform";
+import navBar from "@store/slices/navBar";
 import schools from "@store/slices/schools";
+import sideNav from "@store/slices/sideNav";
 
 const middleware = [thunk];
 

@@ -1,10 +1,6 @@
-import { AppDispatch } from "./../store";
-import mongoose from "mongoose";
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ISchool } from "@models/School";
-import isEmpty from "is-empty";
 import { IFavorite } from "@models/Favorite";
-import { IUser } from "@models/User";
+import { ISchool } from "@models/School";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type State = ISchool[];
 
@@ -16,8 +12,8 @@ interface IIds {
 const init = (): State => {
    return [];
 };
-export const addSchoolToFavoritesOfUser = createAsyncThunk<ISchool[], IIds>(
-   "favorites/addSchoolToFavoritesOfUser",
+export const addOneSchoolToFavorites = createAsyncThunk<ISchool[], IIds>(
+   "favorites/addOneSchoolToFavorites",
    async ({ userId, schoolId }, thunkApi) => {
       try {
          const res = await fetch(`/api/favorites/${userId}`, {
@@ -164,7 +160,7 @@ const favorites = createSlice({
    reducers: {},
    extraReducers: (builder) => {
       builder.addCase(
-         addSchoolToFavoritesOfUser.fulfilled,
+         addOneSchoolToFavorites.fulfilled,
          (state: State, action: PayloadAction<ISchool[]>) => {
             const schools = action.payload;
             return schools;

@@ -1,8 +1,10 @@
+import isEmpty from "is-empty";
+
+import { hashPassword, verifyPassword } from "@lib/auth";
 import { Favorite } from "@models/Favorite";
 import { User } from "@models/User";
-import isEmpty from "is-empty";
+
 import Controller from "./types";
-import { hashPassword, verifyPassword } from "@lib/auth";
 
 export const getUserById: Controller = async (req, res) => {
    const { id } = req.query;
@@ -54,7 +56,7 @@ export const updateUser: Controller = async (req, res, next) => {
       const { name, filiere, pass } = req.body;
       const user = await User.findById(id);
       if (isEmpty(user)) {
-         return res.status(404).json({ message: "User is empty." });
+         return res.status(404).json({ message: "Error fetching user." });
       } else {
          if (!isEmpty(pass)) {
             const { currPassword, newPassword, confirmPassword } = pass;
@@ -62,25 +64,15 @@ export const updateUser: Controller = async (req, res, next) => {
             const valid = await verifyPassword(currPassword, user.password);
             if (valid) {
                if (newPassword === confirmPassword) {
-                  try {
-                     const updatedUser = await User.findOneAndUpdate(
-                        { _id: id },
-                        {
-                           name,
-                           filiere,
-                           password: await hashPassword(newPassword),
-                        }
-                     );
-                     return res.status(200).json({
-                        message: "User updated.",
-                        user: updatedUser,
-                     });
-                  } catch (err) {
-                     return res.status(400).json({
-                        message: "An error has occured.",
-                        error: err,
-                     });
-                  }
+                  const updatedUser = await User.findOneAndUpdate(
+                     { _id: id },
+                     {
+                        name,
+                        filiere,
+                        password: await hashPassword(newPassword),
+                     }
+                  );
+                  return res.status(200).json(updatedUser);
                }
             } else {
                return res.status(401).json({
@@ -88,27 +80,15 @@ export const updateUser: Controller = async (req, res, next) => {
                });
             }
          } else {
-            try {
-               const updatedUser = await User.findOneAndUpdate(
-                  { _id: id },
-                  { name, filiere }
-               );
-               return res.status(200).json({
-                  message: "User updated.",
-                  user: updatedUser,
-               });
-            } catch (err) {
-               return res.status(400).json({
-                  message: "An error has occured.",
-                  error: err,
-               });
-            }
+            const updatedUser = await User.findOneAndUpdate(
+               { _id: id },
+               { name, filiere }
+            );
+            return res.status(200).json(updatedUser);
          }
       }
    } catch (err) {
-      return res
-         .status(404)
-         .json({ message: "Error fetching user.", error: err });
+      return res.status(404).json(err);
    }
 };
 

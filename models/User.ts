@@ -13,7 +13,7 @@ export interface IUser extends Document {
    _id: mongoose.Types.ObjectId;
    user_type_id: UserTypeId;
    email: string;
-   password: string;
+   password?: string;
    name: string;
    filiere: Filieres;
    created_on?: string;
@@ -50,7 +50,7 @@ const UserSchema = new mongoose.Schema({
    },
    password: {
       type: String,
-      required: false,
+      required: true,
    },
    githubId: {
       type: String,

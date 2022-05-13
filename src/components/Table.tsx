@@ -1,5 +1,10 @@
-import { MouseEventHandler, useEffect, useState } from "react";
+import classNames from "classnames";
 import { useRouter } from "next/router";
+import { MouseEventHandler, useEffect, useState } from "react";
+import { IoCaretDown, IoCaretUp, IoRemove, IoStar } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
+
 import {
    Heading,
    IconButton,
@@ -13,29 +18,23 @@ import {
    Tr,
    useDisclosure,
 } from "@chakra-ui/react";
-import { v4 as uuidv4 } from "uuid";
-import { ISchool } from "@models/School";
 import SchoolCard from "@components/SchoolCard/SchoolCard";
+import { matchConcours } from "@lib/statistiques";
+import { ISchool } from "@models/School";
 import scss from "@scss/table.module.scss";
-import { useSelector } from "react-redux";
 import {
    selectFavorites,
    selectNavBar,
    selectSchools,
    selectUser,
 } from "@store/selectors";
-
-import { matchConcours } from "@lib/statistiques";
-import { IoCaretDown, IoCaretUp, IoRemove, IoStar } from "react-icons/io5";
-import classNames from "classnames";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@store/store";
 import {
-   addToFavorites,
+   addOneSchoolToFavorites,
    removeFromFavorites,
    resetFavorites,
    setFavorites,
 } from "@store/slices/favorites";
+import { AppDispatch } from "@store/store";
 
 enum sortTypes {
    ASC = "asc",
@@ -185,7 +184,7 @@ const Table = () => {
                   // ? sinon : l'ajouter
                   console.log("ADD favorites : ", favorites);
                   await dispatch(
-                     addToFavorites({
+                     addOneSchoolToFavorites({
                         userId: user._id,
                         schoolId: currSchool._id,
                      })

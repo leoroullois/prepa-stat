@@ -1,16 +1,17 @@
-// import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import "@scss/globals.scss";
+
+import jwt from "jsonwebtoken";
+import jwt_decode from "jwt-decode";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
-import jwt from "jsonwebtoken";
-import Layout from "@components/Layout";
-import store from "@store/store";
-import jwt_decode from "jwt-decode";
-import { logout, setCurrentUserById } from "@store/slices/auth";
+
 import { ChakraProvider } from "@chakra-ui/react";
-import "@scss/globals.scss";
+import Layout from "@components/Layout";
 import { IToken } from "@lib/type";
+import { logout, setCurrentUserById } from "@store/slices/auth";
+import store from "@store/store";
 
 const App = ({ Component, pageProps }: AppProps) => {
    const { query } = useRouter();

@@ -1,7 +1,15 @@
-import { IAuth, ILoginState, IRegisterForm } from "@lib/type";
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import isEmpty from "is-empty";
 import Router from "next/router";
+
+import {
+   ILoginUserResponse,
+   IRegisterUserResponse,
+} from "@controllers/auth.controller";
+import { IAuth, ILoginState, IRegisterForm } from "@lib/type";
+import { IUser } from "@models/User";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { authorization } from "../../../middlewares/authorization.middleware";
 
 export interface IChangePassword {
    userId: string;
@@ -32,34 +40,25 @@ const init = (): IAuth => {
    };
 };
 
-export const login = createAsyncThunk(
+export const login = createAsyncThunk<ILoginUserResponse, ILoginState>(
    "auth/login",
-   async (userData: ILoginState, { rejectWithValue, fulfillWithValue }) => {
+   async (userData, { rejectWithValue }) => {
       try {
          const res = await fetch("/api/auth/login", {
             method: "POST",
             body: JSON.stringify(userData),
             headers: { "Content-Type": "application/json" },
          }).then((res) => res.json());
-         console.log("RES ", res);
-         const { message, token, _doc: user } = res;
-         if (!isEmpty(res._doc)) {
-            return fulfillWithValue({ message, token, user });
-         } else {
-            return rejectWithValue({ message: "User is empty.", error: res });
-         }
+         const { message, token, user } = res;
+         return { message, token, user } as ILoginUserResponse;
       } catch (err) {
-         console.log(err);
-         return rejectWithValue({
-            message: "Something went wrong",
-            error: err,
-         });
+         return rejectWithValue(err);
       }
    }
 );
-export const register = createAsyncThunk(
+export const register = createAsyncThunk<IRegisterUserResponse, IRegisterForm>(
    "auth/register",
-   async (userData: IRegisterForm, { rejectWithValue }) => {
+   async (userData, { rejectWithValue }) => {
       try {
          const res = await fetch("/api/auth/register", {
             method: "POST",
@@ -68,52 +67,29 @@ export const register = createAsyncThunk(
                "Content-Type": "application/json",
             },
          }).then((data) => data.json());
-         console.log("(auth.ts, redux) RES ", res);
-         if (!isEmpty(res._doc)) {
-            return res;
-         } else {
-            return rejectWithValue({
-               message: "User is empty",
-               error: res.error,
-            });
-         }
+         return res as IRegisterUserResponse;
       } catch (err) {
-         console.log("ERROR ", err);
-         return rejectWithValue({
-            message: "An error has occured when trying to register",
-            error: err,
-         });
+         return rejectWithValue(err);
       }
    }
 );
-export const setCurrentUserById = createAsyncThunk(
+export const setCurrentUserById = createAsyncThunk<IUser, string>(
    "auth/setCurrentUserById",
-   async (userId: string, { rejectWithValue, fulfillWithValue }) => {
-      console.log("userId : ", userId);
+   async (userId: string, { rejectWithValue }) => {
       try {
          const user = await fetch(`/api/user/${userId}`).then((res) =>
             res.json()
          );
-         if (!isEmpty(user)) {
-            return fulfillWithValue({ message: "User found", user });
-         } else {
-            return rejectWithValue({
-               message: "User is empty",
-               error: user.error,
-            });
-         }
+         return user as IUser;
       } catch (err) {
-         console.log("ERROR ", err);
-         return rejectWithValue({
-            message: "An error has occured when trying to register",
-            error: err,
-         });
+         return rejectWithValue(err);
       }
    }
 );
-export const changePassword = createAsyncThunk(
+
+export const changePassword = createAsyncThunk<IUser, IChangePassword>(
    "auth/changePassword",
-   async (data: IChangePassword, { rejectWithValue, fulfillWithValue }) => {
+   async (data, { rejectWithValue }) => {
       const { userId, ...passwords } = data;
 
       try {
@@ -123,26 +99,19 @@ export const changePassword = createAsyncThunk(
             body: JSON.stringify(body),
             headers: {
                "Content-Type": "application/json",
+               Authorization: localStorage.getItem("jwtToken") as string,
             },
          }).then((data) => data.json());
-         if (!isEmpty(res.user)) {
-            return fulfillWithValue({ res });
-         } else {
-            return rejectWithValue({
-               message: res.message,
-            });
-         }
+         return res as IUser;
       } catch (err) {
-         return rejectWithValue({
-            message: "Error changing password",
-         });
+         return rejectWithValue(err);
       }
    }
 );
 
-export const changeName = createAsyncThunk(
+export const changeName = createAsyncThunk<IUser, IChangeName>(
    "auth/changeName",
-   async (data: IChangeName, { rejectWithValue, fulfillWithValue }) => {
+   async (data, { rejectWithValue }) => {
       const { userId, name } = data;
 
       try {
@@ -152,26 +121,19 @@ export const changeName = createAsyncThunk(
             body: JSON.stringify(body),
             headers: {
                "Content-Type": "application/json",
+               Authorization: localStorage.getItem("jwtToken") as string,
             },
          }).then((data) => data.json());
-         if (!isEmpty(res.user)) {
-            return fulfillWithValue({ res });
-         } else {
-            return rejectWithValue({
-               message: res.message,
-            });
-         }
+         return res as IUser;
       } catch (err) {
-         return rejectWithValue({
-            message: "Error changing name",
-         });
+         return rejectWithValue(err);
       }
    }
 );
 
-export const changeFiliere = createAsyncThunk(
+export const changeFiliere = createAsyncThunk<IUser, IChangeFiliere>(
    "auth/changeFiliere",
-   async (data: IChangeFiliere, { rejectWithValue, fulfillWithValue }) => {
+   async (data, { rejectWithValue }) => {
       const { userId, filiere } = data;
 
       try {
@@ -183,50 +145,27 @@ export const changeFiliere = createAsyncThunk(
                "Content-Type": "application/json",
             },
          }).then((data) => data.json());
-         if (!isEmpty(res.user)) {
-            return fulfillWithValue({ res });
-         } else {
-            return rejectWithValue({
-               message: res.message,
-            });
-         }
+         return res as IUser;
       } catch (err) {
-         return rejectWithValue({
-            message: "Error changing filiere",
-         });
+         return rejectWithValue(err);
       }
    }
 );
 
-export const deleteAccount = createAsyncThunk(
+export const deleteAccount = createAsyncThunk<IUser, string>(
    "auth/deleteAccount",
-   async (userId: string, { rejectWithValue, fulfillWithValue }) => {
+   async (userId, { rejectWithValue }) => {
       try {
          const deletedUser = await fetch(`/api/user/${userId}`, {
             method: "DELETE",
             headers: {
                "Content-Type": "application/json",
+               Authorization: localStorage.getItem("jwtToken") as string,
             },
          }).then((res) => res.json());
-         const deletedFavorites = await fetch(`/api/favorites/${userId}`, {
-            method: "DELETE",
-         }).then((res) => res.json());
-
-         if (!isEmpty(deletedUser)) {
-            return fulfillWithValue({
-               message: "User is deleted.",
-               user: deletedUser,
-            });
-         } else {
-            return rejectWithValue({
-               message: "User is empty",
-            });
-         }
+         return deletedUser as IUser;
       } catch (err) {
-         return rejectWithValue({
-            message: "Error deleting account",
-            error: err,
-         });
+         return rejectWithValue(err);
       }
    }
 );
@@ -258,37 +197,36 @@ const auth = createSlice({
       },
    },
    extraReducers: (builder) => {
-      // ? LOGIN
       builder.addCase(login.pending, (state) => {
-         console.log("Loading...");
+         state.loading = true;
       });
-      builder.addCase(login.fulfilled, (state, action: PayloadAction<any>) => {
-         const { token } = action.payload;
-         const { name, email, _id, filiere } = action.payload.user;
-         const user = {
-            _id,
-            name,
-            email,
-            filiere,
-         };
-         state.errors = [];
-         state.user = user;
-         state.isAuthenticated = true;
-         // ? Save to localStorage (token = 'Bearer ouefoefheoifhofio')
-         localStorage.setItem("jwtToken", token);
+      builder.addCase(
+         login.fulfilled,
+         (state, action: PayloadAction<ILoginUserResponse>) => {
+            const { token, user } = action.payload;
+            state = {
+               ...state,
+               errors: [],
+               user,
+               isAuthenticated: true,
+               loading: false,
+            };
+            localStorage.setItem("jwtToken", token);
+            Router.push("/dashboard");
 
-         Router.push("/dashboard");
-      });
+            return state;
+         }
+      );
 
       builder.addCase(login.rejected, (state, action) => {
          const err = action.payload as any;
-         console.log("[REJECTED] login", err);
          const isArray = Array.isArray(err.error);
          if (isArray) {
             state.errors = err.error;
          } else {
             state.errors = [err.error];
          }
+         state.loading = false;
       });
 
       // ? REGISTER
@@ -314,115 +252,36 @@ const auth = createSlice({
          } else {
             state.errors = [err.error];
          }
-         console.log("[REJECTED] register", err);
       });
 
-      // ? Change password
-      builder.addCase(changePassword.pending, (state) => {
-         console.log("[PENDING] Changing password...");
-      });
-      builder.addCase(
-         changePassword.fulfilled,
-         (state, action: PayloadAction<any>) => {
-            console.log("[FULFILLED] Password is updated.", action);
-         }
-      );
-      builder.addCase(changePassword.rejected, (state, action) => {
-         const err = action.payload as string;
-         console.log("[REJECTED] changePassword", err);
-      });
-
-      // ? Change name
-      builder.addCase(changeName.pending, (state) => {
-         console.log("[PENDING] Changing your user name...");
-      });
       builder.addCase(
          changeName.fulfilled,
-         (state, action: PayloadAction<any>) => {
-            const { res } = action.payload;
-            state.user = {
-               ...state.user,
-               name: res.user.name,
-            };
-            console.log(
-               "[FULFILLED] Your user name is updated.",
-               action.payload
-            );
+         (state, action: PayloadAction<IUser>) => {
+            state.user = action.payload;
             return state;
          }
       );
-      builder.addCase(changeName.rejected, (state, action) => {
-         const err = action.payload as string;
-         console.log("[REJECTED] changeName", err);
-      });
 
-      // ? Change name
-      builder.addCase(changeFiliere.pending, (state) => {
-         console.log("[PENDING] Changing your filiere...");
-      });
       builder.addCase(
          changeFiliere.fulfilled,
-         (state, action: PayloadAction<any>) => {
-            const { res } = action.payload;
-            state.user = {
-               ...state.user,
-               filiere: res.user.filiere,
-            };
-            console.log(
-               "[FULFILLED] Your filiere is updated.",
-               action.payload.res.user
-            );
+         (state, action: PayloadAction<IUser>) => {
+            state.user = action.payload;
             return state;
          }
       );
-      builder.addCase(changeFiliere.rejected, (state, action) => {
-         const err = action.payload as string;
-         console.log("[REJECTED] changeFiliere", err);
+
+      builder.addCase(deleteAccount.fulfilled, (state) => {
+         return init();
       });
 
-      // ? Delete account
-      builder.addCase(deleteAccount.pending, (state) => {
-         console.log("[PENDING] Deleting user...");
-      });
-      builder.addCase(
-         deleteAccount.fulfilled,
-         (state, action: PayloadAction<any>) => {
-            const { res } = action.payload;
-            console.log(
-               "[FULFILLED] Your filiere is updated.",
-               action.payload.res.user
-            );
-            return state;
-         }
-      );
-      builder.addCase(deleteAccount.rejected, (state, action) => {
-         const err = action.payload as string;
-         console.log("[REJECTED] ", err);
-      });
-
-      // ? Change current user by id
-      builder.addCase(setCurrentUserById.pending, (state) => {
-         console.log("[PENDING] setCurrentUserById...");
-      });
       builder.addCase(
          setCurrentUserById.fulfilled,
-         (state, action: PayloadAction<any>) => {
-            const { _id, name, email, filiere } = action.payload.user;
-            state.user = {
-               _id,
-               name,
-               email,
-               filiere,
-            };
+         (state, action: PayloadAction<IUser>) => {
+            state.user = action.payload;
             state.isAuthenticated = true;
-            console.log("[FULFILLED] setCurrentUserById.", action.payload);
             return state;
          }
       );
-      builder.addCase(setCurrentUserById.rejected, (state, action) => {
-         const err = action.payload as string;
-         console.log("[REJECTED] setCurrentUserById ", err);
-      });
    },
 });
 

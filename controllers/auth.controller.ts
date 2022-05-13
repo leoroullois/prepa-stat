@@ -1,16 +1,18 @@
-import Controller from "./types";
+import isEmpty from "is-empty";
+import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
+
 import {
    hashPassword,
-   validateRegisterInput,
    validateLoginInput,
+   validateRegisterInput,
    verifyPassword,
 } from "@lib/auth";
-import { User, UserTypeId } from "@models/User";
-import isEmpty from "is-empty";
 import { Favorite } from "@models/Favorite";
-import jwt from "jsonwebtoken";
+import { IUser, User, UserTypeId } from "@models/User";
 import { removeNullValuesFromObject } from "@utils/utils";
+
+import Controller from "./types";
 
 export const checkIfEmailExists: Controller = async (req, res, next) => {
    const { email } = req.body;
@@ -37,7 +39,10 @@ export const validateUserRegister: Controller = async (req, res, next) => {
       error: valid.errors,
    });
 };
-
+export interface IRegisterUserResponse {
+   message: string;
+   user: IUser;
+}
 export const registerNewUser: Controller = async (req, res) => {
    const { email, name, filiere, password1 } = req.body;
    const id = new mongoose.Types.ObjectId();
@@ -80,6 +85,11 @@ export const validateUserLogin: Controller = async (req, res, next) => {
       error: valid.errors,
    });
 };
+export interface ILoginUserResponse {
+   message: string;
+   user: IUser;
+   token: string;
+}
 export const loginUser: Controller = async (req, res) => {
    const { email, password, remember } = req.body;
    try {

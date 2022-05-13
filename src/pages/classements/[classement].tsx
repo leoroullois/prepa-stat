@@ -4,6 +4,7 @@ import { FC, MouseEventHandler } from "react";
 import scss from "@scss/leaderboard.module.scss";
 import { close } from "@store/slices/sideNav";
 import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 export interface IProps {
    params: {
@@ -12,8 +13,10 @@ export interface IProps {
 }
 export interface IState {}
 
-const Classement: FC<IProps> = ({ params }) => {
-   console.log(params);
+const Classement: FC = () => {
+   const { query } = useRouter();
+   console.log(query);
+
    const dispatch = useDispatch();
    // const { classement } = params;
    const match = (concours: string): string => {
@@ -30,7 +33,7 @@ const Classement: FC<IProps> = ({ params }) => {
       <main onClick={handleCloseNav} className={scss.leaderboard}>
          {/* <h1>Classement {match(classement)}.</h1> */}
          <h1>Classements</h1>
-         <p>{JSON.stringify(params)}</p>
+         <p>{JSON.stringify(query)}</p>
       </main>
    );
 };

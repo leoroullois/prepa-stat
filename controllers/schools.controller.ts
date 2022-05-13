@@ -5,7 +5,7 @@ import isEmpty from "is-empty";
 import Controller from "./types";
 
 export const getSchools: Controller = async (req, res) => {
-   const { filiere, concours, annee } = req.body;
+   const { filiere, concours, annee } = req.query;
    const filter = removeNullValuesFromObject({ filiere, concours, annee });
    try {
       const schools: ISchool[] = await School.find(filter);

@@ -13,8 +13,9 @@ export interface IProps {
 export interface IState {}
 
 const Classement: FC<IProps> = ({ params }) => {
+   console.log(params);
    const dispatch = useDispatch();
-   const { classement } = params;
+   // const { classement } = params;
    const match = (concours: string): string => {
       if (concours === "l-etudiant") {
          return "L'étudiant";
@@ -27,7 +28,9 @@ const Classement: FC<IProps> = ({ params }) => {
    };
    return (
       <main onClick={handleCloseNav} className={scss.leaderboard}>
-         <h1>Classement {match(classement)}.</h1>
+         {/* <h1>Classement {match(classement)}.</h1> */}
+         <h1>Classements</h1>
+         <p>{JSON.stringify(params)}</p>
       </main>
    );
 };
@@ -46,10 +49,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
    };
 };
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-   console.log(params);
    return {
       props: { params },
    };
 };
 
 export default Classement;
+

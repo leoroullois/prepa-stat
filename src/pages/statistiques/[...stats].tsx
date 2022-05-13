@@ -76,7 +76,7 @@ const Statistiques: FC<IProps> = ({ schools }) => {
                index={tabIndex}
                onChange={handleTabsChange}
                size='lg'
-               width="100%"
+               width='100%'
                variant='enclosed'
             >
                <TabList>
@@ -130,10 +130,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
    console.log("params", params?.stats);
-   const filiere = params?.stats?.[0];
-   const concours = params?.stats?.[1];
+   const filiere = params?.stats?.[0] as string;
+   const concours = params?.stats?.[1] as string;
    const schools = await (
-      await fetch(process.env.HOST + "/api/schools/2021/" + filiere)
+      await fetch(
+         `${process.env.HOST}/api/schools?annee=${2021}&filiere=${filiere}`
+      )
    ).json();
    return {
       props: { params, schools },

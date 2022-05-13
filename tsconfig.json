@@ -16,21 +16,25 @@
       "incremental": true,
       "baseUrl": ".",
       "paths": {
-         "@components/*": ["components/*"],
-         "@pages/*": ["pages/*"],
-         "@lib/*": ["lib/*"],
-         "@hooks/*": ["hooks/*"],
-         "@api/*": ["pages/api/*"],
-         "@store/*": ["store/*"],
-         "@scss/*": ["scss/*"],
+         "@components/*": ["src/components/*"],
+         "@pages/*": ["src/pages/*"],
+         "@lib/*": ["src/lib/*"],
+         "@hooks/*": ["src/hooks/*"],
+         "@api/*": ["src/pages/api/*"],
+         "@store/*": ["src/store/*"],
+         "@scss/*": ["src/scss/*"],
          "@public/*": ["public/*"],
          "@illustrations/*": ["public/illustrations/*"],
          "@patterns/*": ["public/patterns/*"],
          "@icons/*": ["public/icons/*"],
          "@models/*": ["models/*"],
-         "@styles/*": ["styles/*"]
+         "@controllers/*": ["controllers/*"],
+         "@validators/*": ["validators/*"],
+         "@utils/*": ["utils/*"],
+         "@middlewares/*": ["middlewares/*"]
       }
    },
    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
    "exclude": ["node_modules"]
 }
+

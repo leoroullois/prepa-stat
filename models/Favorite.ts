@@ -1,8 +1,5 @@
 import mongoose, { Document } from "mongoose";
-// export interface IFavoriteSchool {
-//    schoolId: string;
-//    position: number;
-// }
+
 export interface IFavorite extends Document {
    _id: mongoose.Types.ObjectId;
    favorites: string[];
@@ -22,5 +19,5 @@ const FavoriteSchema = new mongoose.Schema({
 
 export const Favorite =
    mongoose.models?.favorite ||
-   mongoose.model<IUser>("favorite", FavoriteSchema);
+   mongoose.model<IFavorite>("favorite", FavoriteSchema);
 

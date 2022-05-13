@@ -2,14 +2,15 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 
 import Landing from "@components/Landing/Landing";
 import { selectAuth } from "@store/selectors";
+import store from "@store/store";
 
 const Home: NextPage = () => {
-   const auth = useSelector(selectAuth);
    const router = useRouter();
+   const auth = useSelector(selectAuth);
    useEffect(() => {
       if (auth.isAuthenticated) {
          router.push("/dashboard");

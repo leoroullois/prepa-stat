@@ -39,29 +39,37 @@ export const addSchoolToUserFavorites: Controller = async (req, res) => {
 export const deleteSchoolFromUserFavorites: Controller = async (req, res) => {
    const { id } = req.query;
    const { schoolId } = JSON.parse(req.body);
-   if (isEmpty(schoolId)) {
-      return res.status(404).json({ message: "schoolId is undefined." });
-   }
-   const favs = await Favorite.findById(id);
-   if (isEmpty(favs)) {
-      return res.status(404).json({ message: "No favorites found." });
-   }
-
-   const newFavs = favs.favorites.filter((favId: string) => favId !== schoolId);
-
-   const updated = await Favorite.findOneAndUpdate(
-      { _id: id },
-      {
-         $set: {
-            favorites: newFavs,
-         },
+   try {
+      const favs = await Favorite.findById(id);
+      if (isEmpty(favs)) {
+         console.error("⛔  Error fetching favorites.");
+         return res.status(404).json({ message: "Error fetching favorites." });
       }
-   );
-   return res.status(200).json(updated);
+
+      const newFavs = favs.favorites.filter(
+         (favId: string) => favId !== schoolId
+      );
+
+      const updated = await Favorite.findOneAndUpdate(
+         { _id: id },
+         {
+            $set: {
+               favorites: newFavs,
+            },
+         }
+      );
+      console.log("✅ School is deleted from favorites.");
+      return res.status(200).json(updated);
+   } catch (err) {
+      console.error("⛔  An error has occured.", err);
+      return res
+         .status(400)
+         .json({ message: "An error has occured.", error: err });
+   }
 };
 
 export const resetUserFavorites: Controller = async (req, res) => {
-   const { userId } = JSON.parse(req.body);
+   const { userId } = req.body;
    try {
       const deleted = await Favorite.findOneAndUpdate(
          { _id: userId },
@@ -72,10 +80,13 @@ export const resetUserFavorites: Controller = async (req, res) => {
          }
       );
       if (isEmpty(deleted)) {
-         return res.status(404).json({ message: "No favorites found." });
+         console.error("⛔  Error fetching favorites.");
+         return res.status(404).json({ message: "Error fetching favorites." });
       }
+      console.log("✅ Favorites deleted.");
       return res.status(200).json(deleted);
    } catch (err) {
+      console.error("⛔  An error as occured.", err);
       return res
          .status(400)
          .json({ message: "An error has occured.", error: err });
@@ -90,10 +101,13 @@ export const replaceUserFavorites: Controller = async (req, res) => {
          { $set: { favorites: favorites } }
       );
       if (isEmpty(user)) {
-         return res.status(404).json({ message: "No favorites found." });
+         console.error("⛔  Error fetching favorites.");
+         return res.status(404).json({ message: "Error fetching favorites." });
       }
+      console.log("✅ Favorites have been replaced.");
       return res.status(200).json(user);
    } catch (err) {
+      console.error("⛔  An error as occured.", err);
       return res
          .status(400)
          .json({ message: "An error has occured.", error: err });

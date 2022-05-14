@@ -1,39 +1,24 @@
-// * Next
-import { NextPage } from "next";
-import Head from "next/head";
-import NextLink from "next/link";
+import { NextPage } from 'next';
+import Head from 'next/head';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
+import {
+    ChangeEventHandler, FormEventHandler, MouseEventHandler, useEffect, useState
+} from 'react';
+import { Fade } from 'react-awesome-reveal';
+import { IoArrowForwardSharp } from 'react-icons/io5';
+import { useDispatch, useSelector } from 'react-redux';
 
-// * React
 import {
-   ChangeEventHandler,
-   FormEventHandler,
-   MouseEventHandler,
-   useEffect,
-   useState,
-} from "react";
-// * UI
-import {
-   Button,
-   Checkbox,
-   Divider,
-   Heading,
-   ListItem,
-   UnorderedList,
-} from "@chakra-ui/react";
-import { Link } from "@chakra-ui/react";
-import { IoArrowForwardSharp } from "react-icons/io5";
-import { Fade } from "react-awesome-reveal";
-// * components
-import Password from "@components/Auth/password";
-// * Styles
-import scss from "@scss/login.module.scss";
-import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "@store/slices/auth";
-import { selectAuth } from "@store/selectors";
-import Email from "@components/Auth/email";
-import { close } from "@store/slices/sideNav";
-import { AppDispatch } from "@store/store";
+    Button, Checkbox, Divider, Heading, Link, ListItem, UnorderedList
+} from '@chakra-ui/react';
+import Email from '@components/Auth/email';
+import Password from '@components/Auth/password';
+import scss from '@scss/login.module.scss';
+import { selectAuth } from '@store/selectors';
+import { login } from '@store/slices/auth';
+import { close } from '@store/slices/sideNav';
+import { AppDispatch } from '@store/store';
 
 const Login: NextPage = () => {
    const router = useRouter();

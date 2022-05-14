@@ -1,4 +1,4 @@
-import isEmpty from "is-empty";
+import { authorization } from "./../../../middlewares/authorization.middleware";
 import Router from "next/router";
 
 import {
@@ -8,8 +8,6 @@ import {
 import { IAuth, ILoginState, IRegisterForm } from "@lib/type";
 import { IUser } from "@models/User";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-import { authorization } from "../../../middlewares/authorization.middleware";
 
 export interface IChangePassword {
    userId: string;
@@ -77,9 +75,12 @@ export const setCurrentUserById = createAsyncThunk<IUser, string>(
    "auth/setCurrentUserById",
    async (userId: string, { rejectWithValue }) => {
       try {
-         const user = await fetch(`/api/user/${userId}`).then((res) =>
-            res.json()
-         );
+         const user = await fetch(`/api/user/${userId}`, {
+            method: "GET",
+            headers: {
+               Authorization: localStorage.getItem("jwtToken") as string,
+            },
+         }).then((res) => res.json());
          return user as IUser;
       } catch (err) {
          return rejectWithValue(err);
@@ -143,6 +144,7 @@ export const changeFiliere = createAsyncThunk<IUser, IChangeFiliere>(
             body: JSON.stringify(body),
             headers: {
                "Content-Type": "application/json",
+               Authorization: localStorage.getItem("jwtToken") as string,
             },
          }).then((data) => data.json());
          return res as IUser;

@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import { MouseEventHandler, useEffect, useState } from "react";
+import { FC, MouseEventHandler, useEffect, useState } from "react";
 import { IoCaretDown, IoCaretUp, IoRemove, IoStar } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
@@ -22,12 +22,7 @@ import SchoolCard from "@components/SchoolCard/SchoolCard";
 import { matchConcours } from "@lib/statistiques";
 import { ISchool } from "@models/School";
 import scss from "@scss/table.module.scss";
-import {
-   selectFavorites,
-   selectNavBar,
-   selectSchools,
-   selectUser,
-} from "@store/selectors";
+import { selectFavorites, selectNavBar, selectUser } from "@store/selectors";
 import {
    addOneSchoolToFavorites,
    removeFromFavorites,
@@ -41,8 +36,10 @@ enum sortTypes {
    DESC = "desc",
    DEF = "default",
 }
-
-const Table = () => {
+export interface IProps {
+   schools: ISchool[];
+}
+const Table: FC<IProps> = ({ schools }) => {
    const dispatch = useDispatch<AppDispatch>();
 
    const user = useSelector(selectUser);
@@ -59,7 +56,6 @@ const Table = () => {
    const [sortParam, setSortParam] = useState<keyof ISchool>("places");
 
    const { 0: filiere, 1: concours } = params;
-   const schools = useSelector(selectSchools);
 
    const favorites = useSelector(selectFavorites);
 
@@ -207,7 +203,7 @@ const Table = () => {
          {matchConcours(concours).map((currConcours) => {
             // ? filtre les écoles
             const currSchools: ISchool[] = schools
-               ?.filter((school) => school.concours === currConcours)
+               .filter((school) => school.concours === currConcours)
                .filter(
                   (school) =>
                      school.ecole !== currConcours ||

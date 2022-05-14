@@ -5,10 +5,10 @@ import {
    addSchoolToUserFavorites,
    getFavoritesByUserId,
 } from "controllers";
-import { authentication, isValidId } from "@middlewares/index";
+import { jwtAuthWithoutExpiration, isValidId } from "@middlewares/index";
 
 const handler = nextConnect()
-   .use(authentication, isValidId)
+   .use(jwtAuthWithoutExpiration, isValidId)
    .get(getFavoritesByUserId)
    .post(addSchoolToUserFavorites)
    .delete(deleteSchoolFromUserFavorites);

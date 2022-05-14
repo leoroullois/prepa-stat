@@ -42,7 +42,7 @@ const MyAccount = () => {
 
    const auth = useSelector(selectAuth);
 
-   const { colorMode} = useColorMode();
+   const { colorMode } = useColorMode();
 
    const handleResetFavorites: MouseEventHandler = async (e) => {
       if (auth.user) {

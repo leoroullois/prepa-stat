@@ -15,7 +15,6 @@ import {
 } from "@chakra-ui/react";
 import Table from "@components/Table";
 import { useDispatch } from "react-redux";
-import { setSchools } from "@store/slices/schools";
 import { ISchool } from "@models/School";
 import { close } from "@store/slices/sideNav";
 import General from "@components/General";
@@ -27,7 +26,7 @@ interface IProps {
    schools: ISchool[];
 }
 
-const Statistiques: FC<IProps> = ({ schools }) => {
+const Statistiques: FC<any> = (props) => {
    const dispatch = useDispatch();
    const router = useRouter();
    const params = router.query.stats as string[];
@@ -42,14 +41,9 @@ const Statistiques: FC<IProps> = ({ schools }) => {
       "CCINP",
       "E3A",
    ];
-   const paths = router.query.stats as string[];
    const [tabIndex, setTabIndex] = useState(
-      allTabs.map((elt) => slugify(elt).toLowerCase()).indexOf(paths[1])
+      allTabs.map((elt) => slugify(elt).toLowerCase()).indexOf(params[1])
    );
-
-   useEffect(() => {
-      dispatch(setSchools(schools));
-   }, [filiere, concours, dispatch, schools]);
 
    const handleTabsChange = (index: number) => {
       const slugifiedTabs = allTabs.map((tab) => slugify(tab).toLowerCase());
@@ -63,6 +57,7 @@ const Statistiques: FC<IProps> = ({ schools }) => {
    const handleCloseNav: MouseEventHandler = (e) => {
       dispatch(close());
    };
+   console.log("...stats", props);
    return (
       <>
          <Head>
@@ -91,7 +86,9 @@ const Statistiques: FC<IProps> = ({ schools }) => {
                            Statistiques de base.
                         </Heading>
                         {tab === "Générale" && <General />}
-                        {tab !== "Générale" && <Table />}
+                        {tab !== "Générale" && (
+                           <Table schools={props.schools} />
+                        )}
                      </TabPanel>
                   ))}
                </TabPanels>
@@ -129,16 +126,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-   console.log("params", params?.stats);
    const filiere = params?.stats?.[0] as string;
-   const concours = params?.stats?.[1] as string;
-   const schools = await (
-      await fetch(
-         `${process.env.HOST}/api/schools?annee=${2021}&filiere=${filiere}`
-      )
-   ).json();
+   // const concours = params?.stats?.[1] as string;
+   const res = await fetch(
+      `${process.env.HOST}/api/schools?annee=${2021}&filiere=${filiere}`
+   );
+   const schools = await res.json();
+   console.log(schools);
    return {
-      props: { params, schools },
+      props: { schools },
    };
 };
 

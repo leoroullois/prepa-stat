@@ -95,7 +95,7 @@ export const loginUser: Controller = async (req, res) => {
    try {
       const user = await User.findOne({ email });
       if (isEmpty(user)) {
-         return res.status(404).json({ message: "User not found." });
+         return res.status(404).json({ message: "Error fetching user." });
       } else if (await verifyPassword(password, user.password)) {
          const payload = {
             _id: user._id,

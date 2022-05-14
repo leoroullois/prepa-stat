@@ -1,4 +1,4 @@
-import { authentication } from "@middlewares/index";
+import { jwtAuthWithoutExpiration } from "@middlewares/index";
 import {
    deleteFavoritesById,
    deleteUserById,
@@ -9,9 +9,10 @@ import { connectDB } from "db";
 import nextConnect from "next-connect";
 
 const handler = nextConnect()
-   .use(authentication)
+   .use(jwtAuthWithoutExpiration)
    .get(getUserById)
    .delete(deleteUserById, deleteFavoritesById)
    .post(updateUser);
 
 export default connectDB(handler);
+

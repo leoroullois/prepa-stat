@@ -7,10 +7,7 @@ import coefs from "@store/slices/coefs";
 import favorites from "@store/slices/favorites";
 import multiForm from "@store/slices/multiform";
 import navBar from "@store/slices/navBar";
-import schools from "@store/slices/schools";
 import sideNav from "@store/slices/sideNav";
-
-const middleware = [thunk];
 
 const makeStore = () =>
    configureStore({
@@ -21,7 +18,6 @@ const makeStore = () =>
          auth,
          coefs,
          favorites,
-         schools,
       },
       middleware: (getDefaultMiddleware) =>
          getDefaultMiddleware().concat(thunk).concat(logger),

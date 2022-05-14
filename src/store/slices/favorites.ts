@@ -50,9 +50,11 @@ export const setFavorites = createAsyncThunk<ISchool[], string>(
    "favorites/setFavorites",
    async (userId: string, { rejectWithValue }) => {
       try {
+         const bearer = localStorage.getItem("jwtToken") as string;
+         console.log("BEARER :", bearer);
          const res = await fetch(`/api/favorites/${userId}`, {
             headers: {
-               Authorization: localStorage.getItem("jwtToken") as string,
+               Authorization: bearer,
             },
          }).then((res) => res.json());
          const output = await Promise.all(
@@ -106,7 +108,8 @@ export const updateFavorites = createAsyncThunk<
  */
 export const resetFavorites = createAsyncThunk<IFavorite, string>(
    "favorites/resetFavorites",
-   async (userId: string, { rejectWithValue }) => {
+   async (userId, { rejectWithValue }) => {
+      console.log("userId", userId);
       try {
          const res = await fetch(`/api/favorites/reset`, {
             method: "DELETE",
@@ -174,11 +177,6 @@ const favorites = createSlice({
             return schools;
          }
       );
-
-      builder.addCase(resetFavorites.rejected, (state, action) => {
-         const err = action.payload;
-      });
-      builder.addCase(resetFavorites.fulfilled, () => []);
 
       builder.addCase(
          updateFavorites.fulfilled,

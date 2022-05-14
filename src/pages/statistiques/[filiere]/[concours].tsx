@@ -29,8 +29,10 @@ interface IProps {
 const Statistiques: FC<any> = (props) => {
    const dispatch = useDispatch();
    const router = useRouter();
-   const params = router.query.stats as string[];
-   const { 0: filiere, 1: concours } = params;
+   const { filiere, concours } = router.query as {
+      filiere: string;
+      concours: string;
+   };
 
    const allTabs = [
       "Générale",
@@ -42,13 +44,12 @@ const Statistiques: FC<any> = (props) => {
       "E3A",
    ];
    const [tabIndex, setTabIndex] = useState(
-      allTabs.map((elt) => slugify(elt).toLowerCase()).indexOf(params[1])
+      allTabs.map((elt) => slugify(elt).toLowerCase()).indexOf(concours)
    );
 
    const handleTabsChange = (index: number) => {
       const slugifiedTabs = allTabs.map((tab) => slugify(tab).toLowerCase());
-      const paths = router.query.stats as string[];
-      const baseUrl = "/statistiques/" + paths[0];
+      const baseUrl = `/statistiques/${filiere}`;
       const concours = slugifiedTabs[index];
       const newUrl = baseUrl + "/" + concours;
       router.push(newUrl, undefined, { shallow: true });
@@ -57,7 +58,6 @@ const Statistiques: FC<any> = (props) => {
    const handleCloseNav: MouseEventHandler = (e) => {
       dispatch(close());
    };
-   console.log("...stats", props);
    return (
       <>
          <Head>
@@ -99,7 +99,7 @@ const Statistiques: FC<any> = (props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-   const filieres = ["mp", "pc", "pt", "psi"];
+   const filieres = ["mp", "pc", "psi"];
    const sections = [
       "generale",
       "x",
@@ -114,7 +114,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
       for (const section of sections) {
          paths.push({
             params: {
-               stats: [filiere, section],
+               filiere,
+               concours: section,
             },
          });
       }
@@ -126,16 +127,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-   const filiere = params?.stats?.[0] as string;
-   // const concours = params?.stats?.[1] as string;
-   const res = await fetch(
-      `${process.env.HOST}/api/schools?annee=${2021}&filiere=${filiere}`
-   );
-   const schools = await res.json();
-   console.log(schools);
-   return {
-      props: { schools },
-   };
+   let schools: ISchool[] = [];
+   try {
+      console.log("...getStaticProps", params);
+      const filiere = params?.filiere as string;
+      const concours = params?.concours as string;
+      const res = await fetch(
+         `${process.env.HOST}/api/schools?annee=${2021}&filiere=${filiere}`
+      );
+      schools = await res.json();
+   } catch (err) {
+      console.log(err);
+   } finally {
+      return {
+         props: { schools },
+      };
+   }
 };
 
 export default Statistiques;

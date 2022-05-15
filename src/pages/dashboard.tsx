@@ -9,7 +9,7 @@ import scss from "@scss/dashboard.module.scss";
 import { close } from "@store/slices/sideNav";
 import { Divider, Heading, useColorMode } from "@chakra-ui/react";
 import { MdSpaceDashboard } from "react-icons/md";
-import { addToFavorites, resetFavorites } from "@store/slices/favorites";
+import {  resetFavorites } from "@store/slices/favorites";
 import MyAccount from "@components/MyAccount";
 import WishList from "@components/WishList";
 import DashboardInfos from "@components/DashboardInfos";

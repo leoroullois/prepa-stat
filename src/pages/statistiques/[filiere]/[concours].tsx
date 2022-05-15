@@ -37,7 +37,6 @@ const Statistiques = ({
       filiere: string;
       concours: string;
    };
-   console.log("schools ", schools);
    const allTabs = [
       "Générale",
       "X",
@@ -104,7 +103,7 @@ const Statistiques = ({
    );
 };
 export const getStaticPaths: GetStaticPaths = async () => {
-   const filieres = ["mp", "pc", "psi"];
+   const filieres = ["mp"];
    const sections = [
       "generale",
       "x",

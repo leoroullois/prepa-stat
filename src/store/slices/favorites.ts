@@ -51,7 +51,6 @@ export const setFavorites = createAsyncThunk<ISchool[], string>(
    async (userId: string, { rejectWithValue }) => {
       try {
          const bearer = localStorage.getItem("jwtToken") as string;
-         console.log("BEARER :", bearer);
          const res = await fetch(`/api/favorites/${userId}`, {
             headers: {
                Authorization: bearer,
@@ -59,7 +58,7 @@ export const setFavorites = createAsyncThunk<ISchool[], string>(
          }).then((res) => res.json());
          const output = await Promise.all(
             res.favorites.map(async (id: string) => {
-               const school = await fetch(`/api/schools/id/${id}`).then((res) =>
+               const school = await fetch(`/api/schools/${id}`).then((res) =>
                   res.json()
                );
                return school;
@@ -92,7 +91,7 @@ export const updateFavorites = createAsyncThunk<
       }).then((res) => res.json());
       const output = await Promise.all(
          res.favorites.map(async (id: string) => {
-            const school = await fetch(`/api/schools/id/${id}`).then((res) =>
+            const school = await fetch(`/api/schools/${id}`).then((res) =>
                res.json()
             );
             return school;

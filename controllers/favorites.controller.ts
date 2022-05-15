@@ -1,5 +1,6 @@
 import { Favorite } from "@models/Favorite";
 import isEmpty from "is-empty";
+import { GiConsoleController } from "react-icons/gi";
 import Controller from "./types";
 
 export const getFavoritesByUserId: Controller = async (req, res) => {
@@ -19,17 +20,20 @@ export const getFavoritesByUserId: Controller = async (req, res) => {
 };
 
 export const addSchoolToUserFavorites: Controller = async (req, res) => {
-   const { id } = req.query;
-   const { schoolId } = JSON.parse(req.body);
    try {
+      const { id } = req.query;
+      const { schoolId } = req.body;
       const favorites = await Favorite.findById(id);
       if (isEmpty(favorites)) {
+         console.error("⛔ Error fetching favorites.");
          return res.status(404).json({ message: "Error fetching favorites." });
       }
       favorites.favorites.push(schoolId);
       const newFavorites = await Favorite.updateOne({ _id: id }, favorites);
-      return res.status(200).json(newFavorites);
+      console.log("✅ School is added to favorites.", favorites);
+      return res.status(200).json(favorites);
    } catch (err) {
+      console.error("⛔ An error has occured.", err);
       return res
          .status(400)
          .json({ message: "An error has occured.", error: err });
@@ -37,12 +41,12 @@ export const addSchoolToUserFavorites: Controller = async (req, res) => {
 };
 
 export const deleteSchoolFromUserFavorites: Controller = async (req, res) => {
-   const { id } = req.query;
-   const { schoolId } = JSON.parse(req.body);
    try {
+      const { id } = req.query;
+      const { schoolId } = req.body;
       const favs = await Favorite.findById(id);
       if (isEmpty(favs)) {
-         console.error("⛔  Error fetching favorites.");
+         console.error("⛔ Error fetching favorites.");
          return res.status(404).json({ message: "Error fetching favorites." });
       }
 
@@ -61,7 +65,7 @@ export const deleteSchoolFromUserFavorites: Controller = async (req, res) => {
       console.log("✅ School is deleted from favorites.");
       return res.status(200).json(updated);
    } catch (err) {
-      console.error("⛔  An error has occured.", err);
+      console.error("⛔ An error has occured.", err);
       return res
          .status(400)
          .json({ message: "An error has occured.", error: err });
@@ -94,8 +98,8 @@ export const resetUserFavorites: Controller = async (req, res) => {
 };
 
 export const replaceUserFavorites: Controller = async (req, res) => {
-   const { userId, favorites } = JSON.parse(req.body);
    try {
+      const { userId, favorites } = req.body;
       const user = await Favorite.findOneAndUpdate(
          { _id: userId },
          { $set: { favorites: favorites } }

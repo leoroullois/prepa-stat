@@ -2,15 +2,13 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { Provider, useSelector } from "react-redux";
-
+import { useSelector } from "react-redux";
 import Landing from "@components/Landing/Landing";
 import { selectAuth } from "@store/selectors";
-import store from "@store/store";
 
 const Home: NextPage = () => {
-   const router = useRouter();
    const auth = useSelector(selectAuth);
+   const router = useRouter();
    useEffect(() => {
       if (auth.isAuthenticated) {
          router.push("/dashboard");
@@ -66,6 +64,8 @@ const Home: NextPage = () => {
             />
             <meta name='twitter:card' content='summary_large_image' /> */}
 
+
+
             <meta name='og:locality' content='France' />
          </Head>
          {auth.isAuthenticated ? <div>Loading...</div> : <Landing />}
@@ -74,4 +74,3 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-

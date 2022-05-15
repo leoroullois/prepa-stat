@@ -28,62 +28,16 @@ import General from "@components/General";
 // TODO: les 10 écoles les plus populaires (favoris)
 // TODO: les concours dont les écoles sont le + en favoris
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//    const filieres = ["mp", "pc", "psi"];
-//    const sections = [
-//       "generale",
-//       "x",
-//       "ens",
-//       "centrale",
-//       "mines",
-//       "ccinp",
-//       "e3a",
-//    ];
-//    const paths = [];
-//    for (const filiere of filieres) {
-//       for (const section of sections) {
-//          paths.push({
-//             params: {
-//                filiere,
-//                concours: section,
-//             },
-//          });
-//       }
-//    }
-//    return {
-//       paths,
-//       fallback: false,
-//    };
-// };
-interface IProps {
-   schools: ISchool[];
-}
-export const getServerSideProps: GetServerSideProps<IProps> = async ({
-   params,
-}) => {
-   console.log("getServerSideProps");
-   let schools: ISchool[] = [];
-   const filiere = params?.filiere as string;
-   const concours = params?.concours as string;
-   const res = await fetch(
-      `${process.env.HOST}/api/schools?annee=${2021}&filiere=${filiere}`
-   );
-   schools = await res.json();
-   return {
-      props: { schools: schools },
-   };
-};
-
-const Statistiques = (
-   props: InferGetStaticPropsType<typeof getServerSideProps>
-) => {
+const Statistiques = ({
+   schools,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
    const dispatch = useDispatch();
    const router = useRouter();
    const { filiere, concours } = router.query as {
       filiere: string;
       concours: string;
    };
-   console.log("props", props);
+   console.log("schools ", schools);
    const allTabs = [
       "Générale",
       "X",
@@ -93,6 +47,7 @@ const Statistiques = (
       "CCINP",
       "E3A",
    ];
+
    const [tabIndex, setTabIndex] = useState(
       allTabs.map((elt) => slugify(elt).toLowerCase()).indexOf(concours)
    );
@@ -105,6 +60,7 @@ const Statistiques = (
       router.push(newUrl, undefined, { shallow: true });
       setTabIndex(index);
    };
+
    const handleCloseNav: MouseEventHandler = (e) => {
       dispatch(close());
    };
@@ -137,8 +93,7 @@ const Statistiques = (
                         </Heading>
                         {tab === "Générale" && <General />}
                         {tab !== "Générale" && (
-                           //    <Table schools={props.schools} />
-                           <p>{JSON.stringify(props)}</p>
+                           <Table schools={schools as ISchool[]} />
                         )}
                      </TabPanel>
                   ))}
@@ -148,6 +103,46 @@ const Statistiques = (
       </>
    );
 };
-
+export const getStaticPaths: GetStaticPaths = async () => {
+   const filieres = ["mp", "pc", "psi"];
+   const sections = [
+      "generale",
+      "x",
+      "ens",
+      "centrale",
+      "mines",
+      "ccinp",
+      "e3a",
+   ];
+   const paths = [];
+   for (const filiere of filieres) {
+      for (const section of sections) {
+         paths.push({
+            params: {
+               filiere,
+               concours: section,
+            },
+         });
+      }
+   }
+   return {
+      paths,
+      fallback: false,
+   };
+};
+interface IProps {
+   schools: ISchool[];
+}
+export const getStaticProps: GetStaticProps<IProps> = async ({ params }) => {
+   const filiere = params?.filiere as string;
+   const concours = params?.concours as string;
+   const res = await fetch(
+      `${process.env.HOST}/api/schools?annee=${2021}&filiere=${filiere}`
+   );
+   const schools: ISchool[] = await res.json();
+   return {
+      props: { schools },
+   };
+};
 export default Statistiques;
 

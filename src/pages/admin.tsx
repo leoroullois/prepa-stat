@@ -2,8 +2,8 @@ import { FC, MouseEventHandler, useState } from "react";
 import { Button } from "@chakra-ui/react";
 import Head from "next/head";
 import PrivateRoute from "@components/Auth/PrivateRoute";
-import { selectUser } from "@store/selectors";
 import { useSelector } from "react-redux";
+import { selectUser } from "@store/selectors";
 
 const Admin: FC = () => {
    const user = useSelector(selectUser);

@@ -1,52 +1,68 @@
+// import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import "@scss/globals.scss";
-
-import jwt from "jsonwebtoken";
-import jwt_decode from "jwt-decode";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
-
-import { ChakraProvider } from "@chakra-ui/react";
+import jwt from "jsonwebtoken";
 import Layout from "@components/Layout";
-import { IToken } from "@lib/type";
-import { logout, setCurrentUserById } from "@store/slices/auth";
 import store from "@store/store";
-import isEmpty from "is-empty";
+import jwt_decode from "jwt-decode";
+import { logout, setCurrentUserById } from "@store/slices/auth";
+import { ChakraProvider } from "@chakra-ui/react";
+import "@scss/globals.scss";
+import { IToken } from "@lib/type";
 
 const App = ({ Component, pageProps }: AppProps) => {
-   // const { query } = useRouter();
+   const { query } = useRouter();
    useEffect(() => {
+      // ? Récupère le token dans le localStorage
       let encoded = localStorage.getItem("jwtToken") ?? "";
-      if (isEmpty(encoded)) {
-         if (!store.getState().auth.isAuthenticated) {
-            store.dispatch(logout());
+      if (query.token) {
+         const token = "Bearer " + query.token;
+
+         const decoded: any = jwt.verify(
+            query.token as string,
+            process.env.NEXT_PUBLIC_JWT_KEY as string
+         );
+
+         if (decoded?._id && decoded?.name && decoded?.email) {
+            encoded = token;
          }
-      } else {
+      }
+      if (encoded) {
+         // ? Décode le token pour l'avoir sous la forme IToken
          const token = jwt_decode(encoded) as IToken;
+         // ? Vérification de la validité du token :
+         // Check for expired token
          const currentTime = Date.now() / 1000; // to get in milliseconds
+
          if (token.exp < currentTime) {
             localStorage.removeItem("jwtToken");
             store.dispatch(logout());
          } else {
-            store.dispatch(setCurrentUserById(token._id));
+            // ? Si le token est valide, on mets en place la session de l'utilisateur
+            const user = {
+               id: token._id,
+               email: token.email,
+            };
+            store.dispatch(setCurrentUserById(user.id));
+         }
+      } else {
+         if (!store.getState().auth.isAuthenticated) {
+            store.dispatch(logout());
          }
       }
-   }, []);
-   return (
-      <ChakraProvider>
-         <Layout>
-            <Component {...pageProps} />
-         </Layout>
-      </ChakraProvider>
-   );
-};
-const MyApp = ({ Component, pageProps }: AppProps) => {
+   }, [query.token]);
    return (
       <Provider store={store}>
-         <App {...pageProps} Component={Component} />
+         <ChakraProvider>
+            <Layout>
+               <Component {...pageProps} />
+            </Layout>
+         </ChakraProvider>
       </Provider>
    );
 };
-export default MyApp;
+
+export default App;
 

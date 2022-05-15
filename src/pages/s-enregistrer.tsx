@@ -1,7 +1,9 @@
+// * Next
 import { NextPage } from "next";
 import Head from "next/head";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
+// * React
 import {
    ChangeEventHandler,
    FormEventHandler,
@@ -9,13 +11,13 @@ import {
    useEffect,
    useState,
 } from "react";
+// * UI
+import scss from "@scss/register.module.scss";
 import { Fade } from "react-awesome-reveal";
-import { IoArrowForwardSharp } from "react-icons/io5";
-import { useDispatch, useSelector } from "react-redux";
-
 import {
    Button,
    Divider,
+   FormErrorMessage,
    Heading,
    Link,
    ListItem,
@@ -23,15 +25,16 @@ import {
    RadioGroup,
    Stack,
    UnorderedList,
-   useToast,
 } from "@chakra-ui/react";
+import { IoArrowForwardSharp } from "react-icons/io5";
+// * Components
 import Email from "@components/Auth/email";
 import Password from "@components/Auth/password";
 import Username from "@components/Auth/username";
-import scss from "@scss/register.module.scss";
+import { useDispatch, useSelector } from "react-redux";
 import { selectAuth } from "@store/selectors";
 import { login, register } from "@store/slices/auth";
-import { AppDispatch } from "@store/store";
+import { AppDispatch, RootState } from "@store/store";
 
 export interface IServerError {
    message: string;
@@ -39,9 +42,6 @@ export interface IServerError {
 const Register: NextPage = () => {
    const dispatch = useDispatch<AppDispatch>();
    const router = useRouter();
-
-   const toast = useToast();
-
    const { isAuthenticated } = useSelector(selectAuth);
 
    const [clicked, setClicked] = useState(false);
@@ -82,6 +82,7 @@ const Register: NextPage = () => {
          password1,
          password2,
       };
+      console.log("USER :", user);
       try {
          const res = await dispatch(register(user)).unwrap();
          await dispatch(
@@ -89,13 +90,6 @@ const Register: NextPage = () => {
          ).unwrap();
       } catch (err) {
          console.log("ERROR :", err);
-         toast({
-            title: "Erreur",
-            description: "Une erreur est survenue. Veuillez réessayer.",
-            status: "error",
-            duration: 5000,
-            isClosable: true,
-         });
       }
    };
 
@@ -189,7 +183,7 @@ const Register: NextPage = () => {
                   </Fade>
                   {serverError && (
                      <UnorderedList className={scss.serverError}>
-                        {serverError.map((elt: any, i: number) => {
+                        {serverError.map((elt: any, i) => {
                            return <ListItem key={i}>{elt.message}</ListItem>;
                         })}
                      </UnorderedList>

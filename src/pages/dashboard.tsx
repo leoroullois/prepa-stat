@@ -1,30 +1,44 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { MouseEventHandler, useState } from "react";
-import { MdSpaceDashboard } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-
-import { Divider, Heading, useColorMode } from "@chakra-ui/react";
-import PrivateRoute from "@components/Auth/PrivateRoute";
-import DashboardInfos from "@components/DashboardInfos";
-import DashboardIntro from "@components/DashboardIntro";
-import MyAccount from "@components/MyAccount";
-import WishList from "@components/WishList";
-import scss from "@scss/dashboard.module.scss";
 import { selectAuth } from "@store/selectors";
 import { logout } from "@store/slices/auth";
-import { resetFavorites } from "@store/slices/favorites";
+import PrivateRoute from "@components/Auth/PrivateRoute";
+import scss from "@scss/dashboard.module.scss";
 import { close } from "@store/slices/sideNav";
+import { Divider, Heading, useColorMode } from "@chakra-ui/react";
+import { MdSpaceDashboard } from "react-icons/md";
+import { addToFavorites, resetFavorites } from "@store/slices/favorites";
+import MyAccount from "@components/MyAccount";
+import WishList from "@components/WishList";
+import DashboardInfos from "@components/DashboardInfos";
+import DashboardIntro from "@components/DashboardIntro";
 import { AppDispatch } from "@store/store";
-
 // TODO: changer la l'implpémentation en bdd des favoris (rajouter l'index)
 const Dashboard: NextPage = () => {
    const dispatch = useDispatch<AppDispatch>();
    const auth = useSelector(selectAuth);
 
+   const [userId] = useState(auth.user?._id);
+
+   const handleLogout: MouseEventHandler = () => {
+      dispatch(logout());
+   };
+
    const handleCloseNav: MouseEventHandler = (e) => {
       dispatch(close());
    };
+
+   const handleResetFavorites: MouseEventHandler = async (e) => {
+      if (userId) {
+         // TODO: supprimer les favoris du seul mec avec l'id
+         dispatch(resetFavorites(userId));
+      } else {
+         console.log("You need to be logged in to do that");
+      }
+   };
+   const { colorMode } = useColorMode();
    return (
       <>
          <Head>

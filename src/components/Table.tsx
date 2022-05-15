@@ -203,8 +203,7 @@ const Table: FC<IProps> = ({ schools }) => {
    };
    return (
       <>
-         <p>{JSON.stringify(schools)}</p>
-         {/* {matchConcours(concours).map((currConcours) => {
+         {matchConcours(concours).map((currConcours) => {
             // ? filtre les écoles
             const currSchools: ISchool[] = schools
                .filter((school) => school.concours === currConcours)
@@ -449,7 +448,7 @@ const Table: FC<IProps> = ({ schools }) => {
                url: "https://www.leoroullois.fr",
                annee: currentSchool?.annee ?? 2022,
             }}
-         /> */}
+         />
       </>
    );
 };

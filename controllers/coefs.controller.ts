@@ -6,7 +6,7 @@ import Controller from "./types";
 
 export const getCoefs: Controller = async (req, res) => {
    try {
-      const { concours, filiere } = req.body;
+      const { concours, filiere } = req.query;
       const filter = removeNullValuesFromObject({ concours, filiere });
       const coefs = await Coef.find(filter);
       if (isEmpty(coefs)) {
